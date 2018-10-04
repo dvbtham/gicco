@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <ItemGroup>
+    <ProjectReference Include="..\Gicco.Module.Catalog\Gicco.Module.Catalog.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Catalog\Gicco.Module.Catalog.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Core\Gicco.Module.Core.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Inventory\Gicco.Module.Inventory.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Orders\Gicco.Module.Orders.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Shipping\Gicco.Module.Shipping.csproj" />
+  </ItemGroup>
+
+</Project>

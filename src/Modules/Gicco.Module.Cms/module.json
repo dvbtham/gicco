@@ -1,0 +1,6 @@
+{
+  "id": "Gicco.Module.Cms",
+  "name": "Content Management System (CMS)",
+  "isBundledWithHost": false,
+  "version": "1.0.0"
+}

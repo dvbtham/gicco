@@ -1,0 +1,6 @@
+{
+  "id": "Gicco.Module.EmailSenderSmtp",
+  "name": "SMTP Mailer",
+  "isBundledWithHost": true,
+  "version": "1.0.0"
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "Gicco.Module.ActivityLog",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Catalog",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Cms",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Comments",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Contacts",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Core",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.DinkToPdf",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.EmailSenderSmtp",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Inventory",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Localization",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.News",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Orders",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.PaymentCoD",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.PaymentPaypalExpress",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Payments",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.PaymentStripe",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Pricing",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.ProductComparison",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.ProductRecentlyViewed",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Reviews",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.SampleData",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Search",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Shipments",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Shipping",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.ShippingFree",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.ShippingPrices",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.ShippingTableRate",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.ShoppingCart",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.StorageLocal",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Tax",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.Vendors",
+    "version": "1.0.0"
+  },
+  {
+    "id": "Gicco.Module.WishList",
+    "version": "1.0.0"
+  }
+]

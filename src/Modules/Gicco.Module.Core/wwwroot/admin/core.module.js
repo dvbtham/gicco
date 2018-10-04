@@ -21,7 +21,14 @@
                         label: '{{ ::vm.translate.get("Dashboard")}}',
                         skip: true
                     }
-                }).state('users', {
+                }).state('sites', {
+                    url: "/sites",
+                    abstract: true,
+                    template: '<ui-view></ui-view>',
+                    ncyBreadcrumb: {
+                        label: 'Sites'
+                    }
+                }).state('sites.users', {
                     url: '/users',
                     parent: 'base',
                     templateUrl: "modules/core/admin/user/user-list.html",
@@ -36,7 +43,7 @@
                     templateUrl: 'modules/core/admin/user/user-form.html',
                     controller: 'UserFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Create User")}}'
                     }
                 })
                 .state('user-edit', {
@@ -45,7 +52,7 @@
                     templateUrl: 'modules/core/admin/user/user-form.html',
                     controller: 'UserFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Edit User")}}'
                     }
                 })
                 .state('widget', {
@@ -182,6 +189,10 @@
                     ncyBreadcrumb: {
                         label: '{{ ::vm.translate.get("Users")}}'
                     }
+                })
+                .state('appSimple', {
+                    abstract: true,
+                    templateUrl: 'modules/core/admin/common/layouts/simple.html'
                 });
         }]);
 })();

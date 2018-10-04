@@ -10,12 +10,12 @@
                     .state('order', {
                         url: '/order',
                         templateUrl: 'modules/orders/admin/order/order-list.html',
-                        controller: 'OrderListCtrl as vm'
+                        controller: 'OrderListCtrl as vm', parent: 'base'
                     })
                     .state('order-detail', {
                         url: '/order/detail/:id',
                         templateUrl: 'modules/orders/admin/order/order-detail.html',
-                        controller: 'OrderDetailCtrl as vm'
+                        controller: 'OrderDetailCtrl as vm', parent: 'base'
                     })
                 ;
             }

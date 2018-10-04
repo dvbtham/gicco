@@ -8,7 +8,7 @@
             $stateProvider.state('payment-providers', {
                 url: '/payment-providers',
                 templateUrl: "modules/payments/admin/provider/payment-provider-list.html",
-                controller: 'PaymentProviderListCtrl as vm'
+                controller: 'PaymentProviderListCtrl as vm', parent: 'base'
             });
         }]);
 })();

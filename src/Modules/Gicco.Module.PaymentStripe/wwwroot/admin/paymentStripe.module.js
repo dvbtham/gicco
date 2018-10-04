@@ -10,7 +10,7 @@
                     .state('payments-stripe-config', {
                         url: '/payments/stripe/config',
                         templateUrl: 'modules/paymentstripe/admin/stripe/stripe-config-form.html',
-                        controller: 'StripeConfigFormCtrl as vm'
+                        controller: 'StripeConfigFormCtrl as vm', parent: 'base'
                     })
                 ;
             }

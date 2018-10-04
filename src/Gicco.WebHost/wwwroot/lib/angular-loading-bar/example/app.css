@@ -112,11 +112,11 @@ footer.navbar {
   color: #A1FFC9;
 }
 
-.btn-primary {
+.btn-outline-primary {
   background-color: #2ecc71;
   border: 1px solid #27ae60;
 }
-.btn-primary:hover {
+.btn-outline-primary:hover {
   background-color: #32B96C;
   border: 1px solid #27ae60;
 }

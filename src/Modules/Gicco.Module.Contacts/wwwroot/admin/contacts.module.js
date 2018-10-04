@@ -8,27 +8,27 @@
                 .state('contact-area', {
                     url: '/contact-area',
                     templateUrl: 'modules/contacts/admin/contact-area/contact-area-list.html',
-                    controller: 'ContactAreaListCtrl as vm'
+                    controller: 'ContactAreaListCtrl as vm', parent: 'base'
                 })
                 .state('contact-area-create', {
                     url: '/contact-area/create',
                     templateUrl: 'modules/contacts/admin/contact-area/contact-area-form.html',
-                    controller: 'ContactAreaFormCtrl as vm'
+                    controller: 'ContactAreaFormCtrl as vm', parent: 'base'
                 })
                 .state('contact-area-edit', {
                     url: '/contact-area/edit/:id',
                     templateUrl: 'modules/contacts/admin/contact-area/contact-area-form.html',
-                    controller: 'ContactAreaFormCtrl as vm'
+                    controller: 'ContactAreaFormCtrl as vm', parent: 'base'
                 })
                 .state('contact', {
                     url: '/contact',
                     templateUrl: 'modules/contacts/admin/contacts/contact-list.html',
-                    controller: 'ContactListCtrl as vm'
+                    controller: 'ContactListCtrl as vm', parent: 'base'
                 })
                 .state('contact-preview', {
                     url: '/contact/preview/:id',
                     templateUrl: 'modules/contacts/admin/contacts/contact.html',
-                    controller: 'ContactCtrl as vm'
+                    controller: 'ContactCtrl as vm', parent: 'base'
                 });
         }]);
 })();

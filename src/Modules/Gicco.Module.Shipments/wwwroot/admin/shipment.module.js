@@ -8,17 +8,17 @@
                 .state('shipment-create', {
                     url: '/orders/:orderId/create-shipment',
                     templateUrl: 'modules/shipments/admin/shipment/shipment-form.html',
-                    controller: 'ShipmentFormCtrl as vm'
+                    controller: 'ShipmentFormCtrl as vm', parent: 'base'
                 })
                 .state('shipments', {
                     url: '/shipments',
                     templateUrl: 'modules/shipments/admin/shipment/shipment-list.html',
-                    controller: 'ShipmentListCtrl as vm'
+                    controller: 'ShipmentListCtrl as vm', parent: 'base'
                 })
                 .state('shipment-details', {
                     url: '/shipment/:id',
                     templateUrl: 'modules/shipments/admin/shipment/shipment-details.html',
-                    controller: 'ShipmentDetailsCtrl as vm'
+                    controller: 'ShipmentDetailsCtrl as vm', parent: 'base'
                 });
         }]);
 })();

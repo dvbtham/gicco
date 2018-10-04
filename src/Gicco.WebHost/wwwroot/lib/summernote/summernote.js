@@ -5904,7 +5904,7 @@
                      '<label>' + '<input type="checkbox" checked> ' + lang.link.openInNewWindow + '</label>' +
                    '</div>' : ''
                  );
-      var footer = '<button href="#" class="btn btn-primary note-link-btn disabled" disabled>' + lang.link.insert + '</button>';
+      var footer = '<button href="#" class="btn btn-outline-primary note-link-btn disabled" disabled>' + lang.link.insert + '</button>';
 
       this.$dialog = ui.dialog({
         className: 'link-dialog',
@@ -6126,7 +6126,7 @@
                    '<label>' + lang.image.url + '</label>' +
                    '<input class="note-image-url form-control col-md-12" type="text" />' +
                  '</div>';
-      var footer = '<button href="#" class="btn btn-primary note-image-btn disabled" disabled>' + lang.image.insert + '</button>';
+      var footer = '<button href="#" class="btn btn-outline-primary note-image-btn disabled" disabled>' + lang.image.insert + '</button>';
 
       this.$dialog = ui.dialog({
         title: lang.image.insert,
@@ -6272,7 +6272,7 @@
           '<label>' + lang.video.url + ' <small class="text-muted">' + lang.video.providers + '</small></label>' +
           '<input class="note-video-url form-control span12" type="text" />' +
           '</div>';
-      var footer = '<button href="#" class="btn btn-primary note-video-btn disabled" disabled>' + lang.video.insert + '</button>';
+      var footer = '<button href="#" class="btn btn-outline-primary note-video-btn disabled" disabled>' + lang.video.insert + '</button>';
 
       this.$dialog = ui.dialog({
         title: lang.video.insert,

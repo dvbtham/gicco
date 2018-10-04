@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 .btn-default,
-.btn-primary,
+.btn-outline-primary,
 .btn-success,
 .btn-info,
 .btn-warning,
@@ -14,13 +14,13 @@
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
 }
 .btn-default:active,
-.btn-primary:active,
+.btn-outline-primary:active,
 .btn-success:active,
 .btn-info:active,
 .btn-warning:active,
 .btn-danger:active,
 .btn-default.active,
-.btn-primary.active,
+.btn-outline-primary.active,
 .btn-success.active,
 .btn-info.active,
 .btn-warning.active,
@@ -29,19 +29,19 @@
           box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
 .btn-default.disabled,
-.btn-primary.disabled,
+.btn-outline-primary.disabled,
 .btn-success.disabled,
 .btn-info.disabled,
 .btn-warning.disabled,
 .btn-danger.disabled,
 .btn-default[disabled],
-.btn-primary[disabled],
+.btn-outline-primary[disabled],
 .btn-success[disabled],
 .btn-info[disabled],
 .btn-warning[disabled],
 .btn-danger[disabled],
 fieldset[disabled] .btn-default,
-fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-outline-primary,
 fieldset[disabled] .btn-success,
 fieldset[disabled] .btn-info,
 fieldset[disabled] .btn-warning,
@@ -50,7 +50,7 @@ fieldset[disabled] .btn-danger {
           box-shadow: none;
 }
 .btn-default .badge,
-.btn-primary .badge,
+.btn-outline-primary .badge,
 .btn-success .badge,
 .btn-info .badge,
 .btn-warning .badge,
@@ -104,7 +104,7 @@ fieldset[disabled] .btn-default.active {
   background-color: #e0e0e0;
   background-image: none;
 }
-.btn-primary {
+.btn-outline-primary {
   background-image: -webkit-linear-gradient(top, #337ab7 0%, #265a88 100%);
   background-image:      -o-linear-gradient(top, #337ab7 0%, #265a88 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#337ab7), to(#265a88));
@@ -114,34 +114,34 @@ fieldset[disabled] .btn-default.active {
   background-repeat: repeat-x;
   border-color: #245580;
 }
-.btn-primary:hover,
-.btn-primary:focus {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
   background-color: #265a88;
   background-position: 0 -15px;
 }
-.btn-primary:active,
-.btn-primary.active {
+.btn-outline-primary:active,
+.btn-outline-primary.active {
   background-color: #265a88;
   border-color: #245580;
 }
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
-.btn-primary.disabled:hover,
-.btn-primary[disabled]:hover,
-fieldset[disabled] .btn-primary:hover,
-.btn-primary.disabled:focus,
-.btn-primary[disabled]:focus,
-fieldset[disabled] .btn-primary:focus,
-.btn-primary.disabled.focus,
-.btn-primary[disabled].focus,
-fieldset[disabled] .btn-primary.focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
+.btn-outline-primary.disabled,
+.btn-outline-primary[disabled],
+fieldset[disabled] .btn-outline-primary,
+.btn-outline-primary.disabled:hover,
+.btn-outline-primary[disabled]:hover,
+fieldset[disabled] .btn-outline-primary:hover,
+.btn-outline-primary.disabled:focus,
+.btn-outline-primary[disabled]:focus,
+fieldset[disabled] .btn-outline-primary:focus,
+.btn-outline-primary.disabled.focus,
+.btn-outline-primary[disabled].focus,
+fieldset[disabled] .btn-outline-primary.focus,
+.btn-outline-primary.disabled:active,
+.btn-outline-primary[disabled]:active,
+fieldset[disabled] .btn-outline-primary:active,
+.btn-outline-primary.disabled.active,
+.btn-outline-primary[disabled].active,
+fieldset[disabled] .btn-outline-primary.active {
   background-color: #265a88;
   background-image: none;
 }

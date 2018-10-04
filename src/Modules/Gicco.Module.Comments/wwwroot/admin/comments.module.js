@@ -10,7 +10,7 @@
                     .state('comments', {
                         url: '/comments',
                         templateUrl: 'modules/comments/admin/comment/comment-list.html',
-                        controller: 'CommentListCtrl as vm'
+                        controller: 'CommentListCtrl as vm', parent: 'base'
                     })
                 ;
             }

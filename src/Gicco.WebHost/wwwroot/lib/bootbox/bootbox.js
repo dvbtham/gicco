@@ -175,7 +175,7 @@
       if (!button.className) {
         if (total <= 2 && index === total-1) {
           // always add a primary to the main option in a two-button dialog
-          button.className = "btn-primary";
+          button.className = "btn-outline-primary";
         } else {
           button.className = "btn-default";
         }
@@ -546,7 +546,7 @@
       e.stopPropagation();
       // @TODO can we actually click *the* button object instead?
       // e.g. buttons.confirm.click() or similar
-      dialog.find(".btn-primary").click();
+      dialog.find(".btn-outline-primary").click();
     });
 
     dialog = exports.dialog(options);
@@ -664,7 +664,7 @@
     */
 
     dialog.on("shown.bs.modal", function() {
-      dialog.find(".btn-primary:first").focus();
+      dialog.find(".btn-outline-primary:first").focus();
     });
 
     /**

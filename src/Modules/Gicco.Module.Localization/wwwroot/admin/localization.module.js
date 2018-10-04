@@ -8,7 +8,7 @@
             $stateProvider.state('localization', {
                 url: '/localization',
                 templateUrl: "modules/localization/admin/localization/localization-form.html",
-                controller: 'LocalizationFormCtrl as vm'
+                controller: 'LocalizationFormCtrl as vm', parent: 'base'
             });
         }]);
 })();

@@ -10,7 +10,7 @@
                     .state('payments-cod-config', {
                         url: '/payments/cod/config',
                         templateUrl: 'modules/paymentcod/admin/config/config-form.html',
-                        controller: 'CoDConfigFormCtrl as vm'
+                        controller: 'CoDConfigFormCtrlas vm', parent: 'base'
                     })
                     ;
             }

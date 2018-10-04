@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.shipping-tablerate')
+        .module('giccoAdmin.shipping-tablerate')
         .controller('ShippingTableRateFormCtrl', ShippingTableRateFormCtrl);
 
     /* @ngInject */

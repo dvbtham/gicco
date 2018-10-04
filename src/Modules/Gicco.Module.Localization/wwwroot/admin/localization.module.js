@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.localization', [])
+        .module('giccoAdmin.localization', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('localization', {
                 url: '/localization',

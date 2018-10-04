@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.tax', [])
+    angular.module('giccoAdmin.tax', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('tax-classes', {

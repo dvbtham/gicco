@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simplAdmin.reviews')
+        .module('giccoAdmin.reviews')
         .directive('reviewWidget', reviewWidget);
 
     function reviewWidget() {

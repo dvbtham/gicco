@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.inventory', [])
+    angular.module('giccoAdmin.inventory', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('stocks', {

@@ -6,9 +6,9 @@
     margin-top: 10px;
 }
 
-.page-header .text-right {
-    margin-top: 22px;
-}
+    .page-header .text-right {
+        margin-top: 22px;
+    }
 
 .panel-default > .panel-heading {
     background: none;
@@ -23,15 +23,15 @@ th.sortable {
     cursor: pointer;
 }
 
-.st-sort-ascent:before{
+.st-sort-ascent:before {
     content: '\25B2';
 }
 
-.st-sort-descent:before{
+.st-sort-descent:before {
     content: '\25BC';
 }
 
-.st-selected{
+.st-selected {
     background: #216eff !important;
     color: white !important;
 }
@@ -47,13 +47,13 @@ th.sortable {
     margin: 1px;
 }
 
-.product-image-edit button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-}
+    .product-image-edit button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+    }
 
 .product-file-edit {
     display: inline-block;
@@ -77,33 +77,35 @@ table > tbody > tr > td.variation-form {
     width: 120px;
 }
 
-#toast-container>div {
+#toast-container > div {
     opacity: 1;
 }
 
 .input-number {
-    position:relative;
+    position: relative;
 }
-.input-number label {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    cursor: pointer;
-    font-weight: normal;
-}
-.input-number input:focus + label {
-    display: none;
-}
+
+    .input-number label {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        cursor: pointer;
+        font-weight: normal;
+    }
+
+    .input-number input:focus + label {
+        display: none;
+    }
 
 .simpl-datetime-picker {
     width: 300px;
 }
 
-td>span.glyphicon-ok {
+td > span.glyphicon-ok {
     color: #5cb85c;
 }
 
-td>span.glyphicon-remove {
+td > span.glyphicon-remove {
     color: #d9534f;
 }
 
@@ -156,4 +158,20 @@ td>span.glyphicon-remove {
 
 .mt-3 {
     margin-top: 40px !important;
+}
+
+.uib-daypicker th, .uib-daypicker td {
+    padding: 1px !important;
+}
+
+.mt-5 {
+    margin-top: 5px !important;
+}
+
+.ml-3 {
+    margin-left: 3px !important;
+}
+
+.main .container-fluid {
+    padding: 0px 13px !important;
 }

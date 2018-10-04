@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simplAdmin.activityLog')
+        .module('giccoAdmin.activityLog')
         .directive('mostViewedProducts', mostViewedProducts);
 
     function mostViewedProducts() {

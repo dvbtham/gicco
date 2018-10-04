@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.shipping-tablerate')
+        .module('giccoAdmin.shipping-tablerate')
         .factory('shippingTableRateService', shippingTableRateService);
 
     /* @ngInject */

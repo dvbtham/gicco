@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.reviews', [])
+        .module('giccoAdmin.reviews', [])
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider

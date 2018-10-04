@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.core')
+        .module('giccoAdmin.core')
         .factory('configurationService', configurationService);
 
     /* @ngInject */

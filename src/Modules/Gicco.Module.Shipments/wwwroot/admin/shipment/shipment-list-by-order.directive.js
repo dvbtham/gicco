@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simplAdmin.shipment')
+        .module('giccoAdmin.shipment')
         .directive('shipmentListByOrder', shipmentListByOrder);
 
     function shipmentListByOrder() {

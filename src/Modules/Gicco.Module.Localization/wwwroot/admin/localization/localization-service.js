@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.localization')
+        .module('giccoAdmin.localization')
         .factory('localizationService', localizationService);
 
     /* @ngInject */

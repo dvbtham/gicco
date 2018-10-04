@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.search')
+        .module('giccoAdmin.search')
         .factory('searchService', searchService);
 
     /* @ngInject */

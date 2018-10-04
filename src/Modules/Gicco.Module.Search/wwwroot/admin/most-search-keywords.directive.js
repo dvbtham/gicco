@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simplAdmin.search')
+        .module('giccoAdmin.search')
         .directive('mostSearchKeyword', mostSearchKeyword);
 
     function mostSearchKeyword() {

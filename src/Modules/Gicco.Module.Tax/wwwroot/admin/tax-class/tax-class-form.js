@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.tax')
+        .module('giccoAdmin.tax')
         .controller('TaxClassFormCtrl', TaxClassFormCtrl);
 
     /* @ngInject */

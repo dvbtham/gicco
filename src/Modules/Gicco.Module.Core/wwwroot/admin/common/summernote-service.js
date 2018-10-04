@@ -1,7 +1,7 @@
 ﻿/*global angular, FormData*/
 (function () {
     angular
-        .module('simplAdmin.common')
+        .module('giccoAdmin.common')
         .factory('summerNoteService', summerNoteService);
 
     /* @ngInject */

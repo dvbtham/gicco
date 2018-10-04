@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simplAdmin.payments')
+        .module('giccoAdmin.payments')
         .directive('paymentListByOrder', paymentListByOrder);
 
     function paymentListByOrder() {

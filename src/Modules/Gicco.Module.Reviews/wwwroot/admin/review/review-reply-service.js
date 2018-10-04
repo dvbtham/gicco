@@ -1,7 +1,7 @@
 /*global angular*/
 (function () {
     angular
-        .module('simplAdmin.reviews')
+        .module('giccoAdmin.reviews')
         .factory('reviewReplyService', reviewReplyService);
 
     /* @ngInject */

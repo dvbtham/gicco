@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.cms')
+        .module('giccoAdmin.cms')
         .controller('PageListCtrl', PageListCtrl);
 
     /* @ngInject */

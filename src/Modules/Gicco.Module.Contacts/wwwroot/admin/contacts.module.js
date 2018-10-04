@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.contacts', [])
+    angular.module('giccoAdmin.contacts', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('contact-area', {

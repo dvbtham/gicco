@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.news')
+        .module('giccoAdmin.news')
         .controller('NewsItemFormCtrl', NewsItemFormCtrl);
 
     /* @ngInject */

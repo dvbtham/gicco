@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.core')
+        .module('giccoAdmin.core')
         .controller('WidgetInstanceListCtrl', WidgetInstanceListCtrl);
 
     /* @ngInject */

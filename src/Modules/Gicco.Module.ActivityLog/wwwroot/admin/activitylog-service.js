@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.activityLog')
+        .module('giccoAdmin.activityLog')
         .factory('activityLogService', activityLogService);
 
     /* @ngInject */

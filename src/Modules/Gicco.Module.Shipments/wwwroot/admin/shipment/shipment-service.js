@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.shipment')
+        .module('giccoAdmin.shipment')
         .factory('shipmentService', shipmentService);
 
     /* @ngInject */

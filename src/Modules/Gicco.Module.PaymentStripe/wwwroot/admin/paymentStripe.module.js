@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.paymentStripe', [])
+        .module('giccoAdmin.paymentStripe', [])
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider

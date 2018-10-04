@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.catalog', [])
+    angular.module('giccoAdmin.catalog', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('brand', {

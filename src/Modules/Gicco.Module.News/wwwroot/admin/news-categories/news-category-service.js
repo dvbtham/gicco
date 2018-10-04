@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.news')
+        .module('giccoAdmin.news')
         .factory('newsCategoryService', newsCategoryService);
 
     /* @ngInject */

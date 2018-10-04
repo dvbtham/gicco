@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.common')
+        .module('giccoAdmin.common')
         .factory('logger', logger);
 
     logger.$inject = ['$log', 'toastr'];

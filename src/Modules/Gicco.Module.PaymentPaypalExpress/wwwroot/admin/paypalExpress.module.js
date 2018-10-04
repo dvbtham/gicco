@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.paymentPaypalExpress', [])
+        .module('giccoAdmin.paymentPaypalExpress', [])
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider

@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.contacts')
+        .module('giccoAdmin.contacts')
         .controller('ContactAreaListCtrl', ContactAreaListCtrl);
 
     /* @ngInject */

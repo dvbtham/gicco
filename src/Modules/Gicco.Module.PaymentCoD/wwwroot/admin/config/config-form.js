@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.paymentCoD')
+        .module('giccoAdmin.paymentCoD')
         .controller('CoDConfigFormCtrl', CoDConfigFormCtrl);
 
     /* @ngInject */

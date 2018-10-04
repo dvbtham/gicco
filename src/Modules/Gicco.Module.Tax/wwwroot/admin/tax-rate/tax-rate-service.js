@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.tax')
+        .module('giccoAdmin.tax')
         .factory('taxRateService', taxRateService);
 
     /* @ngInject */

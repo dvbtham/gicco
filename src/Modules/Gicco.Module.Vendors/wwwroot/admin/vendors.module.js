@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.vendors', [])
+        .module('giccoAdmin.vendors', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('vendors', {
                 url: '/vendors',

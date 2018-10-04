@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.shippings')
+        .module('giccoAdmin.shippings')
         .controller('ShippingProviderListCtrl', ShippingProviderListCtrl);
 
     /* @ngInject */

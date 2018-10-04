@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.orders')
+        .module('giccoAdmin.orders')
         .controller('OrderDetailCtrl', OrderDetailCtrl);
 
     /* @ngInject */

@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.paymentCoD')
+        .module('giccoAdmin.paymentCoD')
         .factory('paymentCoDService', paymentCoDService);
 
     /* @ngInject */

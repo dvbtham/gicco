@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.cms')
+        .module('giccoAdmin.cms')
         .controller('HtmlWidgetFormCtrl', HtmlWidgetFormCtrl);
 
     /* @ngInject */

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.pricing', [])
+        .module('giccoAdmin.pricing', [])
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider

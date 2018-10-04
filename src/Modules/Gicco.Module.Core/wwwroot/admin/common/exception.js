@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.common')
+        .module('giccoAdmin.common')
         .factory('exception', exception);
 
     /* @ngInject */

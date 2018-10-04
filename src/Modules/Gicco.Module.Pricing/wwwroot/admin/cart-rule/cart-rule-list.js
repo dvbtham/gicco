@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.pricing')
+        .module('giccoAdmin.pricing')
         .controller('CartRuleListCtrl', CartRuleListCtrl);
 
     /* @ngInject */

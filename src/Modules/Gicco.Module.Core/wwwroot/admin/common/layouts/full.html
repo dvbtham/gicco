@@ -1,0 +1,21 @@
+﻿<!-- Navbar -->
+<div ng-include="'modules/core/admin/common/navbar.html'" include-replace></div>
+<div class="app-body">
+  <!-- Navigation -->
+  <div ng-include="'modules/core/admin/common/sidebar-nav.html'" include-replace></div>
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb" breadcrumb>
+      <ncy-breadcrumb></ncy-breadcrumb>
+    </ol>
+    <div class="container-fluid">
+      <ui-view></ui-view>
+    </div>
+    <!-- /.conainer-fluid -->
+  </main>
+
+</div>
+
+<!-- Footer -->
+<div ng-include="'modules/core/admin/common/footer.html'" include-replace></div>

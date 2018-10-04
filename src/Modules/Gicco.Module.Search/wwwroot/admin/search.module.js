@@ -3,5 +3,5 @@
     'use strict';
 
     angular
-        .module('simplAdmin.search', []);
+        .module('giccoAdmin.search', []);
 })();

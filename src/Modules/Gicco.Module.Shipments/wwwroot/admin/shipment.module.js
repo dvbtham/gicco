@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.shipment', [])
+    angular.module('giccoAdmin.shipment', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('shipment-create', {

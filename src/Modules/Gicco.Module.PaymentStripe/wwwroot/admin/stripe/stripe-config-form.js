@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.paymentStripe')
+        .module('giccoAdmin.paymentStripe')
         .controller('StripeConfigFormCtrl', StripeConfigFormCtrl);
 
     /* @ngInject */

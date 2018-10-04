@@ -6,7 +6,7 @@ namespace Gicco.Module.Core.Extensions.TagHelpers
     [HtmlTargetElement(Attributes = AppendVersionAttributeName)]
     public class AppendVersionTagHelper : TagHelper
     {
-        private const string AppendVersionAttributeName = "simpl-append-version";
+        private const string AppendVersionAttributeName = "gicco-append-version";
         private readonly IConfiguration _config;
 
         public AppendVersionTagHelper(IConfiguration config)

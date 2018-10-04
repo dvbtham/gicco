@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.news', [])
+    angular.module('giccoAdmin.news', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('news-categories', {

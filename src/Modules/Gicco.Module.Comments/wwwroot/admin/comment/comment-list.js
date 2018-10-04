@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.comments')
+        .module('giccoAdmin.comments')
         .controller('CommentListCtrl', CommentListCtrl);
 
     /* @ngInject */

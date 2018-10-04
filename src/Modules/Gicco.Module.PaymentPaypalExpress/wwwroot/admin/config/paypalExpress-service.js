@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.paymentPaypalExpress')
+        .module('giccoAdmin.paymentPaypalExpress')
         .factory('paypalExpressService', paypalExpressService);
 
     /* @ngInject */

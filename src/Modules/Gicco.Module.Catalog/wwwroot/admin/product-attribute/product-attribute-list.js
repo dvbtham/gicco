@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.catalog')
+        .module('giccoAdmin.catalog')
         .controller('ProductAttributeListCtrl', ProductAttributeListCtrl);
 
     /* @ngInject */

@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.pricing')
+        .module('giccoAdmin.pricing')
         .factory('cartRuleUsageService', cartRuleUsageService);
 
     /* @ngInject */

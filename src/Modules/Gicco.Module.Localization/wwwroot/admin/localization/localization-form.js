@@ -1,7 +1,7 @@
 ﻿ /*global angular*/
 (function () {
     angular
-        .module('simplAdmin.localization')
+        .module('giccoAdmin.localization')
         .controller('LocalizationFormCtrl', LocalizationFormCtrl);
 
     /* @ngInject */

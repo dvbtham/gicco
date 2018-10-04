@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.comments', [])
+        .module('giccoAdmin.comments', [])
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider

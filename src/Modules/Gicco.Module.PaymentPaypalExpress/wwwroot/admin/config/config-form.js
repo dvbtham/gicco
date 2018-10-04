@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.paymentPaypalExpress')
+        .module('giccoAdmin.paymentPaypalExpress')
         .controller('PaypalExpressConfigFormCtrl', PaypalExpressConfigFormCtrl);
 
     /* @ngInject */

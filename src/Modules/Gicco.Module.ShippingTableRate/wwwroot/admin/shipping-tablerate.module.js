@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.shipping-tablerate', [])
+        .module('giccoAdmin.shipping-tablerate', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('shipping-table-rate-config', {
                 url: '/shippings/table-rate-config',

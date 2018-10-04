@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.payments')
+        .module('giccoAdmin.payments')
         .controller('PaymentProviderListCtrl', PaymentProviderListCtrl);
 
     /* @ngInject */

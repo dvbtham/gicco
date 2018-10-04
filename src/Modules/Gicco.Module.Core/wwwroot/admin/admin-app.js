@@ -1,6 +1,6 @@
 ﻿/*global angular*/
 (function () {
-    var adminApp = angular.module('simplAdmin', [
+    var adminApp = angular.module('giccoAdmin', [
         'ui.router',
         'ngMaterial',
         'ngMessages',
@@ -11,39 +11,43 @@
         'ui.tree',
         'summernote',
         'colorpicker.module',
-        'simplAdmin.common',
-        'simplAdmin.dashboard',
-        'simplAdmin.core',
-        'simplAdmin.catalog',
-        'simplAdmin.orders',
-        'simplAdmin.cms',
-        'simplAdmin.search',
-        'simplAdmin.reviews',
-        'simplAdmin.comments',
-        'simplAdmin.activityLog',
-        'simplAdmin.vendors',
-        'simplAdmin.localization',
-        'simplAdmin.news',
-        'simplAdmin.contacts',
-        'simplAdmin.pricing',
-        'simplAdmin.tax',
-        'simplAdmin.shippings',
-        'simplAdmin.shipping-tablerate',
-        'simplAdmin.payments',
-        'simplAdmin.paymentStripe',
-        'simplAdmin.paymentPaypalExpress',
-        'simplAdmin.inventory',
-        'simplAdmin.shipment',
-        'simplAdmin.paymentCoD',
-        'simplAdmin.recentlyViewed'
+        'ncy-angular-breadcrumb',
+        'angular-loading-bar',
+        'giccoAdmin.common',
+        'giccoAdmin.dashboard',
+        'giccoAdmin.core',
+        'giccoAdmin.catalog',
+        'giccoAdmin.orders',
+        'giccoAdmin.cms',
+        'giccoAdmin.search',
+        'giccoAdmin.reviews',
+        'giccoAdmin.comments',
+        'giccoAdmin.activityLog',
+        'giccoAdmin.vendors',
+        'giccoAdmin.localization',
+        'giccoAdmin.news',
+        'giccoAdmin.contacts',
+        'giccoAdmin.pricing',
+        'giccoAdmin.tax',
+        'giccoAdmin.shippings',
+        'giccoAdmin.shipping-tablerate',
+        'giccoAdmin.payments',
+        'giccoAdmin.paymentStripe',
+        'giccoAdmin.paymentPaypalExpress',
+        'giccoAdmin.inventory',
+        'giccoAdmin.shipment',
+        'giccoAdmin.paymentCoD',
+        'giccoAdmin.recentlyViewed'
     ]);
 
     toastr.options.closeButton = true;
     adminApp
         .config([
-            '$urlRouterProvider', '$httpProvider',
-            function ($urlRouterProvider, $httpProvider) {
+            '$urlRouterProvider', '$httpProvider', 'cfpLoadingBarProvider',
+            function ($urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
                 $urlRouterProvider.otherwise("/dashboard");
+                cfpLoadingBarProvider.includeSpinner = false;
+                cfpLoadingBarProvider.latencyThreshold = 1;
 
                 $httpProvider.interceptors.push(function () {
                     return {

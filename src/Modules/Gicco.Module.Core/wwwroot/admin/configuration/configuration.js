@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.core')
+        .module('giccoAdmin.core')
         .controller('ConfigurationCtrl', ConfigurationCtrl);
 
     /* @ngInject */

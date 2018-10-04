@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simplAdmin.orders')
+        .module('giccoAdmin.orders')
         .directive('orderWidget', mostSearchKeyword);
 
     function mostSearchKeyword() {

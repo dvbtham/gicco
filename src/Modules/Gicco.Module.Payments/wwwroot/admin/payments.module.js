@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.payments', [])
+        .module('giccoAdmin.payments', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('payment-providers', {
                 url: '/payment-providers',

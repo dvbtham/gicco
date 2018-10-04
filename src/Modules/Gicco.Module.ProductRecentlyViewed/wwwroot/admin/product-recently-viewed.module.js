@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('simplAdmin.recentlyViewed', [])
+    angular.module('giccoAdmin.recentlyViewed', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
                 .state('widget-recently-viewed-create', {

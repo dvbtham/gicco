@@ -1,0 +1,63 @@
+{
+  "_from": "angular-sanitize@1.6.8",
+  "_id": "angular-sanitize@1.6.8",
+  "_inBundle": false,
+  "_integrity": "sha512-XUYxWgPwwT+DGIMzmMBMSwJbYt5g6yMiu5Pq2GIW9EuO+PBNhL4xAf8qU7b2HfH/PwM4VY5NpIa25EoKDdgXAA==",
+  "_location": "/angular-sanitize",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "angular-sanitize@1.6.8",
+    "name": "angular-sanitize",
+    "escapedName": "angular-sanitize",
+    "rawSpec": "1.6.8",
+    "saveSpec": null,
+    "fetchSpec": "1.6.8"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-sanitize/-/angular-sanitize-1.6.8.tgz",
+  "_shasum": "68175a1a5853a6439fffcb251a88a538a44a8e70",
+  "_spec": "angular-sanitize@1.6.8",
+  "_where": "C:\\Users\\thamd\\Desktop\\CoreUI-AngularJS-master\\AngularJS_Full_Project_GULP",
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "AngularJS module for sanitizing HTML",
+  "homepage": "http://angularjs.org",
+  "jspm": {
+    "shim": {
+      "angular-sanitize": {
+        "deps": [
+          "angular"
+        ]
+      }
+    }
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "html",
+    "client-side"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "angular-sanitize",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angular/angular.js.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.6.8"
+}

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.common')
+        .module('giccoAdmin.common')
         .directive('stDateRange', ['$timeout', function ($timeout) {
             return {
                 restrict: 'E',

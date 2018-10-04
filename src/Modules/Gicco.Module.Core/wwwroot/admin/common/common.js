@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
    var common = angular
-        .module('simplAdmin.common', []);
+        .module('giccoAdmin.common', []);
 
    common.directive('decimal', function () {
         return {

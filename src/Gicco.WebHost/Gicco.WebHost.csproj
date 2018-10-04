@@ -44,6 +44,8 @@
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.pdb" />
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.dll" />
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.pdb" />
+    <None Remove="wwwroot\lib\coreui\css\style.css" />
+    <None Remove="wwwroot\lib\coreui\css\style.min.css" />
   </ItemGroup>
 
   <ItemGroup>

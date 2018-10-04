@@ -3,5 +3,5 @@
     'use strict';
 
     angular
-        .module('simplAdmin.activityLog', []);
+        .module('giccoAdmin.activityLog', []);
 })();

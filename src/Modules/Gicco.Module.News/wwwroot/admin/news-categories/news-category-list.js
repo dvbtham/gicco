@@ -1,7 +1,7 @@
 ﻿/*global angular, confirm*/
 (function () {
     angular
-        .module('simplAdmin.news')
+        .module('giccoAdmin.news')
         .controller('NewsCategoryListCtrl', NewsCategoryListCtrl);
 
     /* @ngInject */

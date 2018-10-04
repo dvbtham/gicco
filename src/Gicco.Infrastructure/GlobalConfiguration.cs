@@ -10,7 +10,7 @@ namespace Gicco.Infrastructure
 
         public static IList<Culture> Cultures { get; set; } = new List<Culture>();
 
-        public static string DefaultCulture => "vi-VN";
+        public static string DefaultCulture => "en-US";
 
         public static string WebRootPath { get; set; }
 

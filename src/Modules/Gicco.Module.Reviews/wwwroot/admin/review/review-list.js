@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.reviews')
+        .module('giccoAdmin.reviews')
         .controller('ReviewListCtrl', ReviewListCtrl);
 
     /* @ngInject */

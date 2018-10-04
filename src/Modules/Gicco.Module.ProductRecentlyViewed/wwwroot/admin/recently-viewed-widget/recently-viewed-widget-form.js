@@ -1,7 +1,7 @@
 ﻿/*global angular, jQuery*/
 (function ($) {
     angular
-        .module('simplAdmin.recentlyViewed')
+        .module('giccoAdmin.recentlyViewed')
         .controller('RecentlyViewedWidgetFormCtrl', RecentlyViewedWidgetFormCtrl);
 
     /* @ngInject */

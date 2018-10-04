@@ -1,7 +1,7 @@
 ﻿/*global angular*/
 (function () {
     angular
-        .module('simplAdmin.cms')
+        .module('giccoAdmin.cms')
         .factory('menuService', menuService);
 
     /* @ngInject */

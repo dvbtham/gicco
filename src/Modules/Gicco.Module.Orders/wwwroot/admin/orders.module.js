@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('simplAdmin.orders', [])
+        .module('giccoAdmin.orders', [])
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider

@@ -2,17 +2,17 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="dashboard"><i class="icon-speedometer"></i> Dashboard </a>
+                <a class="nav-link" ui-sref-active="active" ui-sref="app.dashboard"><i class="icon-speedometer"></i> Dashboard </a>
             </li>
             <li class="divider"></li>
             <li class="nav-title">
                 Main Menu
             </li>
-            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('sites')}">
-                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('sites')}" href="#"><i class="icon-puzzle"></i> Site</a>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.sites')}">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.sites')}" href="#"><i class="icon-puzzle"></i> Site</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="sites.users"><i class="icon-puzzle"></i> Users</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.users"><i class="icon-puzzle"></i> Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.vendors"><i class="icon-puzzle"></i> Vendors</a>
@@ -30,7 +30,7 @@
                         <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.comments"><i class="icon-puzzle"></i> Comments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.contact-areas"><i class="icon-puzzle"></i> Manage contact areas</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.contact-area"><i class="icon-puzzle"></i> Manage contact areas</a>
                     </li>
 
                     <li class="nav-item">

@@ -19,12 +19,12 @@
 
 <div class="row" ng-show="vm.countryId">
     <div class="col-md-12 text-right">
-        <a ui-sref="state-province-create({countryId: vm.countryId})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create State or Providence')}}</a>
+        <a ui-sref="state-province-create({countryId: vm.countryId})" class="btn btn-outline-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create State or Providence')}}</a>
     </div>
 </div>
 
 <div class="row">
-    <table class="table table-striped" st-pipe="vm.getStateOrProvinces" st-table="vm.stateOrProvinces">
+    <table class="table" st-pipe="vm.getStateOrProvinces" st-table="vm.stateOrProvinces">
         <thead>
             <tr>
                 <th st-sort="Name" class="sortable">{{::vm.translate.get('Name')}}</th>
@@ -53,7 +53,7 @@
                 <td>{{stateOrProvince.countryId}}</td>
                 <td>
                     <a ui-sref="state-province-edit({id: stateOrProvince.id, countryId: vm.countryId})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-                    <button ng-click="vm.deleteStateOrProvince(stateOrProvince)" title="Delete" class="btn btn-danger btn-xs delete"> <span class="glyphicon glyphicon-remove"></span></button>
+                    <button ng-click="vm.deleteStateOrProvince(stateOrProvince)" title="Delete" class="btn btn-danger btn-xs delete"> <span class="fa fa-trash"></span></button>
                 </td>
             </tr>
         </tbody>

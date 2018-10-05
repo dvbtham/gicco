@@ -4,7 +4,7 @@
             <h2>{{::vm.translate.get('Theme Details')}}</h2>
         </div>
         <div class="col-md-4 text-right">
-            <a ui-sref="themes" class="btn btn-primary">{{::vm.translate.get('View Installed Themes')}}</a>
+            <a ui-sref="themes" class="btn btn-outline-primary">{{::vm.translate.get('View Installed Themes')}}</a>
         </div>
     </div>
 </div>
@@ -19,8 +19,8 @@
         <p>Price: Free</p>
         <p>Package size: {{(vm.theme.packageSize / 1024 /1024).toFixed(2)}} MB</p>
         <p>Target Gicco version: {{vm.theme.GiccoVersion}}</p>
-        <p ng-if="!vm.theme.isInstalled"><button type="button" ng-click="vm.installTheme(vm.theme.name)" class="btn btn-primary">Install</button></p>
-        <p ng-if="vm.theme.isInstalled"><button type="button" disabled="disabled" class="btn btn-primary">Installed</button></p>
+        <p ng-if="!vm.theme.isInstalled"><button type="button" ng-click="vm.installTheme(vm.theme.name)" class="btn btn-outline-primary">Install</button></p>
+        <p ng-if="vm.theme.isInstalled"><button type="button" disabled="disabled" class="btn btn-outline-primary">Installed</button></p>
     </div>
 </div>
 

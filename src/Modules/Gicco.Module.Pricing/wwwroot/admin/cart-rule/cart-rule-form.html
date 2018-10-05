@@ -57,7 +57,7 @@
                             <p class="input-group">
                                 <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="vm.cartRule.startOn" is-open="vm.datePickerStartOn.open" datepicker-options="vm.datePickerStartOn.datepickerOptions" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'datePickerStartOn')"><i class="fa fa-calendar"></i></button>
+                                    <button type="button" class="btn btn-outline-warning" ng-click="vm.openCalendar($event, 'datePickerStartOn')"><i class="fa fa-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
@@ -68,7 +68,7 @@
                             <p class="input-group">
                                 <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="vm.cartRule.endOn" is-open="vm.datePickerEndOn.open" datepicker-options="vm.datePickerEndOn.datepickerOptions" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'datePickerEndOn')"><i class="fa fa-calendar"></i></button>
+                                    <button type="button" class="btn btn-outline-warning" ng-click="vm.openCalendar($event, 'datePickerEndOn')"><i class="fa fa-calendar"></i></button>
                                 </span>
                             </p>
                         </div>
@@ -114,8 +114,8 @@
                 <uib-tab index="1" heading="{{::vm.translate.get('Products Selection')}}">
                     <p>Select products to apply or leave blank for all products</p>
                     <product-selection-directive model-id="productsSelector" title="Add products" selected-products="vm.cartRule.products"></product-selection-directive>
-                    <p><button type="button" class="btn btn-default" data-toggle="modal" data-target="#productsSelector">{{::vm.translate.get('Manage Products Selection')}}</button></p>
-                    <table class="table table-striped">
+                    <p><button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#productsSelector">{{::vm.translate.get('Manage Products Selection')}}</button></p>
+                    <table class="table">
                         <tr>
                             <th>{{::vm.translate.get('Name')}}</th>
                             <th class="text-center">{{::vm.translate.get('Is Published')}}</th>
@@ -129,8 +129,8 @@
             </uib-tabset>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
-                    <button ui-sref="cart-rules" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
+                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
+                    <button ui-sref="cart-rules" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
                 </div>
             </div>
         </form>

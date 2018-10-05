@@ -22,7 +22,12 @@
 
             promise
                 .then(function (result) {
-                    $state.go('customergroups');
+                    $state.go('app.sites.customergroups');
+                    if (vm.isEditMode) {
+                        toastr.success("Customer group was successfully updated ");
+                    } else {
+                        toastr.success("Customer group was successfully created ");
+                    }
                 })
                 .catch(function (response) {
                     var error = response.data;

@@ -43,7 +43,13 @@
 
             promise
                 .then(function (result) {
-                    $state.go('users');
+                    $state.go('app.sites.users');
+
+                    if (vm.isEditMode) {
+                        toastr.success("User was successfully updated ");
+                    } else {
+                        toastr.success("User was successfully created ");
+                    }
                 })
                 .catch(function (response) {
                     var error = response.data;

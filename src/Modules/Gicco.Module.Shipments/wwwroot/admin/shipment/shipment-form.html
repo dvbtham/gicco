@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<table class="table table-striped">
+<table class="table">
     <thead>
         <tr>
             <th>{{::vm.translate.get('Product Name')}}</th>
@@ -41,6 +41,6 @@
     </tbody>
 </table>
 <div class="text-right">
-    <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
-    <button  ui-sref="order-detail({id: vm.orderId})" class="btn btn-default">{{::vm.translate.get('Back')}}</button>
+    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
+    <button  ui-sref="order-detail({id: vm.orderId})" class="btn btn-outline-warning">{{::vm.translate.get('Back')}}</button>
 </div>

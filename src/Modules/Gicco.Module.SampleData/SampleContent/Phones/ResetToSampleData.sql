@@ -443,7 +443,7 @@ INSERT [dbo].[Core_WidgetInstance] ([Id], [CreatedOn], [Data], [DisplayOrder], [
     <h2 class="page-header">Administrator</h2>
     <p>Manage your store. Admin email: admin@Gicco.com. Admin password: 1qazZAQ!</p>
     <p>
-        <a class="btn btn-primary" href="Admin" role="button">Go to Dashboard</a>
+        <a class="btn btn-outline-primary" href="Admin" role="button">Go to Dashboard</a>
     </p>
 </div>', N'Administration', NULL, CAST(N'2016-07-11 05:42:44.7523284' AS DateTime2), CAST(N'2016-07-11 05:42:44.7523284' AS DateTime2), N'HtmlWidget', 3)
 SET IDENTITY_INSERT [dbo].[Core_WidgetInstance] OFF 

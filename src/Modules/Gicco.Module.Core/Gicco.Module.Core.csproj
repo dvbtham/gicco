@@ -1,5 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
   <ItemGroup>
+    <None Remove="wwwroot\Logo_Gicco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\Logo_Gicco.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

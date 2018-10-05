@@ -5,10 +5,12 @@
     angular
         .module('giccoAdmin.dashboard', [])
         .config(['$stateProvider', function ($stateProvider) {
-            $stateProvider.state('dashboard', {
+            $stateProvider.state('app.dashboard', {
                 url: '/dashboard',
-                parent: 'base',
-                templateUrl: "/admin/dashboard-tpl"
+                templateUrl: "/admin/dashboard-tpl",
+                ncyBreadcrumb: {
+                    label: '{{ ::vm.translate.get("Dashboard")}}'
+                }
             });
         }]);
 })();

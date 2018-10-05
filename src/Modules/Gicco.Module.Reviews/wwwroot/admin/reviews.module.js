@@ -7,15 +7,21 @@
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider
-                    .state('reviews', {
+                    .state('app.sites.reviews', {
                         url: '/reviews',
                         templateUrl: 'modules/reviews/admin/review/review-list.html',
-                        controller: 'ReviewListCtrl as vm', parent: 'base'
+                        controller: 'ReviewListCtrl as vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Reviews")}}'
+                        }
                     })
-                    .state('review-replies', {
+                    .state('app.sites.review-replies', {
                         url: '/review-replies',
                         templateUrl: 'modules/reviews/admin/review/review-reply-list.html',
-                        controller: 'ReviewReplyListCtrl as vm', parent: 'base'
+                        controller: 'ReviewReplyListCtrl as vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Review Replies")}}'
+                        }
                     })
                 ;
             }

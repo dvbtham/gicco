@@ -7,10 +7,13 @@
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider
-                    .state('comments', {
+                    .state('app.sites.comments', {
                         url: '/comments',
                         templateUrl: 'modules/comments/admin/comment/comment-list.html',
-                        controller: 'CommentListCtrl as vm', parent: 'base'
+                        controller: 'CommentListCtrl as vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Comments")}}'
+                        }
                     })
                 ;
             }

@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<table class="table table-striped" st-pipe="vm.getProducts" st-table="vm.products">
+<table class="table" st-pipe="vm.getProducts" st-table="vm.products">
     <thead>
         <tr>
             <th>{{::vm.translate.get('Product Name')}}</th>
@@ -77,5 +77,5 @@
     </tfoot>
 </table>
 <div class="text-right">
-    <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
+    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
 </div>

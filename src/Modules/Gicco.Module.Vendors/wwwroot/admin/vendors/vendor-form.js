@@ -1,4 +1,4 @@
-﻿ /*global angular*/
+﻿/*global angular*/
 (function () {
     angular
         .module('giccoAdmin.vendors')
@@ -26,7 +26,13 @@
 
             promise
                 .then(function (result) {
-                    $state.go('vendors');
+                    $state.go('app.sites.vendors');
+
+                    if (vm.isEditMode) {
+                        toastr.success("Vendor was successfully updated ");
+                    } else {
+                        toastr.success("Vendor was successfully created ");
+                    }
                 })
                 .catch(function (response) {
                     var error = response.data;

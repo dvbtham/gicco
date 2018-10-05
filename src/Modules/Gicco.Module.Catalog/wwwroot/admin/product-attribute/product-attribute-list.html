@@ -4,7 +4,7 @@
             <h2>{{::vm.translate.get('Product Attributes')}}</h2>
         </div>
         <div class="col-md-4 text-right">
-            <a ui-sref="product-attribute-create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create Product Attribute')}}</a>
+            <a ui-sref="product-attribute-create" class="btn btn-outline-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create Product Attribute')}}</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
         <td>{{attribute.groupName}}</td>
         <td>
            <a ui-sref="product-attribute-edit({id: attribute.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-             <!--<button ng-click="vm.deleteProductAttribute(attribute)" class="btn btn-danger btn-xs delete"> <span class="glyphicon glyphicon-remove"></span></button>-->
+             <!--<button ng-click="vm.deleteProductAttribute(attribute)" class="btn btn-danger btn-xs delete"> <span class="fa fa-trash"></span></button>-->
         </td>
     </tr>
     </tbody>

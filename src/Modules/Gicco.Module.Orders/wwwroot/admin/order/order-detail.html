@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h5>Order #{{vm.order.id}}</h5>
-                <table class="table table-striped">
+                <table class="table">
                     <tr>
                         <td>Order Date</td>
                         <td>{{vm.order.createdOn | date:'medium'}}</td>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-6">
                 <h5>Customer Information</h5>
-                <table class="table table-striped">
+                <table class="table">
                     <tr>
                         <td>Customer Name</td>
                         <td><a ui-sref="user-edit({id: vm.order.customerId})">{{vm.order.customerName}}</a></td>
@@ -141,7 +141,7 @@
             <div class="col-md-6">
                 <h5>Shipping: {{vm.order.shippingMethod}}</h5>
                 <shipment-list-by-order order-id="vm.orderId"></shipment-list-by-order>
-                <div class="text-right"><button class="btn btn-default" ui-sref="shipment-create({orderId: vm.order.id})">Add Shipment</button></div>
+                <div class="text-right"><button class="btn btn-outline-warning" ui-sref="shipment-create({orderId: vm.order.id})">Add Shipment</button></div>
             </div>
         </div>
     </div>
@@ -155,7 +155,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h5>History & Action</h5>
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>{{::vm.translate.get('Date')}}</th>
@@ -196,13 +196,13 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button class="btn btn-primary" ng-click="vm.changeOrderStatus()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
+                            <button class="btn btn-outline-primary" ng-click="vm.changeOrderStatus()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-md-6">
-                <table class="table table-striped">
+                <table class="table">
                     <tr>
                         <td>Subtotal</td>
                         <td class="text-right">{{vm.order.subtotalString}}</td>
@@ -234,5 +234,5 @@
 </div>
 
 <div>
-    <button ui-sref="order" class="btn btn-default">{{::vm.translate.get('Back')}}</button>
+    <button ui-sref="order" class="btn btn-outline-warning">{{::vm.translate.get('Back')}}</button>
 </div>

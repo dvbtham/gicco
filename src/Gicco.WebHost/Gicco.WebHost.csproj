@@ -44,6 +44,7 @@
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.pdb" />
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.dll" />
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.pdb" />
+    <None Remove="wwwroot\images\default-user-avatar.png" />
     <None Remove="wwwroot\lib\angular-ui-router\angular-ui-router.js.map" />
     <None Remove="wwwroot\lib\angular-ui-router\angular-ui-router.min.js.map" />
     <None Remove="wwwroot\lib\angular\angular.min.js.gzip" />

@@ -175,3 +175,19 @@ td > span.glyphicon-remove {
 .main .container-fluid {
     padding: 0px 13px !important;
 }
+.table > thead > tr > th{
+    vertical-align: middle;
+}
+
+.validation-input ul {
+    padding: 10px;
+    list-style-type: none;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+
+}
+
+thead tr th {
+    border-top: none !important;
+}

@@ -43,7 +43,7 @@
     <div class="col-md-4">
         <div class="order-summary" ng-if="vm.cart.items.length">
             <h4>@Localizer["Order summary"]</h4>
-            <table class="table">
+            <table <table class="table">
                 <tr>
                     <td>@Localizer["Subtotal"]</td>
                     <td>{{vm.cart.subTotalString}}</td>
@@ -57,7 +57,7 @@
                     <td><strong>{{vm.cart.orderTotalString}}</strong></td>
                 </tr>
             </table>
-            <p class="text-right"><a href="~/checkout/shipping" class="btn btn-primary">@Localizer["Process to Checkout"]</a></p>
+            <p class="text-right"><a href="~/checkout/shipping" class="btn btn-outline-primary">@Localizer["Process to Checkout"]</a></p>
         </div>
         <div class="coupon-form" ng-if="vm.cart.items.length">
             <h4>@Localizer["Coupon code"]</h4>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="couponCode" ng-model="vm.couponCode" placeholder="Enter coupon">
-                    <button type="submit" class="btn btn-default" ng-click="vm.applyCoupon()">Apply</button>
+                    <button type="submit" class="btn btn-outline-warning" ng-click="vm.applyCoupon()">Apply</button>
                 </div>
             </form>
         </div>

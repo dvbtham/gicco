@@ -23,7 +23,7 @@
                         <div class="col-md-3">
                             <select class="form-control" ng-model="vm.addingAttribute" ng-options="attr as attr.name group by attr.groupName for attr in vm.attributes"></select>
                         </div>
-                        <button class="btn btn-default" ng-disabled="!vm.addingAttribute" ng-click="vm.addAttribute(vm.addingAttribute)">{{::vm.translate.get('Add Attribute')}}</button>
+                        <button class="btn btn-outline-warning" ng-disabled="!vm.addingAttribute" ng-click="vm.addAttribute(vm.addingAttribute)">{{::vm.translate.get('Add Attribute')}}</button>
                     </div>
                 </div>
             </div>
@@ -35,15 +35,15 @@
                             {{attribute.name}}
                         </div>
                         <button ng-click="vm.removeAttribute(attribute)" type="button" class="btn btn-default btn-xs">
-                            <span class="glyphicon glyphicon-remove"></span>
+                            <span class="fa fa-trash"></span>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
-                    <button ui-sref="product-template" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
+                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
+                    <button ui-sref="product-template" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
                 </div>
             </div>
         </form>

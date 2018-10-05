@@ -29,7 +29,7 @@
                     <p class="input-group">
                         <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="vm.widgetInstance.publishStart" is-open="vm.datePickerPublishStart.open" datepicker-options="vm.datePickerPublishStart.datepickerOptions" />
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'datePickerPublishStart')"><i class="fa fa-calendar"></i></button>
+                            <button type="button" class="btn btn-outline-warning" ng-click="vm.openCalendar($event, 'datePickerPublishStart')"><i class="fa fa-calendar"></i></button>
                         </span>
                     </p>
                 </div>
@@ -40,7 +40,7 @@
                     <p class="input-group">
                         <input type="text" class="form-control" datetime-picker="dd MMM yyyy HH:mm" ng-model="vm.widgetInstance.publishEnd" is-open="vm.datePickerPublishEnd.open" datepicker-options="vm.datePickerPublishEnd.datepickerOptions" />
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar($event, 'datePickerPublishEnd')"><i class="fa fa-calendar"></i></button>
+                            <button type="button" class="btn btn-outline-warning" ng-click="vm.openCalendar($event, 'datePickerPublishEnd')"><i class="fa fa-calendar"></i></button>
                         </span>
                     </p>
                 </div>
@@ -84,8 +84,8 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
-                    <button ui-sref="widget" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
+                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
+                    <button ui-sref="widget" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
                 </div>
             </div>
         </form>

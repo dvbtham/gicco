@@ -1,28 +1,41 @@
-﻿<div class="page-header">
+﻿<div class="animated fadeIn">
     <div class="row">
-        <div class="col-md-8">
-            <h2>{{ ::vm.translate.get('Contact Areas')}}</h2>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">{{::vm.translate.get('Contact Areas')}}</div>
+                    <div class="pull-right">
+                        <a ui-sref="app.sites.contact-area-create"> <i class="fa fa-user-plus"></i> {{::vm.translate.get('Create Contact Area')}} </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>{{ ::vm.translate.get('Name')}}</th>
+                                    <th>{{ ::vm.translate.get('Actions')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="contactArea in vm.contactAreas">
+                                    <td>{{contactArea.name}}</td>
+                                    <td>
+                                        <a ui-sref="app.sites.contact-area-edit({id: contactArea.id})" title="Edit"> <span class="fa fa-edit"></span></a>
+                                        <a href="#" ng-click="vm.deleteContactArea(contactArea)" class="ml-1"> <span class="fa fa-trash text-danger"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 text-right">
-            <a ui-sref="contact-area-create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>{{ ::vm.translate.get('Create Contact Area')}} </a>
-        </div>
+        <!-- /.col -->
+
     </div>
+    <!-- /.row -->
 </div>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>{{ ::vm.translate.get('Name')}}</th>
-        <th>{{ ::vm.translate.get('Actions')}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="contactArea in vm.contactAreas">
-        <td>{{contactArea.name}}</td>
-        <td>
-            <a ui-sref="contact-area-edit({id: contactArea.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-            <button ng-click="vm.deleteContactArea(contactArea)" class="btn btn-danger btn-xs delete"> <span class="glyphicon glyphicon-remove"></span></button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+

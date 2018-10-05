@@ -22,7 +22,12 @@
 
             promise
                 .then(function (result) {
-                    $state.go('contact-area');
+                    $state.go('app.sites.contact-area');
+                    if (vm.isEditMode) {
+                        toastr.success("Contact area was successfully updated ");
+                    } else {
+                        toastr.success("Contact area successfully created ");
+                    }
                 })
                 .catch(function (response) {
                     var error = response.data;

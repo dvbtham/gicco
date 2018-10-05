@@ -91,14 +91,14 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button class="btn btn-primary" ng-click="vm.save()"><span class="glyphicon glyphicon-ok"></span> {{::vm.translate.get('Save')}}</button>
-                            <button ui-sref="category" class="btn btn-default">{{::vm.translate.get('Cancel')}}</button>
+                            <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
+                            <button ui-sref="category" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
                         </div>
                     </div>
                 </form>
             </uib-tab>
             <uib-tab index="1" heading="{{::vm.translate.get('Products')}}">
-                <table class="table table-striped" st-pipe="vm.getProducts" st-table="vm.products">
+                <table class="table" st-pipe="vm.getProducts" st-table="vm.products">
                     <thead>
                         <tr>
                             <th>{{::vm.translate.get('Name')}}</th>
@@ -150,8 +150,8 @@
                                         <label style="font-weight:normal; margin-left:20px;">{{::vm.translate.get('Display Order')}}</label>
                                         <input type="number" ng-model="product.editingDisplayOrder" class="form-control" />
                                     </div>
-                                    <button type="button" class="btn btn-default" ng-click="vm.saveProduct(product)">Save</button>
-                                    <button type="button" class="btn btn-default" ng-click="product.isEditing = false">Cancel</button>
+                                    <button type="button" class="btn btn-outline-warning" ng-click="vm.saveProduct(product)">Save</button>
+                                    <button type="button" class="btn btn-outline-warning" ng-click="product.isEditing = false">Cancel</button>
                                 </form>
                             </td>
                         </tr>

@@ -22,7 +22,7 @@
                     categoryService.deleteCategory(category)
                        .then(function (result) {
                            vm.getCategories();
-                           toastr.success(category.name + 'Have been deleted');
+                           toastr.success(category.name + ' have been deleted');
                         })
                         .catch(function (response) {
                             toastr.error(response.data.error);

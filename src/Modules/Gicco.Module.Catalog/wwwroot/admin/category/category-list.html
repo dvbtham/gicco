@@ -1,34 +1,46 @@
-﻿<div class="page-header">
+﻿<div class="animated fadeIn">
     <div class="row">
-        <div class="col-md-8">
-            <h2>{{::vm.translate.get('Categories')}}</h2>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">{{::vm.translate.get('Categories')}}</div>
+                    <div class="pull-right">
+                        <a ui-sref="app.catalog.category-create"> <i class="fa fa-user-plus"></i> {{::vm.translate.get('Create Category')}} </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>{{::vm.translate.get('Name')}}</th>
+                                    <th>{{::vm.translate.get('Include in menu')}}</th>
+                                    <th>{{::vm.translate.get('Display order')}}</th>
+                                    <th class="text-center">{{::vm.translate.get('Is Published')}}</th>
+                                    <th>{{::vm.translate.get('Actions')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="category in vm.categories">
+                                    <td>{{category.name}}</td>
+                                    <td class="text-center"><i ng-attr-class="{{category.includeInMenu && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+                                    <td>{{category.displayOrder}}</td>
+                                    <td class="text-center"><i ng-attr-class="{{category.isPublished && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+                                    <td>
+                                        <a ui-sref="app.catalog.category-edit({id: category.id})" title="Edit"> <span class="fa fa-edit"></span></a>
+                                        <a href="#" ng-click="vm.deleteCategory(category)" class="ml-1"> <span class="fa fa-times text-danger"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 text-right">
-            <a ui-sref="category-create" class="btn btn-outline-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create Category')}}</a>
-        </div>
+        <!-- /.col -->
+
     </div>
+    <!-- /.row -->
 </div>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>{{::vm.translate.get('Name')}}</th>
-        <th>{{::vm.translate.get('Include in menu')}}</th>
-        <th>{{::vm.translate.get('Display order')}}</th>
-        <th class="text-center">{{::vm.translate.get('Is Published')}}</th>
-        <th>{{::vm.translate.get('Actions')}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="category in vm.categories">
-        <td>{{category.name}}</td>
-        <td class="text-center"><i ng-attr-class="{{category.includeInMenu && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
-        <td>{{category.displayOrder}}</td>
-        <td class="text-center"><i ng-attr-class="{{category.isPublished && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
-        <td>
-            <a ui-sref="category-edit({id: category.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-            <button ng-click="vm.deleteCategory(category)" class="btn btn-danger btn-xs delete"> <span class="fa fa-trash"></span></button>
-        </td>
-    </tr>
-    </tbody>
-</table>

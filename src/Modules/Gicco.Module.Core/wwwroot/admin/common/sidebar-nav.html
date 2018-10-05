@@ -9,73 +9,64 @@
                 Main Menu
             </li>
             <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.sites')}">
-                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.sites')}" href="#"><i class="icon-puzzle"></i> Site</a>
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.sites')}" href="#"><i class="icon-settings"></i> Site</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.users"><i class="icon-puzzle"></i> Users</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.users"><i class="icon-star"></i> Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.vendors"><i class="icon-puzzle"></i> Vendors</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.vendors"><i class="icon-star"></i> Vendors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.customergroups"><i class="icon-puzzle"></i> Customer group</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.customergroups"><i class="icon-star"></i> Customer group</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.reviews"><i class="icon-puzzle"></i> Reviews</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.reviews"><i class="icon-star"></i> Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.review-replies"><i class="icon-puzzle"></i> Review replies</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.review-replies"><i class="icon-star"></i> Review replies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.comments"><i class="icon-puzzle"></i> Comments</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.comments"><i class="icon-star"></i> Comments</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.contact-area"><i class="icon-puzzle"></i> Manage contact areas</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.contact-area"><i class="icon-star"></i> Manage contact areas</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.contact"><i class="icon-puzzle"></i>Manage contact</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sites.contact"><i class="icon-star"></i>Manage contact</a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.icons')}">
-                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.icons')}" href="#"><i class="icon-star"></i> Icons</a>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.catalog')}">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.catalog')}" href="#"><i class="icon-grid"></i> Catalog</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.icons.flags"><i class="icon-star"></i> Flags <span class="badge badge-success">NEW</span></a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.category"><i class="icon-star"></i> Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.icons.fontawesome"><i class="icon-star"></i> Font Awesome <span class="badge badge-secondary">4.7</span></a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.product"><i class="icon-star"></i> Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="app.icons.simplelineicons"><i class="icon-star"></i> Simple Line Icons</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.widgets"><i class="icon-calculator"></i> Widgets <span class="badge badge-info">NEW</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" ui-sref-active="active" ui-sref="app.charts"><i class="icon-pie-chart"></i> Charts</a>
-            </li>
-            <li class="divider"></li>
-            <li class="nav-title">
-                Extras
-            </li>
-            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.pages')}">
-                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.pages')}" href="#"><i class="icon-star"></i> Pages</a>
-                <ul class="nav-dropdown-items">
-                    <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="appSimple.login"><i class="icon-star"></i> Login</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.fontawesome"><i class="icon-star"></i> Product prices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="appSimple.register"><i class="icon-star"></i> Register</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.flags"><i class="icon-star"></i> Flags </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="appSimple.404"><i class="icon-star"></i> Error 404</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.fontawesome"><i class="icon-star"></i> Font Awesome </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref-active="active" ui-sref="appSimple.500"><i class="icon-star"></i> Error 500</a>
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.simplelineicons"><i class="icon-star"></i> Simple Line Icons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.flags"><i class="icon-star"></i> Flags </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.fontawesome"><i class="icon-star"></i> Font Awesome </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.catalog.simplelineicons"><i class="icon-star"></i> Simple Line Icons</a>
                     </li>
                 </ul>
             </li>

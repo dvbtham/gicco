@@ -27,8 +27,8 @@
                     <td class="text-right">{{priceAndDestination.shippingPrice | number}}</td>
                     <td>{{priceAndDestination.note}}</td>
                     <td>
-                        <button ng-click="vm.startEditingPriceAndDestination(priceAndDestination)" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></button>
-                        <button ng-click="vm.deletePriceAndDestination(priceAndDestination)" class="btn btn-danger btn-xs delete"> <span class="fa fa-trash"></span></button>
+                        <button ng-click="vm.startEditingPriceAndDestination(priceAndDestination)" class="btn btn-primary btn-xs"> <span class="fa fa-edit"></span></button>
+                        <button ng-click="vm.deletePriceAndDestination(priceAndDestination)" class="btn btn-danger btn-xs delete"> <span class="fa fa-times"></span></button>
                     </td>
                 </tr>
                 <tr ng-if="priceAndDestination.isEditing" ng-repeat-end>
@@ -111,7 +111,7 @@
                         <input ng-model="vm.addingPriceAndDestination.note" class="form-control" />
                     </td>
                     <td>
-                        <button ng-click="vm.addPriceAndDestination()" title="Add" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-plus"></span></button>
+                        <button ng-click="vm.addPriceAndDestination()" title="Add" class="btn btn-primary btn-xs"> <span class="fa fa-plus"></span></button>
                     </td>
                 </tr>
             </tbody>

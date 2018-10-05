@@ -1,4 +1,10 @@
-﻿.inline {
+﻿.w-18 {
+    width: 18% !important;
+}
+
+.font-20{font-size: 20px !important;}
+
+.inline {
     display: inline;
 }
 
@@ -87,9 +93,10 @@ table > tbody > tr > td.variation-form {
 
     .input-number label {
         position: absolute;
+        height: 100%;
         left: 0px;
         top: 0px;
-        cursor: pointer;
+        cursor: text;
         font-weight: normal;
     }
 
@@ -175,7 +182,8 @@ td > span.glyphicon-remove {
 .main .container-fluid {
     padding: 0px 13px !important;
 }
-.table > thead > tr > th{
+
+.table > thead > tr > th {
     vertical-align: middle;
 }
 
@@ -184,10 +192,18 @@ td > span.glyphicon-remove {
     list-style-type: none;
 }
 
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
-
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
 }
 
 thead tr th {
     border-top: none !important;
+}
+
+.md-input, .md-chip-content {
+    font-size: 13px !important;
+}
+
+md-icon {
+    min-height: 0px !important;
+    min-width: 0px !important;
 }

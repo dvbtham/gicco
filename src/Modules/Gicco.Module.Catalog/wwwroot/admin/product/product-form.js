@@ -336,7 +336,13 @@
             }
 
             promise.then(function (result) {
-                    $state.go('product');
+                $state.go('app.catalog.product');
+                if (vm.isEditMode) {
+
+                    toastr.success("Product was successfully updated ");
+                } else {
+                    toastr.success("Product was successfully created ");
+                }
                 })
                 .catch(function (response) {
                     var error = response.data;

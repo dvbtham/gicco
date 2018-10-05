@@ -4,7 +4,7 @@
             <h2>{{::vm.translate.get('Countries')}}</h2>
         </div>
         <div class="col-md-4 text-right">
-            <a ui-sref="country-create" class="btn btn-outline-primary"><span class="glyphicon glyphicon-plus"></span> {{::vm.translate.get('Create Country')}}</a>
+            <a ui-sref="country-create" class="btn btn-outline-primary"><span class="fa fa-plus"></span> {{::vm.translate.get('Create Country')}}</a>
         </div>
     </div>
 </div>
@@ -51,8 +51,8 @@
                 <input type="checkbox" ng-model="country.isDistrictEnabled" ng-click="vm.update(country)">
             </td>
             <td>
-                <a ui-sref="country-edit({id: country.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-pencil"></span></a>
-                <button ng-click="vm.deleteCountry(country)" title="Delete" class="btn btn-danger btn-xs delete"> <span class="fa fa-trash"></span></button>
+                <a ui-sref="country-edit({id: country.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="fa fa-edit"></span></a>
+                <button ng-click="vm.deleteCountry(country)" title="Delete" class="btn btn-danger btn-xs delete"> <span class="fa fa-times"></span></button>
             </td>
         </tr>
     </tbody>

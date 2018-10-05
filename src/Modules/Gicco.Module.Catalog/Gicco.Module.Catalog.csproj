@@ -1,6 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
   
   <ItemGroup>
+    <None Remove="wwwroot\admin\category\category-form.html" />
+    <None Remove="wwwroot\admin\category\category-form.js" />
+    <None Remove="wwwroot\admin\category\category-list.html" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="wwwroot\admin\category\category-form.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\admin\category\category-form.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\admin\category\category-list.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
     <ProjectReference Include="..\Gicco.Module.Core\Gicco.Module.Core.csproj" />
     <ProjectReference Include="..\Gicco.Module.Tax\Gicco.Module.Tax.csproj" />

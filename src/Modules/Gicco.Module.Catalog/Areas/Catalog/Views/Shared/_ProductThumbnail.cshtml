@@ -1,58 +1,37 @@
 ﻿@model Gicco.Module.Catalog.ViewModels.ProductThumbnail
 
-<li class="col-sx-12 col-sm-4">
-    <div class="product-container">
-        <div class="left-block">
-            <a href="~/@Model.Slug">
-                <img class="img-responsive" alt="@Model.Name" src="@Model.ThumbnailUrl" />
-            </a>
-            <div class="quick-view">
-                <a title="Add to my wishlist" class="heart" href="#"></a>
-                <a title="Add to compare" class="compare" href="#"></a>
-                <a title="Quick view" class="search" href="#"></a>
-            </div>
-            <div class="add-to-cart">
-                <a title="Add to Cart" href="#add"></a>
-            </div>
-        </div>
-        <div class="right-block">
-            <h5 class="product-name"><a href="~/@Model.Slug">@Model.Name</a></h5>
-
-            @if (Model.RatingAverage.HasValue)
-            {
-                <div class="product-star">
-                    @for (var i = 1; i <= Model.RatingAverage.Value; i++)
-                    {
-                        <i class="fa fa-star"></i>
-                    }
-                </div>
-            }
-
-            <div class="content_price">
+<div class="card mb-4">
+    <input type="hidden" id="productId" value="@Model.Id" />
+    <a href="~/@Model.Slug">
+        <img alt="@Model.Name" class="card-img-top" src="@Model.ThumbnailUrl">
+        <div class="card-body">
+            <h5 class="card-title product-name">@Model.Name</h5>
+            <p class="card-text product-price">
                 @if (Model.IsCallForPricing)
                 {
                     @Localizer["Call for pricing"]
                 }
                 else
                 {
-                    <span class="price product-price">
-                        @Model.CalculatedProductPrice.Price.ToString("C")
-                    </span>
-
+                    @Model.CalculatedProductPrice.Price.ToString("C")
                     if (Model.CalculatedProductPrice.PercentOfSaving > 0)
                     {
-                        <span title="Saving -@(Model.CalculatedProductPrice.PercentOfSaving)%" class="price old-price">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C")</span>
+                        <span class="product-price-saving">-@(Model.CalculatedProductPrice.PercentOfSaving)%</span>
+                        <br />
+                        <span class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C")</span>
                     }
                 }
+            </p>
+            <ul class="list-inline product-ratings">
+                <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
+                @if (Model.ReviewsCount > 0)
+                {
+                    <li class="product-review-list">
+                        <span>(@Model.ReviewsCount reviews)</span>
+                    </li>
+                }
+            </ul>
 
-            </div>
-            <div class="info-orther">
-                <p>SKU: #@(!string.IsNullOrEmpty(Model.Sku) ? Model.Sku : "Updating...")</p>
-                <p class="availability">Availability: <span>@(Model.StockQuantity.HasValue ? "In Stock" : "Out of stock")</span></p>
-                <div class="product-desc">
-                    @Html.Raw(Model.ShortDesc)
-                </div>
-            </div>
         </div>
-    </div>
-</li>
+    </a>
+</div>

@@ -45,7 +45,7 @@
                                         <textarea name="metaDescription" ng-model="vm.category.metaDescription" class="form-control" rows="3"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" ng-if="!vm.hideSelect">
                                     <label class="col-sm-2 control-label">{{::vm.translate.get('Parent Category')}}</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" ng-model="vm.category.parentId"
@@ -143,11 +143,11 @@
                                     <tr ng-if="product.isEditing" ng-repeat-end>
                                         <td colspan="5" style="text-align:right">
                                             <form class="form-inline">
-                                                <div class="form-check checkbox">                                                    
+                                                <div class="form-check checkbox">
                                                     <input ng-model="product.editingIsFeaturedProduct" id="isFP" class="form-check-input" type="checkbox">
                                                     <label class="form-check-label" for="isFP">{{::vm.translate.get('Is Featured in this Category')}}</label>
                                                 </div>
-                                                
+
                                                 <div class="form-group mr-2">
                                                     <label style="font-weight:normal; margin-left:20px; cursor: pointer;" class="mr-1">{{::vm.translate.get('Display Order')}}</label>
                                                     <input type="number" ng-model="product.editingDisplayOrder" class="form-control" />

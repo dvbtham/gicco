@@ -10,6 +10,8 @@ namespace Gicco.Module.Catalog.ViewModels
 
         public string Name { get; set; }
 
+        public string Sku { get; set; }
+
         public string Slug { get; set; }
 
         public decimal Price { get; set; }
@@ -36,6 +38,8 @@ namespace Gicco.Module.Catalog.ViewModels
 
         public double? RatingAverage { get; set; }
 
+        public string ShortDesc { get; set; }
+
         public CalculatedProductPrice CalculatedProductPrice { get; set; }
 
         public static ProductThumbnail FromProduct(Product product)
@@ -55,7 +59,9 @@ namespace Gicco.Module.Catalog.ViewModels
                 IsCallForPricing = product.IsCallForPricing,
                 ThumbnailImage = product.ThumbnailImage,
                 ReviewsCount = product.ReviewsCount,
-                RatingAverage = product.RatingAverage
+                RatingAverage = product.RatingAverage,
+                ShortDesc = product.ShortDescription,
+                Sku = product.Sku
             };
 
             return productThumbnail;

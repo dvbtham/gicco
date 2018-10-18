@@ -28,7 +28,8 @@
                                     <td>{{category.displayOrder}}</td>
                                     <td class="text-center"><i ng-attr-class="{{category.isPublished && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
                                     <td>
-                                        <a ui-sref="app.catalog.category-edit({id: category.id})" title="Edit"> <span class="fa fa-edit"></span></a>
+                                        <a ui-sref="app.catalog.category-create-parent({parent: category.id})" title="Add to this category"> <span class="text-success fa fa-plus"></span></a>
+                                        <a ui-sref="app.catalog.category-edit({id: category.id})" title="Edit" class="ml-1"> <span class="fa fa-edit"></span></a>
                                         <a href="#" ng-click="vm.deleteCategory(category)" class="ml-1"> <span class="fa fa-times text-danger"></span></a>
                                     </td>
                                 </tr>

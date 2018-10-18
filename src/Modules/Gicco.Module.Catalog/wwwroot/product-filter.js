@@ -70,7 +70,7 @@
             });
         }
 
-        $('#collapse-brand input:checkbox').on('change', function () {
+        $('.brand-filter input:checkbox').on('change', function () {
             var index,
                 checkbox = $(this),
                 brand = checkbox.val(),
@@ -86,7 +86,7 @@
             window.location = createUrl();
         });
 
-        $('#collapse-category input:checkbox').on('change', function () {
+        $('.category-filter input:checkbox').on('change', function () {
             var index,
                 checkbox = $(this),
                 category = checkbox.val(),

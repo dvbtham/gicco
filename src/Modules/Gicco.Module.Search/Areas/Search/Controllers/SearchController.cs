@@ -112,7 +112,7 @@ namespace Gicco.Module.Search.Controllers
             query = query
                 .Include(x => x.ThumbnailImage);
 
-            query = AppySort(searchOption, query);
+            query = ApplySort(searchOption, query);
 
             var products = query
                 .Select(x => ProductThumbnail.FromProduct(x))
@@ -133,7 +133,7 @@ namespace Gicco.Module.Search.Controllers
             return View(model);
         }
 
-        private static IQueryable<Product> AppySort(SearchOption searchOption, IQueryable<Product> query)
+        private static IQueryable<Product> ApplySort(SearchOption searchOption, IQueryable<Product> query)
         {
             var sortBy = searchOption.Sort ?? string.Empty;
             switch (sortBy.ToLower())

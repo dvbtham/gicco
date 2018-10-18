@@ -1,36 +1,43 @@
-﻿<div class="page-header">
+﻿<div class="animated fadeIn">
     <div class="row">
-        <div class="col-md-8">
-            <h2>{{::vm.translate.get('Installed themes')}}</h2>
-        </div>
-        <div class="col-md-4 text-right">
-            <a ui-sref="online-themes" class="btn btn-outline-primary"><span class="fa fa-plus"></span> {{::vm.translate.get('View Online Themes')}}</a>
-        </div>
-    </div>
-</div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">{{::vm.translate.get('Installed themes')}}</div>
+                    <div class="pull-right">
+                        <a ui-sref=" "> <i class="fa fa-eye"></i> {{::vm.translate.get('View Online Themes')}} </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div ng-repeat="theme in vm.themes" class="col-xs-6 col-md-4">
+                            <div class="thumbnail">
+                                <img alt="{{theme.displayName}}" ng-src="{{theme.thumbnailUrl}}">
+                                <div class="caption">
+                                    <h4>{{theme.displayName}}</h4>
+                                    <p ng-hide="theme.isCurrent">
+                                        <button class="btn btn-outline-warning" role="button" ng-click="vm.useTheme(theme)">Use</button>
+                                        <button ng-hide="theme.name === vm.previewingTheme" class="btn btn-outline-warning" role="button" ng-click="vm.previewTheme(theme)">Preview</button>
+                                        <button ng-show="theme.name === vm.previewingTheme" class="btn btn-outline-primary" role="button" ng-click="vm.cancelPreviewTheme(theme)">Cancel Preview</button>
+                                        <button ng-if="theme.name !== 'Generic'" class="btn btn-outline-warning" role="button" ng-click="vm.downloadTheme(theme)">Download</button>
+                                        <button ng-if="theme.name !== 'Generic'" class="btn btn-outline-warning" role="button" ng-click="vm.deleteTheme(theme)">Delete</button>
+                                    </p>
+                                    <p ng-show="theme.isCurrent">
+                                        <button type="button" disabled="disabled" class="btn btn-outline-primary">
+                                            <span class="fa fa-check" aria-hidden="true"></span> Current theme
+                                        </button>
+                                        <button ng-if="theme.name !== 'Generic'" class="btn btn-outline-warning" role="button" ng-click="vm.downloadTheme(theme)">Download</button>
+                                    </p>
 
-<div class="row">
-    <div ng-repeat="theme in vm.themes" class="col-xs-6 col-md-4">
-        <div class="thumbnail">
-            <img alt="{{theme.displayName}}" ng-src="{{theme.thumbnailUrl}}">
-            <div class="caption">
-                <h4>{{theme.displayName}}</h4>
-                <p ng-hide="theme.isCurrent">
-                    <button class="btn btn-outline-warning" role="button" ng-click="vm.useTheme(theme)">Use</button>
-                    <button ng-hide="theme.name === vm.previewingTheme" class="btn btn-outline-warning" role="button" ng-click="vm.previewTheme(theme)">Preview</button>
-                    <button ng-show="theme.name === vm.previewingTheme" class="btn btn-outline-primary" role="button" ng-click="vm.cancelPreviewTheme(theme)">Cancel Preview</button>
-                    <button ng-if="theme.name !== 'Generic'" class="btn btn-outline-warning" role="button" ng-click="vm.downloadTheme(theme)">Download</button>
-                    <button ng-if="theme.name !== 'Generic'" class="btn btn-outline-warning" role="button" ng-click="vm.deleteTheme(theme)">Delete</button>
-                </p>
-                <p ng-show="theme.isCurrent">
-                    <button type="button" disabled="disabled" class="btn btn-outline-primary">
-                        <span class="fa fa-check" aria-hidden="true"></span> Current theme
-                    </button>
-                    <button ng-if="theme.name !== 'Generic'" class="btn btn-outline-warning" role="button" ng-click="vm.downloadTheme(theme)">Download</button>
-                </p>
-
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
+        </div>
+        <!-- /.col -->
+
     </div>
+    <!-- /.row -->
 </div>
-	

@@ -207,3 +207,5 @@ md-icon {
     min-height: 0px !important;
     min-width: 0px !important;
 }
+
+.thumbnail img {width: 100%;}

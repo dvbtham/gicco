@@ -1,0 +1,15 @@
+﻿@model Gicco.Module.Search.ViewModels.SearchForm
+
+<div class="col-xs-7 col-sm-7 header-search-box">
+    <form class="form-inline" method="get" action="~/search">
+        <div class="form-group form-category">
+            <select class="select-category" asp-for="Category" asp-items="Model.AvailableCategories">
+                <option value="all">All</option>
+            </select>
+        </div>
+        <div class="form-group input-serach">
+            <input type="text" asp-for="Query" value="@Model.Query" placeholder="Keyword here...">
+        </div>
+        <button type="submit" class="pull-right btn-search"></button>
+    </form>
+</div>

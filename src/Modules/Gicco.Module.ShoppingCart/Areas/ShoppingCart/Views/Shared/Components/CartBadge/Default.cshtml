@@ -1,8 +1,15 @@
 ﻿@model int
 
-<div class="cart-badge badge-icons pull-right">
+@*<div class="cart-badge badge-icons pull-right">
     <a href="~/cart"><i class="fa fa-shopping-cart"></i></a>
     <span class="badge badge-sea rounded-x">@Model</span>
     <div class="badge-open">
     </div>
+</div>*@
+
+
+<div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box">
+    <a class="cart-link" href="~/cart">
+        <span class="notify notify-left">@Model</span>
+    </a>
 </div>

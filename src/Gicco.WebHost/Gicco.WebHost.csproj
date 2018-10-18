@@ -44,6 +44,32 @@
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.pdb" />
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.dll" />
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.pdb" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\theme.json" />
+    <None Remove="Themes\GiccoStore\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\GiccoStore\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\GiccoStore\Views\_ViewImports.cshtml" />
     <None Remove="wwwroot\images\default-user-avatar.png" />
     <None Remove="wwwroot\lib\angular-ui-router\angular-ui-router.js.map" />
     <None Remove="wwwroot\lib\angular-ui-router\angular-ui-router.min.js.map" />
@@ -52,6 +78,9 @@
     <None Remove="wwwroot\lib\coreui\css\style.css" />
     <None Remove="wwwroot\lib\coreui\css\style.min.css" />
     <None Remove="wwwroot\lib\coreui\img\logo.png" />
+    <None Remove="wwwroot\themes\GiccoStore\css\bootstrap-dropdownhover.min.css" />
+    <None Remove="wwwroot\themes\GiccoStore\GiccoStore.png" />
+    <None Remove="wwwroot\themes\GiccoStore\js\bootstrap-dropdownhover.min.js" />
   </ItemGroup>
 
   <ItemGroup>

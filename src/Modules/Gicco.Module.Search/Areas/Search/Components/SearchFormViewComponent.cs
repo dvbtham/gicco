@@ -19,18 +19,20 @@ namespace Gicco.Module.Search.Components
 
         public IViewComponentResult Invoke()
         {
-            var model = new SearchForm();
-            model.AvailableCategories = _categoryRepository
+            var model = new SearchForm
+            {
+                AvailableCategories = _categoryRepository
                 .Query()
                 .Where(x => x.IsPublished && x.Parent == null)
                 .Select(x => new SelectListItem
                 {
                     Value = x.Slug,
                     Text = x.Name
-                }).ToList();
+                }).ToList(),
 
-            model.Query = Request.Query["query"];
-            model.Category = Request.Query["category"];
+                Query = Request.Query["query"],
+                Category = Request.Query["category"]
+            };
 
             return View(this.GetViewPath(), model);
         }

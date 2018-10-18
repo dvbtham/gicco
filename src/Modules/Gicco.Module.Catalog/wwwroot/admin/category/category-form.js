@@ -42,7 +42,7 @@
                     } else {
                         toastr.success("Category was successfully created ");
                     }
-                    })
+                })
                 .catch(function (response) {
                     var error = response.data;
                     vm.validationErrors = [];
@@ -92,10 +92,11 @@
 
         function init() {
             if (vm.isEditMode) {
+                vm.hideSelect = false;
                 $q.all([
-                        categoryService.getCategories(),
-                        categoryService.getCategory(vm.categoryId)
-                    ])
+                    categoryService.getCategories(),
+                    categoryService.getCategory(vm.categoryId)
+                ])
                     .then(function (result) {
                         var index;
                         vm.categories = result[0].data;
@@ -111,6 +112,8 @@
                 categoryService.getCategories().then(function (result) {
                     vm.categories = result.data;
                 });
+                vm.category.parentId = $stateParams.parent;
+                vm.hideSelect = true;
             }
         }
 

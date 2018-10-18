@@ -28,7 +28,16 @@
                     ncyBreadcrumb: {
                         label: 'Sites'
                     }
-                }).state('app.sites.users', {
+                })
+                .state('app.system', {
+                    url: "/system",
+                    abstract: true,
+                    template: '<ui-view></ui-view>',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("System")}}'
+                    }
+                })
+                .state('app.sites.users', {
                     url: '/users',
 
                     templateUrl: "modules/core/admin/user/user-list.html",
@@ -100,43 +109,43 @@
                         label: '{{ ::vm.translate.get("Edit Customer Group")}}'
                     }
                 })
-                .state('themes', {
+                .state('app.system.themes', {
                     url: '/themes',
 
                     templateUrl: 'modules/core/admin/themes/theme-list.html',
                     controller: 'ThemeListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Installed themes")}}'
                     }
                 })
-                .state('online-themes', {
+                .state('app.system.online-themes', {
                     url: '/online-themes',
 
                     templateUrl: 'modules/core/admin/themes/online-theme-list.html',
                     controller: 'OnlineThemeListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Online Themes")}}'
                     }
                 })
-                .state('theme-details', {
+                .state('app.system.theme-details', {
                     url: '/theme-details/:name',
 
                     templateUrl: 'modules/core/admin/themes/theme-details.html',
                     controller: 'ThemeDetailsCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Theme Details")}}'
                     }
                 })
-                .state('countries', {
+                .state('app.system.countries', {
                     url: '/countries',
 
                     templateUrl: 'modules/core/admin/countries/country-list.html',
                     controller: 'CountryListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Countries")}}'
                     }
                 })
-                .state('country-create', {
+                .state('app.system.country-create', {
                     url: '/countries/create',
 
                     templateUrl: 'modules/core/admin/countries/country-form.html',
@@ -145,7 +154,7 @@
                         label: '{{ ::vm.translate.get("Users")}}'
                     }
                 })
-                .state('country-edit', {
+                .state('app.system.country-edit', {
                     url: '/countries/edit/:id',
 
                     templateUrl: 'modules/core/admin/countries/country-form.html',
@@ -154,7 +163,7 @@
                         label: '{{ ::vm.translate.get("Users")}}'
                     }
                 })
-                .state('states-provinces', {
+                .state('app.system.states-provinces', {
                     url: '/states-provinces',
 
                     templateUrl: 'modules/core/admin/stateprovince/state-province-list.html',
@@ -163,7 +172,7 @@
                         label: '{{ ::vm.translate.get("Users")}}'
                     }
                 })
-                .state('country-states-provinces', {
+                .state('app.system.country-states-provinces', {
                     url: '/countries/:countryId/states-provinces',
 
                     templateUrl: 'modules/core/admin/stateprovince/state-province-list.html',
@@ -172,7 +181,7 @@
                         label: '{{ ::vm.translate.get("Users")}}'
                     }
                 })
-                .state('state-province-create', {
+                .state('app.system.state-province-create', {
                     url: '/countries/:countryId/state-province/create',
 
                     templateUrl: 'modules/core/admin/stateprovince/state-province-form.html',
@@ -181,7 +190,7 @@
                         label: '{{ ::vm.translate.get("Users")}}'
                     }
                 })
-                .state('state-province-edit', {
+                .state('app.system.state-province-edit', {
                     url: '/countries/:countryId/state-province/edit/:id',
 
                     templateUrl: 'modules/core/admin/stateprovince/state-province-form.html',

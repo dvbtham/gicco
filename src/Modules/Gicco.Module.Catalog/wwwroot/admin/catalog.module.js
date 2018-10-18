@@ -41,7 +41,6 @@
                 })
                 .state('app.catalog.category', {
                     url: '/category',
-
                     templateUrl: 'modules/catalog/admin/category/category-list.html',
                     controller: 'CategoryListCtrl as vm',
                     ncyBreadcrumb: {
@@ -50,7 +49,14 @@
                 })
                 .state('app.catalog.category-create', {
                     url: '/category/create',
-
+                    templateUrl: 'modules/catalog/admin/category/category-form.html',
+                    controller: 'CategoryFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Category")}}'
+                    }
+                })
+                .state('app.catalog.category-create-parent', {
+                    url: '/category/create/:parent',
                     templateUrl: 'modules/catalog/admin/category/category-form.html',
                     controller: 'CategoryFormCtrl as vm',
                     ncyBreadcrumb: {

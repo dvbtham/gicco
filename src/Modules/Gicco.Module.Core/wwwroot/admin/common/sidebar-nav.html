@@ -70,6 +70,38 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.system')}">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.system')}" href="#"><i class="icon-settings"></i> System</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.category"><i class="icon-star"></i> Countries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.product"><i class="icon-star"></i> Payment providers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.fontawesome"><i class="icon-star"></i> Product prices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.flags"><i class="icon-star"></i> Tax class </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.fontawesome"><i class="icon-star"></i> Tax rate </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.simplelineicons"><i class="icon-star"></i> States or provinces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.themes"><i class="icon-star"></i> Themes </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.fontawesome"><i class="icon-star"></i> Font Awesome </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.simplelineicons"><i class="icon-star"></i> Simple Line Icons</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </div>

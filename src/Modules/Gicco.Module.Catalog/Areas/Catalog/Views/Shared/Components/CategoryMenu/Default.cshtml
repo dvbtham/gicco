@@ -6,23 +6,32 @@
     if (item.ChildItems.Any())
     {
         <li class="dropdown">
-            <a href="/@item.Slug" class="dropdown-toggle">@item.Name</a>
+            <a href="/@item.Slug" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle">@item.Name</a>
             <ul class="dropdown-menu container-fluid">
                 <li class="block-container">
                     <ul class="block">
                         @foreach (var childItem in item.ChildItems)
                         {
-                            <li class="link_container">
-                                <a href="/@childItem.Slug">@childItem.Name&nbsp;<i class="fa fa-chevron-right"></i></a>
-                                <ul class="block">
-                                    <li class="link_container">
-                                        <a href="/@childItem.Slug">@childItem.Name&nbsp;<i class="fa fa-chevron-right"></i></a>
-                                    </li>
-                                    <li class="link_container">
-                                        <a href="/@childItem.Slug">@childItem.Name&nbsp;<i class="fa fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
+                            if (childItem.ChildItems.Count > 0)
+                            {
+                                <li class="link_container dropdown">
+                                    <a href="/@childItem.Slug">@childItem.Name&nbsp;</a>
+                                    <ul class="block dropdown-menu dropdownhover-right">
+                                        @foreach (var ci in childItem.ChildItems)
+                                        {
+                                            <li class="link_container">
+                                                <a href="/@ci.Slug">@ci.Name&nbsp;</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="link_container">
+                                    <a href="/@childItem.Slug">@childItem.Name&nbsp;</a>
+                                </li>
+                            }
                         }
                     </ul>
                 </li>

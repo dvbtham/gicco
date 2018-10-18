@@ -35,15 +35,29 @@
                     templateUrl: 'modules/cms/admin/menu/menu-form.html',
                     controller: 'MenuFormCtrl as vm', parent: 'base'
                 })
-                .state('widget-carousel-create', {
+                .state('app.content', {
+                    url: "/content",
+                    abstract: true,
+                    template: '<ui-view></ui-view>',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Widget")}}'
+                    }
+                })
+                .state('app.content.widget-carousel-create', {
                     url: '/widget-carousel/create',
                     templateUrl: 'modules/cms/admin/carousel-widget/carousel-widget-form.html',
-                    controller: 'CarouselWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'CarouselWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Widget")}}'
+                    }
                 })
-                .state('widget-carousel-edit', {
+                .state('app.content.widget-carousel-edit', {
                     url: '/widget-carousel/edit/:id',
                     templateUrl: 'modules/cms/admin/carousel-widget/carousel-widget-form.html',
-                    controller: 'CarouselWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'CarouselWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Widget")}}'
+                    }
                 })
                 .state('widget-html-create', {
                     url: '/widget-html/create',

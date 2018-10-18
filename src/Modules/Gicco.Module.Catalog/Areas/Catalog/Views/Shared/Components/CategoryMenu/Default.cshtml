@@ -14,7 +14,7 @@
                         {
                             if (childItem.ChildItems.Count > 0)
                             {
-                                <li class="link_container dropdown">
+                                <li class="link_container dropdown hasChild">
                                     <a href="/@childItem.Slug">@childItem.Name&nbsp;</a>
                                     <ul class="block dropdown-menu dropdownhover-right">
                                         @foreach (var ci in childItem.ChildItems)

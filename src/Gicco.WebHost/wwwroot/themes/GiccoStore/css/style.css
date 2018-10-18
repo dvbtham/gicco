@@ -5212,8 +5212,13 @@ span.notify-right{
 .dropdown-menu {
     left: auto;
 }
+.block > .dropdown a {
+    width: 100%;
+    display: block;
+    position: relative;
+}
 
-.block>.dropdown:before {
+.block > li.dropdown>a:before {
     display: inline-block;
     font-family: FontAwesome;
     font-style: normal;
@@ -5223,7 +5228,7 @@ span.notify-right{
     -moz-osx-font-smoothing: grayscale;
     content: "\f105";
     position: absolute;
-    top: 14px;
+    top: 5px;
     right: 8px;
     color: #666;
 }

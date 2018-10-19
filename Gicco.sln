@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{0A27C140-4CCB-40DD-BE48-F5DE16D1177B}"
 	ProjectSection(SolutionItems) = preProject
 		src\Database\Countries.sql = src\Database\Countries.sql
+		..\..\..\Desktop\gicco191018_sql_server.sql = ..\..\..\Desktop\gicco191018_sql_server.sql
 		src\Database\StaticData-BR.sql = src\Database\StaticData-BR.sql
 		src\Database\StaticData-CN.sql = src\Database\StaticData-CN.sql
 		src\Database\StaticData-ES.sql = src\Database\StaticData-ES.sql

@@ -2,5 +2,6 @@
 
 @foreach (var item in Model)
 {
-    <li class="breadcrumb-item"><a href="~/@item.Url">@item.Text</a></li>
+    <span class="navigation-pipe">&nbsp;</span>
+    <a  href="#">@Localizer[item.Text] &nbsp;</a>
 }

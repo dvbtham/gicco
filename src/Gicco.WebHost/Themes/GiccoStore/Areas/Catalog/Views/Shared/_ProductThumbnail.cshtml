@@ -16,7 +16,7 @@
         <div class="right-block">
             <h5 class="product-name"><a href="~/@Model.Slug">@Model.Name</a></h5>
 
-            @if (Model.RatingAverage.HasValue)
+            @if (Model.RatingAverage != null)
             {
                 <div class="product-star">
                     @for (var i = 1; i <= Model.RatingAverage.Value; i++)
@@ -46,7 +46,7 @@
             </div>
             <div class="info-orther">
                 <p>SKU: #@(!string.IsNullOrEmpty(Model.Sku) ? Model.Sku : "Updating...")</p>
-                <p class="availability">Availability: <span>@(Model.StockQuantity.HasValue ? "In Stock" : "Out of stock")</span></p>
+                <p class="availability">Availability: <span>@(Model.StockQuantity != null ? "In Stock" : "Out of stock")</span></p>
                 <div class="product-desc">
                     @Html.Raw(Model.ShortDesc)
                 </div>

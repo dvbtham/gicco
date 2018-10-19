@@ -2805,15 +2805,19 @@ span.notify-right{
   width: 6px;
   color: #666;
   font-family: "FontAwesome";
-  padding: 0 15px;
+  padding: 0 3px;
 }
 
+    .breadcrumb .fa-angle-right:before {
+        content: "\f105";
+        padding: 0 3px;
+    }
 /*------------------
 [16. Columns]
 */
-#columns{
-  padding-top: 16px;
-  padding-bottom: 30px;
+#columns {
+    padding-top: 16px;
+    padding-bottom: 30px;
 }
 
 /*--------------

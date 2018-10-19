@@ -74,7 +74,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('menus');
+                    $state.go('app.content.menus');
                 })
                 .catch(function (response) {
                     var error = response.data;

@@ -46,6 +46,7 @@
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.pdb" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryAside\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
@@ -132,6 +133,12 @@
 
   <ItemGroup>
     <Folder Include="logs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryAside\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <Target Name="CopyModule" AfterTargets="Build">

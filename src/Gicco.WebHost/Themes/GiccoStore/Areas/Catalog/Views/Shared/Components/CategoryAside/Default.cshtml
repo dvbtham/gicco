@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Gicco.Module.Catalog.ViewModels.CategoryMenuItem>
+
+@inject IViewLocalizer Localizer
+
+@foreach (var item in Model)
+{
+    <li class="@(item.ChildItems.Count > 0 ? "vertical-dropdown": "")">
+        <a href="/@item.Slug">@item.Name</a>
+        <ul class="vertical-dropdown-menu-2">
+            @foreach (var child in item.ChildItems)
+            {
+                <li class="@(child.ChildItems.Count > 0 ? "vertical-dropdown": "")">
+                    <a href="/@child.Slug">@child.Name</a>
+                    <ul class="vertical-dropdown-menu-2">
+                        @foreach (var grand in child.ChildItems)
+                        {
+                            <li>
+                                <a href="/@grand.Slug">@grand.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </li>
+
+
+}

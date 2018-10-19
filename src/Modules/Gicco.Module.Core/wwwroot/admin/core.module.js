@@ -64,13 +64,12 @@
                         label: '{{ ::vm.translate.get("Edit User")}}'
                     }
                 })
-                .state('widget', {
+                .state('app.content.widget', {
                     url: '/widget',
-
                     templateUrl: 'modules/core/admin/widget/widget-instance-list.html',
                     controller: 'WidgetInstanceListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Widgets")}}'
                     }
                 })
                 .state('configuration', {

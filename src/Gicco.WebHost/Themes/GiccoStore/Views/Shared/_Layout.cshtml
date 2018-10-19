@@ -67,7 +67,7 @@
                                 </ul>
                                 <div class="all-category"><span class="open-cate">All Categories</span></div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div id="main-menu" class="col-sm-9 main-menu">
@@ -364,28 +364,18 @@
     <!-- Script-->
     <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery/jquery.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/themes/GiccoStore/js/bootstrap-dropdownhover.min.js"></script>
+    <script gicco-append-version="true" src="~/themes/GiccoStore/js/bootstrap-dropdownhover.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/select2/js/select2.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/owl.carousel/owl.carousel.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery.countdown/jquery.countdown.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/themes/GiccoStore/js/jquery.actual.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/themes/GiccoStore/js/theme-script.js"></script>
-    @*<script>
-        $(".vertical-menu-list").hover(function () {
-            $(".vertical-menu-content-child").show();
-        }, function () {
-            $(".vertical-menu-content-child").hide();
-            });
+    <script gicco-append-version="true" type="text/javascript" src="~/modules/core/main.js"></script>
 
-        $(".vertical-menu-content-child").hover(function () {
-            $(".vertical-menu-content-child-child").show();
-        }, function () {
-            $(".vertical-menu-content-child-child").hide();
-        });
-    </script>*@
+
     @RenderSection("scripts", required: false)
-   
+
 
     @await Html.PartialAsync("_AnalyticsScript")
 

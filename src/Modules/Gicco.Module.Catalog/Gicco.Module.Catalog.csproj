@@ -23,5 +23,14 @@
     <ProjectReference Include="..\Gicco.Module.Core\Gicco.Module.Core.csproj" />
     <ProjectReference Include="..\Gicco.Module.Tax\Gicco.Module.Tax.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Content Update="Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Catalog\Views\Shared\_ProductThumbnailHomeTab.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
 
 </Project>

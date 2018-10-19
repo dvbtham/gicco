@@ -1,0 +1,36 @@
+﻿@model Gicco.Module.Catalog.ViewModels.ProductThumbnail
+
+<li>
+    <div class="left-block">
+        <a href="~/@Model.Slug">
+            <img class="img-responsive" alt="@Model.Name" src="@Model.ThumbnailUrl" />
+        </a>
+        <div class="quick-view">
+            <a title="Add to my wishlist" class="heart" href="#"></a>
+            <a title="Add to compare" class="compare" href="#"></a>
+            <a title="Quick view" class="search" href="#"></a>
+        </div>
+        <div class="add-to-cart">
+            <a title="Add to Cart" href="#">@Localizer["Add To Cart"]</a>
+        </div>
+    </div>
+    <div class="right-block">
+        <h5 class="product-name"><a href="~/@Model.Slug">@Model.Name</a></h5>
+        <div class="content_price">
+            <span class="price product-price">@Model.Price.ToString("c0")</span>
+            @if (Model.OldPrice != null)
+            {
+                <span class="price old-price">@Model.OldPrice.Value.ToString("c0")</span>
+            }
+        </div>
+        @if (Model.RatingAverage.HasValue)
+        {
+            <div class="product-star">
+                @for (var i = 1; i <= Model.RatingAverage.Value; i++)
+                {
+                    <i class="fa fa-star"></i>
+                }
+            </div>
+        }
+    </div>
+</li>

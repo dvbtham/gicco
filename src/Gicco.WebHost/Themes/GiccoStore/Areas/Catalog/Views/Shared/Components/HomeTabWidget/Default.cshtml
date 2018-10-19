@@ -1,0 +1,6 @@
+﻿@model Gicco.Module.Catalog.ViewModels.ProductWidgetComponentVm
+
+@foreach (var product in Model.Products)
+{
+    @await Html.PartialAsync("/Areas/Catalog/Views/Shared/_ProductThumbnailHomeTab.cshtml", product)
+}

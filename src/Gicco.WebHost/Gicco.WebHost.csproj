@@ -50,6 +50,7 @@
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
@@ -137,6 +138,9 @@
 
   <ItemGroup>
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryAside\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

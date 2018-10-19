@@ -5,49 +5,41 @@
 @inject SignInManager<User> SignInManager
 
 <div class="top-header">
-        <div class="container">
-            <div class="nav-top-links">
-                <a class="first-item" href="#"><img alt="phone" src="~/themes/GiccoStore/images/phone.png" />00-62-658-658</a>
-                <a href="/"><img alt="email" src="~/themes/GiccoStore/images/email.png" />Contact us today!</a>
-            </div>
-            <div class="currency ">
-                <div class="dropdown">
-                    <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">USD</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Dollar</a></li>
-                        <li><a href="#">Euro</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="language ">
-                <div class="dropdown">
-                    <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                        <img alt="email" src="~/themes/GiccoStore/images/fr.jpg" />French
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><img alt="email" src="~/themes/GiccoStore/images/en.jpg" />English</a></li>
-                        <li><a href="#"><img alt="email" src="~/themes/GiccoStore/images/fr.jpg" />French</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div id="user-info-top" class="user-info pull-right">
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">@Localizer["Hello {0}!", (await WorkContext.GetCurrentUser()).FullName]</a>
-                    @if (User.IsInRole("admin") || User.IsInRole("vendor"))
-                    {
-                        <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index">@Localizer["Dashboard"]</a>
-                    }
-                    <form style="float: right; padding-left: 11px;" asp-area="Core" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="">
-                        <button type="submit" class="logoff flex-c-m trans-04 p-lr-25">@Localizer["Log off"]</button>
-                    </form>
-                }
-                else
-                {
-                    <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Account" asp-action="Login">@Localizer["Log in"]</a>
-                    <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Account" asp-action="Register">@Localizer["Register"]</a>
-                }
-
+    <div class="container">
+        <div class="nav-top-links">
+            <a class="first-item" href="#"><img alt="phone" src="~/themes/GiccoStore/images/phone.png" />00-62-658-658</a>
+            <a href="/"><img alt="email" src="~/themes/GiccoStore/images/email.png" />Contact us today!</a>
+        </div>
+        <div class="currency ">
+            <div class="dropdown">
+                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">USD</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Dollar</a></li>
+                    <li><a href="#">Euro</a></li>
+                </ul>
             </div>
         </div>
+
+        @await Html.PartialAsync("_SelectLanguagePartial")
+        
+        <div id="user-info-top" class="user-info pull-right">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">@Localizer["Hello {0}!", (await WorkContext.GetCurrentUser()).FullName]</a>
+                @if (User.IsInRole("admin") || User.IsInRole("vendor"))
+                {
+                    <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index">@Localizer["Dashboard"]</a>
+                }
+                <form style="float: right; padding-left: 11px;" asp-area="Core" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="">
+                    <button type="submit" class="logoff flex-c-m trans-04 p-lr-25">@Localizer["Log off"]</button>
+                </form>
+            }
+            else
+            {
+                <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Account" asp-action="Login">@Localizer["Log in"]</a>
+                <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Account" asp-action="Register">@Localizer["Register"]</a>
+            }
+
+        </div>
+    </div>
     </div>

@@ -12,13 +12,13 @@ using Gicco.Module.Core.ViewModels;
 
 namespace Gicco.Module.Catalog.Components
 {
-    public class ProductWidgetViewComponent : ViewComponent
+    public class HomeTabWidgetViewComponent : ViewComponent
     {
         private readonly IRepository<Product> _productRepository;
         private readonly IMediaService _mediaService;
         private readonly IProductPricingService _productPricingService;
 
-        public ProductWidgetViewComponent(IRepository<Product> productRepository, IMediaService mediaService, IProductPricingService productPricingService)
+        public HomeTabWidgetViewComponent(IRepository<Product> productRepository, IMediaService mediaService, IProductPricingService productPricingService)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;

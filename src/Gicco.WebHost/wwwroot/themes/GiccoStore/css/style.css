@@ -1386,12 +1386,10 @@ span.notify-right {
     display: none;
     left: 100%;
     background-color: #fff;
-    border-top: none;
-    border-bottom: 1px solid #eaeaea;
-    border-right: 1px solid #eaeaea;
+    border: 1px solid #eaeaea;
     padding-bottom: 15px;
-    border-left: 1px solid #eaeaea;
     z-index: 900;
+    transition: 0.5s ease;
 }
 
 .vertical-dropdown-menu .vertical-groups {

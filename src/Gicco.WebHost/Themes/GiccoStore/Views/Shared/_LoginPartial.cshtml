@@ -9,37 +9,47 @@
         <div class="nav-top-links">
             <a class="first-item" href="#"><img alt="phone" src="~/themes/GiccoStore/images/phone.png" />00-62-658-658</a>
             <a href="/"><img alt="email" src="~/themes/GiccoStore/images/email.png" />Contact us today!</a>
-        </div>
-        <div class="currency ">
+        </div>        
+
+        @await Html.PartialAsync("_SelectLanguagePartial")
+
+        <div id="user-info-top" class="user-info pull-right">
             <div class="dropdown">
-                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">USD</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Dollar</a></li>
-                    <li><a href="#">Euro</a></li>
+                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span class="myAccount">@Localizer["My Account"]</span></a>
+                <ul class="dropdown-menu mega_dropdown" role="menu">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li>
+                            <a asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">@Localizer["Hello {0}!", (await WorkContext.GetCurrentUser()).FullName]</a>
+                        </li>
+                        @if (User.IsInRole("admin") || User.IsInRole("vendor"))
+                        {
+                            <li>
+                                <a asp-area="Core" asp-controller="HomeAdmin" asp-action="Index">@Localizer["Dashboard"]</a>
+                            </li>
+                        }
+                        <li><a href="#">@Localizer["Compare"]</a></li>
+                        <li><a href="#">@Localizer["Wishlists"]</a></li>
+                        <li>
+                            <form style="padding-left: 10px;" asp-area="Core" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="">
+                                <button type="submit" class="logoff flex-c-m trans-04 p-lr-25">@Localizer["Log off"]</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-area="Core" asp-controller="Account"
+                               asp-action="Login">@Localizer["Log in"]</a>
+                        </li>
+                        <li>
+                            <a asp-area="Core"
+                               asp-controller="Account"
+                               asp-action="Register">@Localizer["Register"]</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
-
-        @await Html.PartialAsync("_SelectLanguagePartial")
-        
-        <div id="user-info-top" class="user-info pull-right">
-            @if (SignInManager.IsSignedIn(User))
-            {
-                <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Manage" asp-action="Index" title="@Localizer["Manage"]">@Localizer["Hello {0}!", (await WorkContext.GetCurrentUser()).FullName]</a>
-                @if (User.IsInRole("admin") || User.IsInRole("vendor"))
-                {
-                    <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="HomeAdmin" asp-action="Index">@Localizer["Dashboard"]</a>
-                }
-                <form style="float: right; padding-left: 11px;" asp-area="Core" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="">
-                    <button type="submit" class="logoff flex-c-m trans-04 p-lr-25">@Localizer["Log off"]</button>
-                </form>
-            }
-            else
-            {
-                <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Account" asp-action="Login">@Localizer["Log in"]</a>
-                <a class="flex-c-m trans-04 p-lr-25" asp-area="Core" asp-controller="Account" asp-action="Register">@Localizer["Register"]</a>
-            }
-
-        </div>
     </div>
-    </div>
+</div>

@@ -2,6 +2,7 @@
 
 @foreach (var widgetInstance in Model)
 {
+    int i = 1;
     <div class="category-featured">
         <nav class="navbar nav-menu nav-menu-red show-brand">
             <div class="container">
@@ -15,9 +16,10 @@
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
-            <div id="elevator-1" class="floor-elevator">
+            <div id="elevator-@i" class="floor-elevator">
+                @{++i;}
                 <a href="#" class="btn-elevator up disabled fa fa-angle-up"></a>
-                <a href="#elevator-2" class="btn-elevator down fa fa-angle-down"></a>
+                <a href="#elevator-@i" class="btn-elevator down fa fa-angle-down"></a>
             </div>
         </nav>
 
@@ -32,9 +34,8 @@
                 <div class="product-featured-list">
                     <div class="tab-container">
                         <!-- tab product -->
-                        <div class="tab-panel active" id="tab-4">
+                        <div class="tab-panel active">
                             <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="0" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
-
                                 @await Component.InvokeAsync(widgetInstance.ViewComponentName, new { widgetInstance = widgetInstance })
 
                             </ul>
@@ -46,6 +47,4 @@
             </div>
         </div>
     </div>
-    <!-- end featured category fashion -->
-    
 }

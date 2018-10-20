@@ -10,4 +10,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="Areas\Core\Views\Shared\_HomeTabWidget.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Core\Views\Shared\_HomeProductCategory.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
 </Project>

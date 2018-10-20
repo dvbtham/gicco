@@ -58,7 +58,6 @@ namespace Gicco.Module.Catalog.Components
                 product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
                 product.CalculatedProductPrice = _productPricingService.CalculateProductPrice(product);
             }
-
             return View(this.GetViewPath(), model);
         }
     }

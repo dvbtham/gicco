@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Gicco.Module.Catalog.ViewModels.CategoryMenuItem>
+
+@inject IViewLocalizer Localizer
+@foreach (var item in Model)
+{
+    <li><a href="/@item.Slug">@item.Name</a></li>
+}

@@ -1,13 +1,13 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Gicco.Infrastructure.Data;
+﻿using Gicco.Infrastructure.Data;
 using Gicco.Infrastructure.Web;
 using Gicco.Module.Catalog.Models;
 using Gicco.Module.Catalog.ViewModels;
 using Gicco.Module.Core.Services;
 using Gicco.Module.Core.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace Gicco.Module.Catalog.Components
 {
@@ -24,7 +24,8 @@ namespace Gicco.Module.Catalog.Components
 
         public IViewComponentResult Invoke(WidgetInstanceViewModel widgetInstance)
         {
-            var model = new CategoryWidgetComponentVm() {
+            var model = new CategoryWidgetComponentVm()
+            {
                 Id = widgetInstance.Id,
                 WidgetName = widgetInstance.Name,
             };
@@ -34,7 +35,8 @@ namespace Gicco.Module.Catalog.Components
                 var category = _categoriesRepository.Query()
                     .Include(c => c.ThumbnailImage)
                     .FirstOrDefault(c => c.Id == settings.CategoryId);
-                model.Category = new CategoryThumbnail() {
+                model.Category = new CategoryThumbnail()
+                {
                     Id = category.Id,
                     Description = category.Description,
                     Name = category.Name,
@@ -43,7 +45,7 @@ namespace Gicco.Module.Catalog.Components
                     ThumbnailUrl = _mediaService.GetThumbnailUrl(category.ThumbnailImage)
                 };
             }
-
+           
             return View(this.GetViewPath(), model);
         }
     }

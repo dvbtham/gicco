@@ -32,7 +32,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('widget');
+                    $state.go('app.content.widget');
                 })
                 .catch(function (response) {
                     var error = response.data;

@@ -1,8 +1,8 @@
-﻿using System.Linq;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Module.Search.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Gicco.Infrastructure.Data;
-using Gicco.Module.Search.Models;
+using System.Linq;
 
 namespace Gicco.Module.Search.Controllers
 {
@@ -24,7 +24,7 @@ namespace Gicco.Module.Search.Controllers
             var model = _queryRepository.Query()
                 .GroupBy(x => x.QueryText)
                 .OrderByDescending(g => g.Count())
-                .Select(g => new {Keyword = g.Key, Count = g.Count()})
+                .Select(g => new { Keyword = g.Key, Count = g.Count() })
                 .Take(5);
 
             return Json(model);

@@ -4,7 +4,7 @@
     <form class="form-inline" method="get" action="~/search">
         <div class="form-group form-category">
             <select class="select-category" asp-for="Category" asp-items="Model.AvailableCategories">
-                <option value="all">All</option>
+                <option value="all">@Localizer["All Categories"]</option>
             </select>
         </div>
         <div class="form-group input-serach">

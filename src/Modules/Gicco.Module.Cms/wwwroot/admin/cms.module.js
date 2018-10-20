@@ -20,50 +20,85 @@
                     templateUrl: 'modules/cms/admin/page/page-form.html',
                     controller: 'PageFormCtrl as vm', parent: 'base'
                 })
-                .state('menus', {
+                .state('app.content.menus', {
                     url: '/menus/',
                     templateUrl: 'modules/cms/admin/menu/menu-list.html',
-                    controller: 'MenuListCtrl as vm', parent: 'base'
+                    controller: 'MenuListCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Menus")}}'
+                    }
                 })
-                .state('menus-create', {
+                .state('app.content.menus-create', {
                     url: '/menus-create/',
                     templateUrl: 'modules/cms/admin/menu/menu-form-create.html',
-                    controller: 'MenuFormCreateCtrl as vm', parent: 'base'
+                    controller: 'MenuFormCreateCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Menu")}}'
+                    }
                 })
-                .state('menus-edit', {
+                .state('app.content.menus-edit', {
                     url: '/menus-edit/:id',
                     templateUrl: 'modules/cms/admin/menu/menu-form.html',
-                    controller: 'MenuFormCtrl as vm', parent: 'base'
+                    controller: 'MenuFormCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Menu")}}'
+                    }
                 })
-                .state('widget-carousel-create', {
+                .state('app.content', {
+                    url: "/content",
+                    abstract: true,
+                    template: '<ui-view></ui-view>',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Widget")}}'
+                    }
+                })
+                .state('app.content.widget-carousel-create', {
                     url: '/widget-carousel/create',
                     templateUrl: 'modules/cms/admin/carousel-widget/carousel-widget-form.html',
-                    controller: 'CarouselWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'CarouselWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Widget")}}'
+                    }
                 })
-                .state('widget-carousel-edit', {
+                .state('app.content.widget-carousel-edit', {
                     url: '/widget-carousel/edit/:id',
                     templateUrl: 'modules/cms/admin/carousel-widget/carousel-widget-form.html',
-                    controller: 'CarouselWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'CarouselWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Widget")}}'
+                    }
                 })
-                .state('widget-html-create', {
+                .state('app.content.widget-html-create', {
                     url: '/widget-html/create',
                     templateUrl: 'modules/cms/admin/html-widget/html-widget-form.html',
-                    controller: 'HtmlWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'HtmlWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Html Widget")}}'
+                    }
                 })
-                .state('widget-html-edit', {
+                .state('app.content.widget-html-edit', {
                     url: '/widget-html/edit/:id',
                     templateUrl: 'modules/cms/admin/html-widget/html-widget-form.html',
-                    controller: 'HtmlWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'HtmlWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Html Widget")}}'
+                    }
                 })
-                .state('widget-spacebar-create', {
+                .state('app.content.widget-spacebar-create', {
                     url: '/widget-spacebar/create',
                     templateUrl: 'modules/cms/admin/spacebar-widget/spacebar-widget-form.html',
-                    controller: 'SpaceBarWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'SpaceBarWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Spacebar Widget")}}'
+                    }
                 })
-                .state('widget-spacebar-edit', {
+                .state('app.content.widget-spacebar-edit', {
                     url: '/widget-spacebar/edit/:id',
                     templateUrl: 'modules/cms/admin/spacebar-widget/spacebar-widget-form.html',
-                    controller: 'SpaceBarWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'SpaceBarWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Spacebar Widget")}}'
+                    }
                 });
         }]);
 })();

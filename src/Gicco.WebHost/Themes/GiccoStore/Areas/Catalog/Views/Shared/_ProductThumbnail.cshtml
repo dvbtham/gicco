@@ -1,4 +1,4 @@
-﻿<li class="col-sx-12 col-sm-4">
+﻿<li>
     <div class="product-container">
         <div class="left-block">
             <a href="~/@Model.Slug">
@@ -19,7 +19,7 @@
             @if (Model.RatingAverage != null)
             {
                 <div class="product-star">
-                    @for (var i = 1; i <= Model.RatingAverage.Value; i++)
+                    @for (var i = 1; i <= Model.RatingAverage; i++)
                     {
                         <i class="fa fa-star"></i>
                     }
@@ -34,19 +34,19 @@
                 else
                 {
                     <span class="price product-price">
-                        @Model.CalculatedProductPrice.Price.ToString("C")
+                        @Model.CalculatedProductPrice.Price.ToString("C0")
                     </span>
 
                     if (Model.CalculatedProductPrice.PercentOfSaving > 0)
                     {
-                        <span title="Saving -@(Model.CalculatedProductPrice.PercentOfSaving)%" class="price old-price">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C")</span>
+                        <span title="@Localizer["Saving"] -@(Model.CalculatedProductPrice.PercentOfSaving)%" class="price old-price">@Model.CalculatedProductPrice.OldPrice.ToString("C0")</span>
                     }
                 }
 
             </div>
             <div class="info-orther">
-                <p>SKU: #@(!string.IsNullOrEmpty(Model.Sku) ? Model.Sku : "Updating...")</p>
-                <p class="availability">Availability: <span>@(Model.StockQuantity != null ? "In Stock" : "Out of stock")</span></p>
+                <p>SKU: #@(!string.IsNullOrEmpty(Model.Sku) ? Model.Sku : Localizer["Updating..."])</p>
+                <p class="availability">@Localizer["Availability"]: <span>@(Model.StockQuantity != null ? Localizer["In Stock"] : Localizer["Out of stock"])</span></p>
                 <div class="product-desc">
                     @Html.Raw(Model.ShortDesc)
                 </div>

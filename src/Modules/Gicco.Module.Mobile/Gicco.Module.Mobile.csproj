@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
+    <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Core\Gicco.Module.Core.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Catalog\Gicco.Module.Catalog.csproj" />
+  </ItemGroup>
+</Project>

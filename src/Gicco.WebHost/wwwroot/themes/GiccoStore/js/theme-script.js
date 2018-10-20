@@ -1,4 +1,4 @@
-(function($){
+﻿(function($){
     "use strict"; // Start of use strict
     /* ---------------------------------------------
      Scripts initialization
@@ -144,39 +144,19 @@
             return false;
         })
         /** #brand-showcase */
-        $(document).on('click','.brand-showcase-logo li',function(){
+        $(document).on('click', '.brand-showcase-logo li', function () {
             var id = $(this).data('tab');
-            $(this).closest('.brand-showcase-logo').find('li').each(function(){
+            $(this).closest('.brand-showcase-logo').find('li').each(function () {
                 $(this).removeClass('active');
             });
             $(this).closest('li').addClass('active');
-            $('.brand-showcase-content').find('.brand-showcase-content-tab').each(function(){
+            $('.brand-showcase-content').find('.brand-showcase-content-tab').each(function () {
                 $(this).removeClass('active');
-            })
-            $('#'+id).addClass('active');
-            return false;
-        })
-        // CATEGORY FILTER 
-        $('.slider-range-price').each(function(){
-            var min             = $(this).data('min');
-            var max             = $(this).data('max');
-            var unit            = $(this).data('unit');
-            var value_min       = $(this).data('value-min');
-            var value_max       = $(this).data('value-max');
-            var label_reasult   = $(this).data('label-reasult');
-            var t               = $(this);
-            $( this ).slider({
-              range: true,
-              min: min,
-              max: max,
-              values: [ value_min, value_max ],
-              slide: function( event, ui ) {
-                var result = label_reasult +" "+ unit + ui.values[ 0 ] +' - '+ unit +ui.values[ 1 ];
-                console.log(t);
-                t.closest('.slider-range').find('.amount-range-price').html(result);
-              }
             });
-        })
+            $('#' + id).addClass('active');
+            return false;
+        });
+        
         /** ALL CAT **/
         $(document).on('click','.open-cate',function(){
             $(this).closest('.vertical-menu-content').find('li.cat-link-orther').each(function(){

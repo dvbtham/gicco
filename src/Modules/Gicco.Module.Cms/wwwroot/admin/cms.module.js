@@ -20,20 +20,29 @@
                     templateUrl: 'modules/cms/admin/page/page-form.html',
                     controller: 'PageFormCtrl as vm', parent: 'base'
                 })
-                .state('menus', {
+                .state('app.content.menus', {
                     url: '/menus/',
                     templateUrl: 'modules/cms/admin/menu/menu-list.html',
-                    controller: 'MenuListCtrl as vm', parent: 'base'
+                    controller: 'MenuListCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Menus")}}'
+                    }
                 })
-                .state('menus-create', {
+                .state('app.content.menus-create', {
                     url: '/menus-create/',
                     templateUrl: 'modules/cms/admin/menu/menu-form-create.html',
-                    controller: 'MenuFormCreateCtrl as vm', parent: 'base'
+                    controller: 'MenuFormCreateCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Menu")}}'
+                    }
                 })
-                .state('menus-edit', {
+                .state('app.content.menus-edit', {
                     url: '/menus-edit/:id',
                     templateUrl: 'modules/cms/admin/menu/menu-form.html',
-                    controller: 'MenuFormCtrl as vm', parent: 'base'
+                    controller: 'MenuFormCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Menu")}}'
+                    }
                 })
                 .state('app.content', {
                     url: "/content",

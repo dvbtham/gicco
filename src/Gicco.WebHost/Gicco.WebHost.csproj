@@ -8,11 +8,10 @@
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
     <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
   </PropertyGroup>
-  
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\thamd\source\repos\Gicco\src\Gicco.WebHost\GiccoApi.xml</DocumentationFile>
-    <OutputPath></OutputPath>
-    <NoWarn>1701;1702;1591</NoWarn>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Gicco.Module.Core.Extensions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using Gicco.Module.Core.Extensions;
 
 namespace Gicco.WebHost
 {
+#pragma warning disable CS1591
     public class Program
     {
         public static void Main(string[] args)
@@ -45,4 +46,5 @@ namespace Gicco.WebHost
             loggingBuilder.AddSerilog();
         }
     }
+#pragma warning restore CS1591
 }

@@ -1,5 +1,5 @@
 ﻿ /*global angular*/
-(function () {
+ (function () {
     angular
         .module('giccoAdmin.core')
         .controller('CountryFormCtrl', CountryFormCtrl);
@@ -23,7 +23,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('countries');
+                    $state.go('app.system.countries');
                 })
                 .catch(function (response) {
                     var error = response.data;

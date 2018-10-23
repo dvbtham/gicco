@@ -25,7 +25,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('tax-rates');
+                    $state.go('app.system.tax-rates');
                 })
                 .catch(function (response) {
                     var error = response.data;

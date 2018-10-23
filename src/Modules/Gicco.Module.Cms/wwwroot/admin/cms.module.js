@@ -5,20 +5,29 @@
     angular.module('giccoAdmin.cms', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
-                .state('page', {
+                .state('app.content.pages', {
                     url: '/page',
                     templateUrl: 'modules/cms/admin/page/page-list.html',
-                    controller: 'PageListCtrl as vm', parent: 'base'
+                    controller: 'PageListCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Menus")}}'
+                    }
                 })
-                .state('page-create', {
+                .state('app.content.pages-create', {
                     url: '/page/create',
                     templateUrl: 'modules/cms/admin/page/page-form.html',
-                    controller: 'PageFormCtrl as vm', parent: 'base'
+                    controller: 'PageFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Menus")}}'
+                    }
                 })
-                .state('page-edit', {
+                .state('app.content.pages-edit', {
                     url: '/page/edit/:id',
                     templateUrl: 'modules/cms/admin/page/page-form.html',
-                    controller: 'PageFormCtrl as vm', parent: 'base'
+                    controller: 'PageFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Menus")}}'
+                    }
                 })
                 .state('app.content.menus', {
                     url: '/menus/',
@@ -39,7 +48,7 @@
                 .state('app.content.menus-edit', {
                     url: '/menus-edit/:id',
                     templateUrl: 'modules/cms/admin/menu/menu-form.html',
-                    controller: 'MenuFormCtrl as vm', 
+                    controller: 'MenuFormCtrl as vm',
                     ncyBreadcrumb: {
                         label: '{{ ::vm.translate.get("Edit Menu")}}'
                     }

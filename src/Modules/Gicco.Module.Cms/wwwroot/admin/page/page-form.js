@@ -33,7 +33,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('page');
+                    $state.go('app.content.pages');
                 })
                 .catch(function (response) {
                     var error = response.data;

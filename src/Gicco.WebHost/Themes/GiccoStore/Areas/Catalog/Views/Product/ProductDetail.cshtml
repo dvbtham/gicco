@@ -12,257 +12,804 @@
 
 @section head
     {
-    <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
-    <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/lib/fancyBox/jquery.fancybox.css" />
+
 }
 
-<div class="bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
-    <a href="~/" class="stext-109 cl8 hov-cl1 trans-04">
-        @Localizer["Home"]
-        <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-    </a>
-    @if (Model.Categories.Any())
-    {
-        @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
-    }
-
-    <span class="stext-109 cl4">
-        @Model.Name
-    </span>
-</div>
-
-<div class="product-detail">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="sp-wrap">
-                @foreach (var image in Model.Images)
-                {
-                    <a href="@image.Url">
-                        <img src="@image.ThumbnailUrl" alt="" />
-                    </a>
-                }
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-name">
-                <h1 class="">@Model.Name</h1>
-            </div>
-            <ul class="list-inline product-ratings">
-                <li><input type="hidden" value="@Model.RatingAverage" readonly="readonly" class="rating-loading" step="1" data-size="xs" data-show-clear="false" data-show-caption="false" /></li>
-                <li class="product-review-list">
-                    <span>(@Model.ReviewsCount) <a href="#reviews">@Localizer["reviews"]</a> | <a href="#addreview"> @Localizer["Add Review"]</a></span>
-                </li>
-            </ul>
-            <div class="product-short-desc">@Html.Raw(Model.ShortDescription)</div>
-            @if (Model.HasVariation)
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="Return to Home">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            @if (Model.Categories.Any())
             {
-                <form>
-                    <div class="product-attrs">
-                        @foreach (var option in Model.AvailableOptions)
-                        {
-                            <div>
-                                <h5 class="p-t-25">@option.OptionName </h5>
-                                <ul class="list-inline product-attr-options">
-                                    @foreach (var value in option.Values)
-                                    {
-                                        var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
-                                        <li class="list-inline-item">
-                                            <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
-                                            @if (Model.OptionDisplayValues.ContainsKey(value) && !String.IsNullOrWhiteSpace(Model.OptionDisplayValues[value].Value))
-                                            {
-                                                if (Model.OptionDisplayValues[value].DisplayType == "color")
-                                                {
-                                                    <label title="@value" class="color" style="background-color:@Model.OptionDisplayValues[value].Value"></label>
-                                                }
-                                                else
-                                                {
-                                                    <label>@Model.OptionDisplayValues[value].Value</label>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <label>@value</label>
-                                            }
-                                        </li>
-                                    }
+                @await Component.InvokeAsync("CategoryBreadcrumb", new { categoryIds = Model.Categories.Select(x => x.Id) })
+            }
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <!-- row -->
+        <div class="row">
+            <!-- Left colunm -->
+            <div class="column col-xs-12 col-sm-3" id="left_column">
+                <!-- block category -->
+                <div class="block left-module">
+                    <p class="title_block">@Localizer["Categories"]</p>
+                    <div class="block_content">
+                        <!-- layered -->
+                        <div class="layered layered-category">
+                            <div class="layered-content">
+                                <ul class="tree-menu">
+                                    <li class="active">
+                                        <span></span><a href="#">Tops</a>
+                                        <ul>
+                                            <li><span></span><a href="#">T-shirts</a></li>
+                                            <li><span></span><a href="#">Dresses</a></li>
+                                            <li><span></span><a href="#">Casual</a></li>
+                                            <li><span></span><a href="#">Evening</a></li>
+                                            <li><span></span><a href="#">Summer</a></li>
+                                            <li><span></span><a href="#">Bags & Shoes</a></li>
+                                            <li><span></span><a href="#"><span></span>Blouses</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><span></span><a href="#">T-shirts</a></li>
+                                    <li><span></span><a href="#">Dresses</a></li>
+                                    <li><span></span><a href="#">Jackets and coats </a></li>
+                                    <li><span></span><a href="#">Knitted</a></li>
+                                    <li><span></span><a href="#">Pants</a></li>
+                                    <li><span></span><a href="#">Bags & Shoes</a></li>
+                                    <li><span></span><a href="#">Best selling</a></li>
                                 </ul>
                             </div>
-                        }
-                    </div>
-                </form>
-
-                foreach (var variant in Model.Variations)
-                {
-                    var hidden = variant != Model.Variations.First() ? "collapse" : "";
-                    <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
-                        <div class="product-price">
-                            @if (variant.IsCallForPricing)
-                            {
-                                <span class="label label-info">@Localizer["Call for pricing"]</span>
-                            }
-                            else
-                            {
-                                <h3>@variant.CalculatedProductPrice.Price.ToString("C")</h3>
-                                if (variant.CalculatedProductPrice.PercentOfSaving > 0)
-                                {
-                                    <p class="product-price-regular">@variant.CalculatedProductPrice.OldPrice.Value.ToString("C")</p>
-                                    <p class="product-price-saving">You save (@(variant.CalculatedProductPrice.PercentOfSaving)%)</p>
-                                }
-                            }
                         </div>
-                        @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
-                        {
-                            <div class="out-of-stock">
-                                <span class="label label-danger">@Localizer["Out of stock"]</span>
-                            </div>
-                        }
-                        <div class="add-to-cart">
-                            <form class="inline">
-                                <input type="hidden" name="productId" value="@variant.Id" />
-                                <div class="product-quantity">
-                                    <button type="button" class="quantity-button" name="subtract" value="-">-</button>
-                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
-                                    <button type="button" class="quantity-button" name="add" value="+">+</button>
-                                </div>
-                                <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
-                                <div>
-                                    <ul class="list-inline add-to-wishlist">
-                                        @*<li class="wishlist-in">
-                                                <i class="fa fa-heart"></i>
-                                                <a href="#">Add to Wishlist</a>
-                                            </li>*@
-                                        <li class="compare-in">
-                                            <i class="fa fa-exchange"></i>
-                                            <a href="#" class="add-to-comparison">Add to Compare</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
+                        <!-- ./layered -->
                     </div>
-                }
-                <div class="product-variation-notavailable collapse">
-                    <span class="label label-danger">Not available</span>
                 </div>
-            }
-            else
-            {
-                <div class="product-price">
-                    @if (Model.IsCallForPricing)
-                    {
-                        <span class="label label-info">@Localizer["Call for pricing"]</span>
-                    }
-                    else
-                    {
-                        <h3>@Model.CalculatedProductPrice.Price.ToString("C")</h3>
-                        if (Model.CalculatedProductPrice.PercentOfSaving > 0)
-                        {
-                            <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C")</p>
-                            <p class="product-price-saving">You save (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
-                        }
-                    }
-                </div>
-                if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
-                {
-                    <div class="out-of-stock">
-                        <span class="label label-danger">@Localizer["Out of stock"]</span>
-                    </div>
-                }
-                <div class="add-to-cart">
-                    <form class="inline">
-                        <input type="hidden" name="productId" value="@Model.Id" />
-                        <div class="product-quantity">
-                            <button type="button" class="quantity-button" name="subtract" value="-">-</button>
-                            <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
-                            <button type="button" class="quantity-button" name="add" value="+">+</button>
-                        </div>
-                        <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
-                        <div>
-                            <ul class="list-inline add-to-wishlist">
-                                @*<li class="wishlist-in">
-                                        <i class="fa fa-heart"></i>
-                                        <a href="#">Add to Wishlist</a>
-                                    </li>*@
-                                <li class="compare-in">
-                                    <i class="fa fa-exchange"></i>
-                                    <a href="#" class="add-to-comparison">Add to Compare</a>
+                <!-- ./block category  -->
+                <!-- block best sellers -->
+                <div class="block left-module">
+                    <p class="title_block">BEST SELLERS</p>
+                    <div class="block_content">
+                        <div class="owl-carousel owl-best-sell" data-loop="true" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause="true" data-items="1">
+                            <ul class="products-block best-sell">
+                                <li>
+                                    <div class="products-block-left">
+                                        <a href="#">
+                                            <img src="~/themes/GiccoStore/data/product-100x122.jpg" alt="SPECIAL PRODUCTS">
+                                        </a>
+                                    </div>
+                                    <div class="products-block-right">
+                                        <p class="product-name">
+                                            <a href="#">Woman Within Plus Size Flared</a>
+                                        </p>
+                                        <p class="product-price">$38,95</p>
+                                        <p class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="products-block-left">
+                                        <a href="#">
+                                            <img src="~/themes/GiccoStore/data/p11.jpg" alt="SPECIAL PRODUCTS">
+                                        </a>
+                                    </div>
+                                    <div class="products-block-right">
+                                        <p class="product-name">
+                                            <a href="#">Woman Within Plus Size Flared</a>
+                                        </p>
+                                        <p class="product-price">$38,95</p>
+                                        <p class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="products-block-left">
+                                        <a href="#">
+                                            <img src="~/themes/GiccoStore/data/p12.jpg" alt="SPECIAL PRODUCTS">
+                                        </a>
+                                    </div>
+                                    <div class="products-block-right">
+                                        <p class="product-name">
+                                            <a href="#">Plus Size Rock Star Skirt</a>
+                                        </p>
+                                        <p class="product-price">$38,95</p>
+                                        <p class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="products-block best-sell">
+                                <li>
+                                    <div class="products-block-left">
+                                        <a href="#">
+                                            <img src="~/themes/GiccoStore/data/p13.jpg" alt="SPECIAL PRODUCTS">
+                                        </a>
+                                    </div>
+                                    <div class="products-block-right">
+                                        <p class="product-name">
+                                            <a href="#">Woman Within Plus Size Flared</a>
+                                        </p>
+                                        <p class="product-price">$38,95</p>
+                                        <p class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="products-block-left">
+                                        <a href="#">
+                                            <img src="~/themes/GiccoStore/data/p14.jpg" alt="SPECIAL PRODUCTS">
+                                        </a>
+                                    </div>
+                                    <div class="products-block-right">
+                                        <p class="product-name">
+                                            <a href="#">Woman Within Plus Size Flared</a>
+                                        </p>
+                                        <p class="product-price">$38,95</p>
+                                        <p class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="products-block-left">
+                                        <a href="#">
+                                            <img src="~/themes/GiccoStore/data/p15.jpg" alt="SPECIAL PRODUCTS">
+                                        </a>
+                                    </div>
+                                    <div class="products-block-right">
+                                        <p class="product-name">
+                                            <a href="#">Plus Size Rock Star Skirt</a>
+                                        </p>
+                                        <p class="product-price">$38,95</p>
+                                        <p class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </p>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            }
-        </div>
-    </div>
-    @if (!string.IsNullOrWhiteSpace(Model.Description))
-    {
-        <div>
-            <h3 class="p-t-25 p-b-25">@Localizer["Product detail"]</h3>
-            @Html.Raw(Model.Description)
-        </div>
-    }
-
-    @if (!string.IsNullOrWhiteSpace(Model.Specification))
-    {
-        <div>
-            <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
-            @Html.Raw(Model.Specification)
-        </div>
-    }
-    @if (Model.Attributes.Any())
-    {
-        <div>
-            <h3 class="p-t-25 p-b-25">@Localizer["Product specification"]</h3>
-            <table class="table">
-                @foreach (var attribute in Model.Attributes)
-                {
-                    <tr>
-                        <td>@attribute.Name</td>
-                        <td>@attribute.Value</td>
-                    </tr>
-                }
-            </table>
-        </div>
-    }
-</div>
-
-@if (Model.RelatedProducts.Any())
-{
-    <h3 class="p-t-25 p-b-25">Related Products</h3>
-    <div class="row product-list">
-        @foreach (var product in Model.RelatedProducts)
-        {
-            <div class="col-xs-6 col-md-3">
-                @await Html.PartialAsync("_ProductThumbnail", product)
+                <!-- ./block best sellers  -->
+                <!-- left silide -->
+                <div class="col-left-slide left-module">
+                    <ul class="owl-carousel owl-style2" data-loop="true" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-items="1" data-autoplay="true">
+                        <li><a href="#"><img src="~/themes/GiccoStore/data/slide-left.jpg" alt="slide-left"></a></li>
+                        <li><a href="#"><img src="~/themes/GiccoStore/data/slide-left2.jpg" alt="slide-left"></a></li>
+                        <li><a href="#"><img src="~/themes/GiccoStore/data/slide-left3.png" alt="slide-left"></a></li>
+                    </ul>
+                </div>
+                <!--./left silde-->
+                <!-- block best sellers -->
+                <div class="block left-module">
+                    <p class="title_block">ON SALE</p>
+                    <div class="block_content product-onsale">
+                        <ul class="product-list owl-carousel" data-loop="true" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-items="1" data-autoplay="true">
+                            <li>
+                                <div class="product-container">
+                                    <div class="left-block">
+                                        <a href="#">
+                                            <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/product-260x317.jpg" />
+                                        </a>
+                                        <div class="price-percent-reduction2">-30% OFF</div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                        <div class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                        <div class="content_price">
+                                            <span class="price product-price">$38,95</span>
+                                            <span class="price old-price">$52,00</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-bottom">
+                                        <a class="btn-add-cart" title="Add to Cart" href="#add">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product-container">
+                                    <div class="left-block">
+                                        <a href="#">
+                                            <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p35.jpg" />
+                                        </a>
+                                        <div class="price-percent-reduction2">-10% OFF</div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                        <div class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                        <div class="content_price">
+                                            <span class="price product-price">$38,95</span>
+                                            <span class="price old-price">$52,00</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-bottom">
+                                        <a class="btn-add-cart" title="Add to Cart" href="#add">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product-container">
+                                    <div class="left-block">
+                                        <a href="#">
+                                            <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p37.jpg" />
+                                        </a>
+                                        <div class="price-percent-reduction2">-42% OFF</div>
+                                    </div>
+                                    <div class="right-block">
+                                        <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                        <div class="product-star">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                        <div class="content_price">
+                                            <span class="price product-price">$38,95</span>
+                                            <span class="price old-price">$52,00</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-bottom">
+                                        <a class="btn-add-cart" title="Add to Cart" href="#add">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ./block best sellers  -->
+                <!-- left silide -->
+                <div class="col-left-slide left-module">
+                    <div class="banner-opacity">
+                        <a href="#"><img src="~/themes/GiccoStore/data/ads-banner.jpg" alt="ads-banner"></a>
+                    </div>
+                </div>
+                <!--./left silde-->
             </div>
-        }
-    </div>
-}
+            <!-- ./left colunm -->
+            <!-- Center colunm-->
+            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                <!-- Product -->
+                <div id="product">
+                    <div class="primary-box row">
+                        <div class="pb-left-column col-xs-12 col-sm-6">
+                            <!-- product-imge-->
+                            <div class="product-image">
+                                <div class="product-full">
+                                    @if (Model.Images.Any())
+                                    {
+                                        var img = Model.Images.FirstOrDefault();
+                                        if (img != null)
+                                        {
+                                            <img id="product-zoom" src='@img.ThumbnailUrl' data-zoom-image="@img.ThumbnailUrl" />
+                                        }
+                                    }
+                                </div>
+                                <div class="product-img-thumb" id="gallery_01">
+                                    <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
+                                        @foreach (var item in Model.Images)
+                                        {
+                                            <li>
+                                                <a href="@item.Url" data-image="@item.ThumbnailUrl" data-zoom-image="@item.ThumbnailUrl">
+                                                    <img id="product-zoom" src="@item.ThumbnailUrl" />
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- product-imge-->
+                        </div>
+                        <div class="pb-right-column col-xs-12 col-sm-6">
+                            <h1 class="product-name">@Model.Name</h1>
+                            <div class="product-comments">
+                                <div class="product-star">
+                                    @for (int i = 1; i < Model.RatingAverage; i++)
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
+                                </div>
+                                <div class="comments-advices">
+                                    <a href="#">@Localizer["{0} reviews", Model.ReviewsCount]</a>
+                                    <a href="#reviews"><i class="fa fa-pencil"></i> write a review</a>
+                                </div>
+                            </div>
+                            <div class="product-price-group">
+                                <span class="price">@Model.CalculatedProductPrice.Price.ToString("C")</span>
+                                <span class="old-price">@(Model.CalculatedProductPrice.OldPrice.HasValue ? Model.CalculatedProductPrice.OldPrice.Value.ToString("C") : "")</span>
+                                <span class="discount">- @Model.CalculatedProductPrice.PercentOfSaving.ToString()%</span>
+                            </div>
+                            <div class="info-orther">
+                                <p>Sku: #@Model.Sku</p>
+                                <p>@Localizer["Availability:"] @(Model.StockQuantity > 0 ? Html.Raw("<span class='label label-success'>" + Localizer["In stock"].Value + "</span>") : Html.Raw("<span class='label label-danger'>" + Localizer["Out of stock"].Value + "</span>"))</p>
+                            </div>
+                            <div class="product-desc">
+                                @Html.Raw(Model.ShortDescription)
+                            </div>
+                            @if (Model.HasVariation)
+                            {
+                                <form class="form-option">
+                                    <p class="form-option-title">@Localizer["Available Options"]:</p>
+                                    <div class="product-attrs">
+                                        @foreach (var option in Model.AvailableOptions)
+                                        {
+                                            <div class="attributes">
+                                                <div class="attribute-label">@Localizer[option.OptionName]:</div>
+                                                <div class="attribute-list">
+                                                    <ul class="list-color product-attr-options">
+                                                        @foreach (var value in option.Values)
+                                                        {
+                                                            var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
 
-@if (Model.CrossSellProducts.Any())
-{
-    <h3 class="p-t-25 p-b-25">Cross-sell Products</h3>
-    <div class="row product-list">
-        @foreach (var product in Model.CrossSellProducts)
-        {
-            <div class="col-xs-6 col-md-3">
-                @await Html.PartialAsync("_ProductThumbnail", product)
+                                                            if (Model.OptionDisplayValues[value].DisplayType == "color")
+                                                            {
+                                                                <li class="" title="@Localizer[value]" style="background:@Model.OptionDisplayValues[value].Value;">
+                                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                                    <a href="javascript:void(0);">@Model.OptionDisplayValues[value].Value</a>
+                                                                </li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li class="" title="@Localizer[value]">
+                                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                                    <a class="show-text" href="javascript:void(0);">@Model.OptionDisplayValues[value].Value</a>
+                                                                </li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+
+                                    <div class="attributes">
+                                        <div class="attribute-label">Qty:</div>
+                                        <div class="attribute-list product-qty">
+                                            <div class="qty">
+                                                <input id="option-product-qty" type="text" value="1">
+                                            </div>
+                                            <div class="btn-plus">
+                                                <a href="#" class="btn-plus-up">
+                                                    <i class="fa fa-caret-up"></i>
+                                                </a>
+                                                <a href="#" class="btn-plus-down">
+                                                    <i class="fa fa-caret-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                                foreach (var variant in Model.Variations)
+                                {
+                                    var hidden = variant != Model.Variations.First() ? "collapse" : "collapse";
+                                    <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
+                                        <div class="product-price">
+                                            @if (variant.IsCallForPricing)
+                                            {
+                                                <span class="label label-info">@Localizer["Call for pricing"]</span>
+                                            }
+                                            else
+                                            {
+                                                <div class="product-price-group">
+                                                    <span class="price">@variant.CalculatedProductPrice.Price.ToString("C")</span>
+                                                    @if (variant.CalculatedProductPrice.PercentOfSaving > 0)
+                                                    {
+                                                        <span class="old-price">@(variant.CalculatedProductPrice.OldPrice.HasValue ? variant.CalculatedProductPrice.OldPrice.Value.ToString("C") : "")</span>
+                                                        <span class="discount">- @variant.CalculatedProductPrice.PercentOfSaving.ToString()%</span>
+                                                    }
+
+                                                </div>
+                                            }
+                                        </div>
+                                        @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                                        {
+                                            <div class="out-of-stock">
+                                                <span class="label label-danger">@Localizer["Out of stock"]</span>
+                                            </div>
+                                        }
+                                        <div class="add-to-cart">
+                                            <form class="inline">
+                                                <input type="hidden" name="productId" value="@variant.Id" />
+                                                <div class="product-quantity">
+                                                    <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                                    <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                                </div>
+                                                <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn btn-lg btn-add-cart">@Localizer["Add to cart"]</button>
+                                                <div>
+                                                    <ul class="list-inline add-to-wishlist">
+                                                        @*<li class="wishlist-in">
+                                                                <i class="fa fa-heart"></i>
+                                                                <a href="#">Add to Wishlist</a>
+                                                            </li>*@
+                                                        <li class="compare-in">
+                                                            <i class="fa fa-exchange"></i>
+                                                            <a href="#" class="add-to-comparison">Add to Compare</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="product-variation-notavailable collapse">
+                                    <span class="label label-danger">Not available</span>
+                                </div>
+                            }
+
+                            <div class="form-action">
+                                <div class="button-group">
+                                    <a class="btn-add-cart" href="#">Add to cart</a>
+                                </div>
+                                <div class="button-group">
+                                    <a class="wishlist" href="#">
+                                        <i class="fa fa-heart-o"></i>
+                                        <br>Wishlist
+                                    </a>
+                                    <a class="compare" href="#">
+                                        <i class="fa fa-signal"></i>
+                                        <br>
+                                        Compare
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="form-share">
+                                <div class="sendtofriend-print">
+                                    <a href="javascript:print();"><i class="fa fa-print"></i> Print</a>
+                                    <a href="#"><i class="fa fa-envelope-o fa-fw"></i>Send to a friend</a>
+                                </div>
+                                <div class="network-share">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- tab product -->
+                    <div class="product-tab">
+                        <ul class="nav-tab">
+                            <li class="active">
+                                <a aria-expanded="false" data-toggle="tab" href="#product-detail">@Localizer["Product Details"]</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#reviews">@Localizer["Reviews"]</a>
+                            </li>
+                        </ul>
+                        <div class="tab-container">
+                            <div id="product-detail" class="tab-panel active">
+                                @Html.Raw(Model.Description)
+                            </div>
+                            <div id="reviews" class="tab-panel">
+                                <div class="product-comments-block-tab">
+                                    <div>
+                                        <h3 class="p-t-25 p-b-25">@Localizer["Customer reviews"]</h3>
+                                        @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./tab product -->
+                        <!-- box product -->
+                        <div class="page-product-box">
+                            <h3 class="heading">Related Products</h3>
+                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p40.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p35.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p37.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p39.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- ./box product -->
+                        <!-- box product -->
+                        <div class="page-product-box">
+                            <h3 class="heading">You might also like</h3>
+                            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p97.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p34.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p36.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="product-container">
+                                        <div class="left-block">
+                                            <a href="#">
+                                                <img class="img-responsive" alt="product" src="~/themes/GiccoStore/data/p36.jpg" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                <a title="Add to compare" class="compare" href="#"></a>
+                                                <a title="Quick view" class="search" href="#"></a>
+                                            </div>
+                                            <div class="add-to-cart">
+                                                <a title="Add to Cart" href="#add">Add to Cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="right-block">
+                                            <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                            <div class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <div class="content_price">
+                                                <span class="price product-price">$38,95</span>
+                                                <span class="price old-price">$52,00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- ./box product -->
+                    </div>
+                    <!-- Product -->
+                </div>
+                <!-- ./ Center colunm -->
             </div>
-        }
+            <!-- ./row-->
+        </div>
     </div>
-}
 
-@await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
+    @section scripts
+        {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+        <script gicco-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
+        <script gicco-append-version="true" src="~/themes/GiccoStore/js/jquery.elevatezoom.js"></script>
+        <script gicco-append-version="true" src="~/lib/fancyBox/jquery.fancybox.js"></script>
+        <script gicco-append-version="true" src="~/themes/GiccoStore/js/product-detail.js"></script>
 
-<div>
-    <h3 class="p-t-25 p-b-25">@Localizer["Customer reviews"]</h3>
-    @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
-</div>
-
-
-@section scripts
-    {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-    <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
-    <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
-}
+    }

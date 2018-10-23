@@ -83,6 +83,7 @@
     <None Remove="wwwroot\themes\GiccoStore\css\bootstrap-dropdownhover.min.css" />
     <None Remove="wwwroot\themes\GiccoStore\GiccoStore.png" />
     <None Remove="wwwroot\themes\GiccoStore\js\bootstrap-dropdownhover.min.js" />
+    <None Remove="wwwroot\themes\GiccoStore\js\product-detail.js" />
   </ItemGroup>
 
   <ItemGroup>

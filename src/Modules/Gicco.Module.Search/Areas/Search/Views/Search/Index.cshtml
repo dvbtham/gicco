@@ -63,13 +63,22 @@
                                 <!-- filter price -->
                                 @if (Model.FilterOption.Price.MaxPrice != Model.FilterOption.Price.MinPrice)
                                 {
-                                    <div class="layered_subtitle">@Localizer["Price"]</div>
-                                    <div class="layered-content slider-range">
-                                        <div data-label-reasult="Range:" data-min="@Model.FilterOption.Price.MinPrice.ToString("F0")" data-max="@Model.FilterOption.Price.MaxPrice.ToString("F0")" data-unit="$" class="slider-range-price" data-value-min="@Model.FilterOption.Price.MinPrice.ToString("F0")" data-value-max="@Model.FilterOption.Price.MaxPrice.ToString("F0")"></div>
-
+                                    <div class="layered_subtitle">
+                                        @Localizer["Price"]
                                     </div>
-                                    <!-- ./filter price -->
+                                    <div class="layered-content slider-range">
+                                        <div data-label-result=" @Localizer["Range"]:" id="priceSliderGicco"
+                                             data-min="@Model.FilterOption.Price.MinPrice.ToString("F0")"
+                                             data-max="@Model.FilterOption.Price.MaxPrice.ToString("F0")"
+                                             data-unit="@Localizer["$"]" class="slider-range-price"
+                                             data-value-min="@(Model.CurrentSearchOption.MinPrice.HasValue ? Model.CurrentSearchOption.MinPrice.Value.ToString("F0") : Model.FilterOption.Price.MinPrice.ToString("F0"))"
+                                             data-value-max="@(Model.CurrentSearchOption.MaxPrice.HasValue ? Model.CurrentSearchOption.MaxPrice.Value.ToString("F0") : Model.FilterOption.Price.MaxPrice.ToString("F0"))"></div>
+                                        <div class="amount-range-price">
+                                            @Localizer["Range"]: @(!Model.CurrentSearchOption.MinPrice.HasValue ? Model.FilterOption.Price.MinPrice.ToString("F0") : Model.CurrentSearchOption.MinPrice.Value.ToString("C0")) - @(!Model.CurrentSearchOption.MinPrice.HasValue ? Model.FilterOption.Price.MaxPrice.ToString("F0") : Model.CurrentSearchOption.MaxPrice.Value.ToString("C0"))
+                                        </div>
+                                    </div>
                                 }
+                                <!-- ./filter price -->
                             </div>
                             <!-- ./layered -->
                         </form>

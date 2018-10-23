@@ -160,35 +160,53 @@
                         label: '{{ ::vm.translate.get("Edit Product")}}'
                     }
                 })
-                .state('widget-product-create', {
+                .state('app.content.widget-product-create', {
                     url: '/widget-product/create',
                     templateUrl: 'modules/catalog/admin/product-widget/product-widget-form.html',
-                    controller: 'ProductWidgetFormCtrl as vm'
+                    controller: 'ProductWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Product Widget")}}'
+                    }
                 })
-                .state('widget-product-edit', {
+                .state('app.content.widget-product-edit', {
                     url: '/widget-product/edit/:id',
                     templateUrl: 'modules/catalog/admin/product-widget/product-widget-form.html',
-                    controller: 'ProductWidgetFormCtrl as vm'
+                    controller: 'ProductWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Product Widget")}}'
+                    }
                 })
-                .state('widget-category-create', {
+                .state('app.content.widget-category-create', {
                     url: '/widget-category/create',
                     templateUrl: 'modules/catalog/admin/category-widget/category-widget-form.html',
-                    controller: 'CategoryWidgetFormCtrl as vm'
+                    controller: 'CategoryWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Category Widget")}}'
+                    }
                 })
-                .state('widget-category-edit', {
+                .state('app.content.widget-category-edit', {
                     url: '/widget-category/edit/:id',
                     templateUrl: 'modules/catalog/admin/category-widget/category-widget-form.html',
-                    controller: 'CategoryWidgetFormCtrl as vm'
+                    controller: 'CategoryWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Category Widget")}}'
+                    }
                 })
-                .state('widget-simple-product-create', {
+                .state('app.content.widget-simple-product-create', {
                     url: '/widget-simple-product/create',
                     templateUrl: 'modules/catalog/admin/simple-product-widget/simple-product-widget-form.html',
-                    controller: 'SimpleProductWidgetFormCtrl as vm'
+                    controller: 'SimpleProductWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Simple Product Widget")}}'
+                    }
                 })
-                .state('widget-simple-product-edit', {
+                .state('app.content.widget-simple-product-edit', {
                     url: '/widget-simple-product/edit/:id',
                     templateUrl: 'modules/catalog/admin/simple-product-widget/simple-product-widget-form.html',
-                    controller: 'SimpleProductWidgetFormCtrl as vm'
+                    controller: 'SimpleProductWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Simple Product Widget")}}'
+                    }
                 })
                 .state('app.catalog.product-prices', {
                     url: '/product-prices',

@@ -15,16 +15,16 @@ $(function () {
         }
     });
 
-        $('.product-list .card').matchHeight({
-            byRow: true,
-            property: 'height',
-            target: null,
-            remove: false
-        });
+        //$('.product-list .card').matchHeight({
+        //    byRow: true,
+        //    property: 'height',
+        //    target: null,
+        //    remove: false
+        //});
 
-        $('input.rating-loading').rating({
-            language: window.simplGlobalSetting.lang,
-            filledStar: '<i class="fa fa-star"></i>',
-            emptyStar: '<i class="fa fa-star-o"></i>'
-        });
+        //$('input.rating-loading').rating({
+        //    language: window.simplGlobalSetting.lang,
+        //    filledStar: '<i class="fa fa-star"></i>',
+        //    emptyStar: '<i class="fa fa-star-o"></i>'
+        //});
 });

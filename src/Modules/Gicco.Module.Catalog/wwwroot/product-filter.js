@@ -24,6 +24,37 @@
             return newUrl;
         }
 
+        function giccoPriceSlider() {
+            // CATEGORY FILTER 
+            $('.slider-range-price').each(function () {
+                var min = $(this).data('min');
+                var max = $(this).data('max');
+                var unit = $(this).data('unit');
+                var value_min = $(this).data('value-min');
+                var value_max = $(this).data('value-max');
+                var label_result = $(this).data('label-result');
+                var t = $(this);
+
+                $(this).slider({
+                    range: true,
+                    min: min,
+                    max: max,
+                    values: [value_min, value_max],
+                    slide: function (event, ui) {
+                        var result = label_result + " " + unit + ui.values[0] + ' - ' + unit + ui.values[1];
+                        t.closest('.slider-range').find('.amount-range-price').html(result);
+                    },
+                    change: function (event, ui) {
+                        currentSearchOption.minPrice = ui.values[0];
+                        currentSearchOption.maxPrice = ui.values[1];
+                        window.location = createUrl();
+                    }
+                });
+
+
+            });
+        }
+
         function initPriceSlider() {
             var priceSlider = document.getElementById('priceSlider');
             if (!priceSlider) {
@@ -74,7 +105,7 @@
             var index,
                 checkbox = $(this),
                 brand = checkbox.val(),
-                brands = currentSearchOption.brand ? currentSearchOption.brand.split('--') :[];
+                brands = currentSearchOption.brand ? currentSearchOption.brand.split('--') : [];
             if (checkbox.prop("checked") === true) {
                 brands.push(brand);
             } else {
@@ -108,5 +139,7 @@
         });
 
         initPriceSlider();
+
+        giccoPriceSlider();
     });
 })(jQuery, productFilter.currentSearchOption, productFilter.priceSetting);

@@ -8,7 +8,7 @@
     function SimpleProductWidgetFormCtrl($state, $stateParams, simpleProductWidgetService, translateService) {
         var vm = this;
         vm.translate = translateService;
-        vm.widgetInstance = { widgetZoneId: 2, displayOrder : 0, setting: { products: [] }, publishStart: new Date() };
+        vm.widgetInstance = { widgetZoneId: 2, displayOrder: 0, setting: { products: [] }, publishStart: new Date() };
         vm.widgetZones = [];
         vm.widgetInstanceId = $stateParams.id;
         vm.isEditMode = vm.widgetInstanceId > 0;
@@ -29,7 +29,7 @@
             }
             promise
                 .then(function (result) {
-                    $state.go('widget');
+                    $state.go('app.content.widget');
                 })
                 .catch(function (response) {
                     var error = response.data;

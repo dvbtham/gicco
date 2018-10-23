@@ -922,9 +922,9 @@ img.alignright {
     padding-left: 15px;
 }
 
-.main-header .header-search-box .form-inline .input-serach {
+/*.main-header .header-search-box .form-inline .input-serach {
     width: calc(100% - 200px);
-}
+}*/
 
     .main-header .header-search-box .form-inline .input-serach input {
         border: none;
@@ -6055,4 +6055,12 @@ span.notify-right {
     border-radius: unset;
     border-color: #ffffff;
     background-color: #FFFFFF;
+}
+
+.myAccount:before {
+    font-family: "FontAwesome";
+    content: "\f007";
+    color: #999;
+    padding-right: 5px;
+    font-size: 17px;
 }

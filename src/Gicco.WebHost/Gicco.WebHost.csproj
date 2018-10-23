@@ -50,6 +50,7 @@
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryWidget\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeProductCategoryWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\ProductWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\SimpleProductWidget\Default.cshtml" />
@@ -118,6 +119,7 @@
     <ProjectReference Include="..\Modules\Gicco.Module.Vendors\Gicco.Module.Vendors.csproj" />
     <ProjectReference Include="..\Modules\Gicco.Module.WishList\Gicco.Module.WishList.csproj" />
     <ProjectReference Include="..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Gicco.Module.Mobile\Gicco.Module.Mobile.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -138,6 +140,9 @@
 
   <ItemGroup>
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryAside\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeProductCategoryWidget\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml">

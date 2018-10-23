@@ -77,25 +77,37 @@
                         label: '{{ ::vm.translate.get("Edit Widget")}}'
                     }
                 })
-                .state('widget-html-create', {
+                .state('app.content.widget-html-create', {
                     url: '/widget-html/create',
                     templateUrl: 'modules/cms/admin/html-widget/html-widget-form.html',
-                    controller: 'HtmlWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'HtmlWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Html Widget")}}'
+                    }
                 })
-                .state('widget-html-edit', {
+                .state('app.content.widget-html-edit', {
                     url: '/widget-html/edit/:id',
                     templateUrl: 'modules/cms/admin/html-widget/html-widget-form.html',
-                    controller: 'HtmlWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'HtmlWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Html Widget")}}'
+                    }
                 })
-                .state('widget-spacebar-create', {
+                .state('app.content.widget-spacebar-create', {
                     url: '/widget-spacebar/create',
                     templateUrl: 'modules/cms/admin/spacebar-widget/spacebar-widget-form.html',
-                    controller: 'SpaceBarWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'SpaceBarWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Spacebar Widget")}}'
+                    }
                 })
-                .state('widget-spacebar-edit', {
+                .state('app.content.widget-spacebar-edit', {
                     url: '/widget-spacebar/edit/:id',
                     templateUrl: 'modules/cms/admin/spacebar-widget/spacebar-widget-form.html',
-                    controller: 'SpaceBarWidgetFormCtrl as vm', parent: 'base'
+                    controller: 'SpaceBarWidgetFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Spacebar Widget")}}'
+                    }
                 });
         }]);
 })();

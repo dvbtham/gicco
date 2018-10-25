@@ -17,16 +17,16 @@
             @Model.Quantity x @Model.ProductPrice.ToString("C")
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-10">
         <div class="col-md-7">
             @Localizer["You have"] <span class="cart-item-count">@Model.CartItemCount</span> @Localizer["products in your cart"]
         </div>
         <div class="col-md-5">
-            @Localizer["Cart subtotal"]: @Model.CartAmount.ToString("C")
+            <span class="cart-amount">@Localizer["Cart subtotal"]: @Model.CartAmount.ToString("C")</span>
         </div>
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-light" data-dismiss="modal">@Localizer["Continue shopping"]</button>
-    <a href="~/cart" role="button" class="btn btn-light">@Localizer["View cart"]</a>
+    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">@Localizer["Continue shopping"]</button>
+    <a href="~/cart" role="button" class="btn btn-outline-secondary">@Localizer["View cart"]</a>
 </div>

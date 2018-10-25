@@ -64,6 +64,14 @@
     <None Remove="Themes\GiccoStore\Areas\Core\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyForm.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyFormSuccess.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Review\List.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Review\_ReviewForm.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Review\_ReviewFormSuccess.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Shared\Components\Review\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
@@ -82,6 +90,7 @@
     <None Remove="wwwroot\lib\coreui\img\logo.png" />
     <None Remove="wwwroot\themes\GiccoStore\css\bootstrap-dropdownhover.min.css" />
     <None Remove="wwwroot\themes\GiccoStore\GiccoStore.png" />
+    <None Remove="wwwroot\themes\GiccoStore\js\add-to-cart.js" />
     <None Remove="wwwroot\themes\GiccoStore\js\bootstrap-dropdownhover.min.js" />
     <None Remove="wwwroot\themes\GiccoStore\js\product-detail.js" />
   </ItemGroup>
@@ -146,6 +155,30 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyForm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyFormSuccess.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Review\List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Review\_ReviewForm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Review\_ReviewFormSuccess.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Shared\Components\Review\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

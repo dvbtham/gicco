@@ -2,13 +2,13 @@
 
 @if (Model.Any())
 {
-<h3 class="p-t-25 p-b-25">@Localizer["Recently viewed products"]</h3>
-<div class="row product-list">
-    @foreach (var product in Model)
-    {
-        <div class="col-xs-6 col-md-3">
-            @await Html.PartialAsync("/Themes/CozaStore/Modules/Gicco.Module.Catalog/Views/Shared/_ProductThumbnail.cshtml", product)
-        </div>
-    }
-</div>
+    <div class="page-product-box">
+        <h3 class="heading">@Localizer["Recently viewed products"]</h3>
+        <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
+            @foreach (var product in Model)
+            {
+                @await Html.PartialAsync("/Themes/GiccoStore/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml", product)
+            }
+        </ul>
+    </div>
 }

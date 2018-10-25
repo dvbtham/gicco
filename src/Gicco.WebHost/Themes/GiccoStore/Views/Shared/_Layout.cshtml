@@ -8,6 +8,7 @@
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/select2/css/select2.min.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/lib/bootstrap-star-rating/css/star-rating.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/jquery.bxslider/jquery.bxslider.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/owl.carousel/owl.carousel.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/jquery-ui/jquery-ui.css" />
@@ -44,7 +45,7 @@
                 </div>
                 @await Component.InvokeAsync("SearchForm")
 
-                @await Component.InvokeAsync("CartBadge")
+                @await Component.InvokeAsync("CartBadge", new { includeListItem = true })
 
             </div>
 
@@ -107,6 +108,18 @@
     <!-- RENDER BODY -->
     @RenderBody()
     <!-- RENDER BODY -->
+    <div id="shopModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+    <div id="productOverview" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-padding">
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
     <footer id="footer">
         <div class="container">
@@ -362,8 +375,17 @@
     </footer>
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
     <!-- Script-->
+    <script>
+            window.giccoGlobalSetting = {};
+            window.giccoGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';
+    </script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery/jquery.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script gicco-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
+    @if (System.Globalization.CultureInfo.CurrentCulture.Name == "vi-VN")
+    {
+        <script gicco-append-version="true" src="~/lib/bootstrap-star-rating/js/locales/vi-vn.js"></script>
+    }
     <script gicco-append-version="true" src="~/themes/GiccoStore/js/bootstrap-dropdownhover.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/select2/js/select2.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
@@ -372,6 +394,7 @@
     <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/themes/GiccoStore/js/jquery.actual.min.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/themes/GiccoStore/js/theme-script.js"></script>
+    <script gicco-append-version="true" type="text/javascript" src="~/themes/GiccoStore/js/add-to-cart.js"></script>
     <script gicco-append-version="true" type="text/javascript" src="~/modules/core/main.js"></script>
 
 

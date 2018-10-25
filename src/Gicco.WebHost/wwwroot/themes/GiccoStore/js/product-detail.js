@@ -30,6 +30,7 @@ $(document).ready(function () {
         } else {
             $('.product-variation-notavailable').show();
         }
+        $("#top-price-box").html($(".bottom-price-box:visible").html());
     });
 
     $('.quantity-button').on('click', function () {

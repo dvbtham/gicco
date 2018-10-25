@@ -12,6 +12,8 @@ namespace Gicco.Module.ShoppingCart.ViewModels
 
         public string ProductName { get; set; }
 
+        public string Slug { get; set; }
+
         public string ProductImage { get; set; }
 
         public decimal ProductPrice { get; set; }

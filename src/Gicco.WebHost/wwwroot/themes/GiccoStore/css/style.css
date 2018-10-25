@@ -4218,8 +4218,7 @@ span.notify-right {
     }
 
 .cart_summary td {
-    vertical-align: middle !important;
-    padding: 20px;
+    padding-left: 15px !important;
 }
 
 .cart_summary .table > tbody > tr > td, .table > tbody > tr > th,
@@ -6163,4 +6162,30 @@ span.notify-right {
 
 .mb-10 {
     margin-bottom: 10px !important;
+}
+
+#user-info-opntop li form {
+    padding-left: 21px !important;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+#coupon-box input {
+    height: 30px;
+    background: #fff;
+    width: 100%;
+    border: 1px solid #999;
+    padding-left: 10px;
+}
+
+#coupon-box .btn {
+    font-weight: bold;
+    color: #fff;
+    height: 30px;
+    border-radius: 0;
+    background: #999;
+    border: none;
+    outline: none;
 }

@@ -1,6 +1,6 @@
 ﻿(function() {
     angular
-        .module('simpl.shoppingCart')
+        .module('gicco.shoppingCart')
         .factory('shoppingCartService', [
             '$http',
             function ($http) {

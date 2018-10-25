@@ -74,8 +74,10 @@
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\theme.json" />
     <None Remove="Themes\GiccoStore\Views\Shared\_Layout.cshtml" />
     <None Remove="Themes\GiccoStore\Views\Shared\_LoginPartial.cshtml" />
@@ -179,6 +181,12 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

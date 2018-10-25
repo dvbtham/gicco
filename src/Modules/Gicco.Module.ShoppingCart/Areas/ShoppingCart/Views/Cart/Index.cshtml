@@ -1,8 +1,8 @@
-@{
+﻿@{
     ViewData["Title"] = "Shopping Cart";
 }
 
-<div class="row cart-list" ng-app="simpl.shoppingCart" ng-controller="shoppingCartListCtrl as vm" ng-cloak>
+<div class="row cart-list" ng-app="gicco.shoppingCart" ng-controller="shoppingCartListCtrl as vm" ng-cloak>
     <div class="col-md-8">
         <table class="table table-striped cart-items">
             <thead>
@@ -43,7 +43,7 @@
     <div class="col-md-4">
         <div class="order-summary" ng-if="vm.cart.items.length">
             <h4>@Localizer["Order summary"]</h4>
-            <table <table class="table">
+            <table class="table">
                 <tr>
                     <td>@Localizer["Subtotal"]</td>
                     <td>{{vm.cart.subTotalString}}</td>

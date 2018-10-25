@@ -6168,7 +6168,7 @@ span.notify-right {
     padding-left: 21px !important;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
 }
 
@@ -6188,4 +6188,22 @@ span.notify-right {
     background: #999;
     border: none;
     outline: none;
+}
+
+input, select, textarea {
+    outline: none;
+    border-radius: 0px !important;
+}
+
+#checkout-box .form-title {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.shipping-summary th {
+    padding-left: 0px !important;
 }

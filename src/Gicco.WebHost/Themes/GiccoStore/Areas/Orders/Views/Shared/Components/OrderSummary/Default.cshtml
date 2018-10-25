@@ -1,8 +1,8 @@
 ﻿@model Gicco.Module.ShoppingCart.ViewModels.CartVm
 
-<h3>@Localizer["Order summary"] (@Model.Items.Count() @Localizer["products"]) </h3>
+<h3 class="form-title">@Localizer["Order summary"] (@Model.Items.Count() @Localizer["products"]) </h3>
 <table class="table">
-    <tr>
+    <tr class="text-bold shipping-summary">
         <th>@Localizer["Product"]</th>
         <th class="text-center">@Localizer["Quantity"]</th>
         <th class="text-right">@Localizer["Price"]</th>

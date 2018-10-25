@@ -165,7 +165,7 @@
 }
 
 .rating-summary .rating-average {
-    margin: 10px 0 0;
+    margin: 10px 0 0 !important;
     font-size: 35px;
     color: #f63;
     font-weight: 700;

@@ -44,7 +44,16 @@ namespace Gicco.Module.Core.Controllers
                 return Ok(new { token = token, refreshToken = refreshToken});
             }
 
-            return Ok(new { token = token });
+            var userVm = new
+            {
+                user.Id,
+                user.UserName,
+                user.Email,
+                user.FullName,
+                user.PhoneNumber,
+                user.UserAddresses
+            };
+            return Ok(new { token = token, user = userVm });
         }
 
         [AllowAnonymous]

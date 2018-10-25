@@ -5,35 +5,53 @@
     angular.module('giccoAdmin.news', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
-                .state('news-categories', {
+                .state('app.content.news-categories', {
                     url: '/news-categories',
                     templateUrl: 'modules/news/admin/news-categories/news-category-list.html',
-                    controller: 'NewsCategoryListCtrl as vm', parent: 'base'
+                    controller: 'NewsCategoryListCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("News Categories")}}'
+                    }
                 })
-                .state('news-categories-create', {
+                .state('app.content.news-categories-create', {
                     url: '/news-categories/create',
                     templateUrl: 'modules/news/admin/news-categories/news-category-form.html',
-                    controller: 'NewsCategoryFormCtrl as vm', parent: 'base'
+                    controller: 'NewsCategoryFormCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Categories")}}'
+                    }
                 })
-                .state('news-categories-edit', {
+                .state('app.content.news-categories-edit', {
                     url: '/news-categories/edit/:id',
                     templateUrl: 'modules/news/admin/news-categories/news-category-form.html',
-                    controller: 'NewsCategoryFormCtrl as vm', parent: 'base'
+                    controller: 'NewsCategoryFormCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Categories")}}'
+                    }
                 })
-                .state('news-items', {
+                .state('app.content.news-items', {
                     url: '/news-items',
                     templateUrl: 'modules/news/admin/news-items/news-item-list.html',
-                    controller: 'NewsItemListCtrl as vm', parent: 'base'
+                    controller: 'NewsItemListCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("News Items")}}'
+                    }
                 })
-                .state('news-items-create', {
+                .state('app.content.news-items-create', {
                     url: '/news-items/create',
                     templateUrl: 'modules/news/admin/news-items/news-item-form.html',
-                    controller: 'NewsItemFormCtrl as vm', parent: 'base'
+                    controller: 'NewsItemFormCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Items")}}'
+                    }
                 })
-                .state('news-items-edit', {
+                .state('app.content.news-items-edit', {
                     url: '/news-items/edit/:id',
                     templateUrl: 'modules/news/admin/news-items/news-item-form.html',
-                    controller: 'NewsItemFormCtrl as vm', parent: 'base'
+                    controller: 'NewsItemFormCtrl as vm', 
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Edit Items")}}'
+                    }
                 });
         }]);
 })();

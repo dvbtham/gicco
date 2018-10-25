@@ -14,9 +14,11 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace Gicco.WebHost
 {
@@ -33,6 +35,11 @@ namespace Gicco.WebHost
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc()
+            .AddJsonOptions(
+                options => options.SerializerSettings
+                .ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            );
             GlobalConfiguration.WebRootPath = _hostingEnvironment.WebRootPath;
             GlobalConfiguration.ContentRootPath = _hostingEnvironment.ContentRootPath;
             services.AddModules(_hostingEnvironment.ContentRootPath);
@@ -80,8 +87,8 @@ namespace Gicco.WebHost
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var xmlPath = Path.Combine(basePath, "GiccoApi.xml");
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
         }

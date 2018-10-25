@@ -14,7 +14,7 @@
 }
 
 @section head {
-    <link simpl-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/lib/nouislider/distribute/nouislider.min.css" />
 }
 
 <nav>
@@ -139,8 +139,8 @@
 </div>
 
 @section scripts {
-    <script simpl-append-version="true" src="~/lib/wnumb/wNumb.js"></script>
-    <script simpl-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
+    <script gicco-append-version="true" src="~/lib/wnumb/wNumb.js"></script>
+    <script gicco-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
 
     <script>
         var productFilter = {};
@@ -152,5 +152,5 @@
             currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0"))
         };
     </script>
-    <script simpl-append-version="true" src="~/modules/catalog/product-filter.js"></script>
+    <script gicco-append-version="true" src="~/modules/catalog/product-filter.js"></script>
 }

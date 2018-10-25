@@ -11,6 +11,8 @@ namespace Gicco.Module.Catalog.ViewModels
 
         public string Name { get; set; }
 
+        public string Sku { get; set; }
+
         public string ShortDescription { get; set; }
 
         public string MetaTitle { get; set; }

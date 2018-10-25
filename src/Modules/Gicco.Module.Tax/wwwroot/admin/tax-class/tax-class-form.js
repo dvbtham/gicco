@@ -22,7 +22,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('tax-classes');
+                    $state.go('app.system.tax-classes');
                 })
                 .catch(function (response) {
                     var error = response.data;

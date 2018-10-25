@@ -12,8 +12,8 @@
 
 @section head
     {
-    <link simpl-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
-    <link simpl-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/lib/smoothproducts/css/smoothproducts.css" />
+    <link gicco-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
 }
 
 <div class="bread-crumb flex-w p-r-15 p-t-20 p-b-20 p-lr-0-lg">
@@ -259,10 +259,9 @@
     @await Component.InvokeAsync("Review", new { entityId = Model.Id, entityTypeId = "Product" })
 </div>
 
-
 @section scripts
     {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-    <script simpl-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
-    <script simpl-append-version="true" src="~/modules/catalog/product-detail.js"></script>
+    <script gicco-append-version="true" src="~/lib/smoothproducts/js/smoothproducts.js"></script>
+    <script gicco-append-version="true" src="~/modules/catalog/product-detail.js"></script>
 }

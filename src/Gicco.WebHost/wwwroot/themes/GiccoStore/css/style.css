@@ -56,6 +56,19 @@ body {
         margin-top: 53px;
     }
 
+.show-text {
+    margin-top: -6px;
+    text-indent: 4px !important;
+}
+
+.rating-average {
+    font-size: 23px !important;
+}
+
+.rating-item .progress {
+    width: 100px !important;
+}
+
 h1 {
     font-size: 44px;
 }
@@ -926,11 +939,11 @@ img.alignright {
     width: calc(100% - 200px);
 }*/
 
-    .main-header .header-search-box .form-inline .input-serach input {
-        border: none;
-        padding-left: 15px;
-        width: 100%;
-    }
+.main-header .header-search-box .form-inline .input-serach input {
+    border: none;
+    padding-left: 15px;
+    width: 100%;
+}
 
 .main-header .header-search-box .form-inline .btn-search {
     width: 41px;
@@ -1350,20 +1363,25 @@ span.notify-right {
     background: #fff;
     border: 1px solid #eaeaea;
 }
-.vertical-dropdown:hover>.vertical-dropdown-menu-2{
+
+.vertical-dropdown:hover > .vertical-dropdown-menu-2 {
     display: block;
 }
+
 .vertical-dropdown-menu-2 li a {
     padding: 0 15px;
 }
+
 .vertical-dropdown-menu-2 li:hover {
     background-color: #ff3366;
     border-color: #ff3366;
     cursor: pointer;
 }
-.vertical-dropdown-menu-2 li:hover> a{
-    color: #fff;
-}
+
+    .vertical-dropdown-menu-2 li:hover > a {
+        color: #fff;
+    }
+
 .vertical-dropdown:before {
     display: inline-block;
     font-family: FontAwesome;
@@ -1378,6 +1396,7 @@ span.notify-right {
     right: 8px;
     color: #666;
 }
+
 .vertical-dropdown-menu-2 {
     min-width: 270px;
     width: 100%;
@@ -4389,7 +4408,7 @@ span.notify-right {
     }
 
     #product .pb-right-column .form-option .qty {
-        width: 40px;
+        width: 100%;
         display: inline-block;
         float: left;
         overflow: hidden;
@@ -4397,7 +4416,7 @@ span.notify-right {
 
     #product .pb-right-column .form-option .product-qty {
         border: 1px solid #eaeaea;
-        width: 60px;
+        width: 50px;
         margin-left: 50px;
         overflow: hidden;
         background: #FAFAFA;
@@ -4421,7 +4440,7 @@ span.notify-right {
 
     #product .pb-right-column .form-option .attributes input {
         max-width: 50px;
-        padding: 0 5px;
+        padding: 0 0 0 5px;
     }
 
     #product .pb-right-column .form-option .list-color {
@@ -6063,4 +6082,85 @@ span.notify-right {
     color: #999;
     padding-right: 5px;
     font-size: 17px;
+}
+
+
+.product-quantity {
+    margin-bottom: 15px;
+}
+
+    .product-quantity .quantity-button {
+        padding: 0px;
+        display: inline-block;
+        width: 20px;
+        height: 30px;
+        background: #ccc;
+        text-align: center;
+        margin: 0px;
+    }
+
+    .product-quantity .quantity-field {
+        width: 40px;
+        display: inline-block;
+        padding: 0px 0 0 10px;
+        max-height: 30px;
+        border: 1px solid #ccc;
+        margin-left: -3px;
+        margin-right: -5px;
+    }
+
+.product-price {
+    margin-bottom: 12px !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: -5px !important;
+}
+
+.rating-xs {
+    font-size: 22px !important;
+}
+
+.d-none {
+    display: none;
+}
+
+.btn-outline-primary {
+    border-radius: 0;
+    border: none;
+    background-color: #ff3366;
+}
+
+.btn-outline-secondary {
+    border-radius: 0;
+    border: none;
+    background-color: #999;
+    color: #FFF;
+}
+
+    .btn-outline-secondary:hover {
+        color: #FFF;
+    }
+
+.btn-outline-primary:hover {
+    background-color: #ff3366;
+}
+
+.p-b-25 {
+    padding-bottom: 25px;
+}
+
+#form-addreview .validation-summary-errors {
+    padding-bottom: 20px;
+}
+
+.modal-header .close {
+    margin-top: -22px;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px !important;
 }

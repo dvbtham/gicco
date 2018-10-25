@@ -89,6 +89,7 @@ namespace Gicco.Module.ShoppingCart.Services
                 {
                     Id = x.Id,
                     ProductId = x.ProductId,
+                    Slug = x.Product.Slug,
                     ProductName = x.Product.Name,
                     ProductPrice = x.Product.Price,
                     ProductImage = _mediaService.GetThumbnailUrl(x.Product.ThumbnailImage),

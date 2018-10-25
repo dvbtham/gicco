@@ -22,9 +22,9 @@ $(function () {
         //    remove: false
         //});
 
-        //$('input.rating-loading').rating({
-        //    language: window.simplGlobalSetting.lang,
-        //    filledStar: '<i class="fa fa-star"></i>',
-        //    emptyStar: '<i class="fa fa-star-o"></i>'
-        //});
+    $('input.rating-loading').rating({
+        language: window.giccoGlobalSetting.lang,
+        filledStar: '<i class="fa fa-star"></i>',
+        emptyStar: '<i class="fa fa-star-o"></i>'
+    });
 });

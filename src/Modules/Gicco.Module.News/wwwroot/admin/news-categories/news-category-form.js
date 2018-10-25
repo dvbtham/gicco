@@ -26,7 +26,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('news-categories');
+                    $state.go('app.content.news-categories');
                 })
                 .catch(function (response) {
                     var error = response.data;

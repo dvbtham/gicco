@@ -40,7 +40,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('news-items');
+                    $state.go('app.content.news-items');
                 })
                 .catch(function (response) {
                     var error = response.data;

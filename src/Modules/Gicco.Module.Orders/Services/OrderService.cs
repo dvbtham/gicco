@@ -266,7 +266,7 @@ namespace Gicco.Module.Orders.Services
                 transaction.Commit();
             }
 
-            //await _orderEmailService.SendEmailToUser(user, order);
+            await _orderEmailService.SendEmailToUser(user, order);
             return Result.Ok(order);
         }
 

@@ -241,9 +241,17 @@
                             <h1 class="product-name">@Model.Name</h1>
                             <div class="product-comments">
                                 <div class="product-star">
-                                    @for (int i = 1; i < Model.RatingAverage; i++)
+                                    @{
+                                        int unstars = 5;
+                                    }
+                                    @for (int i = 1; i <= Model.RatingAverage; i++)
                                     {
                                         <i class="fa fa-star"></i>
+                                        { unstars--; }
+                                    }
+                                    @for (int i = 1; i <= unstars; i++)
+                                    {
+                                        <i class="fa fa-star-o"></i>
                                     }
                                 </div>
                                 <div class="comments-advices">
@@ -486,7 +494,10 @@
                                 </ul>
                             </div>
                         }
-
+                        <div class="page-product-box">
+                            <h3 class="heading">@Localizer["Customer comments"]</h3>
+                            @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                        </div>
                         @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
                     </div>
                     <!-- Product -->

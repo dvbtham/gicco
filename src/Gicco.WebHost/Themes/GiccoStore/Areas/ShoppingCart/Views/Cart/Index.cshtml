@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = Localizer["Shopping Cart"];
+}
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order">           
+            <div class="order-detail-content">
+                <div class="col-md-8">
+                    <table style="margin-left: -14px;" class="table table-bordered table-responsive cart_summary">
+                        <thead>
+                            <tr>
+                                <th class="cart_product">@Localizer["Product"]</th>
+                                <th class="cart_product">@Localizer["Description"]</th>
+                                <th>@Localizer["Price"]</th>
+                                <th>@Localizer["Quantity"]</th>
+                                <th class="action"><i class="fa fa-trash-o"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-if="!vm.cart.items.length">
+                                <td colspan="5" class="text-center">
+                                    @Localizer["There are no items in this cart."] <a href="~/">@Localizer["Go to shopping"]</a>
+                                </td>
+                            </tr>
+                            <tr ng-if="vm.cart.items.length" ng-repeat="cartItem in vm.cart.items">
+                                <td class="cart_product">
+                                    <a href="#"><img ng-src="{{cartItem.productImage}}" alt="{{cartItem.productImage}}"></a>
+                                </td>
+                                <td>
+                                    <p class="product-name"><a href="#">{{cartItem.productName}}</a></p>
+                                    <div ng-repeat="opt in cartItem.variationOptions">
+                                        <small><a href="#">{{opt.optionName}}: {{opt.value}}</a></small><br>
+                                    </div>
+                                </td>
+                                <td class="price"><span>{{cartItem.productPriceString}}</span></td>
+                                <td class="qty">
+                                    <input readonly class="form-control input-sm" type="text" ng-model="cartItem.quantity">
+                                    <a class="pointer" ng-click="vm.increaseQuantity(cartItem)"><i class="fa fa-caret-up"></i></a>
+                                    <a class="pointer" ng-click="vm.decreaseQuantity(cartItem)"><i class="fa fa-caret-down"></i></a>
+                                </td>
+                                <td class="action" style="vertical-align: middle;">
+                                    <a class="pointer" ng-click="vm.removeShoppingCartItem(cartItem)">Delete item</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>     
+                <div class="col-md-4">
+                    <div class="order-summary" ng-if="vm.cart.items.length">
+                        <h4 class="mb-10">@Localizer["Order summary"]</h4>
+                        <table class="table">
+                            <tr>
+                                <td>@Localizer["Subtotal"]</td>
+                                <td>{{vm.cart.subTotalString}}</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Discount"] {{vm.cart.couponCode}}</td>
+                                <td>{{vm.cart.discountString}}</td>
+                            </tr>
+                            <tr>
+                                <td>@Localizer["Order Total"]</td>
+                                <td><strong class="orderTotal">{{vm.cart.orderTotalString}}</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="coupon-form" ng-if="vm.cart.items.length">
+                        <h4 class="mb-10">@Localizer["Coupon code"]</h4>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label class="text-danger mb-10">{{vm.cart.couponValidationErrorMessage}}</label>
+                            </div>
+                            <div class="input-group" id="coupon-box">
+                                <input type="text" name="couponCode" ng-model="vm.couponCode" placeholder="@Localizer["Enter coupon"]">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" ng-click="vm.applyCoupon()" type="button">@Localizer["Apply"]</button>
+                                </span>
+                            </div>                            
+                        </form>
+                    </div>
+                    <p class="mt-10"><a href="~/checkout/shipping" class="btn btn-outline-primary">@Localizer["Process to Checkout"]</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>

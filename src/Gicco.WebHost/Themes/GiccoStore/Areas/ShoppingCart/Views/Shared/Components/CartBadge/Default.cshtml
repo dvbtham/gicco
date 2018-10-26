@@ -2,40 +2,8 @@
 
 <div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box">
     <a class="cart-link" href="~/cart">
-        <span class="title">Shopping cart</span>
-        <span class="total">@Localizer["Cart subtotal"]: <span id="totalPrice">@Model.SubTotalString</span></span>
-        <span class="notify notify-left">@Model.Items.Count</span>
+        <span class="title">@Localizer["Shopping cart"]</span>
+        <span class="total">@Localizer["Cart subtotal"]: <span id="totalPrice">{{vm.cart.orderTotalString}}</span></span>
+        <span class="notify notify-left">{{vm.cart.items.length}}</span>
     </a>
-    @*<div class="cart-block">
-        <div class="cart-block-content">
-            <h5 class="cart-title">@Model.Items.Count Items in my cart</h5>
-            <div class="cart-block-list">
-                <ul>
-                    @foreach (var item in Model.Items)
-                    {
-                        <li class="product-info">
-                            <div class="p-left">
-                                <a href="#" class="remove_link"></a>
-                                <a href="@item.Slug">
-                                    <img class="img-responsive" src="@item.ProductImage" alt="@item.ProductName">
-                                </a>
-                            </div>
-                            <div class="p-right">
-                                <p class="p-name">@item.ProductName</p>
-                                <p class="p-rice">@item.ProductPriceString</p>
-                                <p>@Localizer["Qty"]: @item.Quantity</p>
-                            </div>
-                        </li>
-                    }
-                </ul>
-            </div>
-            <div class="toal-cart">
-                <span>Total</span>
-                <span class="toal-price pull-right">@Model.SubTotalWithDiscount.ToString("C")</span>
-            </div>
-            <div class="cart-buttons">
-                <a href="order.html" class="btn-check-out">Checkout</a>
-            </div>
-        </div>
-    </div>*@
 </div>

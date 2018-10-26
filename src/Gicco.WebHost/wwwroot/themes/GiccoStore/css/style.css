@@ -4109,7 +4109,7 @@ span.notify-right {
 [17. Order page]
 */
 .page-content {
-    margin-top: 30px;
+    margin-top: 6px;
 }
 
 .page-order ul.step {
@@ -4218,8 +4218,7 @@ span.notify-right {
     }
 
 .cart_summary td {
-    vertical-align: middle !important;
-    padding: 20px;
+    padding-left: 15px !important;
 }
 
 .cart_summary .table > tbody > tr > td, .table > tbody > tr > th,
@@ -6130,14 +6129,14 @@ span.notify-right {
     background-color: #ff3366;
 }
 
-.btn-outline-secondary {
+.btn-outline-secondary, #payment-box .btn-order {
     border-radius: 0;
     border: none;
     background-color: #999;
     color: #FFF;
 }
 
-    .btn-outline-secondary:hover {
+    .btn-outline-secondary:hover, #payment-box .btn-order {
         color: #FFF;
     }
 
@@ -6163,4 +6162,73 @@ span.notify-right {
 
 .mb-10 {
     margin-bottom: 10px !important;
+}
+
+#user-info-opntop li form {
+    padding-left: 21px !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#coupon-box input {
+    height: 30px;
+    background: #fff;
+    width: 100%;
+    border: 1px solid #999;
+    padding-left: 10px;
+}
+
+#coupon-box .btn {
+    font-weight: bold;
+    color: #fff;
+    height: 30px;
+    border-radius: 0;
+    background: #999;
+    border: none;
+    outline: none;
+}
+
+input, select, textarea {
+    outline: none;
+    border-radius: 0px !important;
+}
+
+#checkout-box .form-title, #payment-box .form-title {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.shipping-summary th {
+    padding-left: 0px !important;
+}
+
+.payment-method label {
+    padding-bottom: 10px;
+}
+
+.heading-bordered {
+    padding: 14px 0px;
+    font-size: 16px;
+    margin-bottom: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+}
+
+.alert {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    font-size: 15px;
+}
+
+.alert-dismissable .close, .alert-dismissible .close{
+    right: 0px;
 }

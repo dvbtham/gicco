@@ -59,9 +59,43 @@
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\AccessDenied.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ConfirmEmail.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ExternalLoginFailure.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ForgotPassword.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\Lockout.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\Login.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\Register.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ResetPassword.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ResetPasswordConfirmation.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\SendCode.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\VerifyCode.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Home\Index.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\ChangePassword.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\Index.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\ManageLogins.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\SetPassword.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\UserInfo.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Shared\Components\DefaultShippingAddress\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\Create.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\Edit.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\List.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\_AddressForm.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Checkout\OrderConfirmation.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Checkout\Shipping.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\EmailTemplates\OrderEmailToCustomer.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Order\OrderHistoryList.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\OrderSummary\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\InvoicePdf.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Payments\Views\Checkout\Payment.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Payments\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Payments\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyForm.cshtml" />
@@ -74,12 +108,22 @@
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\WishList\AddToWishListResult.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\WishList\PrivateList.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\WishList\PublicList.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\WishList\Share.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\WishList\UpdateItemResult.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\WishList\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\theme.json" />
     <None Remove="Themes\GiccoStore\Views\Shared\_Layout.cshtml" />
     <None Remove="Themes\GiccoStore\Views\Shared\_LoginPartial.cshtml" />
     <None Remove="Themes\GiccoStore\Views\_ViewImports.cshtml" />
+    <None Remove="Views\Shared\_AccountMenuGicco.cshtml" />
     <None Remove="wwwroot\images\default-user-avatar.png" />
     <None Remove="wwwroot\lib\angular-ui-router\angular-ui-router.js.map" />
     <None Remove="wwwroot\lib\angular-ui-router\angular-ui-router.min.js.map" />
@@ -157,6 +201,108 @@
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\AccessDenied.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ConfirmEmail.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ExternalLoginConfirmation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ExternalLoginFailure.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ForgotPassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ForgotPasswordConfirmation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\Lockout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\Login.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\Register.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ResetPassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\ResetPasswordConfirmation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\SendCode.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\VerifyCode.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Manage\ChangePassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Manage\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Manage\ManageLogins.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Manage\SetPassword.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Manage\UserInfo.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Shared\Components\DefaultShippingAddress\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\UserAddress\Create.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\UserAddress\Edit.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\UserAddress\List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\UserAddress\_AddressForm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Checkout\OrderConfirmation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Checkout\Shipping.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\EmailTemplates\OrderEmailToCustomer.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Order\OrderHistoryList.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\OrderSummary\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Shared\InvoicePdf.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Payments\Views\Checkout\Payment.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Payments\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Payments\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyForm.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -179,6 +325,33 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\WishList\AddToWishListResult.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\WishList\PrivateList.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\WishList\PublicList.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\WishList\Share.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\WishList\UpdateItemResult.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\WishList\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

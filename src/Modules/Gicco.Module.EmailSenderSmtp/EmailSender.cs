@@ -13,10 +13,10 @@ namespace Gicco.Module.EmailSenderSmtp
 
         public EmailSender(IConfiguration config)
         {
-            _emailConfig.SmtpServer = config.GetValue<string>("SmtpServer");
-            _emailConfig.SmtpUsername = config.GetValue<string>("SmtpUsername");
-            _emailConfig.SmtpPassword = config.GetValue<string>("SmtpPassword");
-            _emailConfig.SmtpPort = config.GetValue<int>("SmtpPort");
+            _emailConfig.SmtpServer = config.GetValue<string>("Smtp:SmtpServer");
+            _emailConfig.SmtpUsername = config.GetValue<string>("Smtp:SmtpUsername");
+            _emailConfig.SmtpPassword = config.GetValue<string>("Smtp:SmtpPassword");
+            _emailConfig.SmtpPort = config.GetValue<int>("Smtp:SmtpPort");
         }
 
         public async Task SendEmailAsync(string email, string subject, string body, bool isHtml = false)

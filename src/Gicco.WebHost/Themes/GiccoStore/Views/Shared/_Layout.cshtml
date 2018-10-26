@@ -21,8 +21,11 @@
     <title>@ViewData["Title"] - Gicco</title>
     @RenderSection("additionalMeta", false)
     @RenderSection("head", required: false)
+    <script gicco-append-version="true" src="~/lib/angular/angular.js"></script>
+    <script gicco-append-version="true" src="~/modules/shoppingcart/shoppingcart-list.js"></script>
+    <script gicco-append-version="true" src="~/modules/shoppingcart/shoppingcart-service.js"></script>
 </head>
-<body class="home">
+<body class="home" ng-app="gicco.shoppingCart" ng-controller="shoppingCartListCtrl as vm" ng-cloak>
     <!-- TOP BANNER -->
     <!--<div id="top-banner" class="top-banner">
         <div class="bg-overlay"></div>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Microsoft.EntityFrameworkCore;
-using Gicco.Infrastructure;
+﻿using Gicco.Infrastructure;
 using Gicco.Infrastructure.Data;
 using Gicco.Module.Core.Models;
 using Gicco.Module.Orders.Models;
@@ -12,6 +7,11 @@ using Gicco.Module.Pricing.Services;
 using Gicco.Module.ShippingPrices.Services;
 using Gicco.Module.ShoppingCart.Models;
 using Gicco.Module.Tax.Services;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Orders.Services
 {
@@ -182,7 +182,7 @@ namespace Gicco.Module.Orders.Services
                 };
 
                 var discountedItem = checkingDiscountResult.DiscountedProducts.FirstOrDefault(x => x.Id == cartItem.ProductId);
-                if(discountedItem != null)
+                if (discountedItem != null)
                 {
                     orderItem.DiscountAmount = discountedItem.DiscountAmount;
                 }
@@ -266,7 +266,7 @@ namespace Gicco.Module.Orders.Services
                 transaction.Commit();
             }
 
-            // await _orderEmailService.SendEmailToUser(user, order);
+            await _orderEmailService.SendEmailToUser(user, order);
             return Result.Ok(order);
         }
 
@@ -276,7 +276,7 @@ namespace Gicco.Module.Orders.Services
             order.UpdatedOn = DateTimeOffset.Now;
 
             var orderItems = _orderItemRepository.Query().Include(x => x.Product).Where(x => x.Order.Id == order.Id);
-            foreach(var item in orderItems)
+            foreach (var item in orderItems)
             {
                 if (item.Product.StockTrackingIsEnabled)
                 {

@@ -1,6 +1,6 @@
 ﻿(function () {
     angular
-        .module('simpl.shoppingCart', [])
+        .module('gicco.shoppingCart', [])
         .controller('shoppingCartListCtrl', [
             '$scope',
             'shoppingCartService',

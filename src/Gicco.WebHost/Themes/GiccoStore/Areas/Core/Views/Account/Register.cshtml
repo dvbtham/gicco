@@ -1,0 +1,93 @@
+﻿@model RegisterViewModel
+@inject SignInManager<User> SignInManager
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect
+@{
+    ViewData["Title"] = Localizer["Register"];
+}
+
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to Home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@Localizer["Authentication"]</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <!-- page heading-->
+        <h2 class="page-heading">
+            <span class="page-heading-title2">@ViewData["Title"]</span>
+        </h2>
+        <!-- ../page heading-->
+        <div class="page-content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="box-authentication">
+                        <form asp-area="Core" asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
+                            <h4>@Localizer["Create a new account."]</h4>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <label asp-for="Email">@Localizer["Email"]</label>
+
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                            <label asp-for="FullName">@Localizer["Full name"]</label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+
+                            <label asp-for="Password">@Localizer["Password"]</label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+
+                            <label asp-for="ConfirmPassword">@Localizer["Confirm password"]</label>
+                            <input asp-for="ConfirmPassword" class="form-control" />
+
+                            <button type="submit" class="button"><i class="fa fa-signout"></i> @Localizer["Register"]</button>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="box-authentication">
+                        <h4>@Localizer["Use another service to log in."]</h4>
+                        <hr />
+                        @{
+                            var schemes = await SignInManager.GetExternalAuthenticationSchemesAsync();
+                            var loginProviders = schemes.Where(scheme => scheme.DisplayName != OpenIdConnectDefaults.AuthenticationScheme).ToList();
+                            if (loginProviders.Count == 0)
+                            {
+                                <div>
+                                    <p>
+                                        There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                        for details on setting up this ASP.NET application to support logging in via external services.
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <form asp-area="Core" asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                                    <div>
+                                        <p>
+                                            @foreach (var provider in loginProviders)
+                                            {
+                                                <button type="submit" class="btn btn-outline-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                                            }
+                                        </p>
+                                    </div>
+                                </form>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

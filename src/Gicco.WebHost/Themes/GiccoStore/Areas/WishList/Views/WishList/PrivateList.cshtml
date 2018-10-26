@@ -39,17 +39,18 @@
                                     <form>
                                         <input type="hidden" name="itemId" value="@item.Id" />
                                         <input type="hidden" name="productId" value="@item.ProductId" />
-                                        <div class="form-group row">
+                                        <div class="form-group row mt-10">
                                             <label class="col-sm-4 col-form-label">@Localizer["Quantity"]</label>
-                                            <div class="col-md-8"><input type="number" name="qty" class="quantity-field" value="@item.Quantity" /></div>
+                                            <div class="col-md-8"><input type="number"  name="qty" class="form-control quantity-field" value="@item.Quantity" /></div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">@Localizer["Description"]</label>
-                                            <div class="col-sm-8"><textarea name="description">@item.Description</textarea></div>
+                                            <div class="col-sm-8">
+                                            <textarea class="form-control" name="description">@Html.Raw(item.Description)</textarea></div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-md-4 col-md-8">
-                                                <button type="button" class="btn btn-sm btn-add-cart">@Localizer["Add to cart"]</button>
+                                                <button type="button" class="btn-add-cart">@Localizer["Add to cart"]</button>
                                                 <button type="button" class="btn btn-sm remove-from-wishlist">@Localizer["Remove"]</button>
                                                 <button type="button" class="btn btn-sm update-wishlist">@Localizer["Update"]</button>
                                             </div>

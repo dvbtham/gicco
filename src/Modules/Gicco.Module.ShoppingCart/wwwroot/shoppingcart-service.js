@@ -5,7 +5,7 @@
             '$http',
             function ($http) {
                 function getShoppingCartItems() {
-                    return $http.get('cart/list');
+                    return $http.get('/cart/list');
                 }
                 
                 function removeShoppingCartItem(itemId) {

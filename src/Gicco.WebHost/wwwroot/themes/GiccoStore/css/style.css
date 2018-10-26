@@ -6129,14 +6129,14 @@ span.notify-right {
     background-color: #ff3366;
 }
 
-.btn-outline-secondary {
+.btn-outline-secondary, #payment-box .btn-order {
     border-radius: 0;
     border: none;
     background-color: #999;
     color: #FFF;
 }
 
-    .btn-outline-secondary:hover {
+    .btn-outline-secondary:hover, #payment-box .btn-order {
         color: #FFF;
     }
 
@@ -6195,7 +6195,7 @@ input, select, textarea {
     border-radius: 0px !important;
 }
 
-#checkout-box .form-title {
+#checkout-box .form-title, #payment-box .form-title {
     padding: 10px 0px;
     border-bottom: 1px solid #ddd;
 }
@@ -6206,4 +6206,8 @@ input, select, textarea {
 
 .shipping-summary th {
     padding-left: 0px !important;
+}
+
+.payment-method label {
+    padding-bottom: 10px;
 }

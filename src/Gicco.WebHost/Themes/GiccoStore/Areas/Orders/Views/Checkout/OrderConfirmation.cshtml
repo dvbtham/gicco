@@ -1,5 +1,23 @@
 ﻿@{
-    ViewBag.Title = "Order received";
+    ViewBag.Title = Localizer["Order received"];
 }
 
-<h2>Your order has been received.</h2>
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order">
+            <div class="order-detail-content">
+                <div class="col-md-12">
+                    <h2>@Localizer["Your order has been received"].</h2>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>

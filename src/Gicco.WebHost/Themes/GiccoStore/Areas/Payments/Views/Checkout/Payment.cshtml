@@ -1,0 +1,44 @@
+﻿@model Gicco.Module.Payments.ViewModels.CheckoutPaymentForm
+
+@{
+    ViewBag.Title = Localizer["Payment Information"];
+}
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order" id="payment-box">
+            <div class="col-md-8">
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">@Localizer[TempData["Error"].ToString()]</div>
+                }
+                <div id="paymentError" class="alert alert-danger d-none" role="alert"></div>
+                <h3 class="form-title mb-10">@Localizer["Choose a payment methods"]</h3>
+                <div class="row mb-10">
+                    @foreach (var paymentProvider in Model.PaymentProviders)
+                    {
+                        <div class="col-sm-12 col-md-6">
+                            <div class="payment-method paymentProvider-@paymentProvider.Id">
+                                @if (!string.IsNullOrWhiteSpace(paymentProvider.LandingViewComponentName))
+                                {
+                                    @await Component.InvokeAsync(paymentProvider.LandingViewComponentName)
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                @await Component.InvokeAsync("OrderSummary")
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>

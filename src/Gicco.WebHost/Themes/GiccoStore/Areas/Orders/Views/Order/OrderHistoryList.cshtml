@@ -3,43 +3,57 @@
 @{
     ViewData["Title"] = Localizer["Order History"];
 }
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer[" Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order">
+            <div class="row">
+                <!-- Left colunm -->
+                <div class="column col-xs-12 col-sm-3" id="left_column">
+                    @Html.Partial("_AccountMenu")
+                </div>
 
-<div class="row">
-    <div class="col-md-3">
-        @Html.Partial("_AccountMenu")
-    </div>
-    <div class="col-md-9">
-        <h2>@ViewData["Title"]</h2>
-        <hr />
-        <table class="table table-striped order-history">
-            <tr>
-                <th>@Localizer["Date"]</th>
-                <th>@Localizer["Products"]</th>
-                <th>@Localizer["SubTotal"]</th>
-                <th>@Localizer["Status"]</th>
-            </tr>
-            @foreach (var order in Model)
-            {
-                <tr>
-                    <td>@order.CreatedOn</td>
-                    <td>
-                        @foreach (var item in order.OrderItems)
+                <div class="col-md-9">
+                    <h2 class="heading-bordered">@ViewData["Title"]</h2>
+                    <table class="table table-striped order-history">
+                        <tr>
+                            <th>@Localizer["Date"]</th>
+                            <th>@Localizer["Products"]</th>
+                            <th>@Localizer["SubTotal"]</th>
+                            <th>@Localizer["Status"]</th>
+                        </tr>
+                        @foreach (var order in Model)
                         {
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <img src="@item.ThumbnailImage" />
-                                </div>
-                                <div class="col-md-9">
-                                     <p>@item.ProductName</p>
-                                     <p>Quantity @item.Quantity</p>
-                                </div>
-                            </div>
+                            <tr>
+                                <td class="text-center">@order.CreatedOn.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    @foreach (var item in order.OrderItems)
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img style="width: 100px;" class="thumbnail" src="@item.ThumbnailImage" />
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p>@item.ProductName</p>
+                                                <p>@Localizer["Quantity"]: @item.Quantity</p>
+                                            </div>
+                                        </div>
+                                    }
+                                </td>
+                                <td>@order.SubTotal.ToString("c")</td>
+                                <td>@order.OrderStatus</td>
+                            </tr>
                         }
-                    </td>
-                    <td>@order.SubTotal.ToString("c")</td>
-                    <td>@order.OrderStatus</td>
-                </tr>
-            }
-        </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
     </div>
 </div>

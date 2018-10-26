@@ -1,0 +1,83 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = Localizer["Manage your account"];
+}
+@if (ViewData["StatusMessage"] != null)
+{
+    <p class="text-success">@ViewData["StatusMessage"]</p>
+}
+
+
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order">
+            <div class="row">
+                <!-- Left colunm -->
+                <div class="column col-xs-12 col-sm-3" id="left_column">
+                    @Html.Partial("_AccountMenu")
+                </div>
+                <!-- ./left colunm -->
+                <!-- Center colunm-->
+                <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                    <h2 class="heading-bordered">@Localizer["Account Dashboard"]</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header mb-10">@Localizer["Account Information"]</div>
+                                <div class="card-body">
+                                    @Model.FullName <br />
+                                    @Model.Email
+                                    <p class="text-left mt-10 mb-10">
+                                        <a class="btn btn-sm btn-outline-secondary" href="~/user/info">@Localizer["Edit"]</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header mb-10">@Localizer["Security"]</div>
+                                <div class="card-body">
+                                    <dl class="row">
+                                        <dt class="col-md-5">@Localizer["Password"]:</dt>
+                                        <dd class="col-md-7">
+                                            @if (Model.HasPassword)
+                                            {
+                                                <a asp-area="Core" asp-controller="Manage" asp-action="ChangePassword" class="btn-bracketed">@Localizer["Change"]</a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-area="Core" asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">@Localizer["Create"]</a>
+                                            }
+                                        </dd>
+                                        <dt class="col-md-5">@Localizer["External Logins"]:</dt>
+                                        <dd class="col-md-7">
+                                            @Model.Logins.Count <a asp-area="Core" asp-controller="Manage" asp-action="ManageLogins" class="btn-bracketed">@Localizer["Manage"]</a>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">@Localizer["Default shipping address"]</div>
+                                <div class="card-body">
+                                    <vc:default-shipping-address></vc:default-shipping-address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./row-->
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>

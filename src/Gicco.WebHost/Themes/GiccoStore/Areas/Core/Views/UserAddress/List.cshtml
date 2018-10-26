@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Gicco.Module.Core.ViewModels.UserAddressListItem>
+@{
+    ViewData["Title"] = Localizer["Address book"];
+}
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order">
+            <div class="row">
+                <!-- Left colunm -->
+                <div class="column col-xs-12 col-sm-3" id="left_column">
+                    @Html.Partial("_AccountMenu")
+                </div>
+
+                <div class="col-md-9">
+                    <h2 class="heading-bordered">@Localizer["Address Book"]</h2>
+                    @foreach (var address in Model)
+                    {
+                        <div>
+                            <strong>@address.ContactName </strong><br />
+                            @address.AddressLine1 <br />
+                            @if (address.DisplayDistrict)
+                            {
+                                <text>@address.DistrictName,</text>
+                            }
+                            @address.StateOrProvinceName <br />
+                            @Localizer["Phone"]: @address.Phone
+                        </div>
+                        <div>
+                            @if (address.IsDefaultShippingAddress)
+                            {
+                                <span class="label label-primary">@Localizer["Default shipping address"]</span>
+                            }
+                            else
+                            {
+                                <form method="post" style="display: inline" asp-area="Core" asp-controller="UserAddress" asp-action="SetAsDefault" asp-route-id="@address.UserAddressId">
+                                    <button type="submit" class="btn btn-link" style="padding: 0">@Localizer["Set as default shipping address"]</button>
+                                </form>
+                                <span> | </span>
+                            }
+                            <a href="~/user/address/edit/@address.UserAddressId">@Localizer["Edit"]</a><span> | </span>
+                            <form method="post" style="display: inline" asp-area="Core" asp-controller="UserAddress" asp-action="Delete" asp-route-id="@address.UserAddressId">
+                                <button type="submit" class="btn btn-link" style="padding: 0">@Localizer["Delete"]</button>
+                            </form>
+                        </div>
+                    }
+
+                    <div class="text-left mt-10"><a class="btn btn-sm btn-outline-primary" href="~/user/address/create">@Localizer["Add Address"]</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>

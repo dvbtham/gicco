@@ -4109,7 +4109,7 @@ span.notify-right {
 [17. Order page]
 */
 .page-content {
-    margin-top: 30px;
+    margin-top: 6px;
 }
 
 .page-order ul.step {
@@ -6210,4 +6210,25 @@ input, select, textarea {
 
 .payment-method label {
     padding-bottom: 10px;
+}
+
+.heading-bordered {
+    padding: 14px 0px;
+    font-size: 16px;
+    margin-bottom: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+}
+
+.alert {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    font-size: 15px;
+}
+
+.alert-dismissable .close, .alert-dismissible .close{
+    right: 0px;
 }

@@ -1,0 +1,21 @@
+﻿<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer[" Return to home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <div class="page-content page-order">
+            <div class="row">
+                <!-- Left colunm -->
+                <div class="column col-xs-12 col-sm-3" id="left_column">
+                    @Html.Partial("_AccountMenu")
+                </div>
+               
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+</div>

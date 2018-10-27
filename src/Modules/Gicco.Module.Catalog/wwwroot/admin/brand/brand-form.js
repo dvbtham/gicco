@@ -1,4 +1,4 @@
-﻿ /*global angular*/
+﻿/*global angular*/
 (function () {
     angular
         .module('giccoAdmin.catalog')
@@ -26,7 +26,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('brand');
+                    $state.go('app.catalog.brand');
                 })
                 .catch(function (response) {
                     var error = response.data;

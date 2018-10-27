@@ -23,7 +23,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('product-attribute-group');
+                    $state.go('app.catalog.product-attribute-group');
                 })
                 .catch(function (response) {
                     var error = response.data;

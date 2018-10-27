@@ -72,67 +72,99 @@
                         label: '{{ ::vm.translate.get("Edit Category")}}'
                     }
                 })
-                .state('product-option', {
+                .state('app.catalog.product-option', {
                     url: '/product-option',
-
                     templateUrl: 'modules/catalog/admin/product-option/product-option-list.html',
-                    controller: 'ProductOptionListCtrl as vm'
+                    controller: 'ProductOptionListCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product Option")}}'
+                    }
                 })
-                .state('product-option-create', {
+                .state('app.catalog.product-option-create', {
                     url: '/product-option/create',
-
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product Option Create")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-option/product-option-form.html',
                     controller: 'ProductOptionFormCtrl as vm'
                 })
-                .state('product-option-edit', {
+                .state('app.catalog.product-option-edit', {
                     url: '/product-option/edit/:id',
-
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product Option Edit")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-option/product-option-form.html',
                     controller: 'ProductOptionFormCtrl as vm'
                 })
-                .state('product-attribute-group', {
+                .state('app.catalog.product-attribute-group', {
                     url: '/product-attribute-group',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product attribute group")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-attribute-group/product-attribute-group-list.html',
                     controller: 'ProductAttributeGroupListCtrl as vm'
                 })
-                .state('product-attribute-group-create', {
+                .state('app.catalog.product-attribute-group-create', {
                     url: '/product-attribute-group/create',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product attribute group create")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-attribute-group/product-attribute-group-form.html',
                     controller: 'ProductAttributeGroupFormCtrl as vm'
                 })
-                .state('product-attribute-group-edit', {
+                .state('app.catalog.product-attribute-group-edit', {
                     url: '/product-attribute-group/edit/:id',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product attribute group edit")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-attribute-group/product-attribute-group-form.html',
                     controller: 'ProductAttributeGroupFormCtrl as vm'
                 })
-                .state('product-attribute', {
+                .state('app.catalog.product-attribute', {
                     url: '/product-attribute',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product attribute")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-attribute/product-attribute-list.html',
                     controller: 'ProductAttributeListCtrl as vm'
                 })
-                .state('product-attribute-create', {
+                .state('app.catalog.product-attribute-create', {
                     url: '/product-attribute/create',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product attribute create")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-attribute/product-attribute-form.html',
                     controller: 'ProductAttributeFormCtrl as vm'
                 })
-                .state('product-attribute-edit', {
+                .state('app.catalog.product-attribute-edit', {
                     url: '/product-attribute/edit/:id',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product attribute edit")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-attribute/product-attribute-form.html',
                     controller: 'ProductAttributeFormCtrl as vm'
                 })
-                .state('product-template', {
+                .state('app.catalog.product-template', {
                     url: '/product-template',
-
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product template")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-template/product-template-list.html',
                     controller: 'ProductTemplateListCtrl as vm'
                 })
-                .state('product-template-create', {
+                .state('app.catalog.product-template-create', {
                     url: '/product-template/create',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product template create")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-template/product-template-form.html',
                     controller: 'ProductTemplateFormCtrl as vm'
                 })
-                .state('product-template-edit', {
+                .state('app.catalog.product-template-edit', {
                     url: '/product-template/edit/:id',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Product template edit")}}'
+                    },
                     templateUrl: 'modules/catalog/admin/product-template/product-template-form.html',
                     controller: 'ProductTemplateFormCtrl as vm'
                 })

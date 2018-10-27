@@ -23,7 +23,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('product-attribute');
+                    $state.go('app.catalog.product-attribute');
                 })
                 .catch(function (response) {
                     var error = response.data;

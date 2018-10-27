@@ -1,0 +1,202 @@
+﻿@model Gicco.Module.Catalog.ViewModels.ProductDetail
+@using Gicco.Module.Core.Models
+
+
+@inject SignInManager<User> SignInManager
+
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+}
+
+<div class="product-detail" id="product">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="sp-wrap">
+                @foreach (var image in Model.Images)
+                {
+                    <a href="@image.Url">
+                        <img src="@image.ThumbnailUrl" alt="@Model.Name" />
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="pb-right-column col-xs-12 col-sm-6">
+            <h1 class="product-name mt-10">@Model.Name</h1>
+            <div class="product-comments">
+                <div class="product-star">
+                    @{
+                        int unstars = 5;
+                    }
+                    @for (int i = 1; i <= Model.RatingAverage - 1; i++)
+                    {
+                        <i class="fa fa-star"></i>
+                        { unstars--; }
+                    }
+                    @for (int i = 1; i <= unstars; i++)
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                </div>
+                <div class="comments-advices">
+                    <a href="#">@Localizer["{0} reviews", Model.ReviewsCount]</a>                    
+                </div>
+            </div>
+
+            <div class="info-orther">
+                <p>Sku: #@Model.Sku</p>
+                <p>@Localizer["Availability:"] @(Model.StockQuantity > 0 ? Html.Raw("<span class='label label-success'>" + Localizer["In stock"].Value + "</span>") : Html.Raw("<span class='label label-danger'>" + Localizer["Out of stock"].Value + "</span>"))</p>
+            </div>
+            <div class="product-desc">
+                @Html.Raw(Model.ShortDescription)
+            </div>
+            @if (Model.HasVariation)
+            {
+                <form class="form-option">
+                    <p class="form-option-title">@Localizer["Available Options"]:</p>
+                    <div class="product-attrs">
+                        @foreach (var option in Model.AvailableOptions)
+                        {
+                            <div class="attributes">
+                                <div class="attribute-label">@Localizer[option.OptionName]:</div>
+                                <div class="attribute-list">
+                                    <ul class="list-color product-attr-options">
+                                        @foreach (var value in option.Values)
+                                        {
+                                            var shouldChecked = Model.Variations.First().Options.Any(x => x.Value == value);
+
+                                            if (Model.OptionDisplayValues[value].DisplayType == "color")
+                                            {
+                                                <li class="" title="@Localizer[value]" style="background:@Model.OptionDisplayValues[value].Value;">
+                                                    <input type="radio" class="hidden" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                    <a href="javascript:void(0);">@Model.OptionDisplayValues[value].Value</a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="" title="@Localizer[value]">
+                                                    <input type="radio" class="hidden" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                    <a class="show-text" href="javascript:void(0);">@Model.OptionDisplayValues[value].Value</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </form>
+
+                foreach (var variant in Model.Variations)
+                {
+                    var hidden = variant != Model.Variations.First() ? "collapse" : "";
+
+                    <div class="product-variation @hidden" data-variation-name="@variant.NormalizedName">
+                        <div class="product-price bottom-price-box">
+                            @if (variant.IsCallForPricing)
+                            {
+                                <div class="product-price-group">
+                                    <span class="price">@Localizer["Call for pricing"]</span>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="product-price-group">
+                                    <span class="price">@variant.CalculatedProductPrice.Price.ToString("C")</span>
+                                    @if (variant.CalculatedProductPrice.PercentOfSaving > 0)
+                                    {
+                                        <span class="old-price">@(variant.CalculatedProductPrice.OldPrice.HasValue ? variant.CalculatedProductPrice.OldPrice.Value.ToString("C") : "")</span>
+                                        <span class="discount">- @variant.CalculatedProductPrice.PercentOfSaving.ToString()%</span>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        @if (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0)
+                        {
+                            <div class="out-of-stock">
+                                <span class="label label-danger">@Localizer["Out of stock"]</span>
+                            </div>
+                        }
+                        <div class="add-to-cart">
+                            <form class="inline">
+                                <input type="hidden" name="productId" value="@variant.Id" />
+                                <div class="product-quantity">
+                                    <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                                    <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                                    <button type="button" class="quantity-button" name="add" value="+">+</button>
+                                </div>
+                                <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn-add-cart">@Localizer["Add to cart"]</button>
+                                <div>
+                                    <ul class="mt-10 add-to-wishlist">
+                                        <li class="wishlist-in">
+                                            <i class="fa fa-heart"></i>
+                                            <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
+                                        </li>
+                                        <li class="compare-in">
+                                            <i class="fa fa-exchange"></i>
+                                            <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                }
+                <div class="product-variation-notavailable collapse">
+                    <span class="label label-danger">@Localizer["Not available"]</span>
+                </div>
+            }
+            else
+            {
+                if (Model.IsCallForPricing)
+                {
+                    <div class="product-price-group">
+                        <span class="price">@Localizer["Call for pricing"]</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="product-price-group">
+                        <span class="price">@Model.CalculatedProductPrice.Price.ToString("C")</span>
+                        @if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                        {
+                            <span class="old-price">@(Model.CalculatedProductPrice.OldPrice.HasValue ? Model.CalculatedProductPrice.OldPrice.Value.ToString("C") : "")</span>
+                            <span class="discount">- @Model.CalculatedProductPrice.PercentOfSaving.ToString()%</span>
+                        }
+                    </div>
+                }
+                if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
+                {
+                    <div class="out-of-stock">
+                        <span class="label label-danger">@Localizer["Out of stock"]</span>
+                    </div>
+                }
+                <div class="add-to-cart">
+                    <form class="inline">
+                        <input type="hidden" name="productId" value="@Model.Id" />
+                        <div class="product-quantity">
+                            <button type="button" class="quantity-button" name="subtract" value="-">-</button>
+                            <input type="text" class="quantity-field" readonly="readonly" name="qty" value="1">
+                            <button type="button" class="quantity-button" name="add" value="+">+</button>
+                        </div>
+                        <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn-add-cart">@Localizer["Add to cart"]</button>
+                        <div>
+                            <ul class="mt-10 add-to-wishlist">
+                                <li class="wishlist-in">
+                                    <i class="fa fa-heart"></i>
+                                    <a href="#">@Localizer["Add to Wishlist"]</a>
+                                </li>
+                                <li class="compare-in">
+                                    <i class="fa fa-exchange"></i>
+                                    <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<script gicco-append-version="true" src="~/themes/GiccoStore/js/product-detail.js"></script>

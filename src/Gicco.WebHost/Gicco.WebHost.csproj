@@ -45,6 +45,7 @@
     <None Remove="Modules\Gicco.Module.Cms\bin\SimplCommerce.Module.Core.Views.pdb" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Category\CategoryDetail.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Product\ProductDetail.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Product\ProductOverview.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryAside\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryBreadcrumb\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryMenu\Default.cshtml" />
@@ -137,6 +138,7 @@
     <None Remove="wwwroot\themes\GiccoStore\js\add-to-cart.js" />
     <None Remove="wwwroot\themes\GiccoStore\js\bootstrap-dropdownhover.min.js" />
     <None Remove="wwwroot\themes\GiccoStore\js\product-detail.js" />
+    <None Remove="wwwroot\themes\GiccoStore\js\product-overview.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -192,6 +194,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Product\ProductOverview.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\CategoryAside\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

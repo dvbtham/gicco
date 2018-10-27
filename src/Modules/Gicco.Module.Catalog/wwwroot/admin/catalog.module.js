@@ -112,7 +112,7 @@
                     templateUrl: 'modules/catalog/admin/product-attribute-group/product-attribute-group-form.html',
                     controller: 'ProductAttributeGroupFormCtrl as vm'
                 })
-                .state('product-attribute-group-edit', {
+                .state('app.catalog.product-attribute-group-edit', {
                     url: '/product-attribute-group/edit/:id',
                     ncyBreadcrumb: {
                         label: '{{ ::vm.translate.get("Product attribute group edit")}}'

@@ -24,8 +24,8 @@
                                             class="btn btn-primary btn-xs"> <span class="fa fa-pause"></span></button>
                                         <button ng-if="!provider.isEnabled" title="Enable" ng-click="vm.enableProvider(provider)"
                                             class="btn btn-primary btn-xs"> <span class="fa fa-play"></span></button>
-                                        <a ng-if="provider.configureUrl" ui-sref="{{provider.configureUrl}}" title="Configure"
-                                            class="btn btn-primary btn-xs"> <span class="fa fa-cog"></span></a>
+                                        <a ng-if="provider.configureUrl" ui-sref="app.system.{{provider.configureUrl}}"
+                                            title="Configure" class="btn btn-primary btn-xs"> <span class="fa fa-cog"></span></a>
                                     </td>
                                 </tr>
                             </tbody>

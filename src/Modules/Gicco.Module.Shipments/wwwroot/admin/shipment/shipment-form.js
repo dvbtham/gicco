@@ -10,12 +10,12 @@
         vm.orderId = $stateParams.orderId;
         vm.translate = translateService;
         vm.warehouses = [];
-        vm.shipmentForm = { items : [] };
+        vm.shipmentForm = { items: [] };
 
         vm.save = function save() {
             shipmentService.createShipment(vm.shipmentForm)
                 .then(function () {
-                    $state.go('order-detail', { id: vm.orderId });
+                    $state.go('app.sales.order-detail', { id: vm.orderId });
                     toastr.success('Shipment is created');
                 })
                 .catch(function (response) {

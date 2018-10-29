@@ -26,7 +26,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('warehouses');
+                    $state.go('app.inventorys.warehouses');
                 })
                 .catch(function (response) {
                     var error = response.data;

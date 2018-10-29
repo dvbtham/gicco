@@ -119,6 +119,14 @@
                         <a class="nav-link" ui-sref-active="active" ui-sref="app.system.payment-providers"><i class="icon-star"></i>
                             Payment Providers </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.configuration"><i class="icon-star"></i>
+                            Setting </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.system.localization"><i class="icon-star"></i>
+                            Translation </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.content')}">
@@ -146,6 +154,48 @@
                             News Items </a>
                     </li>
 
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.sales')}">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.sales')}" href="#"><i
+                        class="icon-book-open"></i> Sales</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sales.order"><i class="icon-star"></i>
+                            Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.sales.shipments"><i class="icon-star"></i>
+                            Shipments</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.inventorys')}">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.inventorys')}" href="#"><i
+                        class="icon-book-open"></i>Inventory</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.inventorys.stocks"><i class="icon-star"></i>
+                            Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.inventorys.warehouses"><i class="icon-star"></i>
+                            Warehouses</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown" ng-class="{open: $state.includes('app.promotions')}">
+                <a class="nav-link nav-dropdown-toggle" ng-class="{active: $state.includes('app.promotions')}" href="#"><i
+                        class="icon-book-open"></i>Promotions</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.promotions.cart-rules"><i class="icon-star"></i>
+                            Cart Price Rule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" ui-sref-active="active" ui-sref="app.promotions.cart-rule-usages"><i class="icon-star"></i>
+                            Cart Price Rule Usages</a>
+                    </li>
                 </ul>
             </li>
         </ul>

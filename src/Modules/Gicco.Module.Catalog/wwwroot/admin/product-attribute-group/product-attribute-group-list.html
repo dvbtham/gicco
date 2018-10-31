@@ -22,7 +22,7 @@
                                 <tr ng-repeat="attributeGroup in vm.productAttributeGroups">
                                     <td>{{attributeGroup.name}}</td>
                                     <td>
-                                        <a ui-sref="product-attribute-group-edit({id: attributeGroup.id})" title="Edit"
+                                        <a ui-sref="app.catalog.product-attribute-group-edit({id: attributeGroup.id})" title="Edit"
                                             class="btn btn-primary btn-xs"> <span class="fa fa-edit"></span></a>
                                         <!--<button ng-click="vm.deleteProductOption(attributeGroup)" class="btn btn-danger btn-xs delete"> <span class="fa fa-times"></span></button>-->
                                     </td>

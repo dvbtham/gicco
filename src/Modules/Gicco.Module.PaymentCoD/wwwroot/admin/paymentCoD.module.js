@@ -7,12 +7,14 @@
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider
-                    .state('payments-cod-config', {
+                    .state('app.system.payments-cod-config', {
                         url: '/payments/cod/config',
                         templateUrl: 'modules/paymentcod/admin/config/config-form.html',
-                        controller: 'CoDConfigFormCtrlas vm', parent: 'base'
-                    })
-                    ;
+                        controller: 'CoDConfigFormCtrlas vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Payment COD")}}'
+                        }
+                    });
             }
         ]);
 })();

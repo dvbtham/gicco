@@ -26,7 +26,7 @@
                     abstract: true,
                     template: '<ui-view></ui-view>',
                     ncyBreadcrumb: {
-                        label: 'Sites'
+                        label: '{{ ::vm.translate.get("Site")}}'
                     }
                 })
                 .state('app.system', {
@@ -72,13 +72,13 @@
                         label: '{{ ::vm.translate.get("Widgets")}}'
                     }
                 })
-                .state('configuration', {
+                .state('app.system.configuration', {
                     url: '/configuration',
 
                     templateUrl: 'modules/core/admin/configuration/configuration.html',
                     controller: 'ConfigurationCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Settings")}}'
                     }
                 })
                 .state('app.sites.customergroups', {

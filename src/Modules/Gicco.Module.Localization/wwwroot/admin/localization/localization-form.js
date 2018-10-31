@@ -1,18 +1,18 @@
-﻿ /*global angular*/
+﻿/*global angular*/
 (function () {
     angular
         .module('giccoAdmin.localization')
         .controller('LocalizationFormCtrl', LocalizationFormCtrl);
 
     /* @ngInject */
-    function LocalizationFormCtrl($state, localizationService) {
+    function LocalizationFormCtrl($state, localizationService, translateService) {
         var vm = this;
+        vm.translate = translateService;
         vm.resources = [];
         vm.cultures = [];
         vm.selectedCultureId = 'vi-VN';
 
-        vm.changeCulture = function changeCulture()
-        {
+        vm.changeCulture = function changeCulture() {
             vm.validationErrors = [];
             localizationService.getResources(vm.selectedCultureId).then(function (result) {
                 vm.resources = result.data;

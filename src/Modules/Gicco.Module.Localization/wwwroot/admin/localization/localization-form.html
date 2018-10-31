@@ -1,35 +1,50 @@
-﻿<div class="panel panel-default">
-    <div class="panel-heading">
-        <h2>Manage Translations</h2>
-        <p>Note that the updated translations only be affected after the application is restarted</p>
-    </div>
-    <div class="panel-body">
-        <form name="cultureSelection" class="form-inline">
-            <div class="form-group">
-                <label>Select culture</label>
-                <select class="form-control" ng-model="vm.selectedCultureId" ng-change="vm.changeCulture()" ng-options="culture.id as culture.name for culture in vm.cultures"></select>
-            </div>
-        </form>
-        <form name="localizationForm" class="form-horizontal">
-            <div class="col-sm-offset-4 bg-danger" ng-show="vm.validationErrors">
-                <ul>
-                    <li ng-repeat="error in vm.validationErrors">{{error}}</li>
-                </ul>
-            </div>
-            <hr />
-            <div class="form-group" ng-repeat="item in vm.resources">
-                <label class="col-sm-4 control-label">{{item.key}}</label>
-                <div class="col-sm-8 has-feedback">
-                    <input name="name" ng-model="item.value" class="form-control" aria-describedby="inputSuccess2Status" />
-                    <span ng-hide="!item.isTranslated" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+﻿<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">{{::vm.translate.get('Manage Translations')}}</div>
+                    <div class="pull-right"> {{::vm.translate.get('Note that the updated translations only be affected
+                        after the application is restarted')}}</div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <form name="cultureSelection" class="form-inline">
+                            <div class="form-group">
+                                <label>{{::vm.translate.get('Select culture')}}: &nbsp;</label>
+                                <select class="form-control" ng-model="vm.selectedCultureId" ng-change="vm.changeCulture()"
+                                    ng-options="culture.id as culture.name for culture in vm.cultures"></select>
+                            </div>
+                        </form>
+                        <form name="localizationForm" class="form-horizontal">
+                            <div class="col-sm-offset-4 bg-danger" ng-show="vm.validationErrors">
+                                <ul>
+                                    <li ng-repeat="error in vm.validationErrors">{{error}}</li>
+                                </ul>
+                            </div>
+                            <hr />
+                            <div class="form-group" ng-repeat="item in vm.resources">
+                                <label class="col-sm-4 control-label">{{item.key}}</label>
+                                <div class="col-sm-8 has-feedback">
+                                    <input name="name" ng-model="item.value" class="form-control" aria-describedby="inputSuccess2Status" />
+                                    <span ng-hide="!item.isTranslated" class="glyphicon glyphicon-ok form-control-feedback"
+                                        aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span>
+                                        Save</button>
+                                    <button ui-sref="app.dashboard" class="btn btn-outline-warning">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-8">
-                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> Save</button>
-                    <button ui-sref="dashboard" class="btn btn-outline-warning">Cancel</button>
-                </div>
-            </div>
-        </form>
+        </div>
+        <!-- /.col -->
+
     </div>
+    <!-- /.row -->
 </div>

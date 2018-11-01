@@ -168,7 +168,7 @@
                     templateUrl: 'modules/core/admin/stateprovince/state-province-list.html',
                     controller: 'StateProvinceListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("States/Provinces")}}'
                     }
                 })
                 .state('app.system.country-states-provinces', {
@@ -177,7 +177,7 @@
                     templateUrl: 'modules/core/admin/stateprovince/state-province-list.html',
                     controller: 'StateProvinceListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("States/Provinces")}}'
                     }
                 })
                 .state('app.system.state-province-create', {
@@ -186,7 +186,7 @@
                     templateUrl: 'modules/core/admin/stateprovince/state-province-form.html',
                     controller: 'StateProvinceFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Create States/Provinces")}}'
                     }
                 })
                 .state('app.system.state-province-edit', {
@@ -195,7 +195,7 @@
                     templateUrl: 'modules/core/admin/stateprovince/state-province-form.html',
                     controller: 'StateProvinceFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Edit States/Provinces")}}'
                     }
                 })
                 .state('appSimple', {

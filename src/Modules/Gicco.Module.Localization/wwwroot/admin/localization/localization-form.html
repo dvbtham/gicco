@@ -4,8 +4,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">{{::vm.translate.get('Manage Translations')}}</div>
-                    <div class="pull-right"> {{::vm.translate.get('Note that the updated translations only be affected
-                        after the application is restarted')}}</div>
+                    <div class="pull-right">
+                        <p class="text-danger">
+                            {{::vm.translate.get('Note that the updated translations only be affected after the application') }}
+                        </p>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,7 +16,7 @@
                             <div class="form-group">
                                 <label>{{::vm.translate.get('Select culture')}}: &nbsp;</label>
                                 <select class="form-control" ng-model="vm.selectedCultureId" ng-change="vm.changeCulture()"
-                                    ng-options="culture.id as culture.name for culture in vm.cultures"></select>
+                                        ng-options="culture.id as culture.name for culture in vm.cultures"></select>
                             </div>
                         </form>
                         <form name="localizationForm" class="form-horizontal">
@@ -25,16 +28,21 @@
                             <hr />
                             <div class="form-group" ng-repeat="item in vm.resources">
                                 <label class="col-sm-4 control-label">{{item.key}}</label>
-                                <div class="col-sm-8 has-feedback">
+                                <div class="input-group">
                                     <input name="name" ng-model="item.value" class="form-control" aria-describedby="inputSuccess2Status" />
-                                    <span ng-hide="!item.isTranslated" class="glyphicon glyphicon-ok form-control-feedback"
-                                        aria-hidden="true"></span>
+                                    <div ng-hide="!item.isTranslated" class="input-group-prepend">
+                                        <button style="color: #fff; background-color: #20a8d8; border-color: #20a8d8;" class="btn btn-outline-primary">
+                                            <i class="fa fa-check"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-4 col-sm-8">
-                                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span>
-                                        Save</button>
+                                    <button class="btn btn-outline-primary" ng-click="vm.save()">
+                                        <span class="fa fa-check"></span>
+                                        Save
+                                    </button>
                                     <button ui-sref="app.dashboard" class="btn btn-outline-warning">Cancel</button>
                                 </div>
                             </div>

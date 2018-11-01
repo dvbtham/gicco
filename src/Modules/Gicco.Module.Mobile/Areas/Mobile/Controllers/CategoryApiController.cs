@@ -3,7 +3,6 @@ using Gicco.Module.Catalog.Models;
 using Gicco.Module.Catalog.ViewModels;
 using Gicco.Module.Core.Models;
 using Gicco.Module.Core.Services;
-using Gicco.Module.Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -53,7 +52,7 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
             var widgetInstances = _widgetInstanceRepository.Query()
                 .Where(x => x.WidgetId == WidgetIds.CategoryWidget)
                 .OrderBy(x => x.DisplayOrder)
-                .Select(x => new 
+                .Select(x => new
                 {
                     Id = x.Id,
                     WidgetName = x.Name,
@@ -85,8 +84,13 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
                 };
                 categoryWidgets.Add(model);
             }
-           
-            return Json(categoryWidgets);
+
+            return Json(categoryWidgets.Select(x => new
+            {
+                Id = x.Category.Id,
+                Name = x.WidgetName,
+                ThumbnailImageUrl = x.Category.ThumbnailUrl
+            }));
         }
 
         [HttpGet]

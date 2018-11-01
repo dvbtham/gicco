@@ -7,17 +7,30 @@
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider
-                    .state('order', {
+                    .state('app.sales', {
+                        url: "/sites",
+                        abstract: true,
+                        template: '<ui-view></ui-view>',
+                        ncyBreadcrumb: {
+                            label: 'sales'
+                        }
+                    })
+                    .state('app.sales.order', {
                         url: '/order',
                         templateUrl: 'modules/orders/admin/order/order-list.html',
-                        controller: 'OrderListCtrl as vm', parent: 'base'
+                        controller: 'OrderListCtrl as vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Order")}}'
+                        }
                     })
-                    .state('order-detail', {
+                    .state('app.sales.order-detail', {
                         url: '/order/detail/:id',
                         templateUrl: 'modules/orders/admin/order/order-detail.html',
-                        controller: 'OrderDetailCtrl as vm', parent: 'base'
-                    })
-                ;
+                        controller: 'OrderDetailCtrl as vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Order detail")}}'
+                        }
+                    });
             }
         ]);
 })();

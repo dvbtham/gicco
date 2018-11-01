@@ -35,6 +35,7 @@ namespace Gicco.Module.Catalog.Components
                 var category = _categoriesRepository.Query()
                     .Include(c => c.ThumbnailImage)
                     .FirstOrDefault(c => c.Id == settings.CategoryId);
+
                 model.Category = new CategoryThumbnail()
                 {
                     Id = category.Id,

@@ -5,20 +5,29 @@
     angular.module('giccoAdmin.shipment', [])
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider
-                .state('shipment-create', {
+                .state('app.sales.shipment-create', {
                     url: '/orders/:orderId/create-shipment',
                     templateUrl: 'modules/shipments/admin/shipment/shipment-form.html',
-                    controller: 'ShipmentFormCtrl as vm', parent: 'base'
+                    controller: 'ShipmentFormCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Create Shipment")}}'
+                    }
                 })
-                .state('shipments', {
+                .state('app.sales.shipments', {
                     url: '/shipments',
                     templateUrl: 'modules/shipments/admin/shipment/shipment-list.html',
-                    controller: 'ShipmentListCtrl as vm', parent: 'base'
+                    controller: 'ShipmentListCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Shipments")}}'
+                    }
                 })
-                .state('shipment-details', {
+                .state('app.sales.shipment-details', {
                     url: '/shipment/:id',
                     templateUrl: 'modules/shipments/admin/shipment/shipment-details.html',
-                    controller: 'ShipmentDetailsCtrl as vm', parent: 'base'
+                    controller: 'ShipmentDetailsCtrl as vm',
+                    ncyBreadcrumb: {
+                        label: '{{ ::vm.translate.get("Shipment Detail")}}'
+                    }
                 });
         }]);
 })();

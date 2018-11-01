@@ -1,6 +1,6 @@
 ﻿namespace Gicco.Module.Core.Models
 {
-    public class SimplConstants
+    public class GiccoConstants
     {
         public const string ThemeConfigKey = "Theme";
     }

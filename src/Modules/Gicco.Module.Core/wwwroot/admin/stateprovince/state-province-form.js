@@ -1,4 +1,4 @@
-﻿ /*global angular*/
+﻿/*global angular*/
 (function () {
     angular
         .module('giccoAdmin.core')
@@ -24,7 +24,7 @@
 
             promise
                 .then(function (result) {
-                    $state.go('country-states-provinces', {countryId: vm.countryId});
+                    $state.go('app.system.country-states-provinces', { countryId: vm.countryId });
                 })
                 .catch(function (response) {
                     var error = response.data;
@@ -33,7 +33,7 @@
                         for (var key in error) {
                             vm.validationErrors.push(error[key][0]);
                         }
-                    } else { 
+                    } else {
                         vm.validationErrors.push(translateService.get('Could not add State or Province.'));
                     }
                 });

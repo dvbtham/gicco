@@ -24,21 +24,12 @@ namespace Gicco.Module.Core.Services
         {
             _configurationRoot = (IConfigurationRoot)configuration;
             _appSettingRepository = appSettingRepository;
-            _currentThemeName = configuration[SimplConstants.ThemeConfigKey];
+            _currentThemeName = configuration[GiccoConstants.ThemeConfigKey];
         }
 
         public async Task<IList<ThemeListItem>> GetInstalledThemes()
         {
-            IList<ThemeListItem> themes = new List<ThemeListItem>
-            {
-                new ThemeListItem
-                {
-                    Name = "Generic",
-                    DisplayName = "Generic",
-                    IsCurrent = "Generic" == _currentThemeName,
-                    ThumbnailUrl = "/themes/generic-theme.png"
-                }
-            };
+            IList<ThemeListItem> themes = new List<ThemeListItem>();
 
             var themeRootFolder = new DirectoryInfo(Path.Combine(GlobalConfiguration.ContentRootPath, "Themes"));
             var themeFolders = themeRootFolder.GetDirectories();
@@ -70,7 +61,7 @@ namespace Gicco.Module.Core.Services
 
         public async Task SetCurrentTheme(string themeName)
         {
-            var themeSetting = await _appSettingRepository.Query().Where(x => x.Id == SimplConstants.ThemeConfigKey).FirstAsync();
+            var themeSetting = await _appSettingRepository.Query().Where(x => x.Id == GiccoConstants.ThemeConfigKey).FirstAsync();
             themeSetting.Value = themeName;
             await _appSettingRepository.SaveChangesAsync();
             _configurationRoot.Reload();

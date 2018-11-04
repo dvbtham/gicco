@@ -12,7 +12,7 @@ namespace Gicco.Module.Core.Extensions
 {
     public class WorkContext : IWorkContext
     {
-        private const string UserGuidCookiesName = "SimplUserGuid";
+        private const string UserGuidCookiesName = "GiccoUserGuid";
         private const long GuestRoleId = 3;
 
         private User _currentUser;

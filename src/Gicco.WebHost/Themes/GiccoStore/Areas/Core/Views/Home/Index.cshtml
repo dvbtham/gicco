@@ -67,3 +67,16 @@
         <partial name="_HomeProductCategory" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeaturedCategory)" />
     </div>
 </div>
+
+<div class="container">
+    <div id="hot-categories" class="row">
+        <div class="col-sm-12 group-title-box">
+            <h2 class="group-title ">
+                <span>@Localizer["Hot Categories"]</span>
+            </h2>
+        </div>
+
+        <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent)" />
+
+    </div>
+</div>

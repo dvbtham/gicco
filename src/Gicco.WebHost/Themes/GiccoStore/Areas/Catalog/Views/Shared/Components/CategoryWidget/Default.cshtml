@@ -1,13 +1,18 @@
 ﻿@model Gicco.Module.Catalog.ViewModels.CategoryWidgetComponentVm
 
-<h2 class="page-header">@Model.WidgetName</h2>
-<div class="row">
-    <div class="thumbnail">
-        <a href="~/@Model.Category.Slug">
-            <img alt="@Model.Category.Name" src="@Model.Category.ThumbnailUrl">
-            <div class="caption">
-                <h4 class="product-name">@Model.Category.Name</h4>
+<div class="col-sm-6  col-lg-3 cate-box">
+    <div class="cate-tit">
+        <div class="div-1" style="width: 46%;">
+            <div class="cate-name-wrap">
+                <p class="cate-name">@Model.WidgetName</p>
             </div>
-        </a>
+            <a href="~/@Model.Category.Slug" class="cate-link" data-ac="flipInX"><span>@Localizer["Shop Now"]</span></a>
+        </div>
+        <div class="div-2">
+            <a href="~/@Model.Category.Slug">
+                <img src="@Model.Category.ThumbnailUrl" alt="@Model.WidgetName" class="hot-cate-img">
+            </a>
+        </div>
+
     </div>
-</div>
+</div> <!-- /.cate-box -->

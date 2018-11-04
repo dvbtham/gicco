@@ -16,11 +16,15 @@
     <link gicco-append-version="true" href="~/themes/GiccoStore/css/bootstrap-dropdownhover.min.css" rel="stylesheet" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/themes/GiccoStore/css/reset.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/themes/GiccoStore/css/style.css" />
+    <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/lib/countdown/jquery.countdown.css" />
     <link gicco-append-version="true" rel="stylesheet" type="text/css" href="~/themes/GiccoStore/css/responsive.css" />
 
     <title>@ViewData["Title"] - Gicco</title>
     @RenderSection("additionalMeta", false)
     @RenderSection("head", required: false)
+    <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+    <script gicco-append-version="true" type="text/javascript" src="~/lib/countdown/jquery.plugin.js"></script>
+    <script gicco-append-version="true" type="text/javascript" src="~/lib/countdown/jquery.countdown.min.js"></script>
     <script gicco-append-version="true" src="~/lib/angular/angular.js"></script>
     <script gicco-append-version="true" src="~/modules/shoppingcart/shoppingcart-list.js"></script>
     <script gicco-append-version="true" src="~/modules/shoppingcart/shoppingcart-service.js"></script>
@@ -381,8 +385,7 @@
     <script>
             window.giccoGlobalSetting = {};
             window.giccoGlobalSetting.lang = '@CultureInfo.CurrentCulture.Name';
-    </script>
-    <script gicco-append-version="true" type="text/javascript" src="~/lib/jquery/jquery.js"></script>
+    </script>   
     <script gicco-append-version="true" type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script gicco-append-version="true" src="~/lib/bootstrap-star-rating/js/star-rating.js"></script>
     @if (System.Globalization.CultureInfo.CurrentCulture.Name == "vi-VN")

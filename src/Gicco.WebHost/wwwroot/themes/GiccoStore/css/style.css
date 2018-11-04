@@ -2657,7 +2657,6 @@ span.notify-right {
     }
 
         .product-featured .product-featured-content .product-featured-list {
-            margin-left: 234px;
             overflow: hidden;
         }
 
@@ -6242,4 +6241,12 @@ input, select, textarea {
 
 .alert-dismissable .close, .alert-dismissible .close {
     right: 0px;
+}
+
+.count-down {
+    align-content: center;
+    text-align: center;
+    border: 1px solid red;
+    padding: 5px;
+    font-size: 16px;
 }

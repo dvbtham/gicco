@@ -9,6 +9,8 @@
     <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
     <ProjectReference Include="..\Gicco.Module.Core\Gicco.Module.Core.csproj" />
     <ProjectReference Include="..\Gicco.Module.Catalog\Gicco.Module.Catalog.csproj" />
+    <ProjectReference Include="..\Gicco.Module.PaymentCoD\Gicco.Module.PaymentCoD.csproj" />
+    <ProjectReference Include="..\Gicco.Module.Payments\Gicco.Module.Payments.csproj" />
     <ProjectReference Include="..\Gicco.Module.ShoppingCart\Gicco.Module.ShoppingCart.csproj" />
   </ItemGroup>
 </Project>

@@ -58,6 +58,7 @@
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\Shared\_ProductThumbnail.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Catalog\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Cms\Views\Page\PageDetail.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\_ViewImports.cshtml" />
@@ -108,6 +109,7 @@
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Shared\Components\Review\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\MostSearch\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml" />
@@ -208,6 +210,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Catalog\Views\Shared\Components\HomeTabWidget\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Cms\Views\Page\PageDetail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\AccessDenied.cshtml">
@@ -334,6 +339,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Search\Views\Shared\Components\MostSearch\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml">

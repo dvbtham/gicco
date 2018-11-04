@@ -3,12 +3,12 @@
 }
 
 <ol class="breadcrumb">
-     <li class="breadcrumb-item" >
-         <a href="#!/dashboard">@Localizer["Dashboard"]</a>
+    <li class="breadcrumb-item">
+        <a href="#!/dashboard">@Localizer["Dashboard"]</a>
     </li>
 </ol>
 <div class="animated fadeIn">
-    <div class="row"> 
+    <div class="row">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
@@ -21,48 +21,48 @@
         </div>
         @if (User.IsInRole("admin"))
         {
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="panel-title">@Localizer["Pending reviews"]</h3>
-                </div>
-                <div class="card-body">
-                    <review-widget status="1" num-records="5"></review-widget>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="panel-title">@Localizer["Pending reviews"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <review-widget status="1" num-records="5"></review-widget>
+                    </div>
                 </div>
             </div>
-        </div>
         }
     </div>
     @if (User.IsInRole("admin"))
     {
         <div class="row">
- <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="panel-title">@Localizer["Most search keywords"]</h3>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="panel-title">@Localizer["Most search keywords"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <most-search-keyword></most-search-keyword>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <most-search-keyword></most-search-keyword>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="panel-title">@Localizer["Most viewed products"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <most-viewed-products></most-viewed-products>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="panel-title">@Localizer["Most viewed products"]</h3>
-                </div>
-                <div class="card-body">
-                    <most-viewed-products></most-viewed-products>
-                </div>
-            </div>
-        </div>
-        </div>
-       
+
     }
 </div>
- @if (User.IsInRole("admin"))
-    {
-        <div class="row"> 
+@if (User.IsInRole("admin"))
+{
+    <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -73,10 +73,7 @@
                 </div>
             </div>
 
-</div>
-   </div>
-        
-    }
-
+        </div>
     </div>
-    
+
+}

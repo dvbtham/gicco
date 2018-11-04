@@ -1,0 +1,27 @@
+﻿@model Gicco.Module.Cms.Models.Page
+
+@{
+    ViewBag.Title = Model.MetaTitle ?? Model.Name;
+    Layout = "/Themes/GiccoStore/Views/Shared/_Layout.cshtml";
+}
+
+@section additionalMeta {
+    <meta name="title" content="@ViewBag.Title" />
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to Home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <div class="row">
+            <div class="column col-md-12">
+                @Html.Raw(Model.Body)
+            </div>
+        </div>
+    </div>
+</div>

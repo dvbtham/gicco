@@ -6250,3 +6250,7 @@ input, select, textarea {
     padding: 5px;
     font-size: 16px;
 }
+
+.bx-viewport {
+    height: 283px !important;
+}

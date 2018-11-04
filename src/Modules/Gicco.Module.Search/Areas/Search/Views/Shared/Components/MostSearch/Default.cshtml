@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Gicco.Module.Search.Models.Query>
+
+@foreach (var query in Model)
+{
+    <li><a href="/search?Query=@query.QueryText">@query.QueryText</a></li>
+}

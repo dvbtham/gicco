@@ -5,12 +5,20 @@
                 <img class="img-responsive" alt="@Model.Name" src="@Model.ThumbnailUrl" />
             </a>
             <div class="quick-view">
-                <a title="Add to my wishlist" class="heart" href="#"></a>
-                <a title="Add to compare" class="compare" href="#"></a>
-                <a title="Quick view" class="search" href="#"></a>
+                <form class="inline">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <input type="hidden" class="quantity-field" value="1">
+                    <a title="@Localizer["Add to my wishlist"]" class="heart add-to-wishlist" href="#"></a>
+                    <a title="@Localizer["Add to compare"]" class="compare add-to-comparison" href="#"></a>
+                    <a title="@Localizer["Quick view"]" data-productid="@Model.Id" class="search" href="#"></a>
+                </form>                
             </div>
             <div class="add-to-cart">
-                <a title="Add to Cart" href="#add">@Localizer["Add To Cart"]</a>
+                <form class="inline">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <input type="hidden" class="quantity-field" value="1">
+                    <a class="btn-add-cart" title="@Localizer["Add to Cart"]" href="javascript:void(0);">@Localizer["Add To Cart"]</a>
+                </form>
             </div>
         </div>
         <div class="right-block">
@@ -28,7 +36,7 @@
 
             <div class="content_price">
                 @if (Model.IsCallForPricing)
-                {
+                { 
                     @Localizer["Call for pricing"]
                 }
                 else

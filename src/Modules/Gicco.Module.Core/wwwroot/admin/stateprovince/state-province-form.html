@@ -1,41 +1,50 @@
-﻿<div class="panel panel-default">
-    <div class="panel-heading">
-        <h2 ng-if="!vm.isEditMode">{{::vm.translate.get('Create State or Province')}}</h2>
-        <h2 ng-if="vm.isEditMode">{{::vm.translate.get('Edit State or Province')}}</h2>
-    </div>
-    <div class="panel-body">
-        <form name="stateProvinceForm" class="form-horizontal">
-            <div class="col-sm-offset-2 bg-danger" ng-show="vm.validationErrors">
-                <ul>
-                    <li ng-repeat="error in vm.validationErrors track by $index">{{error}}</li>
-                </ul>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">{{::vm.translate.get('Name')}}</label>
-                <div class="col-sm-10">
-                    <input name="name" ng-model="vm.stateProvince.name" class="form-control" />
+﻿<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div ng-if="!vm.isEditMode">{{::vm.translate.get('Create State or Province')}}</div>
+                    <div ng-if="vm.isEditMode">{{::vm.translate.get('Edit State or Province')}}</div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">{{::vm.translate.get('Code')}}</label>
-                <div class="col-sm-10">
-                    <input name="code" ng-model="vm.stateProvince.code" class="form-control" />
-                </div>
-            </div>
+                <div class="card-body">
+                    <form name="stateProvinceForm" class="form-horizontal">
+                        <div class="col-sm-offset-2 bg-danger" ng-show="vm.validationErrors">
+                            <ul>
+                                <li ng-repeat="error in vm.validationErrors track by $index">{{error}}</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{::vm.translate.get('Name')}}</label>
+                            <div class="col-sm-10">
+                                <input name="name" ng-model="vm.stateProvince.name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{::vm.translate.get('Code')}}</label>
+                            <div class="col-sm-10">
+                                <input name="code" ng-model="vm.stateProvince.code" class="form-control" />
+                            </div>
+                        </div>
 
-            <div class="form-group">
-                <label class="col-sm-2 control-label">{{::vm.translate.get('Type')}}</label>
-                <div class="col-sm-10">
-                    <input name="type" ng-model="vm.stateProvince.type" class="form-control" />
-                </div>
-            </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">{{::vm.translate.get('Type')}}</label>
+                            <div class="col-sm-10">
+                                <input name="type" ng-model="vm.stateProvince.type" class="form-control" />
+                            </div>
+                        </div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
-                    <button ui-sref="country-states-provinces({countryId: vm.countryId})" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
+                                <button ui-sref="app.system.country-states-provinces({countryId: vm.countryId})" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
+        <!-- /.col -->
+
     </div>
+    <!-- /.row -->
 </div>

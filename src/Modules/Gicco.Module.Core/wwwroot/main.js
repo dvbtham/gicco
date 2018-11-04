@@ -27,4 +27,8 @@ $(function () {
         filledStar: '<i class="fa fa-star"></i>',
         emptyStar: '<i class="fa fa-star-o"></i>'
     });
+
+    $("#shopping-cart-box-ontop .fa-shopping-cart").click(function () {
+        window.location.href = "/cart";
+    });
 });

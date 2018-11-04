@@ -86,7 +86,7 @@ a {
 }
 
     a:hover {
-        color: #ff3366;
+        color: #36a2cd;
         text-decoration: none;
         transition: all 0.25s;
     }
@@ -142,8 +142,8 @@ a {
 }
 
 .button:hover {
-    background: #ff3366;
-    border: 1px solid #ff3366;
+    background: #36a2cd;
+    border: 1px solid #36a2cd;
 }
 
 .input {
@@ -491,7 +491,7 @@ img.alignright {
 }
 
 .top-banner h1 {
-    color: #ff3366;
+    color: #36a2cd;
     font-weight: bold;
     line-height: auto;
 }
@@ -693,7 +693,7 @@ img.alignright {
         top: 48px;
         right: 0;
         left: auto;
-        border-top: 2px solid #ff3366;
+        border-top: 2px solid #36a2cd;
         transition: all 0.4s ease-out 0s;
         -webkit-transition: all 0.4s ease-out 0s;
         -o-transition: all 0.4s ease-out 0s;
@@ -845,7 +845,7 @@ img.alignright {
         border: none;
         top: 100%;
         left: 0;
-        border-top: 2px solid #ff3366;
+        border-top: 2px solid #36a2cd;
         transition: all 0.4s ease-out 0s;
         -webkit-transition: all 0.4s ease-out 0s;
         -o-transition: all 0.4s ease-out 0s;
@@ -948,7 +948,7 @@ img.alignright {
 .main-header .header-search-box .form-inline .btn-search {
     width: 41px;
     height: 41px;
-    background: #ff3366 url("../images/search.png") no-repeat center center;
+    background: #36a2cd url("../images/search.png") no-repeat center center;
     border: none;
     border-radius: 0;
     color: #fff;
@@ -1006,7 +1006,7 @@ img.alignright {
             content: '';
             width: 41px;
             height: 41px;
-            background: #ff3366 url('../images/cart.png') no-repeat center center;
+            background: #36a2cd url('../images/cart.png') no-repeat center center;
             position: absolute;
             top: -1px;
             right: -1px;
@@ -1087,7 +1087,7 @@ img.alignright {
             }
 
                 .cart-block .cart-block-content .product-info .p-right .p-rice {
-                    color: #ff3366;
+                    color: #36a2cd;
                 }
 
                 .cart-block .cart-block-content .product-info .p-right .change_quantity {
@@ -1148,7 +1148,7 @@ img.alignright {
                 }
 
                 .cart-block .cart-block-content .cart-buttons a.btn-check-out {
-                    background: #ff3366;
+                    background: #36a2cd;
                     color: #fff;
                 }
 
@@ -1218,7 +1218,7 @@ span.notify-right {
         }
 
     .box-vertical-megamenus .vertical-menu-content {
-        border-top: 3px solid #ff3366;
+        border-top: 3px solid #36a2cd;
         background: #fff;
         display: none;
         padding-bottom: 15px;
@@ -1240,12 +1240,12 @@ span.notify-right {
     }
 
     .box-vertical-megamenus .vertical-menu-list > li:hover {
-        background: #ff3366;
+        background: #36a2cd;
     }
 
         .box-vertical-megamenus .vertical-menu-list > li:hover > a {
             color: #fff;
-            border-color: #FF3366;
+            border-color: #36a2cd;
         }
 
             .box-vertical-megamenus .vertical-menu-list > li:hover > a.parent:before {
@@ -1329,9 +1329,9 @@ span.notify-right {
     }
 
         .box-vertical-megamenus .all-category span:hover {
-            background: #FF3366;
+            background: #36a2cd;
             color: #fff;
-            border-color: #FF3366;
+            border-color: #36a2cd;
         }
 
         .box-vertical-megamenus .all-category span:after {
@@ -1373,8 +1373,8 @@ span.notify-right {
 }
 
 .vertical-dropdown-menu-2 li:hover {
-    background-color: #ff3366;
-    border-color: #ff3366;
+    background-color: #36a2cd;
+    border-color: #36a2cd;
     cursor: pointer;
 }
 
@@ -1425,7 +1425,7 @@ span.notify-right {
 
     .vertical-dropdown-menu .mega-group-header span {
         padding-bottom: 10px;
-        border-bottom: 1px solid #ff3366;
+        border-bottom: 1px solid #36a2cd;
         float: left;
         margin-bottom: -1px;
     }
@@ -1456,7 +1456,7 @@ span.notify-right {
     .vertical-dropdown-menu .mega-products .mega-product .product-price .new-price {
         width: auto;
         display: inline-block;
-        color: #ff3366;
+        color: #36a2cd;
     }
 
     .vertical-dropdown-menu .mega-products .mega-product .product-price .old-price {
@@ -1513,7 +1513,7 @@ span.notify-right {
 
     #main-menu .navbar .navbar-nav > li:hover,
     #main-menu .navbar .navbar-nav > li.active {
-        background: #ff3366;
+        background: #36a2cd;
         color: #fff;
     }
 
@@ -1566,7 +1566,7 @@ span.notify-right {
 
     #main-menu .dropdown-menu .block-container .group_header > a {
         line-height: 32px;
-        border-bottom: 1px solid #ff3366;
+        border-bottom: 1px solid #36a2cd;
         display: inline-block;
         margin-bottom: -1px;
     }
@@ -1675,7 +1675,7 @@ span.notify-right {
 /** default nav **/
 .nav-menu-default {
     height: 50px;
-    background: #ff3366;
+    background: #36a2cd;
     border-radius: 0;
     padding: 0;
     margin: 0;
@@ -1688,14 +1688,14 @@ span.notify-right {
     .nav-menu-default ul > li > a:hover,
     .nav-menu-default ul > li.active > a,
     .nav-menu-default ul > li.selected > a {
-        background: #ff3366;
+        background: #36a2cd;
         color: #fff;
     }
 
 /** read nav **/
 .nav-menu-red {
     height: 53px;
-    background: #ff3366;
+    background: #36a2cd;
     border-radius: 0;
     padding: 0;
     padding-bottom: 3px;
@@ -1709,7 +1709,7 @@ span.notify-right {
     .nav-menu-red li a:hover,
     .nav-menu-red li.active a,
     .nav-menu-red li.selected a {
-        background: #ff3366;
+        background: #36a2cd;
         color: #fff;
     }
 /**green nav**/
@@ -1841,7 +1841,7 @@ span.notify-right {
 .header-top-right {
     margin-left: -15px;
     padding: 0;
-    border-top: 3px solid #ff3366;
+    border-top: 3px solid #36a2cd;
 }
 
     .header-top-right .homeslider {
@@ -1875,7 +1875,7 @@ span.notify-right {
 
     .header-top-right .homeslider .bx-controls-direction .bx-prev,
     .header-top-right .homeslider .bx-controls-direction .bx-next {
-        background: #FF3366;
+        background: #36a2cd;
         text-indent: 0px !important;
         color: #fff;
         font-size: 15px;
@@ -1956,7 +1956,7 @@ span.notify-right {
             }
 
         .header-top-right .homeslider .bx-wrapper .bx-pager.bx-default-pager a:hover, .header-top-right .homeslider .bx-wrapper .bx-pager.bx-default-pager a.active {
-            background: #ff3366;
+            background: #36a2cd;
             color: #fff;
             border: 1px solid #fff;
         }
@@ -1979,16 +1979,23 @@ span.notify-right {
 
     .latest-deals .latest-deal-title {
         height: 54px;
-        background: url("../images/latest-deal-title.png") no-repeat left center;
         padding: 0;
         margin: 0;
         line-height: 54px;
         text-transform: uppercase;
         font-size: 16px;
         font-weight: bold;
-        padding-left: 52px;
-        margin-left: 8px;
     }
+
+        .latest-deals .latest-deal-title:before {
+            font-family: FontAwesome;
+            content: "\f017";
+            padding: 10px;
+            margin-right: 10px;
+            background-color: #36a2cd;
+            color: #FFFFFF;
+            text-align: center;
+        }
 
     .latest-deals .product-list li {
         padding-right: 0;
@@ -1996,7 +2003,7 @@ span.notify-right {
     }
 
     .latest-deals .latest-deal-content {
-        border: 3px solid #ff3366;
+        border: 3px solid #36a2cd;
         padding: 20px 15px 10px 15px;
     }
 
@@ -2138,7 +2145,7 @@ span.notify-right {
     }
 
         .popular-tabs .nav-tab li:hover, .popular-tabs .nav-tab li.active {
-            border-bottom: 3px solid #ff3366;
+            border-bottom: 3px solid #36a2cd;
         }
 
             .popular-tabs .nav-tab li:hover a, .popular-tabs .nav-tab li.active a {
@@ -2330,7 +2337,7 @@ span.notify-right {
                 }
 
             .product-list li .quick-view a:hover {
-                background-color: #ff3366;
+                background-color: #36a2cd;
             }
 
     .product-list li .add-to-cart {
@@ -2340,7 +2347,7 @@ span.notify-right {
         right: 0;
         bottom: -50px;
         width: 100%;
-        background-color: rgba(0,0,0,0.4);
+        background-color: rgba(54,162,205,0.4);
         color: #fff;
         text-align: center;
         line-height: 50px;
@@ -2352,7 +2359,7 @@ span.notify-right {
     }
 
         .product-list li .add-to-cart:hover {
-            background-color: rgba(255,51,102,0.5);
+            background-color: rgba(54,162,205,0.8)
         }
 
         .product-list li .add-to-cart a {
@@ -2381,7 +2388,7 @@ span.notify-right {
 
     .product-list li .product-price {
         font-size: 18px;
-        color: #ff3366;
+        color: #36a2cd;
     }
 
     .product-list li .old-price {
@@ -2503,7 +2510,7 @@ span.notify-right {
 
         .owl-controls .owl-prev:hover,
         .owl-controls .owl-next:hover {
-            background: #ff3366;
+            background: #36a2cd;
             color: #fff;
         }
 
@@ -2650,7 +2657,6 @@ span.notify-right {
     }
 
         .product-featured .product-featured-content .product-featured-list {
-            margin-left: 234px;
             overflow: hidden;
         }
 
@@ -2727,7 +2733,7 @@ span.notify-right {
         text-transform: uppercase;
         color: #333;
         font-weight: bold;
-        border-bottom: 3px solid #ff3366;
+        border-bottom: 3px solid #36a2cd;
         line-height: 40px;
         padding-left: 10px;
     }
@@ -2837,7 +2843,7 @@ span.notify-right {
 
         .trademark-product .info-product .product-price {
             font-size: 18px;
-            color: #F36;
+            color: #36a2cd;
             font-weight: bold;
         }
 
@@ -2865,7 +2871,7 @@ span.notify-right {
         }
 
             .trademark-product .info-product .btn-view-more:hover {
-                background: #ff3366;
+                background: #36a2cd;
                 color: #fff;
             }
 
@@ -2875,7 +2881,7 @@ span.notify-right {
         }
 
         .trademark-product .info-product .quick-view a:hover {
-            background: #ff3366;
+            background: #36a2cd;
         }
 
 
@@ -2898,7 +2904,7 @@ span.notify-right {
 }
 
     .group-title span {
-        border-bottom: 3px solid #ff3366;
+        border-bottom: 3px solid #36a2cd;
         text-transform: uppercase;
         padding: 5px 10px;
     }
@@ -2941,7 +2947,7 @@ span.notify-right {
 }
 
     .cate-box .cate-link:hover {
-        background: #ff3366 !important;
+        background: #36a2cd !important;
     }
 
 .cate-link span {
@@ -3038,7 +3044,7 @@ span.notify-right {
         color: #fff;
         height: 30px;
         border-radius: 0;
-        background: #ff3366;
+        background: #36a2cd;
         border: none;
         outline: none;
     }
@@ -3193,7 +3199,7 @@ span.notify-right {
 }
 
     .scroll_top:hover {
-        background: #F36;
+        background: #36a2cd;
     }
 
     .scroll_top:before {
@@ -3319,7 +3325,7 @@ span.notify-right {
     .tree-menu li.active > a,
     .tree-menu li:hover > span:before,
     .tree-menu li.active > span:before {
-        color: #ff3366;
+        color: #36a2cd;
     }
 
 .tree-menu > li > span:before {
@@ -3379,7 +3385,7 @@ span.notify-right {
 
 .layered-filter-price .slider-range-price {
     height: 7px;
-    background: #ff3366;
+    background: #36a2cd;
     border: none;
     border-radius: 0;
 }
@@ -3411,7 +3417,7 @@ span.notify-right {
     }
 
         .check-box-list label:hover {
-            color: #ff3366;
+            color: #36a2cd;
         }
 
     .check-box-list input[type="checkbox"] {
@@ -3429,11 +3435,11 @@ span.notify-right {
         }
 
         .check-box-list input[type="checkbox"]:checked + label span.button {
-            background: #ff3366 url("../images/checked.png") no-repeat center center;
+            background: #36a2cd url("../images/checked.png") no-repeat center center;
         }
 
         .check-box-list input[type="checkbox"]:checked + label {
-            color: #ff3366;
+            color: #36a2cd;
         }
 
     .check-box-list label span.count {
@@ -3474,7 +3480,7 @@ span.notify-right {
     }
 
     .filter-color li input[type="checkbox"]:checked + label {
-        border-color: #ff3366;
+        border-color: #36a2cd;
     }
 
 .filter-size {
@@ -3505,7 +3511,7 @@ span.notify-right {
     }
 
         .owl-controls .owl-dots .owl-dot.active {
-            background: #ff3366;
+            background: #36a2cd;
         }
 
 /** special-product**/
@@ -3524,7 +3530,7 @@ span.notify-right {
 
     .products-block .product-price {
         font-size: 18px;
-        color: #ff3366;
+        color: #36a2cd;
         font-weight: bold;
         line-height: 35px;
     }
@@ -3540,15 +3546,15 @@ span.notify-right {
 .products-block .link-all {
     height: 35px;
     width: 120px;
-    border: 1px solid #ff3366;
+    border: 1px solid #36a2cd;
     line-height: 33px;
     font-size: 14px;
-    color: #ff3366;
+    color: #36a2cd;
     display: block;
     margin: 0 auto;
     text-align: center;
     clear: both;
-    background: #ff3366;
+    background: #36a2cd;
     color: #fff;
 }
 
@@ -3613,7 +3619,7 @@ span.notify-right {
     clear: both;
     padding-left: 15px;
     padding-right: 15px;
-    background: #F36;
+    background: #36a2cd;
 }
 
     .btn-add-cart:hover {
@@ -3630,6 +3636,10 @@ span.notify-right {
         margin-right: 15px;
     }
 
+.left-block .btn-add-cart:before {
+    background: none;
+    margin-right: -10px;
+}
 /** tags **/
 .tags {
     line-height: 26px;
@@ -3707,7 +3717,7 @@ span.notify-right {
 
     .category-slider .owl-controls .owl-prev:hover,
     .category-slider .owl-controls .owl-next:hover {
-        background: #ff3366;
+        background: #36a2cd;
     }
 
 .category-slider .owl-controls .owl-prev {
@@ -3795,7 +3805,7 @@ span.notify-right {
 }
 
     .page-heading span.page-heading-title {
-        border-bottom: 3px solid #ff3366;
+        border-bottom: 3px solid #36a2cd;
         position: absolute;
         bottom: -1px;
         padding: 0 12px;
@@ -3847,7 +3857,7 @@ span.notify-right {
 
     .display-product-option li.selected span,
     .display-product-option li:hover span {
-        background-color: #ff3366;
+        background-color: #36a2cd;
         background-position: 0 -30px;
     }
 
@@ -3907,7 +3917,7 @@ span.notify-right {
     bottom: inherit;
     width: 129px;
     height: 36px;
-    background: #ff3366;
+    background: #36a2cd;
     line-height: 36px;
     position: absolute;
 }
@@ -3997,7 +4007,7 @@ span.notify-right {
 }
 
     .product-list.style2.grid .add-to-cart a {
-        background: #ff3366;
+        background: #36a2cd;
         padding: 0 15px;
     }
 
@@ -4068,12 +4078,12 @@ span.notify-right {
         }
 
             .sortPagiBar .bottom-pagination .pagination a:hover {
-                background: #ff3366;
+                background: #36a2cd;
                 color: #fff;
             }
 
             .sortPagiBar .bottom-pagination .pagination .active a {
-                background: #ff3366;
+                background: #36a2cd;
                 color: #fff;
             }
 
@@ -4109,7 +4119,7 @@ span.notify-right {
 [17. Order page]
 */
 .page-content {
-    margin-top: 30px;
+    margin-top: 6px;
 }
 
 .page-order ul.step {
@@ -4128,7 +4138,7 @@ span.notify-right {
     }
 
         .page-order ul.step li.current-step {
-            border-bottom: 3px solid #ff3366;
+            border-bottom: 3px solid #36a2cd;
         }
 
 .page-order .heading-counter {
@@ -4176,9 +4186,9 @@ span.notify-right {
 
 .page-order .cart_navigation a.next-btn {
     float: right;
-    background: #ff3366;
+    background: #36a2cd;
     color: #fff;
-    border: 1px solid #ff3366;
+    border: 1px solid #36a2cd;
 }
 
     .page-order .cart_navigation a.next-btn:hover {
@@ -4202,7 +4212,7 @@ span.notify-right {
 }
 
 .page-order .cart_navigation a:hover {
-    background: #ff3366;
+    background: #36a2cd;
     color: #fff;
 }
 
@@ -4218,8 +4228,7 @@ span.notify-right {
     }
 
 .cart_summary td {
-    vertical-align: middle !important;
-    padding: 20px;
+    padding-left: 15px !important;
 }
 
 .cart_summary .table > tbody > tr > td, .table > tbody > tr > th,
@@ -4263,7 +4272,7 @@ span.notify-right {
     }
 
         .cart_summary .qty a:hover {
-            background: #ff3366;
+            background: #36a2cd;
             color: #fff;
         }
 
@@ -4335,7 +4344,7 @@ span.notify-right {
     #product .pb-right-column .product-price-group .price {
         font-size: 18px;
         font-weight: bold;
-        color: #ff3366;
+        color: #36a2cd;
     }
 
     #product .pb-right-column .product-price-group .old-price {
@@ -4366,7 +4375,7 @@ span.notify-right {
     }
 
         #product .pb-right-column .form-option #size_chart {
-            color: #ff3366;
+            color: #36a2cd;
             text-decoration: underline;
             margin-left: 15px;
         }
@@ -4458,7 +4467,7 @@ span.notify-right {
 
             #product .pb-right-column .form-option .list-color li:hover,
             #product .pb-right-column .form-option .list-color li.active {
-                border: 1px solid #ff3366;
+                border: 1px solid #36a2cd;
             }
 
             #product .pb-right-column .form-option .list-color li a {
@@ -4499,7 +4508,7 @@ span.notify-right {
 
                 #product .pb-right-column .form-action .button-group .wishlist:hover .fa,
                 #product .pb-right-column .form-action .button-group .compare:hover .fa {
-                    background: #ff3366;
+                    background: #36a2cd;
                 }
 
     #product .pb-right-column .form-share .fa {
@@ -4714,7 +4723,7 @@ span.notify-right {
     }
 
         #contact #btn-send-contact:hover {
-            background: #F36;
+            background: #36a2cd;
         }
 
 #contact_form_map ul {
@@ -4811,7 +4820,7 @@ span.notify-right {
         }
 
             .blog-posts .post-item .entry-more a:hover {
-                background: #ff3366;
+                background: #36a2cd;
                 color: #fff;
             }
 
@@ -5000,8 +5009,8 @@ span.notify-right {
     }
 
         .coment-form .btn-comment:hover {
-            background: #ff3366;
-            border: 1px solid #ff3366;
+            background: #36a2cd;
+            border: 1px solid #36a2cd;
         }
 /**Related Posts**/
 
@@ -5151,11 +5160,11 @@ span.notify-right {
 
 .table-compare .price {
     font-weight: bold;
-    color: #ff3366;
+    color: #36a2cd;
 }
 
 .table-compare .add-cart {
-    background: #ff3366;
+    background: #36a2cd;
     color: #fff;
 }
 
@@ -5246,7 +5255,7 @@ span.notify-right {
             .today-deals .deals-product-list .product-info .show-count-down .box-count {
                 display: inline-block;
                 margin-right: 2px;
-                color: #ff3366;
+                color: #36a2cd;
             }
 
             .today-deals .deals-product-list .product-info .show-count-down .dot {
@@ -5285,7 +5294,7 @@ span.notify-right {
             }
 
             .today-deals .deals-product-list .product-info .product-meta .price {
-                color: #ff3366;
+                color: #36a2cd;
                 font-size: 18px;
             }
 
@@ -6127,22 +6136,22 @@ span.notify-right {
 .btn-outline-primary {
     border-radius: 0;
     border: none;
-    background-color: #ff3366;
+    background-color: #36a2cd;
 }
 
-.btn-outline-secondary {
+.btn-outline-secondary, #payment-box .btn-order {
     border-radius: 0;
     border: none;
     background-color: #999;
     color: #FFF;
 }
 
-    .btn-outline-secondary:hover {
+    .btn-outline-secondary:hover, #payment-box .btn-order {
         color: #FFF;
     }
 
 .btn-outline-primary:hover {
-    background-color: #ff3366;
+    background-color: #36a2cd;
 }
 
 .p-b-25 {
@@ -6163,4 +6172,85 @@ span.notify-right {
 
 .mb-10 {
     margin-bottom: 10px !important;
+}
+
+#user-info-opntop li form {
+    padding-left: 21px !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#coupon-box input {
+    height: 30px;
+    background: #fff;
+    width: 100%;
+    border: 1px solid #999;
+    padding-left: 10px;
+}
+
+#coupon-box .btn {
+    font-weight: bold;
+    color: #fff;
+    height: 30px;
+    border-radius: 0;
+    background: #999;
+    border: none;
+    outline: none;
+}
+
+input, select, textarea {
+    outline: none;
+    border-radius: 0px !important;
+}
+
+#checkout-box .form-title, #payment-box .form-title {
+    padding: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.shipping-summary th {
+    padding-left: 0px !important;
+}
+
+.payment-method label {
+    padding-bottom: 10px;
+}
+
+.heading-bordered {
+    padding: 14px 0px;
+    font-size: 16px;
+    margin-bottom: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+}
+
+.alert {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    font-size: 15px;
+}
+
+.alert-dismissable .close, .alert-dismissible .close {
+    right: 0px;
+}
+
+.count-down {
+    align-content: center;
+    text-align: center;
+    border: 1px solid red;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.bx-viewport {
+    height: 283px !important;
 }

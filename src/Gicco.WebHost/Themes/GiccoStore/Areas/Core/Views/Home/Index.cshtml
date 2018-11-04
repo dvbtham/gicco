@@ -67,26 +67,17 @@
         <partial name="_HomeProductCategory" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeaturedCategory)" />
     </div>
 </div>
-
-<div class="container">
-    <div class="brand-showcase">
-        <h2 class="brand-showcase-title">
-            brand showcase
-        </h2>
-        <div class="brand-showcase-box">
-            <ul class="brand-showcase-logo owl-carousel" data-loop="true" data-nav="true" data-dots="false" data-margin="1" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":2},"600":{"items":5},"1000":{"items":8}}'>
-                <li data-tab="showcase-1" class="item active"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-2" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-3" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-4" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-5" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-6" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-7" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-8" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-9" class="item"><img src="~/themes/GiccoStore/data/gucci.png" alt="logo" class="item-img" /></li>
-            </ul>
+@if (Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent).Count() > 0)
+{
+    <div class="container">
+        <div id="hot-categories" class="row">
+            <div class="col-sm-12 group-title-box">
+                <h2 class="group-title ">
+                    <span>@Localizer["Hot Categories"]</span>
+                </h2>
+            </div>
+            <partial name="_WidgetInstances" model="Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent)" />
         </div>
-
     </div>
-</div>
+}
 

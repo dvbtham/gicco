@@ -7,12 +7,14 @@
         .config(['$stateProvider',
             function ($stateProvider) {
                 $stateProvider
-                    .state('payments-stripe-config', {
+                    .state('app.system.payments-stripe-config', {
                         url: '/payments/stripe/config',
                         templateUrl: 'modules/paymentstripe/admin/stripe/stripe-config-form.html',
-                        controller: 'StripeConfigFormCtrl as vm', parent: 'base'
-                    })
-                ;
+                        controller: 'StripeConfigFormCtrl as vm',
+                        ncyBreadcrumb: {
+                            label: '{{ ::vm.translate.get("Payment Stripe")}}'
+                        }
+                    });
             }
         ]);
 })();

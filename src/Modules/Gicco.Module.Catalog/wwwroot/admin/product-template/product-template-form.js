@@ -10,7 +10,7 @@
         vm.translate = translateService;
         vm.productTemplateId = $stateParams.id;
         vm.isEditMode = vm.productTemplateId > 0;
-        vm.productTemplate = { attributes : [] };
+        vm.productTemplate = { attributes: [] };
         vm.attributes = [];
         vm.addingAttribute = null;
 
@@ -36,8 +36,8 @@
             }
 
             promise.then(function () {
-                    $state.go('product-template');
-                })
+                $state.go('app.catalog.product-template');
+            })
                 .catch(function (response) {
                     var error = response.data;
                     vm.validationErrors = [];

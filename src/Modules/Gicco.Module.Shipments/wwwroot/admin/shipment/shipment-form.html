@@ -1,46 +1,55 @@
-﻿<div class="page-header">
+﻿<div class="animated fadeIn">
     <div class="row">
-        <div class="col-md-8">
-            <h2>{{::vm.translate.get('Add Shipment for Order')}} #{{vm.orderId}}</h2>
-        </div>
-        <div class="col-md-4 text-right">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label>{{::vm.translate.get('Warehouse')}}</label>
-                    <select class="form-control" ng-model="vm.selectedWarehouseId"
-                            ng-options="warehouse.id as warehouse.name for warehouse in vm.warehouses"></select>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">{{::vm.translate.get('Add Shipment for Order')}} #{{vm.orderId}}</div>
+                    <div class="pull-right">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label>{{::vm.translate.get('Warehouse')}}: &nbsp; </label>
+                                <select class="form-control" ng-model="vm.selectedWarehouseId" ng-options="warehouse.id as warehouse.name for warehouse in vm.warehouses"></select>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
+                <div class="card-body">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>{{::vm.translate.get('Product Name')}}</th>
-            <th>{{::vm.translate.get('Product Sku')}}</th>
-            <th>{{::vm.translate.get('Quantity')}}</th>
-            <th>{{::vm.translate.get('Quantity to ship')}}</th>
-            <th>{{::vm.translate.get('Available Quantity')}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="item in vm.shipmentForm.items">
-            <td>{{item.productName}}</td>
-            <td>{{item.productSku}}</td>
-            <td>
-                Ordered {{item.orderedQuantity}}
-                <span ng-if="item.shippedQuantity"><br />Shipped {{item.shippedQuantity}}</span>
-            </td>
-            <td>
-                <input class="form-control" ng-model="item.quantityToShip" />
-            </td>
-            <td>{{item.availableQuantity}}</td>
-        </tr>
-    </tbody>
-</table>
-<div class="text-right">
-    <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
-    <button  ui-sref="order-detail({id: vm.orderId})" class="btn btn-outline-warning">{{::vm.translate.get('Back')}}</button>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{::vm.translate.get('Product Name')}}</th>
+                                <th>{{::vm.translate.get('Product Sku')}}</th>
+                                <th>{{::vm.translate.get('Quantity')}}</th>
+                                <th>{{::vm.translate.get('Quantity to ship')}}</th>
+                                <th>{{::vm.translate.get('Available Quantity')}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in vm.shipmentForm.items">
+                                <td>{{item.productName}}</td>
+                                <td>{{item.productSku}}</td>
+                                <td>
+                                    Ordered {{item.orderedQuantity}}
+                                    <span ng-if="item.shippedQuantity"><br />Shipped {{item.shippedQuantity}}</span>
+                                </td>
+                                <td>
+                                    <input class="form-control" ng-model="item.quantityToShip" />
+                                </td>
+                                <td>{{item.availableQuantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span>
+                            {{::vm.translate.get('Save')}}</button>
+                        <button ui-sref="app.sales.order-detail({id: vm.orderId})" class="btn btn-outline-warning">{{::vm.translate.get('Back')}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+
+    </div>
+    <!-- /.row -->
 </div>

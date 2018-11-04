@@ -25,6 +25,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Content Update="Areas\Catalog\Views\Shared\Components\FlashDeal\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Areas\Catalog\Views\Shared\Components\HomeProductCategoryWidget\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

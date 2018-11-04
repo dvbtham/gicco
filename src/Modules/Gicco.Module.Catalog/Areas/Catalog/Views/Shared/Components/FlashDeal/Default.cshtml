@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Gicco.Module.Catalog.ViewModels.ProductThumbnail>
+
+<div class="col-xs-12 col-sm-3 page-top-right">
+    <div class="latest-deals">
+        <h2 class="latest-deal-title">@Localizer["Latest Deals"]</h2>
+        <div class="latest-deal-content">
+            <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":1}}'>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <div class="count-down-time" data-countdown="@item.SpecialPriceEnd.Value.ToString("dd/MM/yyyy")"></div>
+                        <div class="left-block">
+                            <a href="~/@item.Slug">
+                                <img class="img-responsive" alt="@item.Name" src="@item.ThumbnailUrl" />
+                            </a>
+                            <div class="quick-view">
+                                <form class="inline">
+                                    <input type="hidden" name="productId" value="@item.Id" />
+                                    <input type="hidden" class="quantity-field" value="1">
+                                    <a title="@Localizer["Add to my wishlist"]" class="heart add-to-wishlist" href="#"></a>
+                                    <a title="@Localizer["Add to compare"]" class="compare add-to-comparison" href="#"></a>
+                                    <a title="@Localizer["Quick view"]" data-productid="@item.Id" class="search" href="#"></a>
+                                </form>
+                            </div>
+                            <div class="add-to-cart">
+                                <form class="inline">
+                                    <input type="hidden" name="productId" value="@item.Id" />
+                                    <input type="hidden" class="quantity-field" value="1">
+                                    <a class="btn-add-cart" title="@Localizer["Add to Cart"]" href="javascript:void(0);">@Localizer["Add To Cart"]</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <h5 class="product-name"><a href="~/@item.Slug">@item.Name</a></h5>
+
+                            @if (item.RatingAverage != null)
+                            {
+                                <div class="product-star">
+                                    @for (var i = 1; i <= item.RatingAverage; i++)
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
+                                </div>
+                            }
+
+                            <div class="content_price">
+                                @if (item.IsCallForPricing)
+                                {
+                                    @Localizer["Call for pricing"]
+                                }
+                                else
+                                {
+                                    <span class="price product-price">
+                                        @item.CalculatedProductPrice.Price.ToString("C0")
+                                    </span>
+
+                                    if (item.CalculatedProductPrice.PercentOfSaving > 0)
+                                    {
+                                        <span title="@Localizer["Saving"] -@(item.CalculatedProductPrice.PercentOfSaving)%" class="price old-price">@item.CalculatedProductPrice.OldPrice.Value.ToString("C0")</span>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,47 +1,63 @@
-﻿<div class="page-header">
+﻿<div class="animated fadeIn">
     <div class="row">
-        <div class="col-md-8">
-            <h2>{{::vm.translate.get('Cart Price Rule')}}</h2>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">{{::vm.translate.get('Cart Price Rule')}}</div>
+                    <div class="pull-right">
+                        <a ui-sref="app.promotions.cart-rule-create"> <i class="fa fa-user-plus"></i>
+                            {{::vm.translate.get('Create Cart Price
+                            Rule')}} </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" st-pipe="vm.getCartRules" st-table="vm.cartRules">
+                            <thead>
+                                <tr>
+                                    <th>{{::vm.translate.get('Name')}}</th>
+                                    <th>{{::vm.translate.get('Start')}}</th>
+                                    <th>{{::vm.translate.get('End')}}</th>
+                                    <th class="text-center">{{::vm.translate.get('Is Active')}}</th>
+                                    <th>{{::vm.translate.get('Actions')}}</th>
+                                </tr>
+                                <tr>
+                                    <th ng-show="!vm.isLoading" colspan="5">{{vm.tableStateRef.pagination.totalItemCount
+                                        | number:0}} records found</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="!vm.isLoading">
+                                <tr ng-repeat="rule in vm.cartRules">
+                                    <td>{{rule.name}}</td>
+                                    <td>{{rule.startOn | date:'medium'}}</td>
+                                    <td>{{rule.endOn | date:'medium'}}</td>
+                                    <td class="text-center"><i ng-attr-class="{{rule.isActive && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
+                                    <td>
+                                        <a ui-sref="app.promotions.cart-rule-edit({id: rule.id})" title="Edit" class="btn btn-primary btn-xs">
+                                            <span class="fa fa-edit"></span></a>
+                                        <button ng-click="vm.deleteCartRule(rule)" class="btn btn-danger btn-xs delete">
+                                            <span class="fa fa-times"></span></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-show="vm.isLoading">
+                                <tr>
+                                    <td colspan="5" class="text-center">Loading ... </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td class="text-center" st-pagination="" st-items-by-page="50" st-displayed-pages="10"
+                                        colspan="5"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 text-right">
-            <a ui-sref="cart-rule-create" class="btn btn-outline-primary"><span class="fa fa-plus"></span> {{::vm.translate.get('Create Cart Price Rule')}}</a>
-        </div>
-    </div>
-</div>
+        <!-- /.col -->
 
-<table class="table" st-pipe="vm.getCartRules" st-table="vm.cartRules">
-    <thead>
-        <tr>
-            <th>{{::vm.translate.get('Name')}}</th>
-            <th>{{::vm.translate.get('Start')}}</th>
-            <th>{{::vm.translate.get('End')}}</th>
-            <th class="text-center">{{::vm.translate.get('Is Active')}}</th>
-            <th>{{::vm.translate.get('Actions')}}</th>
-        </tr>
-        <tr>
-            <th ng-show="!vm.isLoading" colspan="5">{{vm.tableStateRef.pagination.totalItemCount | number:0}} records found</th>
-        </tr>
-    </thead>
-    <tbody ng-show="!vm.isLoading">
-        <tr ng-repeat="rule in vm.cartRules">
-            <td>{{rule.name}}</td>
-            <td>{{rule.startOn | date:'medium'}}</td>
-            <td>{{rule.endOn | date:'medium'}}</td>
-            <td class="text-center"><i ng-attr-class="{{rule.isActive && 'fa fa-circle' || 'fa fa-circle-o'}}"></i></td>
-            <td>
-                <a ui-sref="cart-rule-edit({id: rule.id})" title="Edit" class="btn btn-primary btn-xs"> <span class="fa fa-edit"></span></a>
-                <button ng-click="vm.deleteCartRule(rule)" class="btn btn-danger btn-xs delete"> <span class="fa fa-times"></span></button>
-            </td>
-        </tr>
-    </tbody>
-    <tbody ng-show="vm.isLoading">
-        <tr>
-            <td colspan="5" class="text-center">Loading ... </td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td class="text-center" st-pagination="" st-items-by-page="50" st-displayed-pages="10" colspan="5"></td>
-        </tr>
-    </tfoot>
-</table>
+    </div>
+    <!-- /.row -->
+</div>

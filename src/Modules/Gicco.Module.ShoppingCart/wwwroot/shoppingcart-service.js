@@ -1,11 +1,11 @@
 ﻿(function() {
     angular
-        .module('simpl.shoppingCart')
+        .module('gicco.shoppingCart')
         .factory('shoppingCartService', [
             '$http',
             function ($http) {
                 function getShoppingCartItems() {
-                    return $http.get('cart/list');
+                    return $http.get('/cart/list');
                 }
                 
                 function removeShoppingCartItem(itemId) {

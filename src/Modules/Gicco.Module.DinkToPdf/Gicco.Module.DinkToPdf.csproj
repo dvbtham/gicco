@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <ItemGroup>
-    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="DinkToPdfIncludesDependencies" Version="1.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Gicco.Infrastructure\Gicco.Infrastructure.csproj" />
     <ProjectReference Include="..\Gicco.Module.Core\Gicco.Module.Core.csproj" />
   </ItemGroup>

@@ -12,7 +12,6 @@
 
 @section head
     {
-    <link gicco-append-version="true" rel="stylesheet" href="~/modules/catalog/product-detail.css" />
     <link gicco-append-version="true" rel="stylesheet" href="~/lib/fancyBox/jquery.fancybox.css" />
 
 }
@@ -201,7 +200,7 @@
                     </div>
                 </div>
                 <!-- ./block best sellers  -->
-                
+
             </div>
             <!-- ./left colunm -->
             <!-- Center colunm-->
@@ -241,9 +240,17 @@
                             <h1 class="product-name">@Model.Name</h1>
                             <div class="product-comments">
                                 <div class="product-star">
-                                    @for (int i = 1; i < Model.RatingAverage; i++)
+                                    @{
+                                        int unstars = 5;
+                                    }
+                                    @for (int i = 1; i <= Model.RatingAverage - 1; i++)
                                     {
                                         <i class="fa fa-star"></i>
+                                        { unstars--; }
+                                    }
+                                    @for (int i = 1; i <= unstars; i++)
+                                    {
+                                        <i class="fa fa-star-o"></i>
                                     }
                                 </div>
                                 <div class="comments-advices">
@@ -352,26 +359,28 @@
                                     </div>
                                 }
                                 <div class="product-variation-notavailable collapse">
-                                    <span class="label label-danger">Not available</span>
+                                    <span class="label label-danger">@Localizer["Not available"]</span>
                                 </div>
                             }
                             else
                             {
-                                <div class="product-price">
-                                    @if (Model.IsCallForPricing)
-                                    {
-                                        <span class="label label-info">@Localizer["Call for pricing"]</span>
-                                    }
-                                    else
-                                    {
-                                        <h3>@Model.CalculatedProductPrice.Price.ToString("C")</h3>
-                                        if (Model.CalculatedProductPrice.PercentOfSaving > 0)
+                                if (Model.IsCallForPricing)
+                                {
+                                    <div class="product-price-group">
+                                        <span class="price">@Localizer["Call for pricing"]</span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="product-price-group">
+                                        <span class="price">@Model.CalculatedProductPrice.Price.ToString("C")</span>
+                                        @if (Model.CalculatedProductPrice.PercentOfSaving > 0)
                                         {
-                                            <p class="product-price-regular">@Model.CalculatedProductPrice.OldPrice.Value.ToString("C")</p>
-                                            <p class="product-price-saving">You save (@(Model.CalculatedProductPrice.PercentOfSaving)%)</p>
+                                            <span class="old-price">@(Model.CalculatedProductPrice.OldPrice.HasValue ? Model.CalculatedProductPrice.OldPrice.Value.ToString("C") : "")</span>
+                                            <span class="discount">- @Model.CalculatedProductPrice.PercentOfSaving.ToString()%</span>
                                         }
-                                    }
-                                </div>
+                                    </div>
+                                }
                                 if (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0)
                                 {
                                     <div class="out-of-stock">
@@ -486,7 +495,10 @@
                                 </ul>
                             </div>
                         }
-
+                        <div class="page-product-box">
+                            <h3 class="heading">@Localizer["Customer comments"]</h3>
+                            @await Component.InvokeAsync("Comment", new { entityId = Model.Id, entityTypeId = "Product" })
+                        </div>
                         @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
                     </div>
                     <!-- Product -->
@@ -503,6 +515,5 @@
     <script gicco-append-version="true" src="~/themes/GiccoStore/js/jquery.elevatezoom.js"></script>
     <script gicco-append-version="true" src="~/lib/fancyBox/jquery.fancybox.js"></script>
     <script gicco-append-version="true" src="~/themes/GiccoStore/js/product-detail.js"></script>
-    <script gicco-append-version="true" src="~/modules/productcomparison/product-comparison.js"></script>
 
 }

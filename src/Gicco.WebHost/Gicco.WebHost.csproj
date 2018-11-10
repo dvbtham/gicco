@@ -92,6 +92,7 @@
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Checkout\Shipping.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\EmailTemplates\OrderEmailToCustomer.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Order\OrderHistoryList.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\BestSellerAside\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\OrderSummary\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\InvoicePdf.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\_ViewImports.cshtml" />
@@ -294,6 +295,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Orders\Views\Order\OrderHistoryList.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\BestSellerAside\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\OrderSummary\Default.cshtml">

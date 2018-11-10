@@ -51,7 +51,8 @@ namespace Gicco.Module.Catalog.Components
               .Include(x => x.ThumbnailImage)
               .OrderByDescending(x => x.CreatedOn)
               .Take(model.Setting.NumberOfProducts)
-              .Select(x => ProductThumbnail.FromProduct(x)).ToList();
+              .Select(x => ProductThumbnail.FromProduct(x))
+              .ToList();
 
             foreach (var product in model.Products)
             {

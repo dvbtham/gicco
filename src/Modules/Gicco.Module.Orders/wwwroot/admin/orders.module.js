@@ -12,7 +12,7 @@
                         abstract: true,
                         template: '<ui-view></ui-view>',
                         ncyBreadcrumb: {
-                            label: 'sales'
+                            label: 'Sales'
                         }
                     })
                     .state('app.sales.order', {

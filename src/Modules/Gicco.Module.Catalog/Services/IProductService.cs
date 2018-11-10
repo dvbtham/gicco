@@ -1,5 +1,6 @@
-﻿using System.Threading.Tasks;
-using Gicco.Module.Catalog.Models;
+﻿using Gicco.Module.Catalog.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Catalog.Services
 {
@@ -10,5 +11,7 @@ namespace Gicco.Module.Catalog.Services
         void Update(Product product);
 
         Task Delete(Product product);
+
+        Task<IList<Product>> BestSellerAsync();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Gicco.Infrastructure;
 using Gicco.Infrastructure.Data;
+using Gicco.Module.Catalog.Models;
 using Gicco.Module.Core.Models;
 using Gicco.Module.Orders.Models;
 using Gicco.Module.Orders.ViewModels;
@@ -10,6 +11,7 @@ using Gicco.Module.Tax.Services;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -284,7 +286,7 @@ namespace Gicco.Module.Orders.Services
                 }
             }
         }
-
+        
         public async Task<decimal> GetTax(long cartOwnerUserId, string countryId, long stateOrProvinceId, string zipCode)
         {
             decimal taxAmount = 0;

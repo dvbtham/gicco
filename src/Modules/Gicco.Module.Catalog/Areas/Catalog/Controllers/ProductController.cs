@@ -1,17 +1,17 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Module.Catalog.Models;
+using Gicco.Module.Catalog.Services;
+using Gicco.Module.Catalog.ViewModels;
+using Gicco.Module.Core.Events;
+using Gicco.Module.Core.Services;
+using Gicco.Module.Core.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Gicco.Infrastructure.Data;
-using Gicco.Module.Catalog.Models;
-using Gicco.Module.Catalog.Services;
-using Gicco.Module.Core.Services;
-using Gicco.Module.Catalog.ViewModels;
-using Gicco.Module.Core.Events;
-using Gicco.Module.Core.ViewModels;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Catalog.Controllers
 {
@@ -23,7 +23,9 @@ namespace Gicco.Module.Catalog.Controllers
         private readonly IMediator _mediator;
         private readonly IProductPricingService _productPricingService;
 
-        public ProductController(IRepository<Product> productRepository, IMediaService mediaService, IMediator mediator, IProductPricingService productPricingService)
+        public ProductController(IRepository<Product> productRepository,
+            IMediaService mediaService, IMediator mediator,
+            IProductPricingService productPricingService)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;

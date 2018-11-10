@@ -133,8 +133,8 @@ namespace Gicco.WebHost.Extensions
                     options.Password.RequireLowercase = false;
                     options.Password.RequiredUniqueChars = 0;
                 })
-                .AddRoleStore<SimplRoleStore>()
-                .AddUserStore<SimplUserStore>()
+                .AddRoleStore<GiccoRoleStore>()
+                .AddUserStore<GiccoUserStore>()
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

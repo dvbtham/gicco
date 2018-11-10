@@ -9,11 +9,11 @@ using Gicco.Module.Core.Events;
 
 namespace Gicco.Module.Core.Extensions
 {
-    public class SimplSignInManager<TUser> : SignInManager<TUser> where TUser : class
+    public class GiccoSignInManager<TUser> : SignInManager<TUser> where TUser : class
     {
         private readonly IMediator _mediator;
 
-        public SimplSignInManager(UserManager<TUser> userManager,
+        public GiccoSignInManager(UserManager<TUser> userManager,
             IHttpContextAccessor contextAccessor,
             IUserClaimsPrincipalFactory<TUser> claimsFactory,
             IOptions<IdentityOptions> optionsAccessor,

@@ -34,7 +34,7 @@ namespace Gicco.Module.Core.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            List<Type> typeToRegisters = new List<Type>();
+            var typeToRegisters = new List<Type>();
             foreach (var module in GlobalConfiguration.Modules)
             {
                 typeToRegisters.AddRange(module.Assembly.DefinedTypes.Select(t => t.AsType()));

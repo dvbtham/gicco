@@ -1,0 +1,31 @@
+﻿@model Gicco.Module.ProductComparison.ViewModels.AddToComparisonResult
+
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">@Localizer[Model.Message]</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+    @foreach (var product in Model.ProductComparisons)
+    {
+        <div class="row mb-10">
+            <div class="col-md-3">
+                <img alt="@product.ProductName" class="img-fluid" src="@product.ProductImage">
+            </div>
+            <div class="col-md-7">
+                <h4>@product.ProductName</h4>
+                <p>@product.CalculatedProductPrice.Price.ToString("C")</p>
+            </div>
+            <div class="col-md-2 product-comparison-result-remove">
+                <a href="#" class="remove-item-comparison" data-product-id="@product.ProductId">@Localizer["Remove"]</a>
+            </div>
+        </div>
+    }
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">@Localizer["Continue shopping"]</button>
+    <a href="~/compare-products" type="button" class="btn btn-outline-secondary">@Localizer["Compare"]</a>
+</div>

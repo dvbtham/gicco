@@ -1,4 +1,9 @@
-﻿<li>
+﻿@using Gicco.Module.Core.Models
+@using Gicco.Module.Core.Extensions
+
+@inject IWorkContext WorkContext
+@inject SignInManager<User> SignInManager
+<li>
     <div class="product-container">
         <div class="left-block">
             <a href="~/@Model.Slug">
@@ -8,10 +13,13 @@
                 <form class="inline">
                     <input type="hidden" name="productId" value="@Model.Id" />
                     <input type="hidden" class="quantity-field" value="1">
-                    <a title="@Localizer["Add to my wishlist"]" class="heart add-to-wishlist" href="#"></a>
-                    <a title="@Localizer["Add to compare"]" class="compare add-to-comparison" href="#"></a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a title="@Localizer["Add to my wishlist"]" class="heart add-to-wishlist" href="#"></a>
+                    }
+                    <a title="" class="compare add-to-comparison" href="#"></a>
                     <a title="@Localizer["Quick view"]" data-productid="@Model.Id" class="search" href="#"></a>
-                </form>                
+                </form>
             </div>
             <div class="add-to-cart">
                 <form class="inline">
@@ -24,19 +32,13 @@
         <div class="right-block">
             <h5 class="product-name"><a href="~/@Model.Slug">@Model.Name</a></h5>
 
-            @if (Model.RatingAverage != null)
-            {
-                <div class="product-star">
-                    @for (var i = 1; i <= Model.RatingAverage; i++)
-                    {
-                        <i class="fa fa-star"></i>
-                    }
-                </div>
-            }
+            <div class="product-star">
+                <gicco-rating-star rating-avg="@Model.RatingAverage"></gicco-rating-star>
+            </div>
 
             <div class="content_price">
                 @if (Model.IsCallForPricing)
-                { 
+                {
                     @Localizer["Call for pricing"]
                 }
                 else

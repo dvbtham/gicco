@@ -6254,3 +6254,7 @@ input, select, textarea {
 .bx-viewport {
     height: 283px !important;
 }
+
+.rating-average {
+    color: #f63;
+}

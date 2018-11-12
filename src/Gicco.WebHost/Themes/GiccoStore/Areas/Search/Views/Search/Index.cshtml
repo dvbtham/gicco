@@ -1,0 +1,159 @@
+﻿@using System.Threading.Tasks
+@using Gicco.Module.Search.ViewModels
+
+@model SearchResult
+@{
+    ViewBag.Title = Localizer["Search"];
+}
+
+@section head {
+    <link gicco-append-version="true" href="~/lib/nouislider/distribute/nouislider.min.css" rel="stylesheet" />
+}
+<div class="columns-container">
+    <div class="container" id="columns">
+        <div class="breadcrumb clearfix">
+            <a class="home" href="#" title="Return to Home">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewBag.Title</span>
+        </div>
+        <div class="row">
+            <div class="column col-xs-12 col-sm-3" id="left_column">
+                <div class="block left-module">
+                    <p class="title_block">@Localizer["Filter by"]</p>
+                    <div class="block_content">
+                        <form name="productFilter" method="GET" action="~/search">
+                            <!-- layered -->
+                            <div class="layered layered-filter-price">
+                                <!-- filter categgory -->
+                                <div class="layered_subtitle">@Localizer["Category"]</div>
+                                <div class="layered-content">
+                                    <ul class="check-box-list">
+                                        @foreach (var category in Model.FilterOption.Categories)
+                                        {
+                                            <li class="category-filter">
+                                                <input id="@category.Slug" type="checkbox" value="@category.Slug" name="category" checked="@Model.CurrentSearchOption.GetCategories().Contains(category.Slug)" />
+                                                <label for="@category.Slug">
+                                                    <span class="button"></span>
+                                                    @category.Name<span class="count">(@category.Count)</span>
+                                                </label>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                                <!-- ./filter categgory -->
+                                <!-- ./filter brand -->
+                                <div class="layered_subtitle">@Localizer["Brand"]</div>
+                                <div class="layered-content filter-brand">
+                                    <ul class="check-box-list">
+                                        @foreach (var brand in Model.FilterOption.Brands)
+                                        {
+                                            <li class="brand-filter">
+                                                <input id="@brand.Slug" value="@brand.Slug" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)" type="checkbox" name="brand" />
+                                                <label for="@brand.Slug">
+                                                    <span class="button"></span>
+                                                    @brand.Name<span class="count">(@brand.Count)</span>
+                                                </label>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                                <!-- ./filter brand -->
+                                <!-- filter price -->
+                                @if (Model.FilterOption.Price.MaxPrice != Model.FilterOption.Price.MinPrice)
+                                {
+                                    <div class="layered_subtitle">
+                                        @Localizer["Price"]
+                                    </div>
+                                    <div class="layered-content slider-range">
+                                        <div data-label-result=" @Localizer["Range"]:" id="priceSliderGicco"
+                                             data-min="@Model.FilterOption.Price.MinPrice.ToString("F0")"
+                                             data-max="@Model.FilterOption.Price.MaxPrice.ToString("F0")"
+                                             data-unit="@Localizer["$"]" class="slider-range-price"
+                                             data-value-min="@(Model.CurrentSearchOption.MinPrice.HasValue ? Model.CurrentSearchOption.MinPrice.Value.ToString("F0") : Model.FilterOption.Price.MinPrice.ToString("F0"))"
+                                             data-value-max="@(Model.CurrentSearchOption.MaxPrice.HasValue ? Model.CurrentSearchOption.MaxPrice.Value.ToString("F0") : Model.FilterOption.Price.MaxPrice.ToString("F0"))"></div>
+                                        <div class="amount-range-price">
+                                            @Localizer["Range"]: @(!Model.CurrentSearchOption.MinPrice.HasValue ? Model.FilterOption.Price.MinPrice.ToString("F0") : Model.CurrentSearchOption.MinPrice.Value.ToString("C0")) - @(!Model.CurrentSearchOption.MinPrice.HasValue ? Model.FilterOption.Price.MaxPrice.ToString("F0") : Model.CurrentSearchOption.MaxPrice.Value.ToString("C0"))
+                                        </div>
+                                    </div>
+                                }
+                                <!-- ./filter price -->
+                            </div>
+                            <!-- ./layered -->
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="center_column col-xs-12 col-sm-9" id="center_column">
+                <!-- view-product-list-->
+                <div id="view-product-list" class="view-product-list">
+                    <h2 class="page-heading">
+                        <span class="page-heading-title">
+                            @Model.TotalProduct result(s) for @Model.CurrentSearchOption.Query
+                         </span>
+                    </h2>
+                    <ul class="display-product-option">
+                        <li class="view-as-grid selected">
+                            <span>grid</span>
+                        </li>
+                        <li class="view-as-list">
+                            <span>list</span>
+                        </li>
+                    </ul>
+                    <!-- PRODUCT LIST -->
+                    <ul class="row product-list grid">
+                        @foreach (var product in Model.Products)
+                        {
+                            @await Html.PartialAsync("/Areas/Catalog/Views/Shared/_ProductThumbnail.cshtml", product)
+                        }
+
+                    </ul>
+                    <!-- ./PRODUCT LIST -->
+                </div>
+                <!-- ./view-product-list-->
+                <div class="sortPagiBar">
+                    <div class="bottom-pagination">
+                        <nav>
+                            <cs-pager cs-paging-pagesize="@Model.CurrentSearchOption.PageSize"
+                                      cs-paging-pagenumber="@Model.CurrentSearchOption.Page"
+                                      cs-paging-totalitems="@Model.TotalProduct"
+                                      cs-pagenumber-param="page"
+                                      asp-basehref="~/search"
+                                      asp-all-route-data="@Model.CurrentSearchOption.ToDictionary()"></cs-pager>
+                        </nav>
+                    </div>
+
+                    <div class="sort-product">
+                        <select>
+                            <option value="">Product Name</option>
+                            <option value="">Price</option>
+                        </select>
+                        <div class="sort-product-icon">
+                            <i class="fa fa-sort-alpha-asc"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./ Center colunm -->
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script gicco-append-version="true" src="~/lib/wnumb/wNumb.js"></script>
+    <script gicco-append-version="true" src="~/lib/nouislider/distribute/nouislider.min.js"></script>
+
+    <script>
+        var productFilter = {};
+        productFilter.currentSearchOption = @Html.Raw(Model.CurrentSearchOption.ToJson());
+        productFilter.priceSetting = {
+            min: @Model.FilterOption.Price.MinPrice.ToString("F0"),
+            max: @Model.FilterOption.Price.MaxPrice.ToString("F0"),
+            currentMin: @((Model.CurrentSearchOption.MinPrice ?? Model.FilterOption.Price.MinPrice).ToString("F0")),
+            currentMax: @((Model.CurrentSearchOption.MaxPrice ?? Model.FilterOption.Price.MaxPrice).ToString("F0"))
+        };
+    </script>
+    <script gicco-append-version="true" src="~/modules/catalog/product-filter.js"></script>
+}

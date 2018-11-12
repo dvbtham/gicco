@@ -28,8 +28,8 @@
                                 <a asp-area="Core" asp-controller="HomeAdmin" asp-action="Index">@Localizer["Dashboard"]</a>
                             </li>
                         }
-                        <li><a href="#">@Localizer["Compare"]</a></li>
-                        <li><a href="#">@Localizer["Wishlists"]</a></li>
+                        <li><a asp-area="ProductComparison" asp-controller="ComparingProduct" asp-action="Index">@Localizer["Compare"]</a></li>
+                        <li><a asp-area="WishList" asp-controller="WishList" asp-action="PrivateList">@Localizer["Wishlists"]</a></li>
                         <li>
                             <form style="padding-left: 10px;" asp-area="Core" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="">
                                 <button type="submit" class="logoff flex-c-m trans-04 p-lr-25">@Localizer["Log off"]</button>

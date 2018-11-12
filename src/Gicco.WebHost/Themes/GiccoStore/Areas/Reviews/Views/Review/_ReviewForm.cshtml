@@ -2,7 +2,7 @@
 <form id="form-addreview" asp-area="Reviews" asp-controller="Review" asp-action="AddReview" method="post" role="form">
     <input asp-for="EntityId" type="hidden" />
     <input asp-for="EntityTypeId" type="hidden" />
-    <div asp-validation-summary="All" class="text-danger p-b-25"></div>
+    <div asp-validation-summary="All" class="text-danger mb-10"></div>
     <div class="form-group row">
         <label asp-for="Rating" class="col-md-4 col-form-label">@Localizer["Rate this product"]</label>
         <div class="col-md-8">

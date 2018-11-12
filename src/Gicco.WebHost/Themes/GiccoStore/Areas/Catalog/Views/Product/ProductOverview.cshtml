@@ -11,34 +11,35 @@
 <div class="product-detail" id="product">
     <div class="row">
         <div class="col-md-6">
-            <div class="sp-wrap">
-                @foreach (var image in Model.Images)
-                {
-                    <a href="@image.Url">
-                        <img src="@image.ThumbnailUrl" alt="@Model.Name" />
-                    </a>
-                }
+            <div class="product-image">
+                <div class="product-full">
+                    @if (Model.Images.Any())
+                    {
+                        var img = Model.Images.FirstOrDefault();
+                        if (img != null)
+                        {
+                            <a class="image-view" href="@img.ThumbnailUrl" data-image="@img.ThumbnailUrl">
+                                <img src="@img.ThumbnailUrl" />
+                            </a>
+                        }
+                    }
+                </div>
+                <div class="product-img-thumb">
+                    @foreach (var item in Model.Images)
+                    {
+                        <a href="@item.Url" style="background-image: url(@item.ThumbnailUrl);"></a>
+                    }
+                </div>
             </div>
         </div>
         <div class="pb-right-column col-xs-12 col-sm-6">
             <h1 class="product-name mt-10">@Model.Name</h1>
             <div class="product-comments">
                 <div class="product-star">
-                    @{
-                        int unstars = 5;
-                    }
-                    @for (int i = 1; i <= Model.RatingAverage - 1; i++)
-                    {
-                        <i class="fa fa-star"></i>
-                        { unstars--; }
-                    }
-                    @for (int i = 1; i <= unstars; i++)
-                    {
-                        <i class="fa fa-star-o"></i>
-                    }
+                    <gicco-rating-star rating-avg="@Model.RatingAverage"></gicco-rating-star>
                 </div>
                 <div class="comments-advices">
-                    <a href="#">@Localizer["{0} reviews", Model.ReviewsCount]</a>                    
+                    <a href="#">@Localizer["{0} reviews", Model.ReviewsCount]</a>
                 </div>
             </div>
 
@@ -127,10 +128,13 @@
                                 <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn-add-cart">@Localizer["Add to cart"]</button>
                                 <div>
                                     <ul class="mt-10 add-to-wishlist">
-                                        <li class="wishlist-in">
-                                            <i class="fa fa-heart"></i>
-                                            <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
-                                        </li>
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            <li class="wishlist-in">
+                                                <i class="fa fa-heart"></i>
+                                                <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
+                                            </li>
+                                        }
                                         <li class="compare-in">
                                             <i class="fa fa-exchange"></i>
                                             <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
@@ -181,10 +185,13 @@
                         <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn-add-cart">@Localizer["Add to cart"]</button>
                         <div>
                             <ul class="mt-10 add-to-wishlist">
-                                <li class="wishlist-in">
-                                    <i class="fa fa-heart"></i>
-                                    <a href="#">@Localizer["Add to Wishlist"]</a>
-                                </li>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <li class="wishlist-in">
+                                        <i class="fa fa-heart"></i>
+                                        <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
+                                    </li>
+                                }
                                 <li class="compare-in">
                                     <i class="fa fa-exchange"></i>
                                     <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
@@ -200,3 +207,12 @@
 </div>
 
 <script gicco-append-version="true" src="~/themes/GiccoStore/js/product-detail.js"></script>
+<script>
+    $(".image-view").fancybox({
+        'transitionIn': 'elastic',
+        'transitionOut': 'elastic',
+        'speedIn': 600,
+        'speedOut': 200,
+        'overlayShow': false
+    });
+</script>

@@ -1,6 +1,24 @@
 ﻿/*global jQuery, window*/
 $(document).ready(function () {
 
+    $('.sp-wrap').smoothproducts();
+
+    if ($('#product-detail').text().length > 1000) {
+        $(".expand-detail").removeClass("hidden");
+    }
+
+    $(".expand-detail").on('click', function () {
+        $('#product-detail').toggleClass("product-description");
+        $(this).addClass("hidden");
+        $(".unexpand-detail").removeClass("hidden");
+    });
+
+    $(".unexpand-detail").on('click', function () {
+        $('#product-detail').toggleClass("product-description");
+        $(this).addClass("hidden");
+        $(".expand-detail").removeClass("hidden");
+    });
+
     $('.product-attrs li').on('click', function () {
         var $variationDiv,
             selectedProductOptions = [],

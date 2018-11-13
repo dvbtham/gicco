@@ -9,4 +9,10 @@
     <ProjectReference Include="..\Gicco.Module.ShoppingCart\Gicco.Module.ShoppingCart.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Areas\Orders\Views\Shared\Components\BestSellerAside\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

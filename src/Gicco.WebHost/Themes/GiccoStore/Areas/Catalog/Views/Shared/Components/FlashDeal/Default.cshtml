@@ -35,15 +35,9 @@
                             <div class="right-block">
                                 <h5 class="product-name"><a href="~/@item.Slug">@item.Name</a></h5>
 
-                                @if (item.RatingAverage != null)
-                                {
-                                    <div class="product-star">
-                                        @for (var i = 1; i <= item.RatingAverage; i++)
-                                        {
-                                            <i class="fa fa-star"></i>
-                                        }
-                                    </div>
-                                }
+                                <div class="product-star">
+                                    <gicco-rating-star rating-avg="@item.RatingAverage"></gicco-rating-star>
+                                </div>
 
                                 <div class="content_price">
                                     @if (item.IsCallForPricing)
@@ -69,14 +63,14 @@
                 </ul>
 
                 <script>
-                        $(function () {
-                            $.each($(".count-down"), function () {
+                    $(function () {
+                        $.each($(".count-down"), function () {
 
-                                $(this).countdown($(this).data("countdown"), function (event) {
-                                    $(this).html(event.strftime("%w weeks %d days %H:%M:%S"));
-                                });
+                            $(this).countdown($(this).data("countdown"), function (event) {
+                                $(this).html(event.strftime("%w weeks %d days %H:%M:%S"));
                             });
                         });
+                    });
 
                 </script>
             }

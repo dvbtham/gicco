@@ -55,7 +55,7 @@ namespace Gicco.Module.Core.Data
             );
 
             builder.Entity<Address>().HasData(
-                new Address(1) { AddressLine1 = "364 Cong Hoa", ContactName = "Thien Nguyen", CountryId = "VN", StateOrProvinceId = 1 }
+                new Address(1) { AddressLine1 = "Toak, Kon Chieng", ContactName = "Tham Davies", CountryId = "VN", StateOrProvinceId = 1 }
             );
         }
     }

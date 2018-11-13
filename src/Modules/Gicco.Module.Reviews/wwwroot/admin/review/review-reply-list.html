@@ -46,7 +46,12 @@
                                     <td>{{reply.comment}}</td>
                                     <td>{{reply.createdOn | date:'medium'}}</td>
                                     <td>{{reply.status }}</td>
-                                    <td><button ng-if="reply.status ==='Pending'" title="Approve" ng-click="vm.approve(reply)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button></td>
+                                    <td>
+                                        <button ng-if="reply.status ==='NotApproved'" title="Approved" ng-click="vm.approve(reply)" class="btn btn-outline-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                                        <button ng-if="reply.status ==='Pending'" title="Approve" ng-click="vm.approve(reply)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                                        <button ng-if="reply.status ==='Pending'" title="Not Approved" ng-click="vm.notApprove(reply)" class="btn btn-outline-warning btn-xs">{{::vm.translate.get('Not Approved')}}</button>
+                                        <button ng-if="reply.status ==='Approved'" title="Not Approved" ng-click="vm.notApprove(reply)" class="btn btn-outline-warning btn-xs">{{::vm.translate.get('Not Approved')}}</button>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody ng-show="vm.isLoading">

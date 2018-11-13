@@ -33,7 +33,7 @@ namespace Gicco.WebHost.Migrations
                     b.ToTable("Localization_Culture");
 
                     b.HasData(
-                        new { Id = "vi-VN", Name = "English (US)" }
+                        new { Id = "en-US", Name = "English (US)" }
                     );
                 });
 
@@ -731,7 +731,7 @@ namespace Gicco.WebHost.Migrations
                     b.ToTable("Core_Address");
 
                     b.HasData(
-                        new { Id = 1L, AddressLine1 = "364 Cong Hoa", ContactName = "Thien Nguyen", CountryId = "VN", StateOrProvinceId = 1L }
+                        new { Id = 1L, AddressLine1 = "Toak, Kon Chieng", ContactName = "Tham Davies", CountryId = "VN", StateOrProvinceId = 1L }
                     );
                 });
 

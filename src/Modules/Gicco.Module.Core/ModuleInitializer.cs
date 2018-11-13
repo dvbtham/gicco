@@ -18,7 +18,7 @@ namespace Gicco.Module.Core.Modules
             serviceCollection.AddTransient<IThemeService, ThemeService>();
             serviceCollection.AddTransient<ITokenService, TokenService>();
             serviceCollection.AddTransient<IWidgetInstanceService, WidgetInstanceService>();
-            serviceCollection.AddScoped<SignInManager<User>, SimplSignInManager<User>>();
+            serviceCollection.AddScoped<SignInManager<User>, GiccoSignInManager<User>>();
             serviceCollection.AddScoped<IWorkContext, WorkContext>();
             serviceCollection.AddScoped<ISmsSender, SmsSender>();
         }

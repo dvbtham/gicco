@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Gicco.Infrastructure;
 using Gicco.Module.Core.Models;
 using Gicco.Module.Orders.Models;
@@ -17,7 +18,7 @@ namespace Gicco.Module.Orders.Services
         Task<Result<Order>> CreateOrder(User user, string paymentMethod, decimal paymentFeeAmount, string shippingMethod, Address billingAddress, Address shippingAddress, OrderStatus orderStatus = OrderStatus.New);
 
         void CancelOrder(Order order);
-
+        
         Task<decimal> GetTax(long cartOwnerUserId, string countryId, long stateOrProvinceId, string zipCode);
     }
 }

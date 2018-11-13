@@ -1,0 +1,26 @@
+﻿@model List<Gicco.Module.Catalog.ViewModels.ProductSummary>
+
+@if (Model.Count > 0)
+{
+    <div class="owl-carousel owl-best-sell" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause="true" data-items="1">
+        <ul class="products-block best-sell">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="products-block-left">
+                        <a href="~/@item.Slug">
+                            <img src="@item.Image" alt="@item.Name">
+                        </a>
+                    </div>
+                    <div class="products-block-right">
+                        <p class="product-name">
+                            <a href="~/@item.Slug">@item.Name</a>
+                        </p>
+                        <p class="product-price">@item.CalculatedProductPrice.Price.ToString("C")</p>
+
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+}

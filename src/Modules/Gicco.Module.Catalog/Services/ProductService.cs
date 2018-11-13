@@ -1,7 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Gicco.Infrastructure.Data;
 using Gicco.Module.Catalog.Models;
 using Gicco.Module.Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gicco.Module.Catalog.Services
 {
@@ -63,6 +66,15 @@ namespace Gicco.Module.Catalog.Services
             product.IsDeleted = true;
             await _entityService.Remove(product.Id, ProductEntityTypeId);
             _productRepository.SaveChanges();
+        }
+
+        public async Task<IList<Product>> BestSellerAsync()
+        {
+            var products = await _productRepository.Query()
+                .Where(x => x.IsVisibleIndividually)
+                .ToListAsync();
+
+            return products;
         }
     }
 }

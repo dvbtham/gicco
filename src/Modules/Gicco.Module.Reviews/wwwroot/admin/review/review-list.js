@@ -24,8 +24,15 @@
 
         vm.approve = function approve(review) {
             reviewService.changeReviewStatus(review.id, 5)
-                .then(function(result) {
+                .then(function (result) {
                     review.status = 'Approved';
+                });
+        };
+
+        vm.notApprove = function notApprove(review) {
+            reviewService.changeReviewStatus(review.id, 8)
+                .then(function (result) {
+                    review.status = 'NotApproved';
                 });
         };
     }

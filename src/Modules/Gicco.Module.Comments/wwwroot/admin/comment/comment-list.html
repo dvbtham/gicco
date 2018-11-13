@@ -15,15 +15,13 @@
                                     <th>{{::vm.translate.get('Entity Name')}}</th>
                                     <th>{{::vm.translate.get('Comment')}}</th>
                                     <th st-sort="CreatedOn" class="sortable">{{::vm.translate.get('Created On')}}</th>
-                                    <th>{{::vm.translate.get('Comment')}}</th>
+                                    <th>{{::vm.translate.get('Comment Type')}}</th>
                                     <th>{{::vm.translate.get('Status')}}</th>
                                     <th>{{::vm.translate.get('Actions')}}</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th><input class="form-control" st-search="EntityName" /></th>
-                                    <th></th>
-                                    <th></th>
                                     <th></th>
                                     <th><st-date-range predicate="CreatedOn" before="query.before" after="query.after"></st-date-range></th>
                                     <th></th>
@@ -51,7 +49,12 @@
                                     <td>{{comment.createdOn | date:'medium'}}</td>
                                     <td>{{comment.type}}</td>
                                     <td>{{comment.status }}</td>
-                                    <td><button ng-if="comment.status ==='Pending'" title="Approve" ng-click="vm.approve(comment)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button></td>
+                                    <td>
+                                        <button ng-if="comment.status ==='NotApproved'" title="Approved" ng-click="vm.approve(comment)" class="btn btn-outline-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                                        <button ng-if="comment.status ==='Pending'" title="Approve" ng-click="vm.approve(comment)" class="btn btn-outline-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                                        <button ng-if="comment.status ==='Pending'" title="Not Approved" ng-click="vm.notApprove(comment)" class="btn btn-outline-warning btn-xs">{{::vm.translate.get('Not Approved')}}</button>
+                                        <button ng-if="comment.status ==='Approved'" title="Not Approved" ng-click="vm.notApprove(comment)" class="btn btn-outline-warning btn-xs">{{::vm.translate.get('Not Approved')}}</button>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody ng-show="vm.isLoading">

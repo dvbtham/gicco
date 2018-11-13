@@ -62,6 +62,14 @@
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\CarouselWidget\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\Shared\Components\Menu\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Cms\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\Comment\List.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\Comment\_CommentForm.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\Comment\_CommentFormSuccess.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\Comment\_ReplyForm.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\Comment\_ReplyFormSuccess.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\Shared\Components\Comment\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Comments\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\AccessDenied.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ConfirmEmail.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -92,6 +100,7 @@
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Checkout\Shipping.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\EmailTemplates\OrderEmailToCustomer.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Order\OrderHistoryList.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\BestSellerAside\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\OrderSummary\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\Shared\InvoicePdf.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Orders\Views\_ViewImports.cshtml" />
@@ -99,6 +108,10 @@
     <None Remove="Themes\GiccoStore\Areas\Payments\Views\Checkout\Payment.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Payments\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Payments\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ProductComparison\Views\ComparingProduct\AddToComparisonResult.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ProductComparison\Views\ComparingProduct\Index.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ProductComparison\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\ProductComparison\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\Shared\Components\ProductRecentlyViewed\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ProductRecentlyViewed\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyForm.cshtml" />
@@ -109,9 +122,11 @@
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\Shared\Components\Review\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Search\Views\Search\Index.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\MostSearch\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\Shared\Components\SearchForm\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewImports.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Search\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\Shared\Components\CartBadge\Default.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\ShoppingCart\Views\_ViewImports.cshtml" />
@@ -215,6 +230,30 @@
     <Content Update="Themes\GiccoStore\Areas\Cms\Views\Page\PageDetail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\Comment\List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\Comment\_CommentForm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\Comment\_CommentFormSuccess.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\Comment\_ReplyForm.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\Comment\_ReplyFormSuccess.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\Shared\Components\Comment\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Comments\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\GiccoStore\Areas\Core\Views\Account\AccessDenied.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -296,6 +335,9 @@
     <Content Update="Themes\GiccoStore\Areas\Orders\Views\Order\OrderHistoryList.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\BestSellerAside\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\GiccoStore\Areas\Orders\Views\Shared\Components\OrderSummary\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -315,6 +357,18 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Payments\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ProductComparison\Views\ComparingProduct\AddToComparisonResult.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ProductComparison\Views\ComparingProduct\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ProductComparison\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\ProductComparison\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\Reviews\Views\Reply\_ReplyForm.cshtml">
@@ -341,7 +395,13 @@
     <Content Update="Themes\GiccoStore\Areas\Reviews\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\GiccoStore\Areas\Search\Views\Search\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\GiccoStore\Areas\Search\Views\Shared\Components\MostSearch\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\GiccoStore\Areas\Search\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\GiccoStore\Areas\ShoppingCart\Views\Cart\Index.cshtml">

@@ -1,17 +1,17 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Infrastructure.Helpers;
+using Gicco.Infrastructure.Web.SmartTable;
+using Gicco.Module.Core.Extensions;
+using Gicco.Module.Orders.Events;
+using Gicco.Module.Orders.Models;
+using Gicco.Module.Orders.ViewModels;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MediatR;
-using Gicco.Infrastructure.Data;
-using Gicco.Infrastructure.Helpers;
-using Gicco.Infrastructure.Web.SmartTable;
-using Gicco.Module.Orders.Models;
-using Gicco.Module.Orders.ViewModels;
-using Gicco.Module.Core.Extensions;
-using Gicco.Module.Orders.Events;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Orders.Controllers
 {
@@ -24,7 +24,8 @@ namespace Gicco.Module.Orders.Controllers
         private readonly IWorkContext _workContext;
         private readonly IMediator _mediator;
 
-        public OrderApiController(IRepository<Order> orderRepository, IWorkContext workContext, IMediator mediator)
+        public OrderApiController(IRepository<Order> orderRepository,
+            IWorkContext workContext, IMediator mediator)
         {
             _orderRepository = orderRepository;
             _workContext = workContext;
@@ -34,14 +35,14 @@ namespace Gicco.Module.Orders.Controllers
         [HttpGet]
         public async Task<ActionResult> Get(int status, int numRecords)
         {
-            var orderStatus = (OrderStatus) status;
+            var orderStatus = (OrderStatus)status;
             if ((numRecords <= 0) || (numRecords > 100))
             {
                 numRecords = 5;
             }
 
             var query = _orderRepository.Query();
-            if(orderStatus != 0)
+            if (orderStatus != 0)
             {
                 query = query.Where(x => x.OrderStatus == orderStatus);
             }
@@ -60,7 +61,8 @@ namespace Gicco.Module.Orders.Controllers
                     CustomerName = x.CreatedBy.FullName,
                     x.OrderTotal,
                     OrderTotalString = x.OrderTotal.ToString("C"),
-                    OrderStatus = x.OrderStatus.ToString(), x.CreatedOn
+                    OrderStatus = x.OrderStatus.ToString(),
+                    x.CreatedOn
                 });
 
             return Json(model);
@@ -69,7 +71,7 @@ namespace Gicco.Module.Orders.Controllers
         [HttpPost("grid")]
         public async Task<ActionResult> List([FromBody] SmartTableParam param)
         {
-            IQueryable<Order> query = _orderRepository
+            var query = _orderRepository
                 .Query();
 
             var currentUser = await _workContext.GetCurrentUser();
@@ -89,7 +91,7 @@ namespace Gicco.Module.Orders.Controllers
 
                 if (search.Status != null)
                 {
-                    var status = (OrderStatus) search.Status;
+                    var status = (OrderStatus)search.Status;
                     query = query.Where(x => x.OrderStatus == status);
                 }
 
@@ -158,7 +160,7 @@ namespace Gicco.Module.Orders.Controllers
                 Id = order.Id,
                 IsMasterOrder = order.IsMasterOrder,
                 CreatedOn = order.CreatedOn,
-                OrderStatus = (int) order.OrderStatus,
+                OrderStatus = (int)order.OrderStatus,
                 OrderStatusString = order.OrderStatus.ToString(),
                 CustomerId = order.CreatedById,
                 CustomerName = order.CreatedBy.FullName,
@@ -223,7 +225,7 @@ namespace Gicco.Module.Orders.Controllers
             if (Enum.IsDefined(typeof(OrderStatus), model.StatusId))
             {
                 var oldStatus = order.OrderStatus;
-                order.OrderStatus = (OrderStatus) model.StatusId;
+                order.OrderStatus = (OrderStatus)model.StatusId;
                 await _orderRepository.SaveChangesAsync();
 
                 var orderStatusChanged = new OrderChanged
@@ -240,13 +242,13 @@ namespace Gicco.Module.Orders.Controllers
                 return Accepted();
             }
 
-            return BadRequest(new {Error = "unsupported order status"});
+            return BadRequest(new { Error = "unsupported order status" });
         }
 
         [HttpGet("order-status")]
         public IActionResult GetOrderStatus()
         {
-            var model = EnumHelper.ToDictionary(typeof(OrderStatus)).Select(x => new {Id = x.Key, Name = x.Value});
+            var model = EnumHelper.ToDictionary(typeof(OrderStatus)).Select(x => new { Id = x.Key, Name = x.Value });
             return Json(model);
         }
     }

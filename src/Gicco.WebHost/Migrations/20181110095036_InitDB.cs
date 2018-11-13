@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Gicco.WebHost.Migrations
 {
-    public partial class InitDb : Migration
+    public partial class InitDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -2164,7 +2164,7 @@ namespace Gicco.WebHost.Migrations
             migrationBuilder.InsertData(
                 table: "Localization_Culture",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { "vi-VN", "English (US)" });
+                values: new object[] { "en-US", "English (US)" });
 
             migrationBuilder.InsertData(
                 table: "Payments_PaymentProvider",
@@ -2208,7 +2208,7 @@ namespace Gicco.WebHost.Migrations
             migrationBuilder.InsertData(
                 table: "Core_Address",
                 columns: new[] { "Id", "AddressLine1", "AddressLine2", "City", "ContactName", "CountryId", "DistrictId", "Phone", "StateOrProvinceId", "ZipCode" },
-                values: new object[] { 1L, "364 Cong Hoa", null, null, "Thien Nguyen", "VN", null, null, 1L, null });
+                values: new object[] { 1L, "Toak, Kon Chieng", null, null, "Tham Davies", "VN", null, null, 1L, null });
 
             migrationBuilder.InsertData(
                 table: "Core_District",

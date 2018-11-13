@@ -24,8 +24,15 @@
 
         vm.approve = function approve(comment) {
             commentService.changeCommentStatus(comment.id, 5)
-                .then(function(result) {
+                .then(function (result) {
                     comment.status = 'Approved';
+                });
+        };
+
+        vm.notApprove = function notApprove(comment) {
+            commentService.changeCommentStatus(comment.id, 8)
+                .then(function (result) {
+                    comment.status = 'NotApproved';
                 });
         };
     }

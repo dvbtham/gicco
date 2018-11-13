@@ -201,7 +201,15 @@
                 </div>
             </div><!-- /#trademark-text-box -->
             <div id="footer-menu-box">
-                <p class="text-center">Copyrights &#169; 2018 Gicco Store. All Rights Reserved.</p>
+                @if (System.Globalization.CultureInfo.CurrentCulture.Name == "vi-VN")
+                {
+                    <p class="text-center">&#169; 2018 Bản quyền thuộc về Gicco Store.</p>
+                }
+                else
+                {
+                    <p class="text-center">Copyrights &#169; 2018 Gicco Store. All Rights Reserved.</p>
+
+                }
             </div><!-- /#footer-menu-box -->
         </div>
     </footer>

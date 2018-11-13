@@ -2318,7 +2318,7 @@ span.notify-right {
 
                 .product-list li .quick-view a.compare:before {
                     font: normal normal normal 14px/1 FontAwesome;
-                    content: "\f012";
+                    content: "\f0ec";
                 }
 
             .product-list li .quick-view a.search {

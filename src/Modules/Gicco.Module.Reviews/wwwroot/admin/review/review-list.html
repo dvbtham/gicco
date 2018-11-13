@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="pull-left">{{::vm.translate.get('Reviews')}}</div>
-                    
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -54,7 +54,12 @@
                                     <td>{{review.comment}}</td>
                                     <td>{{review.createdOn | date:'medium'}}</td>
                                     <td>{{review.status }}</td>
-                                    <td><button ng-if="review.status ==='Pending'" title="Approve" ng-click="vm.approve(review)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button></td>
+                                    <td>
+                                        <button ng-if="review.status ==='NotApproved'" title="Approved" ng-click="vm.approve(review)" class="btn btn-outline-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                                        <button ng-if="review.status ==='Pending'" title="Approve" ng-click="vm.approve(review)" class="btn btn-primary btn-xs">{{::vm.translate.get('Approve')}}</button>
+                                        <button ng-if="review.status ==='Pending'" title="Not Approved" ng-click="vm.notApprove(review)" class="btn btn-outline-warning btn-xs">{{::vm.translate.get('Not Approved')}}</button>
+                                        <button ng-if="review.status ==='Approved'" title="Not Approved" ng-click="vm.notApprove(review)" class="btn btn-outline-warning btn-xs">{{::vm.translate.get('Not Approved')}}</button>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody ng-show="vm.isLoading">

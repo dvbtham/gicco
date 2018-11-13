@@ -2,7 +2,7 @@
 
 @if (Model.Count > 0)
 {
-    <div class="owl-carousel owl-best-sell" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause="true" data-items="1">
+    <div class="owl-carousel owl-best-sell" data-dots="false" data-nav="false" data-margin="0" data-autoplayTimeout="1000" data-autoplay="true" data-autoplayHoverPause="true" data-items="1">
         <ul class="products-block best-sell">
             @foreach (var item in Model)
             {
@@ -18,18 +18,7 @@
                         </p>
                         <p class="product-price">@item.CalculatedProductPrice.Price.ToString("C")</p>
                         <div class="product-star">
-                            @{
-                                int unstars = 5;
-                            }
-                            @for (int i = 1; i <= item.RatingAverage - 1; i++)
-                            {
-                                <i class="fa fa-star"></i>
-                                { unstars--; }
-                            }
-                            @for (int i = 1; i <= unstars; i++)
-                            {
-                                <i class="fa fa-star-o"></i>
-                            }
+                            <gicco-rating-star rating-avg="@item.RatingAverage"></gicco-rating-star>
                         </div>
                     </div>
                 </li>

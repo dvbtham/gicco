@@ -15,7 +15,6 @@
     <link gicco-append-version="true" rel="stylesheet" href="~/modules/reviews/list.css" />
 }
 
-
 <div class="columns-container">
     <div class="container" id="columns">
         <!-- breadcrumb -->
@@ -42,7 +41,7 @@
                                         <p class="rating-average">@(Math.Round(Model.RatingAverage, 1))/5</p>
                                         <p>(@Model.ReviewsCount @Localizer["reviews"])</p>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <div class="rating-item">
                                             <span>5 @Localizer["stars"]</span>
                                             <div class="progress">
@@ -107,7 +106,7 @@
                                         </li>
                                     </ul>
                                     <p>@review.Comment</p>
-                                    <p>By: <strong>@review.ReviewerName</strong> on <span>@review.CreatedOn</span></p>
+                                    <p>@Localizer["By"]: <strong>@review.ReviewerName</strong> on <span>@review.CreatedOn</span></p>
                                     @if (review.Replies.Count > 0)
                                     {
                                         <button class="btn-review-replies btn-view-review-replies btn btn-link">@Localizer["View Replies"]<i class="arrow-down"></i></button>
@@ -117,7 +116,7 @@
                                             {
                                                 <li class="review-reply">
                                                     <p>@reply.Comment</p>
-                                                    <p>By: <strong>@reply.ReplierName</strong> on <span>@reply.CreatedOn</span></p>
+                                                    <p>@Localizer["By"]: <strong>@reply.ReplierName</strong> @Localizer["on"]: <span>@reply.CreatedOn</span></p>
                                                 </li>
                                             }
                                         </ul>

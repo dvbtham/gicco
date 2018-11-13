@@ -1,14 +1,15 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Gicco.Infrastructure.Data;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Infrastructure.Helpers;
 using Gicco.Infrastructure.Web;
 using Gicco.Module.Catalog.Models;
 using Gicco.Module.Catalog.Services;
 using Gicco.Module.Catalog.ViewModels;
 using Gicco.Module.Core.Services;
 using Gicco.Module.Core.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace Gicco.Module.Catalog.Components
 {
@@ -18,7 +19,9 @@ namespace Gicco.Module.Catalog.Components
         private readonly IMediaService _mediaService;
         private readonly IProductPricingService _productPricingService;
 
-        public ProductWidgetViewComponent(IRepository<Product> productRepository, IMediaService mediaService, IProductPricingService productPricingService)
+        public ProductWidgetViewComponent(IRepository<Product> productRepository,
+            IMediaService mediaService,
+            IProductPricingService productPricingService)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;
@@ -47,9 +50,19 @@ namespace Gicco.Module.Catalog.Components
                 query = query.Where(x => x.IsFeatured);
             }
 
+            if (model.Setting.OrderBy == ProductWidgetOrderBy.Newest)
+            {
+                query = query.OrderByDescending(x => x.CreatedOn);
+            }
+
+            if (model.Setting.OrderBy == ProductWidgetOrderBy.Discount)
+            {
+                query = query.Where(x => x.SpecialPriceEnd.HasValue && x.SpecialPriceStart.HasValue)
+                    .OrderByDescending(x => x.SpecialPriceStart);
+            }
+
             model.Products = query
               .Include(x => x.ThumbnailImage)
-              .OrderByDescending(x => x.CreatedOn)
               .Take(model.Setting.NumberOfProducts)
               .Select(x => ProductThumbnail.FromProduct(x))
               .ToList();

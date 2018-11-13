@@ -25,7 +25,8 @@ $(function () {
     $('input.rating-loading').rating({
         language: window.giccoGlobalSetting.lang,
         filledStar: '<i class="fa fa-star"></i>',
-        emptyStar: '<i class="fa fa-star-o"></i>'
+        emptyStar: '<i class="fa fa-star-o"></i>',
+        step: 1
     });
 
     $("#shopping-cart-box-ontop .fa-shopping-cart").click(function () {

@@ -1,4 +1,4 @@
-/*global angular*/
+﻿/*global angular*/
 (function () {
     angular
         .module('giccoAdmin.reviews')
@@ -23,6 +23,12 @@
             reviewReplyService.changeReplyStatus(reply.id, 5)
                 .then(function(result) {
                     reply.status = 'Approved';
+                });
+        };
+        vm.notApprove = function notApprove(reply) {
+            reviewReplyService.changeReplyStatus(reply.id, 8)
+                .then(function (result) {
+                    reply.status = 'NotApproved';
                 });
         };
     }

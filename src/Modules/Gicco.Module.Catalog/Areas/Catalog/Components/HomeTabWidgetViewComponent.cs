@@ -47,6 +47,17 @@ namespace Gicco.Module.Catalog.Components
                 query = query.Where(x => x.IsFeatured);
             }
 
+            if (model.Setting.OrderBy == ProductWidgetOrderBy.Newest)
+            {
+                query = query.OrderByDescending(x => x.CreatedOn);
+            }
+
+            if (model.Setting.OrderBy == ProductWidgetOrderBy.Discount)
+            {
+                query = query.Where(x => x.SpecialPriceEnd.HasValue && x.SpecialPriceStart.HasValue)
+                    .OrderByDescending(x => x.SpecialPriceStart);
+            }
+
             model.Products = query
               .Include(x => x.ThumbnailImage)
               .OrderByDescending(x => x.CreatedOn)

@@ -24,7 +24,7 @@ namespace Gicco.Module.Comments.Controllers
         {
             _commentRepository = commentRepository;
             _workContext = workContext;
-            _isCommentsRequireApproval = config.GetValue<bool>("Product.IsCommentsRequireApproval");
+            _isCommentsRequireApproval = config.GetValue<bool>("Catalog.IsCommentsRequireApproval");
         }
 
         [HttpPost]

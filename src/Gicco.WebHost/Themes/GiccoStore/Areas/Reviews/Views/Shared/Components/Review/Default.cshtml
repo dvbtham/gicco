@@ -1,14 +1,18 @@
 ﻿@using Gicco.Module.Reviews.ViewModels
 @model ReviewVm
 
+
+<link gicco-append-version="true" rel="stylesheet" href="~/modules/reviews/list.css" />
+
+
 <div class="row">
     @if (Model.ReviewsCount > 0)
     {
-        <div class="col-md-5 rating-summary">
+        <div class="col-md-7 rating-summary">
             <div class="row">
                 <div class="col-md-5">
                     <h4>@Localizer["Rating average"]</h4>
-                    <p class="rating-average">@(Math.Round(Model.RatingAverage, 1))/5</p>
+                    <p class="rating-average mt-10">@(Math.Round(Model.RatingAverage, 1))/5</p>
                     <p>(@Model.ReviewsCount @Localizer["reviews"])</p>
                 </div>
                 <div class="col-md-7">
@@ -56,7 +60,7 @@
             </div>
         </div>
     }
-    <div class="col-md-7">
+    <div class="col-md-5">
         <div id="addreview">
             @Html.Partial("/Areas/Reviews/Views/Review/_ReviewForm.cshtml", new ReviewForm { EntityTypeId = Model.EntityTypeId, EntityId = Model.EntityId })
         </div>

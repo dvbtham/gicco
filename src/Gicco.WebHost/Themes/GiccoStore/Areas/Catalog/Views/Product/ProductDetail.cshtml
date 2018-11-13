@@ -1,5 +1,9 @@
 ﻿@model Gicco.Module.Catalog.ViewModels.ProductDetail
+@using Gicco.Module.Core.Models
+@using Gicco.Module.Core.Extensions
 
+@inject IWorkContext WorkContext
+@inject SignInManager<User> SignInManager
 @{
     ViewBag.Title = Model.MetaTitle ?? Model.Name;
 }
@@ -8,12 +12,6 @@
     <meta name="title" content="@ViewBag.Title" />
     <meta name="keywords" content="@Model.MetaKeywords" />
     <meta name="description" content="@Model.MetaDescription" />
-}
-
-@section head
-    {
-    <link gicco-append-version="true" rel="stylesheet" href="~/lib/fancyBox/jquery.fancybox.css" />
-
 }
 
 <div class="columns-container">
@@ -32,7 +30,7 @@
         <!-- row -->
         <div class="row">
             <!-- Left colunm -->
-            <div class="column col-xs-12 col-sm-3" id="left_column">                
+            <div class="column col-xs-12 col-sm-3" id="left_column">
                 <!-- block best sellers -->
                 <div class="block left-module">
                     <p class="title_block">@Localizer["Best Sellers"]</p>
@@ -52,27 +50,13 @@
                         <div class="pb-left-column col-xs-12 col-sm-6">
                             <!-- product-imge-->
                             <div class="product-image">
-                                <div class="product-full">
-                                    @if (Model.Images.Any())
+                                <div class="sp-wrap product-full">
+                                    @foreach (var item in Model.Images)
                                     {
-                                        var img = Model.Images.FirstOrDefault();
-                                        if (img != null)
-                                        {
-                                            <img id="product-zoom" src='@img.ThumbnailUrl' data-zoom-image="@img.ThumbnailUrl" />
-                                        }
+                                        <a href="@item.Url" data-image="@item.ThumbnailUrl" data-zoom-image="@item.ThumbnailUrl">
+                                            <img id="product-zoom" src="@item.ThumbnailUrl" />
+                                        </a>
                                     }
-                                </div>
-                                <div class="product-img-thumb" id="gallery_01">
-                                    <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
-                                        @foreach (var item in Model.Images)
-                                        {
-                                            <li>
-                                                <a href="@item.Url" data-image="@item.ThumbnailUrl" data-zoom-image="@item.ThumbnailUrl">
-                                                    <img id="product-zoom" src="@item.ThumbnailUrl" />
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
                                 </div>
                             </div>
                             <!-- product-imge-->
@@ -81,18 +65,7 @@
                             <h1 class="product-name">@Model.Name</h1>
                             <div class="product-comments">
                                 <div class="product-star">
-                                    @{
-                                        int unstars = 5;
-                                    }
-                                    @for (int i = 1; i <= Model.RatingAverage - 1; i++)
-                                    {
-                                        <i class="fa fa-star"></i>
-                                        { unstars--; }
-                                    }
-                                    @for (int i = 1; i <= unstars; i++)
-                                    {
-                                        <i class="fa fa-star-o"></i>
-                                    }
+                                    <gicco-rating-star rating-avg="@Model.RatingAverage"></gicco-rating-star>
                                 </div>
                                 <div class="comments-advices">
                                     <a href="#">@Localizer["{0} reviews", Model.ReviewsCount]</a>
@@ -125,14 +98,14 @@
                                                             if (Model.OptionDisplayValues[value].DisplayType == "color")
                                                             {
                                                                 <li class="" title="@Localizer[value]" style="background:@Model.OptionDisplayValues[value].Value;">
-                                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                                    <input class="hidden" type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
                                                                     <a href="javascript:void(0);">@Model.OptionDisplayValues[value].Value</a>
                                                                 </li>
                                                             }
                                                             else
                                                             {
                                                                 <li class="" title="@Localizer[value]">
-                                                                    <input type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
+                                                                    <input class="hidden" type="radio" value="@value" checked="@shouldChecked" name="@option.OptionName" />
                                                                     <a class="show-text" href="javascript:void(0);">@Model.OptionDisplayValues[value].Value</a>
                                                                 </li>
                                                             }
@@ -184,7 +157,7 @@
                                                 </div>
                                                 <button type="button" disabled="@(!variant.IsAllowToOrder || (variant.StockTrackingIsEnabled && variant.StockQuantity <= 0))" class="btn-add-cart">@Localizer["Add to cart"]</button>
                                                 <div>
-                                                    <ul class="mt-10 add-to-wishlist">
+                                                    <ul class="mt-10">
                                                         <li class="wishlist-in">
                                                             <i class="fa fa-heart"></i>
                                                             <a href="#" class="add-to-wishlist">@Localizer["Add to Wishlist"]</a>
@@ -238,11 +211,15 @@
                                         </div>
                                         <button type="button" disabled="@(!Model.IsAllowToOrder || (Model.StockTrackingIsEnabled && Model.StockQuantity <= 0))" class="btn-add-cart">@Localizer["Add to cart"]</button>
                                         <div>
-                                            <ul class="mt-10 add-to-wishlist">
-                                                <li class="wishlist-in">
-                                                    <i class="fa fa-heart"></i>
-                                                    <a href="#">@Localizer["Add to Wishlist"]</a>
-                                                </li>
+                                            <ul class="mt-10">
+                                                @if (SignInManager.IsSignedIn(User))
+                                                {
+                                                    <li class="wishlist-in">
+                                                        <i class="fa fa-heart"></i>
+                                                        <a class="add-to-wishlist" href="#">@Localizer["Add to Wishlist"]</a>
+                                                    </li>
+                                                }
+
                                                 <li class="compare-in">
                                                     <i class="fa fa-exchange"></i>
                                                     <a href="#" class="add-to-comparison">@Localizer["Add to Compare"]</a>
@@ -251,7 +228,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            }                            
+                            }
                         </div>
                     </div>
                     <!-- tab product -->
@@ -265,8 +242,9 @@
                             </li>
                         </ul>
                         <div class="tab-container">
-                            <div id="product-detail" class="tab-panel active">
+                            <div id="product-detail" class="tab-panel product-description active">
                                 @Html.Raw(Model.Description)
+                                <div class="expand-detail hidden">@Localizer["Read more"]</div>
                             </div>
                             <div id="reviews" class="tab-panel">
                                 <div class="product-comments-block-tab">
@@ -276,6 +254,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="unexpand-detail hidden">@Localizer["Show less"]</div>
                         </div>
                         <!-- ./tab product -->
                         <!-- box product -->
@@ -345,7 +324,6 @@
     {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
     <script gicco-append-version="true" src="~/themes/GiccoStore/js/jquery.elevatezoom.js"></script>
-    <script gicco-append-version="true" src="~/lib/fancyBox/jquery.fancybox.js"></script>
     <script gicco-append-version="true" src="~/themes/GiccoStore/js/product-detail.js"></script>
 
 }

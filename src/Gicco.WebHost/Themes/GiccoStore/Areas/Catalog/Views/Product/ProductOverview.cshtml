@@ -11,26 +11,18 @@
 <div class="product-detail" id="product">
     <div class="row">
         <div class="col-md-6">
+            <!-- product-imge-->
             <div class="product-image">
-                <div class="product-full">
-                    @if (Model.Images.Any())
-                    {
-                        var img = Model.Images.FirstOrDefault();
-                        if (img != null)
-                        {
-                            <a class="image-view" href="@img.ThumbnailUrl" data-image="@img.ThumbnailUrl">
-                                <img src="@img.ThumbnailUrl" />
-                            </a>
-                        }
-                    }
-                </div>
-                <div class="product-img-thumb">
+                <div class="sp-wrap product-full">
                     @foreach (var item in Model.Images)
                     {
-                        <a href="@item.Url" style="background-image: url(@item.ThumbnailUrl);"></a>
+                        <a href="@item.Url" data-image="@item.ThumbnailUrl" data-zoom-image="@item.ThumbnailUrl">
+                            <img id="product-zoom" src="@item.ThumbnailUrl" />
+                        </a>
                     }
                 </div>
             </div>
+            <!-- product-imge-->
         </div>
         <div class="pb-right-column col-xs-12 col-sm-6">
             <h1 class="product-name mt-10">@Model.Name</h1>

@@ -50,27 +50,13 @@
                         <div class="pb-left-column col-xs-12 col-sm-6">
                             <!-- product-imge-->
                             <div class="product-image">
-                                <div class="product-full">
-                                    @if (Model.Images.Any())
+                                <div class="sp-wrap product-full">
+                                    @foreach (var item in Model.Images)
                                     {
-                                        var img = Model.Images.FirstOrDefault();
-                                        if (img != null)
-                                        {
-                                            <img id="product-zoom" src='@img.ThumbnailUrl' data-zoom-image="@img.ThumbnailUrl" />
-                                        }
+                                        <a href="@item.Url" data-image="@item.ThumbnailUrl" data-zoom-image="@item.ThumbnailUrl">
+                                            <img id="product-zoom" src="@item.ThumbnailUrl" />
+                                        </a>
                                     }
-                                </div>
-                                <div class="product-img-thumb">
-                                    <ul class="owl-carousel" data-items="3" data-nav="true" data-dots="false" data-margin="20" data-loop="true">
-                                        @foreach (var item in Model.Images)
-                                        {
-                                            <li>
-                                                <a href="@item.Url" data-image="@item.ThumbnailUrl" data-zoom-image="@item.ThumbnailUrl">
-                                                    <img id="product-zoom" src="@item.ThumbnailUrl" />
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
                                 </div>
                             </div>
                             <!-- product-imge-->
@@ -256,8 +242,9 @@
                             </li>
                         </ul>
                         <div class="tab-container">
-                            <div id="product-detail" class="tab-panel active">
+                            <div id="product-detail" class="tab-panel product-description active">
                                 @Html.Raw(Model.Description)
+                                <div class="expand-detail hidden">@Localizer["Read more"]</div>
                             </div>
                             <div id="reviews" class="tab-panel">
                                 <div class="product-comments-block-tab">
@@ -267,6 +254,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="unexpand-detail hidden">@Localizer["Show less"]</div>
                         </div>
                         <!-- ./tab product -->
                         <!-- box product -->

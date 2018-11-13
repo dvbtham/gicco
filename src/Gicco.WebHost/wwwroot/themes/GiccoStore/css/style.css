@@ -4520,29 +4520,30 @@ span.notify-right {
         margin-bottom: 15px;
     }
 
-#product .pb-left-column .product-image .product-full {
+.product-image .product-full {
     border: 1px solid #eaeaea;
     padding: 10px;
 }
 
-#product .pb-left-column .product-image .product-img-thumb {
+.product-image .product-img-thumb {
     margin-top: 15px;
     padding: 0 40px;
 }
 
-    #product .pb-left-column .product-image .product-img-thumb li {
+    .product-image .product-img-thumb li {
         border: 1px solid #eaeaea;
         padding: 7px 10px;
     }
 
-#product .pb-left-column .product-image .owl-next {
+.product-image .owl-next {
     right: -40px;
 }
 
-#product .pb-left-column .product-image .owl-prev {
+.product-image .owl-prev {
     left: -40px;
 }
 
+.sp-lightbox{z-index: 1061 !important;}
 .product-tab {
     margin-top: 30px;
 }
@@ -6257,4 +6258,57 @@ input, select, textarea {
 
 .rating-average {
     color: #f63;
+}
+
+.sp-thumbs a {
+    display: inline-block;
+}
+
+.sp-wrap {
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+.sp-thumbs {
+    margin-top: 8px !important;
+}
+
+    .sp-thumbs a {
+        margin-right: 5px !important;
+        margin-bottom: 5px !important;
+        display: inline-block;
+    }
+
+.product-description {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.expand-detail {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(255, 255, 255, 0.72);
+    bottom: 0px;
+    z-index: 9999;
+    cursor: pointer;
+    text-align: center;
+    -webkit-box-shadow: 0px -4px 3px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0px -4px 3px rgba(255, 255, 255, 0.75);
+    box-shadow: 0px -4px 3px rgba(255, 255, 255, 0.75);
+}
+
+.unexpand-detail {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 18px;
+    text-transform: capitalize;
+    font-weight: bold;
+    cursor: pointer;
 }

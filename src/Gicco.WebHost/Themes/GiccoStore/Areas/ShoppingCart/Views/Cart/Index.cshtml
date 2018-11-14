@@ -62,7 +62,7 @@
                                 <td>{{vm.cart.subTotalString}}</td>
                             </tr>
                             <tr>
-                                <td>@Localizer["Discount"] {{vm.cart.couponCode}}</td>
+                                <td>@Localizer["Discount"] <strong title="@Localizer["Click to remove this coupon"]" class="pointer" ng-click="vm.removeCoupon()"> {{vm.cart.couponCode}} <i ng-if="vm.cart.couponCode" class="text-danger fa fa-times"></i> </strong></td>
                                 <td>{{vm.cart.discountString}}</td>
                             </tr>
                             <tr>

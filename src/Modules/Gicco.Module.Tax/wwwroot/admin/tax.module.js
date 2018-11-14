@@ -34,7 +34,7 @@
                     templateUrl: 'modules/tax/admin/tax-rate/tax-rate-list.html',
                     controller: 'TaxRateListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Tax Rates")}}'
                     }
                 })
                 .state('app.system.tax-rates-create', {
@@ -42,7 +42,7 @@
                     templateUrl: 'modules/tax/admin/tax-rate/tax-rate-form.html',
                     controller: 'TaxRateFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Create Tax Rates")}}'
                     }
                 })
                 .state('app.system.tax-rates-import', {
@@ -50,7 +50,7 @@
                     templateUrl: 'modules/tax/admin/tax-rate/tax-rate-import.html',
                     controller: 'TaxRateImportFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Import Tax Rates")}}'
                     }
                 })
                 .state('app.system.tax-rates-edit', {
@@ -58,7 +58,7 @@
                     templateUrl: 'modules/tax/admin/tax-rate/tax-rate-form.html',
                     controller: 'TaxRateFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Users")}}'
+                        label: '{{ ::vm.translate.get("Edit Tax Rates")}}'
                     }
                 });
         }]);

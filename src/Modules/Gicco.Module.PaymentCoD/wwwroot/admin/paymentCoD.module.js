@@ -10,7 +10,7 @@
                     .state('app.system.payments-cod-config', {
                         url: '/payments/cod/config',
                         templateUrl: 'modules/paymentcod/admin/config/config-form.html',
-                        controller: 'CoDConfigFormCtrlas vm',
+                        controller: 'CoDConfigFormCtrl as vm',
                         ncyBreadcrumb: {
                             label: '{{ ::vm.translate.get("Payment COD")}}'
                         }

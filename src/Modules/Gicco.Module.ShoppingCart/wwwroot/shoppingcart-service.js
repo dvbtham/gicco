@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function () {
     angular
         .module('gicco.shoppingCart')
         .factory('shoppingCartService', [
@@ -7,7 +7,7 @@
                 function getShoppingCartItems() {
                     return $http.get('/cart/list');
                 }
-                
+
                 function removeShoppingCartItem(itemId) {
                     return $http.post('cart/remove', itemId);
                 }
@@ -23,11 +23,16 @@
                     return $http.post('cart/apply-coupon', { couponCode: couponCode });
                 }
 
+                function removeCoupon() {
+                    return $http.post('cart/remove-coupon', null);
+                }
+
                 return {
                     getShoppingCartItems: getShoppingCartItems,
                     removeShoppingCartItem: removeShoppingCartItem,
                     updateQuantity: updateQuantity,
-                    applyCoupon: applyCoupon
+                    applyCoupon: applyCoupon,
+                    removeCoupon: removeCoupon
                 };
             }
         ]);

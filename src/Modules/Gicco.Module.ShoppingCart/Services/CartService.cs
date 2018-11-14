@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Gicco.Infrastructure.Data;
-using Gicco.Module.ShoppingCart.Models;
-using Gicco.Module.ShoppingCart.ViewModels;
+﻿using Gicco.Infrastructure.Data;
 using Gicco.Module.Core.Services;
 using Gicco.Module.Pricing.Services;
+using Gicco.Module.ShoppingCart.Models;
+using Gicco.Module.ShoppingCart.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.ShoppingCart.Services
 {
@@ -59,7 +59,7 @@ namespace Gicco.Module.ShoppingCart.Services
                 cartItem.Quantity = quantity;
             }
 
-           await  _cartRepository.SaveChangesAsync();
+            await _cartRepository.SaveChangesAsync();
         }
 
         // TODO separate getting product thumbnail, varation options from here
@@ -127,6 +127,7 @@ namespace Gicco.Module.ShoppingCart.Services
                 Items = cart.Items.Select(x => new CartItemForCoupon { ProductId = x.ProductId, Quantity = x.Quantity }).ToList()
             };
             var couponValidationResult = await _couponService.Validate(couponCode, cartInfoForCoupon);
+
             if (couponValidationResult.Succeeded)
             {
                 cart.CouponCode = couponCode;
@@ -135,6 +136,15 @@ namespace Gicco.Module.ShoppingCart.Services
             }
 
             return couponValidationResult;
+        }
+
+        public async Task RemoveCoupon(long userId)
+        {
+            var cart = await _cartRepository.Query().FirstOrDefaultAsync(x => x.UserId == userId && x.IsActive);
+
+            cart.CouponCode = null;
+            cart.CouponRuleName = null;
+            _cartItemRepository.SaveChanges();
         }
 
         public async Task MigrateCart(long fromUserId, long toUserId)
@@ -156,7 +166,7 @@ namespace Gicco.Module.ShoppingCart.Services
                 foreach (var fromItem in cartFrom.Items)
                 {
                     var toItem = cartTo.Items.FirstOrDefault(x => x.ProductId == fromItem.ProductId);
-                    if(toItem == null)
+                    if (toItem == null)
                     {
                         toItem = new CartItem
                         {
@@ -173,7 +183,7 @@ namespace Gicco.Module.ShoppingCart.Services
                     }
                 }
 
-               await _cartRepository.SaveChangesAsync();
+                await _cartRepository.SaveChangesAsync();
             }
         }
     }

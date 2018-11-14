@@ -12,6 +12,8 @@ namespace Gicco.Module.ShoppingCart.Services
 
         Task<CouponValidationResult> ApplyCoupon(long userId, string couponCode);
 
+        Task RemoveCoupon(long userId);
+
         Task MigrateCart(long fromUserId, long toUserId);
     }
 }

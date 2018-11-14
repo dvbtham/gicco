@@ -5,8 +5,9 @@
         .controller('NewsCategoryListCtrl', NewsCategoryListCtrl);
 
     /* @ngInject */
-    function NewsCategoryListCtrl(newsCategoryService) {
+    function NewsCategoryListCtrl(newsCategoryService, translateService) {
         var vm = this;
+        vm.translate = translateService;
         vm.newsCategorys = [];
 
         vm.getNewsCategories = function getNewsCategories() {
@@ -19,13 +20,13 @@
             bootbox.confirm('Are you sure you want to delete this news category: ' + newsCategory.name, function (result) {
                 if (result) {
                     newsCategoryService.deleteNewsCategory(newsCategory)
-                       .then(function (result) {
-                           vm.getNewsCategories();
-                           toastr.success(newsCategory.name + ' has been deleted');
-                       })
-                       .catch(function (response) {
-                           toastr.error(response.data.error);
-                       });
+                        .then(function (result) {
+                            vm.getNewsCategories();
+                            toastr.success(newsCategory.name + ' has been deleted');
+                        })
+                        .catch(function (response) {
+                            toastr.error(response.data.error);
+                        });
                 }
             });
         };

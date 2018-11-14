@@ -1,14 +1,14 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Gicco.Infrastructure.Data;
+﻿using Gicco.Infrastructure.Data;
 using Gicco.Module.Core.Extensions;
 using Gicco.Module.Core.Models;
 using Gicco.Module.Core.Services;
 using Gicco.Module.ShoppingCart.Models;
 using Gicco.Module.ShoppingCart.Services;
 using Gicco.Module.ShoppingCart.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.ShoppingCart.Controllers
 {
@@ -97,7 +97,7 @@ namespace Gicco.Module.ShoppingCart.Controllers
         public async Task<ActionResult> ApplyCoupon([FromBody] ApplyCouponForm model)
         {
             var currentUser = await _workContext.GetCurrentUser();
-            var validationResult =  await _cartService.ApplyCoupon(currentUser.Id, model.CouponCode);
+            var validationResult = await _cartService.ApplyCoupon(currentUser.Id, model.CouponCode);
             if (validationResult.Succeeded)
             {
                 var cart = await _cartService.GetCart(currentUser.Id);
@@ -105,6 +105,15 @@ namespace Gicco.Module.ShoppingCart.Controllers
             }
 
             return Json(validationResult);
+        }
+
+        [HttpPost("cart/remove-coupon")]
+        public async Task<ActionResult> RemoveCoupon()
+        {
+            var currentUser = await _workContext.GetCurrentUser();
+            await _cartService.RemoveCoupon(currentUser.Id);
+            var cart = await _cartService.GetCart(currentUser.Id);
+            return Json(cart);
         }
 
         [HttpPost("cart/remove")]

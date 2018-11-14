@@ -25,7 +25,7 @@
                                     <label class="col-sm-2 control-label">{{::vm.translate.get('Description')}}</label>
                                     <div class="col-sm-10">
                                         <textarea name="description" ng-model="vm.cartRule.description" rows="3" class="form-control" />
-                                        </div>
+                                    </div>
                                 </div>
                                 <div ng-show="false" class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
@@ -130,7 +130,7 @@
                                 </table>
                             </uib-tab>
                         </uib-tabset>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-top: 20px;">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span> {{::vm.translate.get('Save')}}</button>
                                 <button ui-sref="app.promotions.cart-rules" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>

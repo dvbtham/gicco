@@ -10,7 +10,7 @@
                     templateUrl: 'modules/cms/admin/page/page-list.html',
                     controller: 'PageListCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Menus")}}'
+                        label: '{{ ::vm.translate.get("Pages")}}'
                     }
                 })
                 .state('app.content.pages-create', {
@@ -18,7 +18,7 @@
                     templateUrl: 'modules/cms/admin/page/page-form.html',
                     controller: 'PageFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Create Menus")}}'
+                        label: '{{ ::vm.translate.get("Create Page")}}'
                     }
                 })
                 .state('app.content.pages-edit', {
@@ -26,7 +26,7 @@
                     templateUrl: 'modules/cms/admin/page/page-form.html',
                     controller: 'PageFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Edit Menus")}}'
+                        label: '{{ ::vm.translate.get("Edit Page")}}'
                     }
                 })
                 .state('app.content.menus', {
@@ -58,7 +58,7 @@
                     abstract: true,
                     template: '<ui-view></ui-view>',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Widget")}}'
+                        label: '{{ ::vm.translate.get("Content")}}'
                     }
                 })
                 .state('app.content.widget-carousel-create', {
@@ -66,7 +66,7 @@
                     templateUrl: 'modules/cms/admin/carousel-widget/carousel-widget-form.html',
                     controller: 'CarouselWidgetFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Create Widget")}}'
+                        label: '{{ ::vm.translate.get("Create Carousel Widget")}}'
                     }
                 })
                 .state('app.content.widget-carousel-edit', {
@@ -74,7 +74,7 @@
                     templateUrl: 'modules/cms/admin/carousel-widget/carousel-widget-form.html',
                     controller: 'CarouselWidgetFormCtrl as vm',
                     ncyBreadcrumb: {
-                        label: '{{ ::vm.translate.get("Edit Widget")}}'
+                        label: '{{ ::vm.translate.get("Edit Carousel Widget")}}'
                     }
                 })
                 .state('app.content.widget-html-create', {

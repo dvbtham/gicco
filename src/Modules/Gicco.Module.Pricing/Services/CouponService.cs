@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Module.Catalog.Models;
+using Gicco.Module.Core.Extensions;
+using Gicco.Module.Pricing.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Gicco.Infrastructure.Data;
-using Gicco.Module.Core.Extensions;
-using Gicco.Module.Pricing.Models;
-using Gicco.Module.Catalog.Models;
 
 namespace Gicco.Module.Pricing.Services
 {
@@ -31,9 +31,10 @@ namespace Gicco.Module.Pricing.Services
                 .Include(x => x.CartRule).ThenInclude(c => c.Products)
                 .Include(x => x.CartRule).ThenInclude(c => c.Categories)
                 .FirstOrDefault(x => x.Code == couponCode);
+
             var validationResult = new CouponValidationResult { Succeeded = false };
 
-            if(coupon == null || !coupon.CartRule.IsActive)
+            if (coupon == null || !coupon.CartRule.IsActive)
             {
                 validationResult.ErrorMessage = $"The coupon {couponCode} is not exist.";
                 return validationResult;
@@ -52,7 +53,7 @@ namespace Gicco.Module.Pricing.Services
             }
 
             var couponUsageCount = _cartRuleUsageRepository.Query().Count(x => x.CouponId == coupon.Id);
-            if(coupon.CartRule.UsageLimitPerCoupon.HasValue && couponUsageCount >= coupon.CartRule.UsageLimitPerCoupon)
+            if (coupon.CartRule.UsageLimitPerCoupon.HasValue && couponUsageCount >= coupon.CartRule.UsageLimitPerCoupon)
             {
                 validationResult.ErrorMessage = $"The coupon {couponCode} is all used.";
                 return validationResult;
@@ -67,7 +68,7 @@ namespace Gicco.Module.Pricing.Services
             }
 
             IList<DiscountableProduct> discountableProducts = new List<DiscountableProduct>();
-            if(!coupon.CartRule.Products.Any() && !coupon.CartRule.Categories.Any())
+            if (!coupon.CartRule.Products.Any() && !coupon.CartRule.Categories.Any())
             {
                 var productIds = cart.Items.Select(x => x.ProductId);
                 discountableProducts = _productRepository.Query()
@@ -129,7 +130,7 @@ namespace Gicco.Module.Pricing.Services
                     return validationResult;
 
                 case "by_percent":
-                    foreach(var item in validationResult.DiscountedProducts)
+                    foreach (var item in validationResult.DiscountedProducts)
                     {
                         item.DiscountAmount = (item.Price * coupon.CartRule.DiscountAmount / 100) * item.Quantity;
                     }

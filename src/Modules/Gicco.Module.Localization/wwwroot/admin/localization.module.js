@@ -12,6 +12,6 @@
                 ncyBreadcrumb: {
                     label: '{{ ::vm.translate.get("Localization")}}'
                 }
-            });
+            })
         }]);
 })();

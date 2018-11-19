@@ -1,7 +1,7 @@
 ﻿@model Gicco.Module.Core.ViewModels.HomeViewModel
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = Localizer["Home"];
 }
 <!-- RENDER BODY -->
 <!-- Home slideder-->
@@ -24,8 +24,8 @@
                 <img alt="services" src="~/themes/GiccoStore/data/s1.png" />
             </div>
             <div class="info">
-                <a href="#"><h3>Free Shipping</h3></a>
-                <span>On order over $200</span>
+                <a href="#"><h3>@Localizer["Free Shipping"]</h3></a>
+                <span>@Localizer["On over 500.000 đ"]</span>
             </div>
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
@@ -33,8 +33,8 @@
                 <img alt="services" src="~/themes/GiccoStore/data/s2.png" />
             </div>
             <div class="info">
-                <a href="#"><h3>30-day return</h3></a>
-                <span>Moneyback guarantee</span>
+                <a href="#"><h3>@Localizer["30-day return"]</h3></a>
+                <span>@Localizer["Moneyback guarantee"]</span>
             </div>
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
@@ -43,8 +43,8 @@
             </div>
 
             <div class="info">
-                <a href="#"><h3>24/7 support</h3></a>
-                <span>Online consultations</span>
+                <a href="#"><h3>@Localizer["24/7 support"]</h3></a>
+                <span>@Localizer["Online consultations"]</span>
             </div>
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
@@ -52,8 +52,8 @@
                 <img alt="services" src="~/themes/GiccoStore/data/s4.png" />
             </div>
             <div class="info">
-                <a href="#"><h3>SAFE SHOPPING</h3></a>
-                <span>Safe Shopping Guarantee</span>
+                <a href="#"><h3>@Localizer["Safe Shipping"]</h3></a>
+                <span>@Localizer["Safe Shopping Guarantee"]</span>
             </div>
         </div>
     </div>

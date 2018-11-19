@@ -18,32 +18,65 @@
                                 <select class="form-control" ng-model="vm.selectedCultureId" ng-change="vm.changeCulture()"
                                         ng-options="culture.id as culture.name for culture in vm.cultures"></select>
                             </div>
+
+                            <div class="form-group" style="margin-left: 15px;">
+                                <label>{{::vm.translate.get('Search')}}: &nbsp;</label>
+                                <input type="text" ng-change="vm.getResources()" ng-model="keyword" class="form-control" placeholder="{{::vm.translate.get('Keyword here')}}...">
+                            </div>
+                        </form>
+
+                        <form class="form-inline" style="margin-top: 10px; margin-bottom: 10px;">
+                            <div class="form-group">
+                                <a href="#" ng-click="vm.onAddMode()">{{::vm.translate.get('Create new translation')}} &nbsp;</a>
+                            </div>
+
+                            <div ng-show="vm.addMode" class="form-group" style="margin-left: 15px;">
+                                <label>{{::vm.translate.get('Key')}}: &nbsp;</label>
+                                <input type="text" ng-model="vm.resource.key" class="form-control" placeholder="{{::vm.translate.get('Add new key')}}...">
+                            </div>
+
+                            <div ng-show="vm.addMode" class="form-group" style="margin-left: 15px;">
+                                <label>{{::vm.translate.get('Value')}}: &nbsp;</label>
+                                <input type="text" ng-model="vm.resource.value" class="form-control" placeholder="{{::vm.translate.get('Add new value')}}...">
+                            </div>
+
+                            <div ng-show="vm.addMode" class="form-group" style="margin-left: 15px;">
+                                <button ng-disabled="!vm.selectedCultureId" ng-click="vm.create()" class="btn btn-outline-primary">
+                                    {{::vm.translate.get('Save')}}
+                                </button>
+                            </div>
+
                         </form>
                         <form name="localizationForm" class="form-horizontal">
-                            <div class="col-sm-offset-4 bg-danger" ng-show="vm.validationErrors">
+                            <div class="col-sm-offset-4 bg-danger" ng-show="vm.validationErrors.length > 0">
                                 <ul>
                                     <li ng-repeat="error in vm.validationErrors">{{error}}</li>
                                 </ul>
                             </div>
                             <hr />
-                            <div class="form-group" ng-repeat="item in vm.resources">
-                                <label class="col-sm-4 control-label">{{item.key}}</label>
-                                <div class="input-group">
-                                    <input name="name" ng-model="item.value" class="form-control" aria-describedby="inputSuccess2Status" />
-                                    <div ng-hide="!item.isTranslated" class="input-group-prepend">
-                                        <button style="color: #fff; background-color: #20a8d8; border-color: #20a8d8;" class="btn btn-outline-primary">
-                                            <i class="fa fa-check"></i>
-                                        </button>
+                            <div class="row">
+                                <div class="form-group col-md-6" ng-repeat="item in vm.resources">
+                                    <label class="col-sm-4 control-label">{{item.key}}</label>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+                                            <input name="name" ng-model="item.value" class="form-control" aria-describedby="inputSuccess2Status" />
+                                            <div class="input-group-prepend">
+                                                <button ng-click="vm.delete()" style="color: #fff; background-color: #f86c6b; border-color: #f86c6b;" class="btn btn-outline-primary">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-4 col-sm-8">
                                     <button class="btn btn-outline-primary" ng-click="vm.save()">
                                         <span class="fa fa-check"></span>
-                                        Save
+                                        {{::vm.translate.get('Save')}}
                                     </button>
-                                    <button ui-sref="app.dashboard" class="btn btn-outline-warning">Cancel</button>
+                                    <button ui-sref="app.dashboard" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
                                 </div>
                             </div>
                         </form>

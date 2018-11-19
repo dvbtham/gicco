@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Gicco.Infrastructure;
+using Gicco.Infrastructure.Data;
+using Gicco.Infrastructure.Localization;
+using Gicco.Module.Localization.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using Gicco.Infrastructure.Data;
-using Microsoft.AspNetCore.Authorization;
-using Gicco.Infrastructure.Localization;
-using Gicco.Module.Localization.ViewModel;
-using Gicco.Infrastructure;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Localization.Controllers
 {
@@ -43,11 +43,12 @@ namespace Gicco.Module.Localization.Controllers
         }
 
         [HttpGet("get-resources")]
-        public async Task<IActionResult> GetResources(string cultureId)
+        public async Task<IActionResult> GetResources(string cultureId, string query)
         {
             var resources = await _resourceRepository.Query()
                 .Where(x => x.CultureId == cultureId)
-                .Select(x => new ResourceItemVm {
+                .Select(x => new ResourceItemVm
+                {
                     Key = x.Key,
                     Value = x.Value,
                     CultureId = x.CultureId,
@@ -55,22 +56,38 @@ namespace Gicco.Module.Localization.Controllers
                 })
                 .ToListAsync();
 
-            if(cultureId != STANDARD_CULTURE_ID)
+            if (!string.IsNullOrEmpty(query))
+            {
+                resources = resources
+                    .Where(x => x.Value.ToLower().Contains(query.ToLower())
+                        || x.Key.ToLower().Contains(query.ToLower()))
+                    .ToList();
+            }
+
+            if (cultureId != STANDARD_CULTURE_ID)
             {
                 var standardResources = await _resourceRepository.Query()
                 .Where(x => x.CultureId == STANDARD_CULTURE_ID)
                 .ToListAsync();
 
-                foreach(var item in standardResources)
+                if (!string.IsNullOrEmpty(query))
                 {
-                    if(resources.All(x => x.Key != item.Key))
+                    standardResources = standardResources
+                         .Where(x => x.Value.ToLower().Contains(query.ToLower())
+                            || x.Key.ToLower().Contains(query.ToLower()))
+                        .ToList();
+                }
+
+                foreach (var item in standardResources)
+                {
+                    if (resources.All(x => x.Key != item.Key))
                     {
-                        resources.Add(new ResourceItemVm { Key = item.Key, CultureId = cultureId, Value = item.Key, IsTranslated = false });
+                        resources.Add(new ResourceItemVm { Key = item.Key, CultureId = cultureId, Value = item.Value, IsTranslated = false });
                     }
                 }
             }
 
-            return Json(resources.OrderBy(x => x.Key));
+            return Json(resources);
         }
 
         [HttpPost("update-resources")]
@@ -79,14 +96,15 @@ namespace Gicco.Module.Localization.Controllers
         {
             var resources = await _resourceRepository.Query().Where(x => x.CultureId == cultureId).ToListAsync();
 
-            foreach(var resourceItemForm in model)
+            foreach (var resourceItemForm in model)
             {
                 var resource = resources.FirstOrDefault(x => x.Key == resourceItemForm.Key);
-                if(resource != null)
+
+                if (resource != null)
                 {
                     resource.Value = resourceItemForm.Value;
                 }
-                else if(resourceItemForm.Key != resourceItemForm.Value)
+                else if (resourceItemForm.Key != resourceItemForm.Value)
                 {
                     _resourceRepository.Add(new Resource
                     {
@@ -96,6 +114,54 @@ namespace Gicco.Module.Localization.Controllers
                     });
                 }
             }
+
+            _resourceRepository.SaveChanges();
+            return Accepted();
+        }
+
+        [HttpPost("create-resources")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> CreateResource(string cultureId, [FromBody] ResourceItemVm model)
+        {
+            var resource = await _resourceRepository.Query()
+            .FirstOrDefaultAsync(x => x.Key == model.Key);
+
+            if (resource != null)
+            {
+                return BadRequest("This key has been added.");
+            }
+            else
+            {
+                _resourceRepository.Add(new Resource
+                {
+                    CultureId = cultureId,
+                    Key = model.Key,
+                    Value = model.Value
+                });
+            }
+
+            _resourceRepository.SaveChanges();
+            return Accepted();
+        }
+
+        [HttpPost("delete-resource")]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> DeleteResource(string cultureId, [FromBody] ResourceItemVm model)
+        {
+            Resource resource = null;
+            resource = await _resourceRepository.Query()
+            .FirstOrDefaultAsync(x => x.Key == model.Key);
+
+            if (!string.IsNullOrEmpty(model.CultureId))
+            {
+                resource = await _resourceRepository.Query()
+                            .FirstOrDefaultAsync(x => x.Key == model.Key && x.CultureId == model.CultureId);
+            }
+
+            if (resource == null)
+                return NotFound("This key not found.");
+            else
+                _resourceRepository.Remove(resource);
 
             _resourceRepository.SaveChanges();
             return Accepted();

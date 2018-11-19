@@ -13,16 +13,18 @@
                             </ul>
                         </div>
                         <div class="form-group" ng-repeat="item in vm.settings">
-                            <label class="col-sm-4 control-label">{{item.id}}</label>
-                            <div class="col-sm-8">
+                            <label class="col-sm-3 control-label">{{item.id}}</label>
+                            <div class="col-sm-3">
                                 <input name="name" ng-model="item.value" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <button class="btn btn-outline-primary" ng-click="vm.save()"><span class="fa fa-check"></span>
-                                    Save</button>
-                                <button ui-sref="app.dashboard" class="btn btn-outline-warning">Cancel</button>
+                                <button class="btn btn-outline-primary" ng-click="vm.save()">
+                                    <span class="fa fa-check"></span>
+                                    {{::vm.translate.get('Save')}}
+                                </button>
+                                <button ui-sref="app.dashboard" class="btn btn-outline-warning">{{::vm.translate.get('Cancel')}}</button>
                             </div>
                         </div>
                     </form>

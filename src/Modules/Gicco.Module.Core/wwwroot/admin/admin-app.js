@@ -53,6 +53,7 @@ var grayLightest = '#f8f9fa';
     ]);
 
     toastr.options.closeButton = true;
+    
     adminApp
         .config([
             '$urlRouterProvider', '$httpProvider', 'cfpLoadingBarProvider',

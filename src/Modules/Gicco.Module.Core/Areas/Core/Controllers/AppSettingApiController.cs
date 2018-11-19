@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Infrastructure.Web;
+using Gicco.Module.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Gicco.Infrastructure.Data;
-using Gicco.Module.Core.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Core.Controllers
 {
@@ -27,7 +29,10 @@ namespace Gicco.Module.Core.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var settings = await _appSettingRepository.Query().Where(x => x.IsVisibleInCommonSettingPage).ToListAsync();
+            var settings = await _appSettingRepository.Query()
+                .Where(x => x.IsVisibleInCommonSettingPage)
+                .ToListAsync();
+
             return Json(settings);
         }
 
@@ -37,7 +42,7 @@ namespace Gicco.Module.Core.Controllers
             if (ModelState.IsValid)
             {
                 var settings = await _appSettingRepository.Query().Where(x => x.IsVisibleInCommonSettingPage).ToListAsync();
-                foreach(var item in settings)
+                foreach (var item in settings)
                 {
                     var vm = model.FirstOrDefault(x => x.Id == item.Id);
                     if (vm != null)

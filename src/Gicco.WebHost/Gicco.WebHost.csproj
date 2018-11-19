@@ -151,6 +151,7 @@
     <None Remove="wwwroot\lib\coreui\css\style.css" />
     <None Remove="wwwroot\lib\coreui\css\style.min.css" />
     <None Remove="wwwroot\lib\coreui\img\logo.png" />
+    <None Remove="wwwroot\modules\core\admin\common\navbar.cshtml" />
     <None Remove="wwwroot\themes\GiccoStore\css\bootstrap-dropdownhover.min.css" />
     <None Remove="wwwroot\themes\GiccoStore\GiccoStore.png" />
     <None Remove="wwwroot\themes\GiccoStore\js\add-to-cart.js" />

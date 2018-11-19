@@ -2,7 +2,9 @@
     width: 18% !important;
 }
 
-.font-20{font-size: 20px !important;}
+.font-20 {
+    font-size: 20px !important;
+}
 
 .inline {
     display: inline;
@@ -208,4 +210,15 @@ md-icon {
     min-width: 0px !important;
 }
 
-.thumbnail img {width: 100%;}
+.thumbnail img {
+    width: 100%;
+}
+
+form > .bg-danger {
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+    form > .bg-danger ul {
+        margin-top: 8px;
+    }

@@ -11,34 +11,32 @@
         </li>
     </ul>
     <ul class="nav navbar-nav ml-auto d-md-down-none">
-        <li class="nav-item">
+        <!--<li class="nav-item">
             <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
-        </li>
+        </li>-->
 
         <li class="nav-item dropdown" style="margin-right: 17px !important;">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <img src="/images/default-user-avatar.png" class="img-avatar" alt="Shop Admin">
-                Shop Admin
+                <span id="userName"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
                     <strong>Account</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comment<span class="badge badge-warning">42</span></a>
-                <div class="dropdown-header text-center">
-                    <strong>Settings</strong>
-                </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-secondary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>
-                <div class="divider"></div>
-                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+                <form action="/Core/Account/LogOff" id="logoutForm" method="post">
+                    <input name="__RequestVerificationToken" type="hidden" autocomplete="off">
+                    <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit()" href="#"><i class="fa fa-lock"></i> Logout</a>
+                </form>
+
             </div>
         </li>
     </ul>
 </header>
+
+<script>
+    const userName = document.getElementById("username");
+    const formToken = document.getElementById("logoutFormAllPage").firstElementChild.value;
+    document.getElementById("userName").innerText = userName.value;
+    document.getElementById("logoutForm").firstElementChild.value = formToken;
+</script>

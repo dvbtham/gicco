@@ -9,6 +9,8 @@
         var service = {
             getCultures: getCultures,
             getResources: getResources,
+            createResource: createResource,
+            deleteResource: deleteResource,
             updateResources: updateResources
         };
         return service;
@@ -17,8 +19,16 @@
             return $http.get('api/localization/get-cultures');
         }
 
-        function getResources(cultureId) {
-            return $http.get('api/localization/get-resources?cultureId=' + cultureId);
+        function getResources(params) {
+            return $http.get('api/localization/get-resources', params);
+        }
+
+        function createResource(cultureId, resources) {
+            return $http.post('api/localization/create-resources?cultureId=' + cultureId, resources);
+        }
+
+        function deleteResource(cultureId, resource) {
+            return $http.post('api/localization/delete-resource?cultureId=' + cultureId, resource);
         }
 
         function updateResources(cultureId, resources) {

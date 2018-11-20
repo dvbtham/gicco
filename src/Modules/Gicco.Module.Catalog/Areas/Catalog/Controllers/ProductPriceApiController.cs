@@ -14,6 +14,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/product-prices")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductPriceApiController : Controller
     {
         private readonly IRepository<Product> _productRepository;

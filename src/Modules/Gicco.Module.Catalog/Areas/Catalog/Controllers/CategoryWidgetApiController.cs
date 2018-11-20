@@ -11,6 +11,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin")]
     [Route("api/category-widgets")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CategoryWidgetApiController : Controller
     {
         private readonly IRepository<WidgetInstance> _widgetInstanceRepository;

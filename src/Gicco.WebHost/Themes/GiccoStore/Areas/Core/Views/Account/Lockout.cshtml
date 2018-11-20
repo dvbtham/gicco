@@ -2,7 +2,23 @@
     ViewData["Title"] = "Locked out";
 }
 
-<header>
-    <h1 class="text-danger">Locked out.</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
-</header>
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to Home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@ViewData["Title"]</span>
+        </div>
+        <!-- ./breadcrumb -->
+      
+        <div class="page-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-danger">This account has been locked out, please try again later.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

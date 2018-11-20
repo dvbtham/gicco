@@ -10,6 +10,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/product-attribute-groups")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductAttributeGroupApiController : Controller
     {
         private IRepository<ProductAttributeGroup> _productAttrGroupRepository;

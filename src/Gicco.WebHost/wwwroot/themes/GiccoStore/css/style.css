@@ -2247,6 +2247,7 @@ span.notify-right {
         }
 
         .product-list li .left-block img {
+            height: 250px;
             transition: all 0.5s;
             webkit-transform: scale(1,1);
             -moz-transform: scale(1,1);
@@ -6247,7 +6248,7 @@ input, select, textarea {
 .count-down {
     align-content: center;
     text-align: center;
-    border: 1px solid red;
+    border: 1px solid #36a2cd;
     padding: 5px;
     font-size: 16px;
 }

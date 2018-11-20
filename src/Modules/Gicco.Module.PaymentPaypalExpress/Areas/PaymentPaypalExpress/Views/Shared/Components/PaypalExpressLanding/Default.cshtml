@@ -22,9 +22,9 @@
                 .then(function (res) {
                     return res.paymentId;
                 })
-                .catch(function (error) { 
+                .catch(function (error) {
                     var errorDiv = document.getElementById("paymentError");
-                    errorDiv.innerText = error
+                    errorDiv.innerText = error;
                     errorDiv.style.display = "block";
                 });
         },

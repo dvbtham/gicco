@@ -7,7 +7,7 @@
                 </div>
                 <div class="card-body">
                     <form name="configurationForm" class="form-horizontal">
-                        <div class="col-sm-offset-4 bg-danger" ng-show="vm.validationErrors">
+                        <div class="col-sm-offset-4 bg-danger" ng-show="vm.validationErrors.length > 0">
                             <ul>
                                 <li ng-repeat="error in vm.validationErrors">{{error}}</li>
                             </ul>

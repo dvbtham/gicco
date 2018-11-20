@@ -13,6 +13,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/brands")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class BrandApiController : Controller
     {
         private readonly IRepository<Brand> _brandRepository;

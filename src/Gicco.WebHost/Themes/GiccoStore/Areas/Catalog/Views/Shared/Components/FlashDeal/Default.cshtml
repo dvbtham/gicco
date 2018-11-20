@@ -10,7 +10,7 @@
                     @foreach (var item in Model)
                     {
                         <li>
-                            <div class="count-down" data-countdown="@item.SpecialPriceEnd.Value.ToString("yyyy/MM/dd")"></div>
+                            <div class="count-down" data-countdown="@item.SpecialPriceEnd.Value.AddDays(1).ToString("yyyy/MM/dd")"></div>
                             <div class="left-block">
                                 <a href="~/@item.Slug">
                                     <img class="img-responsive" alt="@item.Name" src="@item.ThumbnailUrl" />
@@ -67,7 +67,7 @@
                         $.each($(".count-down"), function () {
 
                             $(this).countdown($(this).data("countdown"), function (event) {
-                                $(this).html(event.strftime("%w weeks %d days %H:%M:%S"));
+                                $(this).html(event.strftime("%w @Localizer["weeks"] %d @Localizer["days"] %H:%M:%S"));
                             });
                         });
                     });

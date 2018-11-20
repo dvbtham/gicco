@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body">
                     <form name="vendorForm" class="form-horizontal">
-                        <div class="col-sm-offset-2 bg-danger validation-input" ng-show="vm.validationErrors">
+                        <div class="col-sm-offset-2 bg-danger validation-input" ng-show="vm.validationErrors.length > 0">
                             <ul>
                                 <li ng-repeat="error in vm.validationErrors track by $index">{{error}}</li>
                             </ul>

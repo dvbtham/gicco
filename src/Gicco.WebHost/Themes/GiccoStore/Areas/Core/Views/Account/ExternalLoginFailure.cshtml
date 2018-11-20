@@ -2,7 +2,31 @@
     ViewData["Title"] = "Login Failure";
 }
 
-<header>
-    <h2>@ViewData["Title"].</h2>
-    <p class="text-danger">Unsuccessful login with service.</p>
-</header>
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to Home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@Localizer["Authentication"]</span>
+        </div>
+        <!-- ./breadcrumb -->
+        <!-- page heading-->
+        <h2 class="page-heading">
+            <span class="page-heading-title2">@ViewData["Title"]</span>
+        </h2>
+        <!-- ../page heading-->
+        <div class="page-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <header>
+                        <h2>@ViewData["Title"].</h2>
+                        <p class="text-danger">Unsuccessful login with service.</p>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

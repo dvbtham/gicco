@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-sm-8">
                             <form name="pageForm" class="form-horizontal">
-                                <div class="col-sm-offset-2 bg-danger" ng-show="vm.validationErrors">
+                                <div class="col-sm-offset-2 bg-danger" ng-show="vm.validationErrors.length > 0">
                                     <ul>
                                         <li ng-repeat="error in vm.validationErrors">{{error}}</li>
                                     </ul>

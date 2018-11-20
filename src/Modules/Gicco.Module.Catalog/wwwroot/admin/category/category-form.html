@@ -10,7 +10,7 @@
                     <uib-tabset>
                         <uib-tab index="0" heading="{{::vm.translate.get('General Information')}}">
                             <form name="categoryForm" class="form-horizontal">
-                                <div class="col-sm-offset-2 bg-danger" ng-show="vm.validationErrors">
+                                <div class="col-sm-offset-2 bg-danger" ng-show="vm.validationErrors.length > 0">
                                     <ul>
                                         <li ng-repeat="error in vm.validationErrors">{{error}}</li>
                                     </ul>

@@ -20,6 +20,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/categories")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CategoryApiController : Controller
     {
         private readonly IRepository<Category> _categoryRepository;

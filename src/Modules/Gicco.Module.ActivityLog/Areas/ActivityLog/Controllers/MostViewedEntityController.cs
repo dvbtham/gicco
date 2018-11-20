@@ -12,6 +12,7 @@ namespace Gicco.Module.ActivityLog.Controllers
     [Area("ActivityLog")]
     [Authorize(Roles = "admin")]
     [Route("api/activitylog")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class MostViewedEntityController : Controller
     {
         private readonly IActivityTypeRepository _activityTypeRepository;

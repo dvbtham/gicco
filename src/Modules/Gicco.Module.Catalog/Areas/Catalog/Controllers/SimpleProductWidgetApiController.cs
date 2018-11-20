@@ -13,6 +13,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin")]
     [Route("api/simple-product-widgets")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class SimpleProductWidgetApiController : Controller
     {
         private readonly IRepository<WidgetInstance> _widgetInstanceRepository;

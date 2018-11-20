@@ -139,6 +139,8 @@
     <None Remove="Themes\GiccoStore\Areas\WishList\Views\_ViewImports.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\WishList\Views\_ViewStart.cshtml" />
     <None Remove="Themes\GiccoStore\theme.json" />
+    <None Remove="Themes\GiccoStore\Views\Shared\404.cshtml" />
+    <None Remove="Themes\GiccoStore\Views\Shared\Error.cshtml" />
     <None Remove="Themes\GiccoStore\Views\Shared\_Layout.cshtml" />
     <None Remove="Themes\GiccoStore\Views\Shared\_LoginPartial.cshtml" />
     <None Remove="Themes\GiccoStore\Views\_ViewImports.cshtml" />

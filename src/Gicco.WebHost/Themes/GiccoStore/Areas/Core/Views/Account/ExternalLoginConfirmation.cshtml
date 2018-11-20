@@ -3,39 +3,57 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>@ViewData["Title"].</h2>
-<h3>Associate your @ViewData["LoginProvider"] account.</h3>
+<div class="columns-container">
+    <div class="container" id="columns">
+        <!-- breadcrumb -->
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="@Localizer["Return to Home"]">@Localizer["Home"]</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">@Localizer["Authentication"]</span>
+        </div>
+        <!-- ./breadcrumb -->
+       
+        <div class="page-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-authentication">
+                        <form asp-area="Core" asp-controller="Account" asp-action="ExternalLoginConfirmation" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                            <h3>Associate your @ViewData["LoginProvider"] account.</h3>
+                            <p class="mt-10">Association Form</p>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
 
-<form asp-area="Core" asp-controller="Account" asp-action="ExternalLoginConfirmation" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-    <h4>Association Form</h4>
-    <hr />
-    <div asp-validation-summary="All" class="text-danger"></div>
-
-    <p class="text-info">
-        You've successfully authenticated with <strong>@ViewData["LoginProvider"]</strong>.
-        Please enter an email address for this site below and click the Register button to finish
-        logging in.
-    </p>
-    <div class="form-group row">
-        <label asp-for="Email" class="col-md-2 col-form-label"></label>
-        <div class="col-md-10">
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+                            <p class="text-info">
+                                You've successfully authenticated with <strong>@ViewData["LoginProvider"]</strong>.
+                                Please enter an email address for this site below and click the Register button to finish
+                                logging in.
+                            </p>
+                            <div class="form-group row mt-10">
+                                <label asp-for="Email" class="col-md-2 col-form-label"></label>
+                                <div class="col-md-6">
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label asp-for="FullName" class="col-md-2 col-form-label"></label>
+                                <div class="col-md-6">
+                                    <input asp-for="FullName" class="form-control" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-md-2">
+                                    <button type="submit" class="btn btn-outline-primary">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group row">
-        <label asp-for="FullName" class="col-md-2 col-form-label"></label>
-        <div class="col-md-10">
-            <input asp-for="FullName" class="form-control" />
-            <span asp-validation-for="FullName" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="offset-md-2">
-            <button type="submit" class="btn btn-outline-primary">Register</button>
-        </div>
-    </div>
-</form>
+</div>
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }

@@ -10,6 +10,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/product-options")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductOptionApiController : Controller
     {
         private readonly IRepository<ProductOption> _productOptionRepository;

@@ -24,6 +24,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/products")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductApiController : Controller
     {
         private readonly IMediaService _mediaService;

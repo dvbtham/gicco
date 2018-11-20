@@ -11,6 +11,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/product-attributes")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductAttributeApiController : Controller
     {
         private readonly IRepository<ProductAttribute> _productAttrRepository;

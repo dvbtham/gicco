@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 namespace Gicco.Module.Catalog.Controllers
 {
     [Area("Catalog")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductController : Controller
     {
         private readonly IMediaService _mediaService;

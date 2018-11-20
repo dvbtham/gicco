@@ -20,6 +20,7 @@ using Gicco.Module.ShoppingCart.Services;
 namespace Gicco.Module.PaymentPaypalExpress.Controllers
 {
     [Area("PaymentPaypalExpress")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class PaypalExpressController : Controller
     {
         private readonly ICartService _cartService;
@@ -47,6 +48,7 @@ namespace Gicco.Module.PaymentPaypalExpress.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+        [HttpPost("PaypalExpress/CreatePayment")]
         public async Task<ActionResult> CreatePayment()
         {
             var hostingDomain = Request.Host.Value;
@@ -103,6 +105,7 @@ namespace Gicco.Module.PaymentPaypalExpress.Controllers
             return BadRequest(responseBody);
         }
 
+        [HttpPost("PaypalExpress/ExecutePayment")]
         public async Task<ActionResult> ExecutePayment(PaymentExecuteVm model)
         {
             var accessToken = await GetAccessToken();
@@ -179,7 +182,7 @@ namespace Gicco.Module.PaymentPaypalExpress.Controllers
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var experienceRequest = new ExperienceProfile
             {
-                name = $"simpl_{Guid.NewGuid()}",
+                name = $"gicco_{Guid.NewGuid()}",
                 input_fields = new InputFields
                 {
                     no_shipping = 1

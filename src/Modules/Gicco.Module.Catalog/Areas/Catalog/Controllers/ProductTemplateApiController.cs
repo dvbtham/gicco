@@ -12,6 +12,7 @@ namespace Gicco.Module.Catalog.Controllers
     [Area("Catalog")]
     [Authorize(Roles = "admin, vendor")]
     [Route("api/product-templates")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ProductTemplateApiController : Controller
     {
         private readonly IRepository<ProductTemplate> _productTemplateRepository;

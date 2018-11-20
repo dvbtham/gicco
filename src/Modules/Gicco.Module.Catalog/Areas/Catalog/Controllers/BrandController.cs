@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 namespace Gicco.Module.Catalog.Controllers
 {
     [Area("Catalog")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class BrandController : Controller
     {
         private int _pageSize;

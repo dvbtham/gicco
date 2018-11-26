@@ -1,11 +1,17 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Gicco.Infrastructure.Data;
+﻿using Gicco.Infrastructure.Data;
 using Gicco.Infrastructure.Helpers;
 using Gicco.Module.Catalog.ViewModels;
 using Gicco.Module.Core.Models;
+using Gicco.Module.Core.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
+using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Catalog.Controllers
 {
@@ -16,10 +22,13 @@ namespace Gicco.Module.Catalog.Controllers
     public class ProductWidgetApiController : Controller
     {
         private readonly IRepository<WidgetInstance> _widgetInstanceRepository;
+        private readonly IMediaService _mediaService;
 
-        public ProductWidgetApiController(IRepository<WidgetInstance> widgetInstanceRepository)
+        public ProductWidgetApiController(IRepository<WidgetInstance> widgetInstanceRepository,
+            IMediaService mediaService)
         {
             _widgetInstanceRepository = widgetInstanceRepository;
+            _mediaService = mediaService;
         }
 
         [HttpGet("{id}")]
@@ -37,15 +46,22 @@ namespace Gicco.Module.Catalog.Controllers
                 Setting = JsonConvert.DeserializeObject<ProductWidgetSetting>(widgetInstance.Data)
             };
 
+            model.Setting.ImageUrl = _mediaService.GetMediaUrl(model.Setting.Image);
+
             var enumMetaData = MetadataProvider.GetMetadataForType(typeof(ProductWidgetOrderBy));
             return Json(model);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] ProductWidgetForm model)
+        public async Task<IActionResult> Post(IFormCollection formCollection)
         {
+            var model = ToProductWidgetFormModel(formCollection);
+
             if (ModelState.IsValid)
             {
+                if (model.Setting.UploadImage != null)
+                    model.Setting.Image = await SaveFile(model.Setting.UploadImage);
+
                 var widgetInstance = new WidgetInstance
                 {
                     Name = model.Name,
@@ -66,8 +82,19 @@ namespace Gicco.Module.Catalog.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody] ProductWidgetForm model)
+        public async Task<IActionResult> Put(long id, IFormCollection formCollection)
         {
+            var model = ToProductWidgetFormModel(formCollection);
+
+            if (model.Setting.UploadImage != null)
+            {
+                if (!string.IsNullOrWhiteSpace(model.Setting.Image))
+                {
+                    await _mediaService.DeleteMediaAsync(model.Setting.Image);
+                }
+                model.Setting.Image = await SaveFile(model.Setting.UploadImage);
+            }
+
             if (ModelState.IsValid)
             {
                 var widgetInstance = _widgetInstanceRepository.Query().FirstOrDefault(x => x.Id == id);
@@ -90,6 +117,45 @@ namespace Gicco.Module.Catalog.Controllers
         {
             var model = EnumHelper.ToDictionary(typeof(ProductWidgetOrderBy)).Select(x => new { Id = x.Key.ToString(), Name = x.Value });
             return Json(model);
+        }
+
+        private ProductWidgetForm ToProductWidgetFormModel(IFormCollection formCollection)
+        {
+            var model = new ProductWidgetForm
+            {
+                Name = formCollection["name"],
+                WidgetZoneId = int.Parse(formCollection["widgetZoneId"]),
+                Setting = new ProductWidgetSetting()
+            };
+
+            int.TryParse(formCollection["displayOrder"], out int displayOrder);
+            model.DisplayOrder = displayOrder;
+
+            if (DateTimeOffset.TryParse(formCollection["publishStart"], out DateTimeOffset publishStart))
+            {
+                model.PublishStart = publishStart;
+            }
+
+            if (DateTimeOffset.TryParse(formCollection["publishEnd"], out DateTimeOffset publishEnd))
+            {
+                model.PublishEnd = publishEnd;
+            }
+
+            int numberOfProducts = int.Parse(formCollection["setting[numberOfProducts]"]);
+
+            model.Setting.NumberOfProducts = numberOfProducts;
+            model.Setting.Image = formCollection["setting[image]"];
+            model.Setting.UploadImage = formCollection.Files["setting[uploadImage]"];
+
+            return model;
+        }
+
+        private async Task<string> SaveFile(IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Value.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _mediaService.SaveMediaAsync(file.OpenReadStream(), fileName, file.ContentType);
+            return fileName;
         }
     }
 }

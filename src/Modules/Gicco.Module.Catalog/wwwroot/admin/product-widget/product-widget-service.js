@@ -5,7 +5,7 @@
         .factory('productWidgetService', productWidgetService);
 
     /* @ngInject */
-    function productWidgetService($http) {
+    function productWidgetService($http, Upload) {
         var service = {
             getWidgetZones: getWidgetZones,
             getProductWidget: getProductWidget,
@@ -25,11 +25,17 @@
         }
 
         function createProductWidget(widgetInstance) {
-            return $http.post('api/product-widgets', widgetInstance);
+            return Upload.upload({
+                url: 'api/product-widgets',
+                data: widgetInstance
+            });
         }
 
         function editProductWidget(widgetInstance) {
-            return $http.put('api/product-widgets/' + widgetInstance.id, widgetInstance);
+            return Upload.upload({
+                url: 'api/product-widgets',
+                data: widgetInstance
+            });
         }
 
         function getProductWidgetAvailableOrderBy() {

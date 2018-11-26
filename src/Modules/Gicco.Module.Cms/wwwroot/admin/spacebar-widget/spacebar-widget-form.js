@@ -52,7 +52,7 @@
                             vm.validationErrors.push(error[key][0]);
                         }
                     } else {
-                        vm.validationErrors.push('Could not carousel widget.');
+                        vm.validationErrors.push('Could not save carousel widget.');
                     }
                 });
         };

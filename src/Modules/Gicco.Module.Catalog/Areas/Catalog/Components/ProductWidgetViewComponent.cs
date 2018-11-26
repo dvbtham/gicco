@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.Catalog.Components
 {
@@ -61,6 +62,11 @@ namespace Gicco.Module.Catalog.Components
                     .OrderByDescending(x => x.SpecialPriceStart);
             }
 
+            if (!string.IsNullOrEmpty(model.Setting.Image))
+            {
+                model.Setting.ImageUrl = _mediaService.GetMediaUrl(model.Setting.Image);
+            }
+            
             model.Products = query
               .Include(x => x.ThumbnailImage)
               .Take(model.Setting.NumberOfProducts)

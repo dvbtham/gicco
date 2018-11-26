@@ -1,11 +1,8 @@
-﻿using Gicco.Infrastructure.Data;
-using Gicco.Module.Core.Models;
-using Gicco.Module.Core.Services;
+﻿using Gicco.Module.Core.Services;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
 using MimeKit.Text;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Gicco.Module.EmailSenderSmtp
@@ -14,13 +11,12 @@ namespace Gicco.Module.EmailSenderSmtp
     {
         private readonly EmailConfig _emailConfig = new EmailConfig();
 
-        public EmailSender(IConfiguration config, IRepositoryWithTypedId<AppSetting, string> appSettingRepository)
+        public EmailSender(IConfiguration config)
         {
-            _emailConfig.SmtpServer = appSettingRepository.Query().FirstOrDefault(x => x.Id == "SmtpServer").Value;
-            _emailConfig.SmtpUsername = appSettingRepository.Query().FirstOrDefault(x => x.Id == "SmtpUsername").Value;
-            _emailConfig.SmtpPassword = appSettingRepository.Query().FirstOrDefault(x => x.Id == "SmtpPassword").Value;
-            var port = appSettingRepository.Query().FirstOrDefault(x => x.Id == "SmtpPort");
-            _emailConfig.SmtpPort = port != null ? int.Parse(port.Value) : 587;
+            _emailConfig.SmtpServer = config.GetValue<string>("SmtpServer");
+            _emailConfig.SmtpUsername = config.GetValue<string>("SmtpUsername");
+            _emailConfig.SmtpPassword = config.GetValue<string>("SmtpPassword");
+            _emailConfig.SmtpPort = config.GetValue<int>("SmtpPort");
         }
 
         public async Task SendEmailAsync(string email, string subject, string body, bool isHtml = false)

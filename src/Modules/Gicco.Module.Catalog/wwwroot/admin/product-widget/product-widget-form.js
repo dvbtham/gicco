@@ -42,7 +42,7 @@
                             vm.validationErrors.push(error[key][0]);
                         }
                     } else {
-                        vm.validationErrors.push('Could not product display widget.');
+                        vm.validationErrors.push('Could not save product display widget.');
                     }
                 });
         };

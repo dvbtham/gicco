@@ -61,6 +61,8 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
                     Setting = item.Setting
                 };
 
+                model.Setting.ImageUrl = _mediaService.GetMediaUrl(model.Setting.Image);
+
                 var query = _productRepository.Query()
                   .Where(x => x.IsPublished && x.IsVisibleIndividually);
 

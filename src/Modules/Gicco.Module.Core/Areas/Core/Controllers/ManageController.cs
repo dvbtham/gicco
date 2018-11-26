@@ -68,7 +68,7 @@ namespace Gicco.Module.Core.Controllers
             return View(model);
         }
 
-        [HttpPost("user/info")]
+        [HttpPost("user/info")]//update
         public async Task<IActionResult> UserInfo(UserInfoVm model)
         {
             if (!ModelState.IsValid)

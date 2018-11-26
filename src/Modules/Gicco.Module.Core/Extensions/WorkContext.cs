@@ -53,7 +53,7 @@ namespace Gicco.Module.Core.Extensions
                 return _currentUser;
             }
 
-            userGuid = Guid.NewGuid();
+            userGuid = Guid.NewGuid();//ASP create string radom not same
             var dummyEmail = string.Format("{0}@guest.gicco.com", userGuid);
             _currentUser = new User
             {

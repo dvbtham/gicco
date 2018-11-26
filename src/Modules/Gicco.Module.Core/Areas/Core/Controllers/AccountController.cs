@@ -98,7 +98,7 @@ namespace Gicco.Module.Core.Controllers
         }
 
         //
-        // POST: /Account/Register
+        // POST: /Account/Register //client
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

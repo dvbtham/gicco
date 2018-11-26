@@ -24,8 +24,10 @@
             </div>
             <!-- product-imge-->
         </div>
-        <div class="pb-right-column col-xs-12 col-sm-6">
-            <h1 class="product-name mt-10">@Model.Name</h1>
+        <div class="pb-right-column col-xs-12 col-sm-6 mr-1">
+            <h1 class="product-name mt-10 mr-lg-1">
+                <a href="~/@Model.Slug">@Model.Name</a>
+            </h1>
             <div class="product-comments">
                 <div class="product-star">
                     <gicco-rating-star rating-avg="@Model.RatingAverage"></gicco-rating-star>

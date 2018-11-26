@@ -5060,7 +5060,7 @@ span.notify-right {
  [21. Login page]
  */
 .box-authentication {
-    border: 1px solid #eaeaea;
+    /*border: 1px solid #eaeaea;*/
     padding: 30px;
     min-height: 320px;
 }

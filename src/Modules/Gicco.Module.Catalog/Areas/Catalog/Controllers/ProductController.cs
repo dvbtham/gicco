@@ -53,6 +53,7 @@ namespace Gicco.Module.Catalog.Controllers
             {
                 Id = product.Id,
                 Name = product.Name,
+                Slug = product.Slug,
                 Sku = product.Sku,
                 CalculatedProductPrice = _productPricingService.CalculateProductPrice(product),
                 IsCallForPricing = product.IsCallForPricing,

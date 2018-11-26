@@ -17,6 +17,9 @@ $(document).ready(function () {
         $('#product-detail').toggleClass("product-description");
         $(this).addClass("hidden");
         $(".expand-detail").removeClass("hidden");
+        $('html,body').animate({
+            scrollTop: $(".product-tab").offset().top
+        }, 'slow');
     });
 
     $('.product-attrs li').on('click', function () {

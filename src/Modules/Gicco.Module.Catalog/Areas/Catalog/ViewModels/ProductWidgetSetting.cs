@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace Gicco.Module.Catalog.ViewModels
@@ -13,5 +14,14 @@ namespace Gicco.Module.Catalog.ViewModels
         public ProductWidgetOrderBy OrderBy { get; set; }
 
         public bool FeaturedOnly { get; set; }
+
+        public long? FeaturedProduct { get; set; }
+
+        public string Image { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        [JsonIgnore]
+        public IFormFile UploadImage { get; set; }
     }
 }

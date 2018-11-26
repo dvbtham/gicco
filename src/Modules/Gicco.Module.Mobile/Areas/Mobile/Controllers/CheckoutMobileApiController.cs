@@ -7,6 +7,7 @@ using Gicco.Module.Payments.Models;
 using Gicco.Module.ShippingPrices.Services;
 using Gicco.Module.ShoppingCart.Models;
 using Gicco.Module.ShoppingCart.Services;
+using Gicco.Module.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -63,7 +64,7 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
         }
 
         [HttpPost("shipping")]
-        public async Task<IActionResult> Shipping(DeliveryInformationVm model)
+        public async Task<IActionResult> Shipping([FromBody] DeliveryInformationVm model)
         {
             var currentUser = await _workContext.GetCurrentUser();
             // TODO Handle error messages
@@ -88,14 +89,14 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
         }
 
         [HttpPost("state-or-province")]
-        public IActionResult GetStateOrProvince([FromBody]StateOrProvince vm)
+        public IActionResult GetStateOrProvince([FromBody] KeyViewModel<string> vm)
         {
             var stateOrProvinces = _stateOrProvinceRepository
-                .Query().Where(x => x.CountryId == vm.CountryId)
+                .Query().Where(x => x.CountryId == vm.Key)
                 .Select(x => new { Id = x.Id, Name = x.Name })
                 .ToList();
 
-            return Ok(stateOrProvinces);
+            return Json(stateOrProvinces);
         }
 
         [HttpPost("update-tax-and-shipping-prices")]
@@ -148,7 +149,8 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
             }
 
             await _cartRepository.SaveChangesAsync();
-            return Ok(orderTaxAndShippingPrice);
+
+            return Json(orderTaxAndShippingPrice);
         }
 
         private void PopulateShippingForm(DeliveryInformationVm model, User currentUser)

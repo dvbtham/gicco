@@ -79,9 +79,9 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
         }
 
         [HttpPost("remove")]
-        public async Task<IActionResult> Remove([FromBody] long itemId)
+        public async Task<IActionResult> Remove([FromBody] CartDeleteVm model)
         {
-            var cartItem = _cartItemRepository.Query().FirstOrDefault(x => x.Id == itemId);
+            var cartItem = _cartItemRepository.Query().FirstOrDefault(x => x.Id == model.ItemId);
             if (cartItem == null)
             {
                 return NotFound();

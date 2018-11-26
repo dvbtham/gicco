@@ -1,5 +1,4 @@
 ﻿using Gicco.Infrastructure.Modules;
-using Gicco.Module.Orders.Data;
 using Gicco.Module.Orders.Events;
 using Gicco.Module.Orders.Services;
 using MediatR;
@@ -15,8 +14,9 @@ namespace Gicco.Module.Orders
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IOrderEmailService, OrderEmailService>();
             services.AddTransient<IBestSellerService, BestSellerService>();
-            // services.AddSingleton<IHostedService, OrderCancellationBackgroundService>();
-            services.AddTransient<INotificationHandler<OrderChanged>, OrderChangedHandler>();
+            services.AddHostedService<OrderCancellationBackgroundService>();
+            services.AddTransient<INotificationHandler<OrderChanged>, OrderChangedCreateOrderHistoryHandler>();
+            services.AddTransient<INotificationHandler<OrderCreated>, OrderCreatedCreateOrderHistoryHandler>();
         }
 
         public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)

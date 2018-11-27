@@ -33,8 +33,9 @@
 
         function editProductWidget(widgetInstance) {
             return Upload.upload({
-                url: 'api/product-widgets',
-                data: widgetInstance
+                url: 'api/product-widgets/' + widgetInstance.id,
+                data: widgetInstance,
+                method: 'PUT'
             });
         }
 

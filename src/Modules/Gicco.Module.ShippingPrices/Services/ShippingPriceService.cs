@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Gicco.Infrastructure.Data;
+using Gicco.Module.Core.Areas.Core.ViewModels;
+using Gicco.Module.Shipping.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Gicco.Infrastructure.Data;
-using Gicco.Module.Shipping.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gicco.Module.ShippingPrices.Services
 {
@@ -27,9 +28,9 @@ namespace Gicco.Module.ShippingPrices.Services
             var providers = await _shippingProviderRepository.Query().ToListAsync();
             var shippingRateServices = _httpContext.RequestServices.GetServices<IShippingPriceServiceProvider>();
 
-            foreach(var provider in providers)
+            foreach (var provider in providers)
             {
-                if(!provider.IsEnabled)
+                if (!provider.IsEnabled)
                 {
                     continue;
                 }
@@ -57,6 +58,16 @@ namespace Gicco.Module.ShippingPrices.Services
             }
 
             return applicableShippingPrices;
+        }
+
+        public IList<KeyValuePairVm<string>> GetShippingPrices()
+        {
+            return _shippingProviderRepository.Query()
+                .Select(x => new KeyValuePairVm<string>
+                {
+                    Key = x.Id,
+                    Value = x.Name
+                }).ToList();
         }
     }
 }

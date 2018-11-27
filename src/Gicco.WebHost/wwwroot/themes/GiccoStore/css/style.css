@@ -6313,3 +6313,7 @@ input, select, textarea {
     font-weight: bold;
     cursor: pointer;
 }
+
+.d-none {
+    display: none;
+}

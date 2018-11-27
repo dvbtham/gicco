@@ -2,29 +2,24 @@
 
 @foreach (var widgetInstance in Model)
 {
-    int i = 1;
     <div class="category-featured">
         <nav class="navbar nav-menu nav-menu-red show-brand">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-brand">
-                <a href="#">
-                    @widgetInstance.Name</a></div>
+                    <a href="#">
+                        @widgetInstance.Name
+                    </a>
+                </div>
                 <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                    </ul>
+                    <ul class="nav navbar-nav"></ul>
                 </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-            <div id="elevator-@i" class="floor-elevator">
-                @{++i;}
-                <a href="#elevator-@i" class="btn-elevator up fa fa-angle-up"></a>
-                <a href="#elevator-@i" class="btn-elevator down fa fa-angle-down"></a>
-            </div>
+            </div><!-- /.container-fluid -->                      
         </nav>
 
-        <div class="product-featured clearfix">            
+        <div class="product-featured clearfix">
             <div class="product-featured-content">
                 <div class="product-featured-list">
                     <div class="tab-container">
@@ -32,12 +27,9 @@
                         <div class="tab-panel active">
                             <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav="true" data-margin="0" data-autoplayTimeout="1000" data-autoplayHoverPause="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                 @await Component.InvokeAsync(widgetInstance.ViewComponentName, new { widgetInstance = widgetInstance })
-
                             </ul>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

@@ -90,6 +90,7 @@
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\SetPassword.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Manage\UserInfo.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\Shared\Components\DefaultShippingAddress\Default.cshtml" />
+    <None Remove="Themes\GiccoStore\Areas\Core\Views\Shared\_HomeProductCategory.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\Create.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\Edit.cshtml" />
     <None Remove="Themes\GiccoStore\Areas\Core\Views\UserAddress\List.cshtml" />
@@ -314,6 +315,9 @@
     <Content Update="Themes\GiccoStore\Areas\Core\Views\Shared\Components\DefaultShippingAddress\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\GiccoStore\Areas\Core\Views\Shared\_HomeProductCategory.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\GiccoStore\Areas\Core\Views\UserAddress\Create.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -435,6 +439,24 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="libwkhtmltox.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libwkhtmltox.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libwkhtmltox.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <!--<Target Condition="'$(CONFIGURATION)' == 'Release'" Name="CopyLibwkhtmltoxDllRelease" AfterTargets="AfterBuild">
+    <Copy SourceFiles="wwwroot\lib\libwkhtmltox\32 bit\libwkhtmltox.dll" DestinationFolder="$(PublishDir)" />
+    <Copy SourceFiles="wwwroot\lib\libwkhtmltox\32 bit\libwkhtmltox.dylib" DestinationFolder="$(PublishDir)" />
+    <Copy SourceFiles="wwwroot\lib\libwkhtmltox\32 bit\libwkhtmltox.so" DestinationFolder="$(PublishDir)" />
+  </Target>-->
 
   <Target Name="CopyModule" AfterTargets="Build">
     <CopyModuleTask ProjectDir="$(ProjectDir)" BuildConfiguration="$(ConfigurationName)" />

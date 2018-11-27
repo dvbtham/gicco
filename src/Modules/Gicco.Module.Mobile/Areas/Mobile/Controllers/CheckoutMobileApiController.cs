@@ -84,23 +84,29 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
             }
 
             cart.ShippingData = JsonConvert.SerializeObject(model);
+
+            var result = await UpdateTaxAndShippingPrices(new TaxAndShippingPriceRequestVm
+            {
+                ExistingShippingAddressId = model.ShippingAddressId,
+                NewShippingAddress = new ShippingAddressVm
+                {
+                    AddressLine1 = model.NewAddressForm.AddressLine1,
+                    ContactName = model.NewAddressForm.ContactName,
+                    CountryId = model.NewAddressForm.CountryId,
+                    DistrictId = model.NewAddressForm.DistrictId,
+                    Phone = model.NewAddressForm.Phone,
+                    ZipCode = model.NewAddressForm.ZipCode,
+                    StateOrProvinceId = model.NewAddressForm.StateOrProvinceId
+                },
+                SelectedShippingMethodName = model.ShippingMethod
+            });
+
             await _cartRepository.SaveChangesAsync();
-            return Ok();
+
+            return Ok(result);
         }
 
-        [HttpPost("state-or-province")]
-        public IActionResult GetStateOrProvince([FromBody] KeyViewModel<string> vm)
-        {
-            var stateOrProvinces = _stateOrProvinceRepository
-                .Query().Where(x => x.CountryId == vm.Key)
-                .Select(x => new { Id = x.Id, Name = x.Name })
-                .ToList();
-
-            return Json(stateOrProvinces);
-        }
-
-        [HttpPost("update-tax-and-shipping-prices")]
-        public async Task<IActionResult> UpdateTaxAndShippingPrices([FromBody] TaxAndShippingPriceRequestVm model)
+        private async Task<OrderTaxAndShippingPriceVm> UpdateTaxAndShippingPrices(TaxAndShippingPriceRequestVm model)
         {
             var currentUser = await _workContext.GetCurrentUser();
             Address address;
@@ -109,7 +115,7 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
                 address = await _userAddressRepository.Query().Where(x => x.Id == model.ExistingShippingAddressId).Select(x => x.Address).FirstOrDefaultAsync();
                 if (address == null)
                 {
-                    return NotFound();
+                    return null;
                 }
             }
             else
@@ -142,15 +148,25 @@ namespace Gicco.Module.Mobile.Areas.Mobile.Controllers
             var selectedShippingMethod = string.IsNullOrWhiteSpace(model.SelectedShippingMethodName)
                 ? orderTaxAndShippingPrice.ShippingPrices.FirstOrDefault()
                 : orderTaxAndShippingPrice.ShippingPrices.FirstOrDefault(x => x.Name == model.SelectedShippingMethodName);
+
             if (selectedShippingMethod != null)
             {
                 cart.ShippingAmount = orderTaxAndShippingPrice.Cart.ShippingAmount = selectedShippingMethod.Price;
                 cart.ShippingMethod = orderTaxAndShippingPrice.SelectedShippingMethodName = selectedShippingMethod.Name;
             }
 
-            await _cartRepository.SaveChangesAsync();
+            return orderTaxAndShippingPrice;
+        }
 
-            return Json(orderTaxAndShippingPrice);
+        [HttpPost("state-or-province")]
+        public IActionResult GetStateOrProvince([FromBody] KeyViewModel<string> vm)
+        {
+            var stateOrProvinces = _stateOrProvinceRepository
+                .Query().Where(x => x.CountryId == vm.Key)
+                .Select(x => new { Id = x.Id, Name = x.Name })
+                .ToList();
+
+            return Json(stateOrProvinces);
         }
 
         private void PopulateShippingForm(DeliveryInformationVm model, User currentUser)
